@@ -1,0 +1,273 @@
+name: gui-screenshots
+
+# Tum LuxAI build'lerini gercek bir sanal/grafik ekranda calistirip ekran goruntusu alir.
+#   - Linux runner : native exe (Wine + Xvfb)  +  deb/rpm/zst/AppImage (GTK + Xvfb)
+#   - Windows runner: yayinlanan kurucu ile sessiz kurulum -> uygulamayi calistir -> ekran goruntusu
+# Cikti: "gui-shots-*" artifact'lari (PNG).
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'windows/**'
+      - 'packaging/**'
+      - '.github/workflows/gui-screenshots.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: luxai-gui-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  REL: https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/download/v3.1.0
+
+jobs:
+  # ------------------------------------------------------------------ Linux
+  shots-linux-native:
+    name: Ekran goruntusu - native exe (Linux runner, Wine + Xvfb)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Bagimliliklar (mingw, wine, Xvfb, ImageMagick)
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq gcc-mingw-w64-x86-64 binutils-mingw-w64-x86-64 \
+            wine64 xvfb x11-apps imagemagick xdotool python3 >/dev/null
+          if command -v wine64 >/dev/null 2>&1; then
+            echo "WINE_BIN=wine64" >> "$GITHUB_ENV"
+          elif [ -x /usr/lib/wine/wine64 ]; then
+            sudo ln -sf /usr/lib/wine/wine64 /usr/local/bin/wine64
+            echo "WINE_BIN=wine64" >> "$GITHUB_ENV"
+          else
+            echo "WINE_BIN=wine" >> "$GITHUB_ENV"
+          fi
+          "$( [ -x /usr/bin/wine64 ] && echo /usr/bin/wine64 || echo /usr/bin/wine )" --version
+
+      - name: LuxAI.exe derle
+        run: bash windows/build-win.sh
+
+      - name: Sahte LuxAI/OpenAI sunucusu
+        run: |
+          nohup python3 windows/tests/mock_server.py 8777 > /tmp/mock.log 2>&1 &
+          sleep 2
+          curl -s -o /dev/null -w "mock HTTP %{http_code}\n" http://127.0.0.1:8777/
+
+      - name: Wine profili + test ayarlari
+        run: |
+          export WINEPREFIX="$HOME/.wine-luxai" WINEDEBUG=-all
+          printf 'model=0\nmode=1\nlang=0\ntheme=1\nsend_ctrl_enter=0\nauto_approve=1\nmax_tokens=4096\nstream=1\nuse_openai=1\nendpoint=http://127.0.0.1:8777/v1/chat/completions\napi_key=ci\nworkdir=C:\\users\\%s\n' "$USER" > /tmp/base.ini
+          xvfb-run -a -s "-screen 0 1280x900x24" "$WINE_BIN" wineboot -u >/dev/null 2>&1 || true
+          sleep 3
+          APPDIR="$WINEPREFIX/drive_c/users/$USER/AppData/Roaming/LuxAI"
+          mkdir -p "$APPDIR"
+          cp /tmp/base.ini "$APPDIR/settings.ini"
+          echo "settings:"; cat "$APPDIR/settings.ini"
+          echo "WINEPREFIX=$WINEPREFIX" >> "$GITHUB_ENV"
+          echo "APPDIR=$APPDIR" >> "$GITHUB_ENV"
+
+      - name: Ekran goruntuleri (acik tema, ajan modu, TR)
+        run: |
+          export WINEPREFIX="$HOME/.wine-luxai" WINEDEBUG=-all
+          mkdir -p ci-shots/linux-wine
+          xvfb-run -a -s "-screen 0 1280x900x24" bash -c '
+            "$WINE_BIN" windows/build/LuxAI.exe --theme 1 --mode 1 --lang 0 \
+              --ask "Sistem bilgini göster ve disk kullanımını özetle" &
+            sleep 24
+            import -window root ci-shots/linux-wine/01-native-ajan-acik.png
+            wineserver -k 2>/dev/null || true'
+          ls -l ci-shots/linux-wine
+
+      - name: Ekran goruntusu (koyu tema, Ingilizce)
+        run: |
+          export WINEPREFIX="$HOME/.wine-luxai" WINEDEBUG=-all
+          xvfb-run -a -s "-screen 0 1280x900x24" bash -c '
+            "$WINE_BIN" windows/build/LuxAI.exe --theme 2 --mode 1 --lang 1 \
+              --ask "Show my system information and summarise the disk usage" &
+            sleep 24
+            import -window root ci-shots/linux-wine/02-native-ajan-koyu-en.png
+            wineserver -k 2>/dev/null || true'
+          ls -l ci-shots/linux-wine
+
+      - name: Ekran goruntusu (giris penceresi, hesap modu)
+        run: |
+          export WINEPREFIX="$HOME/.wine-luxai" WINEDEBUG=-all
+          printf 'model=0\nmode=0\nlang=0\ntheme=1\nuse_openai=0\nendpoint=https://lux-ai.cz/api/ide/chat/completions\nmax_tokens=4096\nstream=1\nworkdir=C:\\users\\%s\n' "$USER" > "$APPDIR/settings.ini"
+          rm -f "$APPDIR/account.json"
+          xvfb-run -a -s "-screen 0 1280x900x24" bash -c '
+            "$WINE_BIN" windows/build/LuxAI.exe --theme 1 --lang 0 &
+            sleep 20
+            import -window root ci-shots/linux-wine/03-native-giris.png
+            wineserver -k 2>/dev/null || true'
+          ls -l ci-shots/linux-wine
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gui-shots-linux-wine
+          path: ci-shots/linux-wine/*.png
+          if-no-files-found: error
+
+  # ------------------------------------------------------- Linux (GTK) paketler
+  shots-linux-packages:
+    name: Ekran goruntusu - Linux paketleri (deb/rpm/zst/AppImage, Xvfb)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Bagimliliklar (GTK3, Xvfb, cikarma araclari)
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libgtk-3-0 gir1.2-gtk-3.0 python3-gi libcurl4 \
+            xvfb x11-apps imagemagick xdotool wmctrl fonts-noto-core \
+            rpm2cpio cpio zstd dbus-x11 >/dev/null
+
+      - name: Yayinlanan paketleri indir
+        run: |
+          mkdir -p dl ci-shots/linux-packages
+          for f in luxai_3.1.0_amd64.deb luxai-3.1.0-1.x86_64.rpm \
+                   luxai-3.1.0-1-x86_64.pkg.tar.zst LuxAI-3.1.0-x86_64.AppImage; do
+            curl -sL -o "dl/$f" "$REL/$f" && ls -l "dl/$f"
+          done
+
+      - name: Xvfb'de calistir + ekran goruntusu
+        run: |
+          shot() {  # $1 = calistirilacak yol, $2 = cikti, $3 = LANG
+            xvfb-run -a -s "-screen 0 1280x900x24" bash -c "
+              LANG=$3 $1 >/tmp/app.log 2>&1 &
+              sleep 16
+              import -window root $2 || true
+              tail -5 /tmp/app.log || true
+              pkill -f luxai 2>/dev/null || true" || echo "uyari: $1 calistirilamadi"
+          }
+          set -x
+
+          # 1) deb: gercekten kur ve sistemdeki ikiliyi calistir
+          sudo apt-get install -y ./dl/luxai_3.1.0_amd64.deb >/dev/null 2>&1 || sudo dpkg -i ./dl/luxai_3.1.0_amd64.deb >/dev/null 2>&1 || true
+          shot "/usr/bin/luxai" "ci-shots/linux-packages/01-deb-tr.png" "tr_TR.UTF-8"
+
+          # 2) rpm: ac ve calistir
+          mkdir -p ex/rpm && ( cd ex/rpm && rpm2cpio ../../dl/luxai-3.1.0-1.x86_64.rpm | cpio -idm --quiet )
+          shot "$PWD/ex/rpm/usr/bin/luxai" "ci-shots/linux-packages/02-rpm-en.png" "en_US.UTF-8"
+
+          # 3) Arch zst
+          mkdir -p ex/zst && tar --zstd -xf dl/luxai-3.1.0-1-x86_64.pkg.tar.zst -C ex/zst
+          shot "$PWD/ex/zst/usr/bin/luxai" "ci-shots/linux-packages/03-zst-hi.png" "hi_IN.UTF-8"
+
+          # 4) AppImage (FUSE olmadan)
+          chmod +x dl/LuxAI-3.1.0-x86_64.AppImage
+          shot "$PWD/dl/LuxAI-3.1.0-x86_64.AppImage --appimage-extract-and-run" \
+               "ci-shots/linux-packages/04-appimage-tr.png" "tr_TR.UTF-8"
+
+          ls -l ci-shots/linux-packages
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gui-shots-linux-packages
+          path: ci-shots/linux-packages/*.png
+          if-no-files-found: error
+
+  # ----------------------------------------------------------------- Windows
+  shots-windows:
+    name: Ekran goruntusu - Windows runner (kurulum + calistirma)
+    runs-on: windows-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Yayinlanan native paketleri indir
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force -Path dl, ci-shots/windows | Out-Null
+          $base = "$env:REL"
+          Invoke-WebRequest "$base/LuxAI-3.1.0-Setup-native.exe" -OutFile dl/LuxAI-3.1.0-Setup-native.exe
+          Invoke-WebRequest "$base/LuxAI-3.1.0-Windows-native-x64.zip" -OutFile dl/native.zip
+          Expand-Archive dl/native.zip -DestinationPath dl/native -Force
+          Get-ChildItem dl, dl/native | Select-Object Name, Length
+
+      - name: Kurucuyu sessiz kur (/S) ve dogrula
+        shell: pwsh
+        run: |
+          $setup = (Resolve-Path "dl/LuxAI-3.1.0-Setup-native.exe").Path
+          $p = Start-Process -FilePath $setup -ArgumentList "/S" -PassThru -Wait
+          Write-Host "kurucu cikis kodu: $($p.ExitCode)"
+          $exe = "$env:LOCALAPPDATA\LuxAI\LuxAI.exe"
+          if (!(Test-Path $exe)) { throw "LuxAI.exe kurulmadi" }
+          Get-ChildItem "$env:LOCALAPPDATA\LuxAI" | Select-Object Name, Length
+          $lnk = "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\LuxAI.lnk"
+          Write-Host "Baslat menusu kisayolu: $(Test-Path $lnk)"
+          if (!(Test-Path $lnk)) { throw "kisayol olusturulmadi" }
+          $u = Get-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\Uninstall\LuxAI" -ErrorAction Stop
+          Write-Host "kaldirma kaydi: $($u.DisplayName) / $($u.DisplayVersion)"
+
+      - name: Sahte sunucu + test ayarlari
+        shell: pwsh
+        run: |
+          $srv = Start-Process python -ArgumentList "windows/tests/mock_server.py","8777" -PassThru
+          Start-Sleep -Seconds 3
+          "mock HTTP " + (Invoke-WebRequest http://127.0.0.1:8777/ -UseBasicParsing).StatusCode
+          $dir = "$env:APPDATA\LuxAI"
+          New-Item -ItemType Directory -Force -Path $dir | Out-Null
+          @(
+            "model=0","mode=1","lang=0","theme=1","send_ctrl_enter=0","auto_approve=1",
+            "max_tokens=4096","stream=1","use_openai=1",
+            "endpoint=http://127.0.0.1:8777/v1/chat/completions","api_key=ci",
+            "workdir=$env:USERPROFILE"
+          ) | Set-Content -Encoding ASCII "$dir\settings.ini"
+          Get-Content "$dir\settings.ini"
+
+      - name: Kurulu uygulamayi calistir + ekran goruntusu (acik tema, ajan)
+        shell: pwsh
+        run: |
+          $exe = "$env:LOCALAPPDATA\LuxAI\LuxAI.exe"
+          Start-Process $exe -ArgumentList '--theme 1 --mode 1 --lang 0 --ask "Sistem bilgini göster ve disk kullanımını özetle"'
+          Start-Sleep -Seconds 22
+          & powershell -NoProfile -ExecutionPolicy Bypass -File windows/tests/screenshot.ps1 `
+              -Out ci-shots/windows/01-kurulu-ajan-acik.png
+          Get-Process LuxAI -ErrorAction SilentlyContinue | Select-Object Id, MainWindowTitle
+
+      - name: Koyu tema (Ingilizce)
+        shell: pwsh
+        run: |
+          Get-Process LuxAI -ErrorAction SilentlyContinue | Stop-Process -Force
+          Start-Sleep -Seconds 2
+          $exe = "$env:LOCALAPPDATA\LuxAI\LuxAI.exe"
+          Start-Process $exe -ArgumentList '--theme 2 --mode 1 --lang 1 --ask "Show my system information and summarise the disk usage"'
+          Start-Sleep -Seconds 22
+          & powershell -NoProfile -ExecutionPolicy Bypass -File windows/tests/screenshot.ps1 `
+              -Out ci-shots/windows/02-koyu-tema-en.png
+
+      - name: Giris penceresi (hesap modu)
+        shell: pwsh
+        run: |
+          Get-Process LuxAI -ErrorAction SilentlyContinue | Stop-Process -Force
+          Start-Sleep -Seconds 2
+          $dir = "$env:APPDATA\LuxAI"
+          @("model=0","mode=0","lang=0","theme=1","use_openai=0",
+            "endpoint=https://lux-ai.cz/api/ide/chat/completions","max_tokens=4096","stream=1",
+            "workdir=$env:USERPROFILE") | Set-Content -Encoding ASCII "$dir\settings.ini"
+          Remove-Item "$dir\account.json" -ErrorAction SilentlyContinue
+          $exe = "$env:LOCALAPPDATA\LuxAI\LuxAI.exe"
+          Start-Process $exe -ArgumentList '--theme 1 --lang 0'
+          Start-Sleep -Seconds 14
+          & powershell -NoProfile -ExecutionPolicy Bypass -File windows/tests/screenshot.ps1 `
+              -Out ci-shots/windows/03-giris.png -TitleMatch "LuxAI"
+
+      - name: Tanilama ciktilari
+        if: always()
+        shell: pwsh
+        run: |
+          Get-ChildItem ci-shots/windows | Select-Object Name, Length
+          $d = "$env:APPDATA\LuxAI"
+          if (Test-Path "$d\last_request.json") { Write-Host "--- last_request.json"; Get-Content "$d\last_request.json" -Raw | Select-Object -First 1 }
+          if (Test-Path "$d\last_response.txt") { Write-Host "--- last_response.txt (ilk 400 bayt)"; (Get-Content "$d\last_response.txt" -Raw).Substring(0,[Math]::Min(400,(Get-Content "$d\last_response.txt" -Raw).Length)) }
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gui-shots-windows
+          path: ci-shots/windows/*.png
+          if-no-files-found: warn

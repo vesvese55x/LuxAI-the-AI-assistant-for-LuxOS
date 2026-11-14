@@ -1051,6 +1051,13 @@ static LRESULT CALLBACK main_proc(HWND h, UINT m, WPARAM w, LPARAM l)
         ui_sidebar_reload();
         return 0;
     }
+    case WM_TIMER:
+        if (w == 1) {
+            KillTimer(h, 1);
+            SetWindowTextW(g_hInput, g_startup_ask);
+            do_send();
+        }
+        return 0;
     case WM_GETMINMAXINFO: {
         MINMAXINFO *mm = (MINMAXINFO *)l;
         mm->ptMinTrackSize.x = 820;
@@ -1099,14 +1106,25 @@ void ui_run(void)
 
     int w = 1100, hgt = 760;
     int sw = GetSystemMetrics(SM_CXSCREEN), sh = GetSystemMetrics(SM_CYSCREEN);
+    /* kucuk ekranlarda (ornek 1024x768) pencereyi sigdir */
+    if (w > sw - 16) w = sw - 16;
+    if (hgt > sh - 48) hgt = sh - 48;
+    if (w < 760) w = 760;
+    if (hgt < 520) hgt = 520;
+    int x = (sw - w) / 2, y = (sh - hgt) / 2;
+    if (x < 0) x = 0;
+    if (y < 0) y = 0;
     g_hMain = CreateWindowExW(0, L"LuxAIWindow", L"LuxAI 3.1 — Windows native",
-                              WS_OVERLAPPEDWINDOW, (sw - w) / 2, (sh - hgt) / 2, w, hgt,
+                              WS_OVERLAPPEDWINDOW, x, y, w, hgt,
                               NULL, NULL, g_inst, NULL);
     if (!g_hMain) return;
     ShowWindow(g_hMain, SW_SHOW);
     UpdateWindow(g_hMain);
 
-    if (!g_cfg.use_openai && !g_token[0]) {
+    if (g_startup_ask[0]) {
+        /* otomasyon: pencere cizildikten sonra mesaji kendisi gonderir */
+        SetTimer(g_hMain, 1, 1200, NULL);
+    } else if (!g_cfg.use_openai && !g_token[0]) {
         if (show_login()) ui_set_status(t(S_READY));
     }
 

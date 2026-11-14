@@ -126,6 +126,7 @@ int   tool_blocked(const char *name, const char *args_json); /* tehlikeli -> 1 *
 /* ---------- ui ---------- */
 extern HWND g_hMain, g_hList, g_hRich, g_hInput, g_hSend, g_hStatus,
             g_hModel, g_hMode, g_hNew, g_hSettings, g_hAcct;
+extern wchar_t g_startup_ask[2048];   /* --ask "..." : acilista otomatik gonderim (CI testi) */
 extern MsgList g_conv;
 void ui_run(void);
 void ui_render_all(void);

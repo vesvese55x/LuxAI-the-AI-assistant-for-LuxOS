@@ -123,7 +123,21 @@ int WINAPI wWinMain(HINSTANCE hInst, HINSTANCE hPrev, PWSTR cmd, int show)
     HWND owner = GetConsoleWindow();
     if (owner) ShowWindow(owner, SW_HIDE);
 
-    if (MessageBoxW(NULL,
+    /* /S = sessiz kurulum (CI/otomasyon), /LAUNCH = kurulumdan sonra baslat */
+    int silent = 0, launch = 0;
+    {
+        int argc = 0;
+        LPWSTR *argv = CommandLineToArgvW(GetCommandLineW(), &argc);
+        for (int i = 1; argv && i < argc; i++) {
+            if (!lstrcmpiW(argv[i], L"/S") || !lstrcmpiW(argv[i], L"-s") || !lstrcmpiW(argv[i], L"--silent"))
+                silent = 1;
+            else if (!lstrcmpiW(argv[i], L"/LAUNCH") || !lstrcmpiW(argv[i], L"--launch"))
+                launch = 1;
+        }
+        if (argv) LocalFree(argv);
+    }
+
+    if (!silent && MessageBoxW(NULL,
             T(L"LuxAI (Windows, native) kurulacak.\n\n"
               "WSL gerekmez: LuxAI dogrudan Windows uygulamasi olarak calisir.\n"
               "Kurulum yeri: %LOCALAPPDATA%\\LuxAI\n\nDevam edilsin mi?",
@@ -160,21 +174,26 @@ int WINAPI wWinMain(HINSTANCE hInst, HINSTANCE hPrev, PWSTR cmd, int show)
     register_uninstall(dir, ico);
     CoUninitialize();
 
-    if (!ok) {
+    if (!ok && !silent) {
         MessageBoxW(NULL, T(L"Kisayol olusturulamadi, ancak LuxAI kuruldu.",
                             L"Could not create the shortcut, but LuxAI is installed."),
                     L"LuxAI", MB_ICONWARNING);
     }
 
-    if (MessageBoxW(NULL,
-            T(L"LuxAI kuruldu!\n\nBaslat menusundeki 'LuxAI' kisayolundan acabilirsiniz.\n"
-              "Ilk acilista LuxAI hesabinizla giris yapin (lux-ai.cz).\n\n"
-              "Simdi baslatilsin mi?",
-              L"LuxAI is installed!\n\nLaunch it from the 'LuxAI' shortcut in the Start Menu.\n"
-              "Sign in with your LuxAI account on first start (lux-ai.cz).\n\n"
-              "Start it now?"),
-            T(L"LuxAI Kurulumu", L"LuxAI Setup"),
-            MB_YESNO | MB_ICONINFORMATION) == IDYES) {
+    int start_app = launch;
+    if (!silent) {
+        if (MessageBoxW(NULL,
+                T(L"LuxAI kuruldu!\n\nBaslat menusundeki 'LuxAI' kisayolundan acabilirsiniz.\n"
+                  "Ilk acilista LuxAI hesabinizla giris yapin (lux-ai.cz).\n\n"
+                  "Simdi baslatilsin mi?",
+                  L"LuxAI is installed!\n\nLaunch it from the 'LuxAI' shortcut in the Start Menu.\n"
+                  "Sign in with your LuxAI account on first start (lux-ai.cz).\n\n"
+                  "Start it now?"),
+                T(L"LuxAI Kurulumu", L"LuxAI Setup"),
+                MB_YESNO | MB_ICONINFORMATION) == IDYES)
+            start_app = 1;
+    }
+    if (start_app) {
         STARTUPINFOW si; PROCESS_INFORMATION pi;
         ZeroMemory(&si, sizeof si); ZeroMemory(&pi, sizeof pi);
         si.cb = sizeof si;

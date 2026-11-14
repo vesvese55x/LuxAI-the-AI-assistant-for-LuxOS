@@ -2,6 +2,38 @@
  * Bagimsizcalisma: GTK yok, WSL yok, harici DLL yok; yalnizca Win32 + WinHTTP.
  */
 #include "luxai.h"
+#include <shellapi.h>
+#include <stdlib.h>
+#include <wchar.h>
+
+wchar_t g_startup_ask[2048];
+
+/* --ask "metin"  : acilista mesaji otomatik gonderir (CI/otomasyon testi)
+ * --theme 0|1|2  : tema gecersiz kilma        --mode 0|1 : sohbet/ajan
+ * --lang 0|1     : arayuz dili (tr/en)        --version   : surum yazdir
+ */
+static void parse_cli(void)
+{
+    int argc = 0;
+    LPWSTR *argv = CommandLineToArgvW(GetCommandLineW(), &argc);
+    if (!argv) return;
+    for (int i = 1; i < argc; i++) {
+        if (!wcscmp(argv[i], L"--ask") && i + 1 < argc) {
+            wcsncpy(g_startup_ask, argv[++i], 2047);
+            g_startup_ask[2047] = 0;
+        } else if (!wcscmp(argv[i], L"--theme") && i + 1 < argc) {
+            g_cfg.theme = _wtoi(argv[++i]);
+        } else if (!wcscmp(argv[i], L"--mode") && i + 1 < argc) {
+            g_cfg.mode = _wtoi(argv[++i]);
+        } else if (!wcscmp(argv[i], L"--lang") && i + 1 < argc) {
+            g_cfg.lang = _wtoi(argv[++i]);
+        } else if (!wcscmp(argv[i], L"--version")) {
+            MessageBoxW(NULL, L"LuxAI " APP_VERSION L"\nWindows native (Win32, WSL'siz)", L"LuxAI",
+                        MB_OK | MB_ICONINFORMATION);
+        }
+    }
+    LocalFree(argv);
+}
 
 int WINAPI wWinMain(HINSTANCE hInst, HINSTANCE hPrev, PWSTR cmd, int show)
 {
@@ -21,6 +53,7 @@ int WINAPI wWinMain(HINSTANCE hInst, HINSTANCE hPrev, PWSTR cmd, int show)
 
     cfg_load();
     account_load();
+    parse_cli();
     ui_run();
 
     if (mtx) CloseHandle(mtx);
