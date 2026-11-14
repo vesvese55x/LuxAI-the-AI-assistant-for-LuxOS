@@ -39,6 +39,16 @@
   .mono { text-align:center; margin:14px 0 30px; }
   footer { text-align:center; color:var(--dim); font-size:.92rem; padding:32px 0 8px; border-top:1px solid var(--border); margin-top:48px; }
   footer p { margin:6px 0; }
+  .foot-brand img { width:56px; height:56px; border-radius:14px; display:block; margin:0 auto 8px; }
+  .foot-brand strong { color:#fff; font-size:1.05rem; }
+  .mob-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:14px; margin:18px 0 8px; }
+  .mob { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:18px 12px 14px;
+         text-align:center; display:block; transition:transform .15s, border-color .15s; }
+  .mob:hover { text-decoration:none; border-color:var(--accent); transform:translateY(-3px); }
+  .mob img { width:64px; height:64px; border-radius:14px; margin-bottom:10px; }
+  .mob strong { display:block; color:#fff; font-size:.9rem; line-height:1.3; }
+  .mob sub { color:var(--dim); font-size:.8rem; }
+  .mob.soon { opacity:.55; }
 </style>
 </head>
 <body>
@@ -132,30 +142,59 @@ indirip kurar. Tercih ederseniz aşağıdaki tablodan paketinizi kendiniz seçin
 </table>
 
 <h2>🌐 BELGESELSEMO ekosistemi</h2>
-<p class="just">LuxAI paketleri, BELGESELSEMO evreninin masaüstü yapay zeka parçasıdır: aynı ekosistemdeki
-indirme yöneticisi projesi ve web portalları aşağıdaki tabloda bir aradadır. LuxAI paketleri BELGESELSEMO
-tarafından, Z.AI sayesinde orijinal LuxOS dağıtımından elde edilerek Linux/Windows paketleri olarak
-derlenmiştir.</p>
-<table>
-  <tr><th>Proje</th><th>Açıklama</th></tr>
-  <tr><td><a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS">🤖 LuxAI — bu depo</a></td>
-      <td>LuxOS dışı dağıtımlar için %100 çok dilli LuxAI paketleri</td></tr>
-  <tr><td><a href="https://github.com/vesvese55x/IDM-LINUX">⬇️ IDM-LINUX</a></td>
-      <td>Linux'ta IDM deneyimi (Wine + Python panosu)</td></tr>
-  <tr><td><a href="http://belgeselsemo.com.tr">🌐 belgeselsemo.com.tr</a></td>
-      <td>BELGESELSEMO resmî site ve portalları</td></tr>
-</table>
+<p class="just">LuxAI paketleri, BELGESELSEMO evreninin masaüstü yapay zeka parçasıdır — ve BELGESELSEMO dünyası
+masaüstüyle sınırlı değildir: web portalları, YouTube kanalı, IDM-LINUX gibi masaüstü araçları ve Android
+tarafındaki belgesel, trivia, TV rehberi, nöbetçi eczane, Nutuk ve ekonomi odaklı uygulama katmanları aynı
+ekosistemi paylaşır. LuxAI paketleri BELGESELSEMO tarafından, Z.AI sayesinde orijinal LuxOS dağıtımından
+elde edilerek Linux/Windows paketleri olarak derlenmiştir. Destek sayfasından YouTube aboneliği, Google Play
+puanı veya bağış yollarıyla projelere katkı verilebilir.</p>
+
+<div class="mob-grid">
+  <a class="mob" href="https://play.google.com/store/apps/details?id=com.belgeselsemo.tr" target="_blank" rel="noreferrer">
+    <img src="https://raw.githubusercontent.com/vesvese55x/IDM-LINUX/main/src/idm_linux/assets/app_belgeselsemo.png" alt="BELGESELSEMO" loading="lazy">
+    <strong>BELGESELSEMO</strong><sub>HD Belgesel &amp; Araçlar Portalı</sub>
+  </a>
+  <a class="mob" href="https://play.google.com/store/apps/details?id=com.belgeselsemo.trivia" target="_blank" rel="noreferrer">
+    <img src="https://raw.githubusercontent.com/vesvese55x/IDM-LINUX/main/src/idm_linux/assets/app_trivia.png" alt="BELGESELSEMO TRIVIA" loading="lazy">
+    <strong>BELGESELSEMO TRIVIA</strong><sub>Bilgi yarışması</sub>
+  </a>
+  <a class="mob" href="https://play.google.com/store/apps/details?id=com.belgeselsemo.epgviewer" target="_blank" rel="noreferrer">
+    <img src="https://raw.githubusercontent.com/vesvese55x/IDM-LINUX/main/src/idm_linux/assets/app_epg.png" alt="BELGESELSEMO TV REHBERİ (EPG)" loading="lazy">
+    <strong>TV REHBERİ (EPG)</strong><sub>Yayın akışı görüntüleyici</sub>
+  </a>
+  <a class="mob" href="https://play.google.com/store/apps/details?id=com.belgeselsemo.nb724" target="_blank" rel="noreferrer">
+    <img src="https://raw.githubusercontent.com/vesvese55x/IDM-LINUX/main/src/idm_linux/assets/app_nb724.png" alt="NÖBETÇİ ECZANE 7/24" loading="lazy">
+    <strong>NÖBETÇİ ECZANE 7/24</strong><sub>TR &amp; KKTC</sub>
+  </a>
+  <a class="mob" href="https://play.google.com/store/apps/details?id=com.belgeselsemo.nutuk" target="_blank" rel="noreferrer">
+    <img src="https://raw.githubusercontent.com/vesvese55x/IDM-LINUX/main/src/idm_linux/assets/app_nutuk.png" alt="NUTUK 1919-1927" loading="lazy">
+    <strong>NUTUK 1919-1927</strong><sub>Sözlü &amp; sesli</sub>
+  </a>
+  <span class="mob soon">
+    <img src="https://raw.githubusercontent.com/vesvese55x/IDM-LINUX/main/src/idm_linux/assets/proj_economy.png" alt="BELGESELSEMO ECONOMY" loading="lazy">
+    <strong>BELGESELSEMO ECONOMY</strong><sub>Yakında…</sub>
+  </span>
+</div>
+
+<p class="just">Masaüstü tarafında aynı evrenin parçaları: <a href="https://github.com/vesvese55x/IDM-LINUX"><b>⬇️ IDM-LINUX</b></a> —
+Linux'ta IDM deneyimi (Wine + Python panosu) · <a href="http://belgeselsemo.com.tr"><b>🌐 belgeselsemo.com.tr</b></a> —
+BELGESELSEMO resmî site, portalları ve destek sayfası.</p>
 
 <h2>🌍 Dil / Language</h2>
-<p class="just dim">Ayrıntılı rehber README'de şu dillerde: Türkçe ·
-<a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS#english">English</a> ·
-<a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS#deutsch">Deutsch</a> ·
-<a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS#русский">Русский</a> ·
-<a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS#中文">中文</a> ·
-<a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS#日本語">日本語</a> ·
-<a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS#हिन्दी">हिन्दी</a></p>
+<p class="just dim">Ayrıntılı rehber README'de şu dillerde:
+🇹🇷 <a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS#-luxai--the-ai-assistant-for-luxos-unofficial-multi-distro-build">Türkçe</a> ·
+🇬🇧 <a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS#english">English</a> ·
+🇩🇪 <a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS#deutsch">Deutsch</a> ·
+🇷🇺 <a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS#русский">Русский</a> ·
+🇨🇳 <a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS#中文">中文</a> ·
+🇯🇵 <a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS#日本語">日本語</a> ·
+🇮🇳 <a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS#हिन्दी">हिन्दी</a></p>
 
 <footer>
+  <div class="foot-brand">
+    <img src="https://raw.githubusercontent.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/main/promo/assets/luxai-icon.png" alt="LuxAI">
+    <strong>LuxAI – the AI assistant for LuxOS</strong>
+  </div>
   <p>BELGESELSEMO tarafından Z.AI sayesinde orijinal LuxOS distrosundan elde edilerek
   Linux/Windows paketler olarak derlenmiştir · <a href="http://belgeselsemo.com.tr">belgeselsemo.com.tr</a></p>
   <p>LuxAI/LuxOS: <a href="https://luxos.lux-ai.cz">luxos.lux-ai.cz</a> · Bu depo resmî değildir.</p>
