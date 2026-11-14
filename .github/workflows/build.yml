@@ -44,6 +44,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Install packaging tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq rpm zstd binutils-mingw-w64-x86-64 gcc-mingw-w64-x86-64-posix >/dev/null
+
       - name: Build Linux packages first (exe embeds the deb)
         run: bash packaging/build-all.sh
 
