@@ -1,0 +1,10 @@
+* text=auto
+*.png binary
+*.webp binary
+*.svg text
+*.deb binary
+*.exe binary
+*.tsv text
+*.py text
+*.sh text eol=lf
+*.md text

@@ -1,0 +1,120 @@
+# LuxAI - 日本語翻訳（英語原文<TAB>日本語訳）；{0}、{1}、{2} のプレースホルダーは保持する必要があります
+(empty file)	（空のファイル）
+(empty)	（空）
+(no output)	（出力なし）
+AI assistant that can work with your computer	コンピューターと一緒に作業できる AI アシスタント · BELGESELSEMO が Z.AI の協力を得て、オリジナルの LuxOS ディストリビューションから取り出し、Linux/Windows パッケージとしてコンパイルしました · belgeselsemo.com.tr
+About LuxAI	LuxAI について
+Accesses private keys or passwords	秘密鍵やパスワードにアクセスする
+Accesses the LuxAI account token	LuxAI アカウントトークンにアクセスする
+Agent	エージェント
+Agent actions run without asking. Dangerous actions still need two confirmations. Resets when LuxAI restarts.	エージェントの操作は確認なしで実行されます。危険な操作は引き続き 2 回の確認が必要です。LuxAI を再起動するとリセットされます。
+Agent mode · Auto-approve is ON: actions run without asking (dangerous ones still ask twice).	エージェントモード · 自動承認がオン：操作は確認なしで実行されます（危険な操作は引き続き 2 回確認します）。
+Agent mode · LuxAI can work with your computer. You approve every action that changes something.	エージェントモード · LuxAI はコンピューターで作業できます。何かを変更する操作はすべてあなたが承認します。
+Agent mode: I can run commands, manage files, open apps and control the mouse and keyboard – always with your approval.	エージェントモード：コマンドの実行、ファイルの管理、アプリの起動、マウスとキーボードの操作ができます。すべてあなたの承認の下で行います。
+Allow LuxAI to do this?	LuxAI にこれを許可しますか？
+Allow once	一度だけ許可
+Allow once…	一度だけ許可…
+Always for this session	このセッションでは常に許可
+Another conversation is already running on this account. Try again in a moment.	このアカウントでは別の会話が実行中です。しばらくしてからもう一度お試しください。
+Are you sure? This can cause damage that cannot be undone.	よろしいですか？元に戻せない損害が生じる可能性があります。
+Arguments	引数
+Ask LuxAI to do something on your computer…	LuxAI にコンピューターでの作業を依頼…
+Ask anything. Switch to Agent mode when you want me to do things on your computer.	何でも聞いてください。コンピューターでの作業を依頼したいときはエージェントモードに切り替えてください。
+Attach screenshots for the current model. Turn on only if the model supports images; uses more tokens.	現在のモデル用にスクリーンショットを添付します。モデルが画像に対応している場合のみオンにしてください。トークンを多く消費します。
+Auto-approve actions	操作を自動承認
+Blocked by safety rules	安全ルールによりブロックされました
+Brainstorm	ブレインストーミング
+CONVERSATIONS	会話
+Cancel	キャンセル
+Changes immutable file attributes	不変のファイル属性を変更する
+Changes permissions of the whole home folder or system	ホームフォルダー全体またはシステムの権限を変更する
+Changes user accounts or passwords	ユーザーアカウントやパスワードを変更する
+Chat	チャット
+Chat with AI or let it work with your computer. Sign in with your LuxAI account – one account for all LuxOS apps.	AI とチャットするか、コンピューターでの作業を任せましょう。LuxAI アカウントでサインイン——すべての LuxOS アプリで使える 1 つのアカウントです。
+Click	クリック
+Close window	ウィンドウを閉じる
+Command timeout (seconds)	コマンドのタイムアウト（秒）
+Copied	コピーしました
+Copy	コピー
+Create a free account	無料アカウントを作成
+Create folder	フォルダーを作成
+Delete	削除
+Delete conversation	会話を削除
+Delete this conversation?	この会話を削除しますか？
+Deletes all scheduled tasks	スケジュール済みのタスクをすべて削除する
+Deletes all untracked files in the repository	リポジトリ内の追跡されていないファイルをすべて削除する
+Deletes files across the whole home folder or system	ホームフォルダー全体またはシステムのファイルを削除する
+Deletes the whole home folder or system	ホームフォルダー全体またはシステムを削除する
+Denied	拒否されました
+Deny	拒否
+Details	詳細
+Done	完了
+Edit file	ファイルを編集
+Ends your desktop session	デスクトップセッションを終了します
+Explain how HTTPS keeps my connection private, in simple terms.	HTTPS がどのように接続のプライバシーを守るのか、わかりやすく説明して。
+Explain something	何かを説明して
+Failed	失敗
+Find files	ファイルを検索
+Finish signing in in the LuxAI account window…	LuxAI アカウントウィンドウでサインインを完了してください…
+Flash – smarter	Flash – より賢い
+Focus window	ウィンドウにフォーカス
+Force-pushes and may overwrite remote history	強制プッシュを行い、リモートの履歴を上書きする可能性がある
+Fork bomb	Fork 爆弾
+Formats or wipes a disk	ディスクをフォーマットまたは消去する
+Free disk space	ディスク容量を空ける
+Give me 5 ideas for a weekend trip in the Czech Republic.	チェコへの週末旅行のアイデアを 5 つください。
+Help with code	コードの支援
+How can I help you today?	今日はどのようにお手伝いしましょうか？
+How do I read a JSON file in Python? Show a short example.	Python で JSON ファイルを読むには？短い例を見せて。
+It will be permanently removed from this computer.	このコンピューターから完全に削除されます。
+Kills all processes or the desktop session	すべてのプロセスまたはデスクトップセッションを強制終了する
+List apps	アプリ一覧
+List folder	フォルダー一覧
+List the files in my Downloads folder grouped by type and suggest what to clean up.	ダウンロードフォルダーのファイルを種類ごとにグループ化して一覧表示し、片付けるべきものを提案して。
+List windows	ウィンドウ一覧
+Lite – faster, larger limit	Lite – 高速、上限が大きい
+Look at my screen	私の画面を見て
+LuxAI account credentials are never read or changed by the agent	エージェントが LuxAI アカウントの認証情報を読み取ったり変更したりすることはありません
+LuxAI account…	LuxAI アカウント…
+LuxAI can make mistakes. Check important information.	LuxAI は間違うことがあります。重要な情報は確認してください。
+LuxAI can work with your computer using tools, with your approval	あなたの承認を得て、LuxAI はツールを使ってコンピューターで作業できます
+Message LuxAI…	LuxAI にメッセージ…
+Model	モデル
+Model can see images	モデルは画像を見ることができる
+Move	移動
+Move mouse	マウスを動かす
+Moves the whole home folder or system	ホームフォルダー全体またはシステムを移動する
+Network error: {0}	ネットワークエラー：{0}
+New chat	新しいチャット
+New conversation	新しい会話
+No conversations yet	まだ会話はありません
+No result	結果なし
+No windows	ウィンドウなし
+Not signed in	未サインイン
+Not signed in.	未サインインです。
+Nothing found	何も見つかりませんでした
+Notification	通知
+Offline – usage not available	オフライン – 使用量を取得できません
+Open a website	ウェブサイトを開く
+Open app	アプリを開く
+Open link	リンクを開く
+Open lux-ai.cz in the web browser.	ウェブブラウザーで lux-ai.cz を開いて。
+Overwrites system files	システムファイルを上書きする
+Plain conversation, no access to your computer	普通の会話。コンピューターにはアクセスしません
+Please sign in again to continue. Your conversations are kept on this computer.	続行するにはもう一度サインインしてください。会話はこのコンピューターに保存されています。
+Potentially dangerous action	危険の可能性がある操作
+Press keys	キーを押す
+Read clipboard	クリップボードを読む
+Read file	ファイルを読む
+Recursively deletes a main personal folder	主要な個人フォルダーを再帰的に削除する
+Recursively deletes files outside your home folder	ホームフォルダー外のファイルを再帰的に削除する
+Refusing to modify the root or home directory itself	ルートディレクトリやホームディレクトリ自体の変更を拒否しています
+Removes firewall rules	ファイアウォールのルールを削除する
+Removes installed system packages	インストール済みのシステムパッケージを削除する
+Result	結果
+Run command	コマンドを実行
+Running…	実行中…
+Runs a script downloaded from the internet	インターネットからダウンロードしたスクリプトを実行する
+Runs with administrator privileges	管理者権限で実行する
+Screenshot	スクリーンショット
+Scroll	スクロール

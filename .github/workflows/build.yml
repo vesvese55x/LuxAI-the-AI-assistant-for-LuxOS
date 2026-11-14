@@ -1,0 +1,89 @@
+name: build
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  linux-packages:
+    name: Linux packages (deb/rpm/AppImage/zst)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install packaging tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq rpmbuild zstd binutils gcc-mingw-w64-x86-64-posix >/dev/null
+
+      - name: Build packages
+        run: bash packaging/build-all.sh "${{ github.ref_name }}"
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: luxai-linux-packages
+          path: |
+            dist/*.deb
+            dist/*.rpm
+            dist/*.AppImage
+            dist/*.pkg.tar.zst
+            dist/SHA256SUMS
+          if-no-files-found: error
+
+  windows-exe:
+    name: Windows installer (exe)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build Windows exe
+        run: bash packaging/build-exe.sh "${{ github.ref_name }}"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: luxai-windows-exe
+          path: dist/*.exe
+          if-no-files-found: error
+
+  release:
+    name: Publish GitHub release
+    needs: [linux-packages, windows-exe]
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          merge-multiple: true
+          path: dist
+
+      - name: Generate checksums
+        run: |
+          cd dist
+          sha256sum *.deb *.rpm *.AppImage *.pkg.tar.zst *.exe > SHA256SUMS
+
+      - name: Create release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: LuxAI ${{ github.ref_name }} — %100 çok dilli paketler
+          body_path: packaging/RELEASE_NOTES.md
+          generate_release_notes: true
+          files: |
+            dist/*.deb
+            dist/*.rpm
+            dist/*.AppImage
+            dist/*.pkg.tar.zst
+            dist/*.exe
+            dist/SHA256SUMS

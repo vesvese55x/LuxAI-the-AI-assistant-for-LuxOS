@@ -1,0 +1,169 @@
+Sign out of LuxAI?	退出 LuxAI？
+Sign out…	退出登录…
+Signing out failed. Try again in the LuxAI account app.	退出登录失败。请在“LuxAI 账户”应用中重试。
+Start	开始
+Stop the answer or command	停止回答或命令
+Technical	技术
+The agent never reads or changes anything in these folders.	智能体绝不读取或更改这些文件夹中的任何内容。
+The folder is blocked in LuxAI settings	该文件夹已在 LuxAI 设置中被阻止
+The path is outside the folders allowed in LuxAI settings	路径超出 LuxAI 设置中允许的文件夹范围
+Theme	主题
+Used for new conversations. You can switch it any time in the toolbar.	用于新对话。您可以在工具栏中随时切换。
+Uses the network	使用网络
+What Agent mode may do	智能体模式可以做什么
+What should LuxAI know about you or how should it answer? E.g. "Call me Tom. Prefer metric units and short answers."	LuxAI 应该了解您的哪些信息或如何回答？例如：“叫我汤姆。使用公制单位，回答要简短。”
+When off, new conversations are not saved on this computer and disappear when you close them.	关闭时，新对话不会保存在此电脑上，关闭后即消失。
+With "risky only", read-only commands such as ls, df or git status run without asking.	选择“仅高风险”时，ls、df 或 git status 等只读命令无需询问即可运行。
+Write and delete files	写入和删除文件
+You will be signed out of your LuxAI account in all LuxOS apps on this computer. Your conversations stay on this computer.	您将在此电脑上的所有 LuxOS 应用中退出 LuxAI 账户。您的对话仍保留在此电脑上。
+Your messages are sent to the LuxAI service (lux-ai.cz) to generate answers and titles. The agent runs tools only on this computer.	您的消息会发送到 LuxAI 服务（lux-ai.cz）以生成回答和标题。智能体只在此电脑上运行工具。
+{0} can see images	{0} 可以看图
+{0} conversations saved	已保存 {0} 个对话
+{0} screenshots	{0} 张屏幕截图
+# 向 LuxOS 作者反馈（send_feedback）
+(preview not available)	（预览不可用）
+Bug report	错误报告
+Contact e-mail for a reply: {0}	用于回复的联系邮箱：{0}
+Don't send	不发送
+Idea	建议
+LuxOS could not reach the server. Check the internet connection.	LuxOS 无法连接服务器。请检查互联网连接。
+No graphical session; the report is sent without a screenshot.	无图形会话；报告将在不带屏幕截图的情况下发送。
+No screenshot will be attached.	不会附加屏幕截图。
+No system information will be attached.	不会附加系统信息。
+Report sent. Report ID: {0}	报告已发送。报告 ID：{0}
+Report text:	报告内容：
+Report to LuxOS	向 LuxOS 报告
+Search LuxOS docs	搜索 LuxOS 文档
+Read LuxOS docs	阅读 LuxOS 文档
+Save and send later	保存并稍后发送
+Saved. The Feedback app will send the report when you are online.	已保存。“反馈”应用会在您联网时发送报告。
+Screenshot that will be attached ({0} kB)	将要附加的屏幕截图（{0} kB）
+Screenshots are turned off in LuxAI settings; the report is sent without one.	屏幕截图已在 LuxAI 设置中关闭；报告将在不带截图的情况下发送。
+Send report	发送报告
+Send this report to the author of LuxOS?	将此报告发送给 LuxOS 作者？
+Sending failed ({0}).	发送失败（{0}）。
+Sends the report and attachments shown in this card to the author of LuxOS	将此卡片中显示的报告和附件发送给 LuxOS 作者
+Sent anonymously (you are not signed in).	已匿名发送（您未登录）。
+Sent with your LuxAI account.	已通过您的 LuxAI 账户发送。
+Something else	其他
+System information that will be attached (anonymised)	将要附加的系统信息（已匿名化）
+The e-mail address does not look valid.	电子邮箱地址看起来无效。
+The message must have 10 to 8000 characters.	消息长度须为 10 到 8000 个字符。
+The report could not be prepared.	无法准备报告。
+The report could not be saved: {0}	无法保存报告：{0}
+The report is too large. Try it without the screenshot.	报告过大。请在不带屏幕截图的情况下重试。
+The screenshot could not be accepted. Try it without the screenshot.	无法接受屏幕截图。请在不带截图的情况下重试。
+The screenshot could not be taken ({0}); the report is sent without one.	无法截屏（{0}）；报告将在不带截图的情况下发送。
+The screenshot is too large; the report is sent without one.	屏幕截图过大；报告将在不带截图的情况下发送。
+Type:	类型：
+You can save the report; the Feedback app will send it automatically later.	您可以保存报告；“反馈”应用稍后会自动发送。
+You have sent many reports in a short time. Please try again later.	您在短时间内发送了大量报告。请稍后再试。
+At most {0} attachments can be added to one message.	一条消息最多可添加 {0} 个附件。
+At most {0} images can be added to one message.	一条消息最多可添加 {0} 张图像。
+Attach	附件
+Attach images or files	附加图像或文件
+Feeds a password to sudo or su (use pkexec instead)	向 sudo 或 su 传递密码（请改用 pkexec）
+Pasted image	粘贴的图像
+Remove attachment	移除附件
+The current model cannot see images. They stay in the conversation and are sent when you switch to a model that can see images.	当前模型无法看图。它们会保留在对话中，当您切换到可以看图的模型时再发送。
+{0} cannot be attached: only images and text files are supported.	无法附加 {0}：仅支持图像和文本文件。
+{0} cannot be read as an image.	无法将 {0} 作为图像读取。
+{0} cannot be read: {1}	无法读取 {0}：{1}
+{0} is long; only its beginning is attached.	{0} 太长；仅附加其开头部分。
+{0} is too large to attach.	{0} 过大，无法附加。
+Administrator commands	管理员命令
+Administrator mode was not turned on	管理员模式未开启
+Ask for the password every time	每次都要求输入密码
+Password once for 5 minutes, approve each command	密码输入一次、5 分钟内有效，逐条批准命令
+Password once for 5 minutes, without asking	密码输入一次、5 分钟内有效，不再询问
+Commands the agent runs as administrator (root). Administrator mode: you enter the administrator password once and for about 5 minutes LuxAI runs administrator commands without asking for it again; only this LuxAI window gets it, other programs still need the password. Requests sent to LuxAI by other programs always need your approval. Only with the Flash model; Lite always asks for the password. Destructive commands (deleting the system or home folder, formatting disks, removing the bootloader, changing accounts, sudo or polkit) are always refused. Every command is logged in ~/.local/state/luxai/root-commands.log.	智能体以管理员（root）身份运行的命令。管理员模式：您输入一次管理员密码后约 5 分钟内，LuxAI 会直接运行管理员命令而不再询问；只有此 LuxAI 窗口会获得该权限，其他程序仍需要密码。其他程序发给 LuxAI 的请求始终需要您的批准。仅限 Flash 模型；Lite 总是要求输入密码。破坏性命令（删除系统或主目录、格式化磁盘、移除引导加载程序、更改账户、sudo 或 polkit）始终被拒绝。每条命令都会记录到 ~/.local/state/luxai/root-commands.log。
+The request came from another program, not from the LuxAI window	请求来自其他程序，而非 LuxAI 窗口
+Changes LuxAI administrator mode, settings or account	更改 LuxAI 管理员模式、设置或账户
+Changes owner or permissions of the whole system or a system folder	更改整个系统或系统文件夹的所有者或权限
+Changes sudo, polkit or PAM configuration	更改 sudo、polkit 或 PAM 配置
+Crashes or instantly reboots the kernel	使内核崩溃或立即重启内核
+Deletes the whole system, a system folder or a home folder	删除整个系统、系统文件夹或主目录
+Disables package signature checks	禁用软件包签名检查
+Formats, wipes or writes directly to a disk	格式化、清空磁盘或直接写入磁盘
+LuxAI administrator mode is not installed (update LuxAI)	未安装 LuxAI 管理员模式（请更新 LuxAI）
+Removes the bootloader, the EFI partition, kernels or core system packages	移除引导加载程序、EFI 分区、内核或核心系统软件包
+Runs a script downloaded from the internet as administrator	以管理员身份运行从互联网下载的脚本
+Runs as administrator (root)	以管理员（root）身份运行
+Runs generated or hidden code as administrator, which cannot be checked	以管理员身份运行无法审查的生成代码或隐藏代码
+The administrator password was not entered	未输入管理员密码
+The target of a destructive command cannot be verified (variable, substitution or unknown folder)	无法验证破坏性命令的目标（变量、替换或未知文件夹）
+Installs community (AUR) code, which is not checked by LuxOS	安装未经 LuxOS 审查的社区（AUR）代码
+Copy code	复制代码
+Copy the whole answer	复制整个回答
+Read web page	读取网页
+Search the web	搜索网页
+Web content is in this conversation and may contain hidden instructions	此对话中包含网页内容，其中可能藏有隐藏指令
+Web content is in this conversation: check this command carefully	此对话中包含网页内容：请仔细检查此命令
+{0} characters of text	{0} 个字符的文本
+LuxAI wants to open this web address:	LuxAI 想要打开此网址：
+This address was not given by you or found by web search; it could send data from this conversation to that website	此地址并非由您提供或通过网页搜索找到；它可能把此对话中的数据发送到该网站
+Address of a point	某一点的地址
+Arrivals	到达
+By bike	骑行
+By car	驾车
+Connections found: {0}	找到的联程方案：{0}
+Current location	当前位置
+Departures	出发
+Find on map	在地图上查找
+Location is not allowed. Open Maps and click the location button once to allow it.	未允许定位。请打开“地图”并点击一次定位按钮以允许。
+LuxOS Maps is not installed (lux install luxos-maps).	未安装 LuxOS 地图（lux install luxos-maps）。
+Map data © OpenStreetMap contributors	地图数据 © OpenStreetMap 贡献者
+No connection found	未找到联程方案
+On foot	步行
+Open in Maps	在“地图”中打开
+Places found: {0}	找到的地点：{0}
+Places nearby	附近地点
+Public transport	公共交通
+Public transport route	公共交通路线
+Route	路线
+Show in Maps	在“地图”中显示
+Shown in Maps	已在“地图”中显示
+The map service is busy. Try again later.	地图服务繁忙。请稍后再试。
+Timetable	时刻表
+Walk {0} m	步行 {0} 米
+cancelled	已取消
+direct	直达
+platform {0}	站台 {0}
+{0} transfers	换乘 {0} 次
+The request is too large – the image or the conversation is too big. Start a new conversation or continue without the image.	请求过大——图像或对话太大。请开始新对话或在不带图像的情况下继续。
+This action requires confirmation on the computer	此操作需要在电脑上确认
+The request was stopped.	请求已停止。
+Another request is still running. Wait for it to finish or cancel it.	另一个请求仍在运行。请等待其完成或将其取消。
+You are not signed in to LuxAI. Sign in in the LuxAI app on the computer.	您尚未登录 LuxAI。请在电脑上的 LuxAI 应用中登录。
+Calendar events	日历事件
+New calendar event	新建日历事件
+Change calendar event	更改日历事件
+Delete calendar event	删除日历事件
+Adds an event to your LuxOS Calendar	向您的 LuxOS 日历添加事件
+Changes an event in your LuxOS Calendar	更改您 LuxOS 日历中的事件
+Deletes an event from your LuxOS Calendar	从您的 LuxOS 日历删除事件
+Monday	星期一
+Tuesday	星期二
+Wednesday	星期三
+Thursday	星期四
+Friday	星期五
+Saturday	星期六
+Sunday	星期日
+all day	全天
+Location: {0}	地点：{0}
+Reminder: {0} min before	提醒：提前 {0} 分钟
+Calendar: {0}	日历：{0}
+Events: {0}	事件：{0}
+No events in this period.	此时间段内没有事件。
+… and {0} more	… 以及另外 {0} 个
+Before:	之前：
+After:	之后：
+Repeating event – the change applies to all its occurrences.	重复事件——更改将应用于其所有重复实例。
+Added to the calendar.	已添加到日历。
+Changed in the calendar.	已在日历中更改。
+Deleted from the calendar.	已从日历删除。
+Done.	完成。
+Denied on the phone.	在手机上被拒绝。
+Not approved on the phone in time.	未在手机上及时批准。
+Blocked by LuxAI safety rules.	被 LuxAI 安全规则阻止。
+This model is not available in LuxAI.	该模型在 LuxAI 中不可用。

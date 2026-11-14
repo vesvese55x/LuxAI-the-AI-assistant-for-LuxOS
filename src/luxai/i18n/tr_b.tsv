@@ -1,0 +1,171 @@
+Search text	Metin ara
+Searches the whole system	Tüm sistemde arar
+Send (Enter)	Gönder (Enter)
+Session expired	Oturum süresi doldu
+Settings	Ayarlar
+Show or hide the sidebar	Kenar çubuğunu göster veya gizle
+Shuts down or restarts the computer	Bilgisayarı kapatır veya yeniden başlatır
+Sign in	Oturum aç
+Sign in again	Yeniden oturum aç
+Sign in to continue this conversation.	Bu sohbete devam etmek için oturum açın.
+Sign in with LuxAI account	LuxAI hesabıyla oturum aç
+Stop	Durdur
+Stop the answer and any running command (Esc)	Yanıtı ve çalışan komutu durdurur (Esc)
+Stopped	Durduruldu
+Stopped after too many steps. Send a message to continue.	Çok fazla adımdan sonra durduruldu. Devam etmek için bir mesaj gönderin.
+Stopped.	Durduruldu.
+Stopping…	Durduruluyor…
+System info	Sistem bilgisi
+Take a screenshot and tell me which windows are open.	Bir ekran görüntüsü al ve hangi pencerelerin açık olduğunu söyle.
+The LuxAI API endpoint was not found on the server.	LuxAI API ucu sunucuda bulunamadı.
+The LuxAI service is not available right now.	LuxAI servisi şu anda kullanılamıyor.
+The LuxOS account tool (luxos-account) is not installed.	LuxOS hesap aracı (luxos-account) kurulu değil.
+The answer was cut off (length limit).	Yanıt kesildi (uzunluk sınırı).
+The file is run automatically at login	Dosya, oturum açılışında otomatik çalıştırılır
+The key combination may end your session	Tuş bileşimi oturumunuzu sonlandırabilir
+The model failed: {0}	Model başarısız oldu: {0}
+The monthly Flash limit is used up. Switch to Lite or wait for the next month.	Aylık Flash limiti tükendi. Lite'a geçin veya gelecek ayı bekleyin.
+The monthly Lite limit is used up.	Aylık Lite limiti tükendi.
+The path is outside your home folder (system files)	Yol, ev klasörünüzün dışında (sistem dosyaları)
+The path may contain passwords or keys	Yol parolalar veya anahtarlar içerebilir
+The server did not respond in time.	Sunucu zamanında yanıt vermedi.
+The server rejected the request (invalid chat).	Sunucu isteği reddetti (geçersiz sohbet).
+The server returned a web page instead of an API response (HTTP {0}).	Sunucu, API yanıtı yerine bir web sayfası döndürdü (HTTP {0}).
+The server returned an invalid response (HTTP {0}).	Sunucu geçersiz bir yanıt döndürdü (HTTP {0}).
+The server's web protection blocked the request (HTTP {0}).	Sunucunun web koruması isteği engelledi (HTTP {0}).
+Thinking…	Düşünüyor…
+This may access private data	Bu, özel verelere erişebilir
+Tidy up Downloads	İndirilenler'i düzenle
+Too many requests. Please wait a moment.	Çok fazla istek. Lütfen bir bekleyin.
+Type text	Metin yaz
+Types a dangerous command	Tehlikeli bir komut yazar
+Unsupported URL type	Desteklenmeyen URL türü
+Waiting for your approval	Onayınız bekleniyor
+Welcome to LuxAI	LuxAI'ye hoş geldiniz
+What is using the most disk space in my home folder?	Ev klasörümde en çok disk alanını ne kullanıyor?
+Working folder	Çalışma klasörü
+Write a short, friendly email inviting my team to a Friday lunch.	Ekipimi Cuma yemeğine davet eden kısa ve samimi bir e-posta yaz.
+Write a text	Bir metin yaz
+Write file	Dosyayı yaz
+Writes directly to a disk device	Doğrudan bir disk aygıtına yazar
+Yes, run it	Evet, çalıştır
+Your LuxAI session has expired or is not valid. Please sign in again.	LuxAI oturumunuzun süresi doldu veya geçersiz. Lütfen yeniden oturum açın.
+Your session has expired	Oturumunuzun süresi doldu
+code	kod
+folder	klasör
+no images	görsel yok
+sees images	görselleri görebilir
+{0} open windows	{0} açık pencere
+{0}: {1} / {2} tokens this month	{0}: bu ay {1} / {2} token
+{0}: {1} tokens this month	{0}: bu ay {1} token
+{0}: {1} tokens this month · unlimited	{0}: bu ay {1} token · sınırsız
+You denied this action.	Bu eylemi reddettiniz.
+Stopped before running.	Çalıştırılmadan önce durduruldu.
+# Ayarlar, profil, sohbet adları
+AI behaviour	Yapay zeka davranışı
+Accesses LuxAI settings (including agent permissions)	LuxAI ayarlarına (agent izinleri dahil) erişir
+Account and settings	Hesap ve ayarlar
+Add	Ekle
+Add folder…	Klasör ekle…
+Added to every conversation. They cannot give the agent more permissions than set in Agent permissions.	Her sohbete eklenir. Agent izinleri bölümünde ayarlanandan fazla izin veremezler.
+After the first answer the fast Lite model suggests a short title. You can rename a conversation any time (right-click it in the sidebar).	İlk yanıttan sonra hızlı Lite modeli kısa bir başlık önerir. Bir sohbeti her zaman yeniden adlandırabilirsiniz (kenar çubuğunda sağ tıklayın).
+Agent permissions	Agent izinleri
+All saved conversations will be permanently removed from this computer.	Kaydedilen tüm sohbetler bu bilgisayardan kalıcı olarak kaldırılacaktır.
+Allow	İzin ver
+Allow without asking	Sormadan izin ver
+Allowed folders	İzin verilen klasörler
+Always ask	Daima sor
+Answer length	Yanıt uzunluğu
+Answers	Yanıtlar
+Appearance	Görünüm
+Application	Uygulama
+Ask only for risky commands	Yalnızca riskli komutlar için sor
+Attach screenshots in Agent mode. Turn on only if the model supports images.	Agent modunda ekran görüntüleri ekleyin. Yalnızca model görselleri destekliyorsa açın.
+Balanced	Dengeli
+Blocked folders	Engellenen klasörler
+Changing files is turned off in LuxAI settings	Dosya değiştirme, LuxAI ayarlarında kapalı
+Clear all history…	Tüm geçmişi temizle…
+Clicking, typing, pressing keys and closing windows.	Tıklama, yazma, tuşlara basma ve pencereleri kapatma.
+Commands	Komutlar
+Concise	Öz
+Control mouse and keyboard	Fare ve klavyeyi kontrol et
+Conversation	Sohbet
+Conversations	Sohbetler
+Creating, editing, moving and deleting files and folders.	Dosya ve klasör oluşturma, düzenleme, taşıma ve silme.
+Creativity (temperature)	Yaratıcılık (sıcaklık)
+Ctrl+Enter (Enter for a new line)	Ctrl+Enter (Enter yeni satır için)
+Custom instructions	Özel talimatlar
+Dangerous actions (deleting your home folder, formatting disks, shutting down …) always need two confirmations, and LuxAI never touches its account and settings files. "Always ask" still offers "Always for this session" on the approval card.	Tehlikeli eylemler (ev klasörünüzü silmek, diskleri biçimlendirmek, bilgisayarı kapatmak…) daima iki onay ister ve LuxAI kendi hesap ve ayar dosyalarına asla dokunmaz. "Daima sor" seçiminde onay kartı yine de "Bu oturum için daima" seçeneğini sunar.
+Dark	Koyu
+Data on this computer	Bu bilgisayardaki veriler
+Default model	Varsayılan model
+Delete all	Tümünü sil
+Delete all conversations?	Tüm sohbetler silinsin mi?
+Delete screenshots	Ekran görüntülerini sil
+Detailed	Ayrıntılı
+Enter (Shift+Enter for a new line)	Enter (Shift+Enter yeni satır için)
+Folders	Klasörler
+Friendly	Samimi
+General	Genel
+History	Geçmiş
+History is turned off	Geçmiş kapalı
+If you add folders here, the agent can work with files only inside them. Empty = anywhere (system files need extra confirmation).	Buraya klasör eklerseniz agent yalnızca bunların içindeki dosyalarla çalışabilir. Boş = her yer (sistem dosyaları ek onay ister).
+Keep conversation history	Sohbet geçmişini tut
+Keyboard shortcuts	Klavye kısayolları
+Language	Dil
+Light	Açık
+Limits from Settings › Agent permissions apply.	Ayarlar › Agent izinleri sınırları uygulanır.
+Long	Uzun
+Long-running commands are stopped after this time.	Uzun süren komutlar bu süreden sonra durdurulur.
+LuxAI also remembers the mode you used last.	LuxAI ayrıca en son kullandığınız modu hatırlar.
+LuxAI answered	LuxAI yanıt verdi
+LuxAI needs your approval	LuxAI onayınıza ihtiyaç duyuyor
+Manage account	Hesabı yönet
+Maximum length of one answer. Agent mode always keeps enough room for its tools.	Tek bir yanıtın en fazla uzunluğu. Agent modu, araçları için daima yeterli alan ayırır.
+Messages	Mesajlar
+Mode for new conversations	Yeni sohbetler için mod
+Mouse and keyboard control is turned off in LuxAI settings	Fare ve klavye kontrolü, LuxAI ayarlarında kapalı
+Name	Ad
+Name conversations automatically	Sohbetleri otomatik adlandır
+Network access	Ağ erişimi
+Network access is turned off in LuxAI settings	Ağ erişimi, LuxAI ayarlarında kapalı
+Never	Asla
+New line	Yeni satır
+No folders	Klasör yok
+Normal	Normal
+Notifications	Bildirimler
+Notify me when LuxAI finishes an answer or needs my approval while the window is in the background.	Pencere arka plandayken LuxAI bir yanıtı bitirdiğinde veya onayımı gerektirdiğinde beni bilgilendir.
+Off = the model's default. Lower is more precise, higher more creative. Applied only if the model supports it.	Kapalı = modelin varsayılanı. Düşük daha hassas, yüksek daha yaratıcıdır. Yalnızca model destekliyorsa uygulanır.
+Open apps and links	Uygulama ve bağlantıları aç
+Opening apps and links is turned off in LuxAI settings	Uygulama ve bağlantı açma, LuxAI ayarlarında kapalı
+Opening web links, downloads and network tools (curl, git clone, package installs). Detected from the command – for strict isolation also set Run commands to Never.	Web bağlantıları, indirmeler ve ağ araçlarını (curl, git clone, paket kurulumları) açma. Komuttan algılanır – katı yalıtım için ayrıca Komut çalıştır seçeneğini Asla yapın.
+Privacy & history	Gizlilik ve geçmiş
+Private files (keys, passwords, .env) always need your confirmation.	Özel dosyalar (anahtarlar, parolalar, .env) daima onayınızı gerektirir.
+Quit	Çıkış
+Read files	Dosyaları oku
+Reading files is turned off in LuxAI settings	Dosya okuma, LuxAI ayarlarında kapalı
+Relative paths and commands start here.	Göreli yollar ve komutlar buradan başlar.
+Remove	Kaldır
+Rename	Yeniden adlandır
+Rename conversation	Sohbeti yeniden adlandır
+Rename…	Yeniden adlandır…
+Response style	Yanıt biçemi
+Run commands	Komut çalıştır
+Running commands is turned off in LuxAI settings	Komut çalıştırma, LuxAI ayarlarında kapalı
+Same as my message	Mesajımla aynı
+Same as system	Sistemle aynı
+Saved conversations	Kaydedilen sohbetler
+Screenshots	Ekran görüntüleri
+Screenshots and clipboard	Ekran görüntüleri ve pano
+Screenshots and clipboard are turned off in LuxAI settings	Ekran görüntüleri ve pano, LuxAI ayarlarında kapalı
+Screenshots taken by the agent	Agent tarafından alınan ekran görüntüleri
+Send message	Mesaj gönder
+Send message with	Mesajı şununla gönder
+Sends what is on your screen or in the clipboard to the model.	Ekranda olanı veya panodakini modele gönderir.
+Settings file	Ayarlar dosyası
+Settings…	Ayarlar…
+Shell commands are checked for blocked folders in their paths, but a command cannot be fully confined. Set Run commands to Never for strict folder limits.	Kabuk komutlarının yollarındaki engellenen klasörler denetlenir, ancak bir komut tamamen kısıtlanamaz. Katı klasör sınırları için Komut çalıştır seçeneğini Asla yapın.
+Short	Kısa
+Sign in with your LuxAI account to chat.	Sohbet etmek için LuxAI hesabınızla oturum açın.
+Search conversations	Sohbetlerde ara
+Sign out	Oturumu kapat

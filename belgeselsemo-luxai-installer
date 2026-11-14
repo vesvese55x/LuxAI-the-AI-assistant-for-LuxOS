@@ -1,0 +1,50 @@
+#!/bin/sh
+# BELGESELSEMO LuxAI installer — one-line install for Linux
+#   curl -fsSL https://raw.githubusercontent.com/vesvese55x/LuxAI-the-AI-assistant-for-LUXOS/main/belgeselsemo-luxai-installer | sh
+set -e
+
+REPO="vesvese55x/LuxAI-the-AI-assistant-for-LuxOS"
+VER="3.1.0"
+BASE="https://github.com/$REPO/releases/latest/download"
+
+echo "==> LuxAI $VER kurulumu / install (BELGESELSEMO)"
+
+# pick package by distro family
+if command -v apt-get >/dev/null 2>&1; then
+    F="luxai_${VER}_amd64.deb"
+    CMD="sudo apt-get install -y ./$F"
+elif command -v dnf >/dev/null 2>&1; then
+    F="luxai-${VER}-1.x86_64.rpm"
+    CMD="sudo dnf install -y ./$F"
+elif command -v zypper >/dev/null 2>&1; then
+    F="luxai-${VER}-1.x86_64.rpm"
+    CMD="sudo zypper --non-interactive install ./$F"
+elif command -v pacman >/dev/null 2>&1; then
+    F="luxai-${VER}-1-x86_64.pkg.tar.zst"
+    CMD="sudo pacman -U --noconfirm ./$F"
+else
+    F="LuxAI-${VER}-x86_64.AppImage"
+    CMD="install -Dm755 ./$F \$HOME/.local/bin/LuxAI.AppImage"
+fi
+
+TMP="$(mktemp -d)"
+echo "==> indiriliyor / downloading: $F"
+curl -fsSL -o "$TMP/$F" "$BASE/$F"
+echo "==> SHA256 doğrulanıyor..."
+curl -fsSL -o "$TMP/SHA256SUMS" "$BASE/SHA256SUMS" || echo "    (checksums skipped)"
+if [ -f "$TMP/SHA256SUMS" ]; then
+    (cd "$TMP" && grep " $F\$" SHA256SUMS | sha256sum -c -) && echo "    OK"
+fi
+
+cd "$TMP"
+echo "==> kuruluyor: $CMD"
+sh -c "$CMD"
+
+if [ "$F" = "LuxAI-${VER}-x86_64.AppImage" ]; then
+    echo "==> AppImage: \$HOME/.local/bin/LuxAI.AppImage"
+fi
+
+echo ""
+echo "✅ LuxAI kuruldu! / installed — Başlat menüsünden veya 'luxai' komutuyla çalıştırın."
+echo "   BELGESELSEMO · http://belgeselsemo.com.tr"
+rm -rf "$TMP"

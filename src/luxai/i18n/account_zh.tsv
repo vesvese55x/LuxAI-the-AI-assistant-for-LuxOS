@@ -1,0 +1,40 @@
+# LuxAI 账户窗口 - 简体中文（英文<TAB>中文）
+At least %d characters (%d more).	至少 %d 个字符（还差 %d 个）。
+At least %d characters.	至少 %d 个字符。
+Close	关闭
+Create Account	创建账户
+E-mail	电子邮件
+E-mail Code	邮件验证码
+Easy to guess - use different characters.	容易被猜到——请使用不同的字符。
+Enter a valid e-mail address.	请输入有效的电子邮件地址。
+Enter your e-mail and password.	请输入您的电子邮件和密码。
+Enter your name.	请输入您的姓名。
+Forgot password? Sign in with a code	忘记密码？使用验证码登录
+Good password. Longer is even better.	密码不错。再长一些会更好。
+Hide password	隐藏密码
+I Agree	我同意
+I agree to the LuxAI Terms	我同意 LuxAI 条款
+Loading the terms…	正在载入条款…
+LuxAI Terms of Use	LuxAI 使用条款
+New Account	新账户
+Open %s	打开 %s
+Password	密码
+Password (at least %d characters)	密码（至少 %d 个字符）
+Read the terms	阅读条款
+Resend code	重新发送验证码
+Resend code in %d s	%d 秒后可重新发送验证码
+Send Code	发送验证码
+Show password	显示密码
+Sign In	登录
+Strong password.	密码强度高。
+The code is valid for 10 minutes. Check also the spam folder.	验证码 10 分钟内有效。也请查看垃圾邮件文件夹。
+The password can have at most %d characters.	密码最多只能有 %d 个字符。
+The password must have at least 12 characters.	密码必须至少有 12 个字符。
+Try Again	重试
+Use a different e-mail	使用其他电子邮件
+We sent a code to %s.	我们已向 %s 发送了验证码。
+We sent a new code.	我们已发送新的验证码。
+We will e-mail you a 6-digit code - no password needed.	我们将通过电子邮件向您发送 6 位验证码——无需密码。
+You can also read them at %s	您也可以在 %s 阅读条款
+You need to agree to the LuxAI Terms.	您需要同意 LuxAI 条款。
+Your name	您的姓名

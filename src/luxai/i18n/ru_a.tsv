@@ -1,0 +1,120 @@
+# LuxAI - русский перевод (английский текст<TAB>русский текст); заполнители {0}, {1}, {2} должны быть сохранены
+(empty file)	(пустой файл)
+(empty)	(пусто)
+(no output)	(нет вывода)
+AI assistant that can work with your computer	ИИ-ассистент, который может работать с вашим компьютером · Получено из оригинального дистрибутива LuxOS и собрано BELGESELSEMO при помощи Z.AI в виде пакетов Linux/Windows · belgeselsemo.com.tr
+About LuxAI	О LuxAI
+Accesses private keys or passwords	Получает доступ к личным ключам или паролям
+Accesses the LuxAI account token	Получает доступ к токену учётной записи LuxAI
+Agent	Агент
+Agent actions run without asking. Dangerous actions still need two confirmations. Resets when LuxAI restarts.	Действия агента выполняются без запроса. Опасные действия по-прежнему требуют двух подтверждений. Сбрасывается при перезапуске LuxAI.
+Agent mode · Auto-approve is ON: actions run without asking (dangerous ones still ask twice).	Режим агента · Автоподтверждение ВКЛЮЧЕНО: действия выполняются без запроса (опасные всё равно спрашивают дважды).
+Agent mode · LuxAI can work with your computer. You approve every action that changes something.	Режим агента · LuxAI может работать с вашим компьютером. Вы подтверждаете каждое действие, что-то меняющее.
+Agent mode: I can run commands, manage files, open apps and control the mouse and keyboard – always with your approval.	Режим агента: я могу выполнять команды, управлять файлами, открывать приложения и управлять мышью и клавиатурой – всегда с вашего одобрения.
+Allow LuxAI to do this?	Разрешить LuxAI сделать это?
+Allow once	Разрешить один раз
+Allow once…	Разрешить один раз…
+Always for this session	Всегда для этого сеанса
+Another conversation is already running on this account. Try again in a moment.	В этой учётной записи уже идёт другой диалог. Повторите попытку чуть позже.
+Are you sure? This can cause damage that cannot be undone.	Вы уверены? Это может нанести непоправимый ущерб.
+Arguments	Аргументы
+Ask LuxAI to do something on your computer…	Попросите LuxAI сделать что-то на вашем компьютере…
+Ask anything. Switch to Agent mode when you want me to do things on your computer.	Спрашивайте что угодно. Переключитесь в режим агента, когда нужно, чтобы я сделал что-то на вашем компьютере.
+Attach screenshots for the current model. Turn on only if the model supports images; uses more tokens.	Прикреплять снимки экрана для текущей модели. Включайте, только если модель поддерживает изображения; расходует больше токенов.
+Auto-approve actions	Автоподтверждение действий
+Blocked by safety rules	Заблокировано правилами безопасности
+Brainstorm	Мозговой штурм
+CONVERSATIONS	ДИАЛОГИ
+Cancel	Отмена
+Changes immutable file attributes	Меняет неизменяемые атрибуты файлов
+Changes permissions of the whole home folder or system	Меняет права доступа ко всему домашнему каталогу или системе
+Changes user accounts or passwords	Меняет учётные записи пользователей или пароли
+Chat	Чат
+Chat with AI or let it work with your computer. Sign in with your LuxAI account – one account for all LuxOS apps.	Общайтесь с ИИ или позвольте ему работать с вашим компьютером. Войдите в свою учётную запись LuxAI – одна учётная запись для всех приложений LuxOS.
+Click	Клик
+Close window	Закрыть окно
+Command timeout (seconds)	Тайм-аут команды (секунды)
+Copied	Скопировано
+Copy	Копировать
+Create a free account	Создать бесплатную учётную запись
+Create folder	Создать папку
+Delete	Удалить
+Delete conversation	Удалить диалог
+Delete this conversation?	Удалить этот диалог?
+Deletes all scheduled tasks	Удаляет все запланированные задания
+Deletes all untracked files in the repository	Удаляет все неотслеживаемые файлы в репозитории
+Deletes files across the whole home folder or system	Удаляет файлы во всём домашнем каталоге или системе
+Deletes the whole home folder or system	Удаляет весь домашний каталог или систему
+Denied	Отказано
+Deny	Отклонить
+Details	Подробности
+Done	Готово
+Edit file	Изменить файл
+Ends your desktop session	Завершает ваш сеанс рабочего стола
+Explain how HTTPS keeps my connection private, in simple terms.	Объясни простыми словами, как HTTPS защищает моё соединение.
+Explain something	Объясни что-нибудь
+Failed	Сбой
+Find files	Найти файлы
+Finish signing in in the LuxAI account window…	Завершите вход в окне учётной записи LuxAI…
+Flash – smarter	Flash – умнее
+Focus window	Фокус на окно
+Force-pushes and may overwrite remote history	Выполняет force-push и может перезаписать удалённую историю
+Fork bomb	Fork-бомба
+Formats or wipes a disk	Форматирует или стирает диск
+Free disk space	Освободить место на диске
+Give me 5 ideas for a weekend trip in the Czech Republic.	Дай 5 идей для поездки на выходных по Чехии.
+Help with code	Помощь с кодом
+How can I help you today?	Чем я могу вам помочь сегодня?
+How do I read a JSON file in Python? Show a short example.	Как прочитать файл JSON в Python? Покажи короткий пример.
+It will be permanently removed from this computer.	Оно будет безвозвратно удалено с этого компьютера.
+Kills all processes or the desktop session	Завершает все процессы или сеанс рабочего стола
+List apps	Список приложений
+List folder	Содержимое папки
+List the files in my Downloads folder grouped by type and suggest what to clean up.	Покажи файлы в моей папке «Загрузки», сгруппированные по типам, и предложи, что удалить.
+List windows	Список окон
+Lite – faster, larger limit	Lite – быстрее, больший лимит
+Look at my screen	Посмотри на мой экран
+LuxAI account credentials are never read or changed by the agent	Агент никогда не читает и не меняет учётные данные LuxAI
+LuxAI account…	Учётная запись LuxAI…
+LuxAI can make mistakes. Check important information.	LuxAI может ошибаться. Проверяйте важную информацию.
+LuxAI can work with your computer using tools, with your approval	С вашего одобрения LuxAI может работать с вашим компьютером с помощью инструментов
+Message LuxAI…	Напишите LuxAI…
+Model	Модель
+Model can see images	Модель видит изображения
+Move	Переместить
+Move mouse	Двигать мышью
+Moves the whole home folder or system	Перемещает весь домашний каталог или систему
+Network error: {0}	Сетевая ошибка: {0}
+New chat	Новый чат
+New conversation	Новый диалог
+No conversations yet	Диалогов пока нет
+No result	Нет результата
+No windows	Окон нет
+Not signed in	Вход не выполнен
+Not signed in.	Вход не выполнен.
+Nothing found	Ничего не найдено
+Notification	Уведомление
+Offline – usage not available	Не в сети – статистика недоступна
+Open a website	Открыть веб-сайт
+Open app	Открыть приложение
+Open link	Открыть ссылку
+Open lux-ai.cz in the web browser.	Открой lux-ai.cz в веб-браузере.
+Overwrites system files	Перезаписывает системные файлы
+Plain conversation, no access to your computer	Простой диалог, без доступа к вашему компьютеру
+Please sign in again to continue. Your conversations are kept on this computer.	Чтобы продолжить, войдите снова. Ваши диалоги хранятся на этом компьютере.
+Potentially dangerous action	Потенциально опасное действие
+Press keys	Нажимать клавиши
+Read clipboard	Читать буфер обмена
+Read file	Читать файл
+Recursively deletes a main personal folder	Рекурсивно удаляет важную личную папку
+Recursively deletes files outside your home folder	Рекурсивно удаляет файлы вне вашего домашнего каталога
+Refusing to modify the root or home directory itself	Изменение самого корневого или домашнего каталога отклонено
+Removes firewall rules	Удаляет правила брандмауэра
+Removes installed system packages	Удаляет установленные системные пакеты
+Result	Результат
+Run command	Выполнить команду
+Running…	Выполняется…
+Runs a script downloaded from the internet	Запускает сценарий, загруженный из интернета
+Runs with administrator privileges	Выполняется с правами администратора
+Screenshot	Снимок экрана
+Scroll	Прокрутка

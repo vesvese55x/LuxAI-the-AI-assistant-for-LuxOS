@@ -1,0 +1,169 @@
+Sign out of LuxAI?	Выйти из LuxAI?
+Sign out…	Выйти…
+Signing out failed. Try again in the LuxAI account app.	Не удалось выйти. Повторите попытку в приложении «Учётная запись LuxAI».
+Start	Запустить
+Stop the answer or command	Остановить ответ или команду
+Technical	Технический
+The agent never reads or changes anything in these folders.	Агент никогда не читает и не меняет ничего в этих папках.
+The folder is blocked in LuxAI settings	Папка заблокирована в настройках LuxAI
+The path is outside the folders allowed in LuxAI settings	Путь вне папок, разрешённых в настройках LuxAI
+Theme	Тема
+Used for new conversations. You can switch it any time in the toolbar.	Используется для новых диалогов. Переключить можно в любой момент на панели инструментов.
+Uses the network	Использует сеть
+What Agent mode may do	Что может режим агента
+What should LuxAI know about you or how should it answer? E.g. "Call me Tom. Prefer metric units and short answers."	Что LuxAI должен знать о вас или как ему отвечать? Например: «Зови меня Том. Предпочитай метрические единицы и короткие ответы.»
+When off, new conversations are not saved on this computer and disappear when you close them.	Если выключено, новые диалоги не сохраняются на этом компьютере и исчезают при закрытии.
+With "risky only", read-only commands such as ls, df or git status run without asking.	При выборе «только рискованные» команды только для чтения, такие как ls, df или git status, выполняются без запроса.
+Write and delete files	Писать и удалять файлы
+You will be signed out of your LuxAI account in all LuxOS apps on this computer. Your conversations stay on this computer.	Вы выйдете из учётной записи LuxAI во всех приложениях LuxOS на этом компьютере. Ваши диалоги останутся на этом компьютере.
+Your messages are sent to the LuxAI service (lux-ai.cz) to generate answers and titles. The agent runs tools only on this computer.	Ваши сообщения отправляются сервису LuxAI (lux-ai.cz) для создания ответов и заголовков. Агент запускает инструменты только на этом компьютере.
+{0} can see images	{0} видит изображения
+{0} conversations saved	Диалогов сохранено: {0}
+{0} screenshots	Снимков экрана: {0}
+# Отчёты автору LuxOS (send_feedback)
+(preview not available)	(предпросмотр недоступен)
+Bug report	Сообщение об ошибке
+Contact e-mail for a reply: {0}	Электронная почта для ответа: {0}
+Don't send	Не отправлять
+Idea	Идея
+LuxOS could not reach the server. Check the internet connection.	LuxOS не смог связаться с сервером. Проверьте подключение к интернету.
+No graphical session; the report is sent without a screenshot.	Нет графического сеанса; отчёт отправляется без снимка экрана.
+No screenshot will be attached.	Снимок экрана не будет приложен.
+No system information will be attached.	Сведения о системе не будут приложены.
+Report sent. Report ID: {0}	Отчёт отправлен. Идентификатор отчёта: {0}
+Report text:	Текст отчёта:
+Report to LuxOS	Сообщить в LuxOS
+Search LuxOS docs	Искать в документации LuxOS
+Read LuxOS docs	Читать документацию LuxOS
+Save and send later	Сохранить и отправить позже
+Saved. The Feedback app will send the report when you are online.	Сохранено. Приложение «Обратная связь» отправит отчёт, когда вы будете в сети.
+Screenshot that will be attached ({0} kB)	Прилагаемый снимок экрана ({0} кБ)
+Screenshots are turned off in LuxAI settings; the report is sent without one.	Снимки экрана отключены в настройках LuxAI; отчёт отправляется без них.
+Send report	Отправить отчёт
+Send this report to the author of LuxOS?	Отправить этот отчёт автору LuxOS?
+Sending failed ({0}).	Не удалось отправить ({0}).
+Sends the report and attachments shown in this card to the author of LuxOS	Отправляет автору LuxOS отчёт и вложения, показанные на этой карточке
+Sent anonymously (you are not signed in).	Отправлено анонимно (вы не вошли).
+Sent with your LuxAI account.	Отправлено с вашей учётной записью LuxAI.
+Something else	Другое
+System information that will be attached (anonymised)	Прилагаемые сведения о системе (обезличенные)
+The e-mail address does not look valid.	Адрес электронной почты выглядит недействительным.
+The message must have 10 to 8000 characters.	Сообщение должно содержать от 10 до 8000 символов.
+The report could not be prepared.	Не удалось подготовить отчёт.
+The report could not be saved: {0}	Не удалось сохранить отчёт: {0}
+The report is too large. Try it without the screenshot.	Отчёт слишком велик. Попробуйте без снимка экрана.
+The screenshot could not be accepted. Try it without the screenshot.	Не удалось принять снимок экрана. Попробуйте без него.
+The screenshot could not be taken ({0}); the report is sent without one.	Не удалось сделать снимок экрана ({0}); отчёт отправляется без него.
+The screenshot is too large; the report is sent without one.	Снимок экрана слишком велик; отчёт отправляется без него.
+Type:	Тип:
+You can save the report; the Feedback app will send it automatically later.	Отчёт можно сохранить; приложение «Обратная связь» отправит его автоматически позже.
+You have sent many reports in a short time. Please try again later.	Вы отправили много отчётов за короткое время. Повторите попытку позже.
+At most {0} attachments can be added to one message.	К одному сообщению можно добавить не более {0} вложений.
+At most {0} images can be added to one message.	К одному сообщению можно добавить не более {0} изображений.
+Attach	Прикрепить
+Attach images or files	Прикрепить изображения или файлы
+Feeds a password to sudo or su (use pkexec instead)	Передаёт пароль в sudo или su (используйте вместо этого pkexec)
+Pasted image	Вставленное изображение
+Remove attachment	Убрать вложение
+The current model cannot see images. They stay in the conversation and are sent when you switch to a model that can see images.	Текущая модель не видит изображения. Они остаются в диалоге и отправляются, когда вы переключитесь на модель, которая их видит.
+{0} cannot be attached: only images and text files are supported.	{0} нельзя прикрепить: поддерживаются только изображения и текстовые файлы.
+{0} cannot be read as an image.	{0} нельзя прочитать как изображение.
+{0} cannot be read: {1}	{0} нельзя прочитать: {1}
+{0} is long; only its beginning is attached.	{0} длинный; приложено только начало.
+{0} is too large to attach.	{0} слишком велик для вложения.
+Administrator commands	Команды администратора
+Administrator mode was not turned on	Режим администратора не был включён
+Ask for the password every time	Спрашивать пароль каждый раз
+Password once for 5 minutes, approve each command	Пароль один раз на 5 минут, подтверждать каждую команду
+Password once for 5 minutes, without asking	Пароль один раз на 5 минут, без запросов
+Commands the agent runs as administrator (root). Administrator mode: you enter the administrator password once and for about 5 minutes LuxAI runs administrator commands without asking for it again; only this LuxAI window gets it, other programs still need the password. Requests sent to LuxAI by other programs always need your approval. Only with the Flash model; Lite always asks for the password. Destructive commands (deleting the system or home folder, formatting disks, removing the bootloader, changing accounts, sudo or polkit) are always refused. Every command is logged in ~/.local/state/luxai/root-commands.log.	Команды, которые агент выполняет от имени администратора (root). Режим администратора: вы вводите пароль администратора один раз, и около 5 минут LuxAI выполняет команды администратора, не запрашивая его снова; его получает только это окно LuxAI, другим программам по-прежнему нужен пароль. Запросы к LuxAI от других программ всегда требуют вашего одобрения. Только с моделью Flash; Lite всегда запрашивает пароль. Разрушительные команды (удаление системы или домашнего каталога, форматирование дисков, удаление загрузчика, изменение учётных записей, sudo или polkit) всегда отклоняются. Каждая команда записывается в журнал ~/.local/state/luxai/root-commands.log.
+The request came from another program, not from the LuxAI window	Запрос пришёл от другой программы, а не из окна LuxAI
+Changes LuxAI administrator mode, settings or account	Меняет режим администратора, настройки или учётную запись LuxAI
+Changes owner or permissions of the whole system or a system folder	Меняет владельца или права всей системы или системной папки
+Changes sudo, polkit or PAM configuration	Меняет конфигурацию sudo, polkit или PAM
+Crashes or instantly reboots the kernel	Вызывает сбой или мгновенную перезагрузку ядра
+Deletes the whole system, a system folder or a home folder	Удаляет всю систему, системную папку или домашний каталог
+Disables package signature checks	Отключает проверку подписей пакетов
+Formats, wipes or writes directly to a disk	Форматирует, стирает диск или пишет на него напрямую
+LuxAI administrator mode is not installed (update LuxAI)	Режим администратора LuxAI не установлен (обновите LuxAI)
+Removes the bootloader, the EFI partition, kernels or core system packages	Удаляет загрузчик, раздел EFI, ядра или основные системные пакеты
+Runs a script downloaded from the internet as administrator	Запускает сценарий из интернета от имени администратора
+Runs as administrator (root)	Выполняется от имени администратора (root)
+Runs generated or hidden code as administrator, which cannot be checked	Выполняет от имени администратора сгенерированный или скрытый код, который нельзя проверить
+The administrator password was not entered	Пароль администратора не был введён
+The target of a destructive command cannot be verified (variable, substitution or unknown folder)	Нельзя проверить цель разрушающей команды (переменная, подстановка или неизвестная папка)
+Installs community (AUR) code, which is not checked by LuxOS	Устанавливает код сообщества (AUR), не проверяемый LuxOS
+Copy code	Копировать код
+Copy the whole answer	Копировать весь ответ
+Read web page	Читать веб-страницу
+Search the web	Искать в интернете
+Web content is in this conversation and may contain hidden instructions	В этом диалоге есть веб-содержимое, и оно может содержать скрытые инструкции
+Web content is in this conversation: check this command carefully	В этом диалоге есть веб-содержимое: внимательно проверьте эту команду
+{0} characters of text	{0} символов текста
+LuxAI wants to open this web address:	LuxAI хочет открыть этот веб-адрес:
+This address was not given by you or found by web search; it could send data from this conversation to that website	Этот адрес не был указан вами и не найден веб-поиском; он может отправить данные из этого диалога на тот сайт
+Address of a point	Адрес точки
+Arrivals	Прибытия
+By bike	На велосипеде
+By car	На автомобиле
+Connections found: {0}	Найдено соединений: {0}
+Current location	Текущее местоположение
+Departures	Отправления
+Find on map	Найти на карте
+Location is not allowed. Open Maps and click the location button once to allow it.	Местоположение не разрешено. Откройте «Карты» и один раз нажмите кнопку местоположения, чтобы разрешить его.
+LuxOS Maps is not installed (lux install luxos-maps).	«Карты LuxOS» не установлены (lux install luxos-maps).
+Map data © OpenStreetMap contributors	Данные карты © OpenStreetMap contributors
+No connection found	Соединений не найдено
+On foot	Пешком
+Open in Maps	Открыть в «Картах»
+Places found: {0}	Найдено мест: {0}
+Places nearby	Места рядом
+Public transport	Общественный транспорт
+Public transport route	Маршрут на общественном транспорте
+Route	Маршрут
+Show in Maps	Показать в «Картах»
+Shown in Maps	Показано в «Картах»
+The map service is busy. Try again later.	Сервис карт занят. Попробуйте позже.
+Timetable	Расписание
+Walk {0} m	Пройти {0} м
+cancelled	отменено
+direct	без пересадок
+platform {0}	платформа {0}
+{0} transfers	{0} пересадок
+The request is too large – the image or the conversation is too big. Start a new conversation or continue without the image.	Запрос слишком велик – изображение или диалог слишком большие. Начните новый диалог или продолжите без изображения.
+This action requires confirmation on the computer	Это действие требует подтверждения на компьютере
+The request was stopped.	Запрос был остановлен.
+Another request is still running. Wait for it to finish or cancel it.	Ещё один запрос всё ещё выполняется. Дождитесь его завершения или отмените его.
+You are not signed in to LuxAI. Sign in in the LuxAI app on the computer.	Вы не вошли в LuxAI. Войдите в приложении LuxAI на компьютере.
+Calendar events	События календаря
+New calendar event	Новое событие календаря
+Change calendar event	Изменить событие календаря
+Delete calendar event	Удалить событие календаря
+Adds an event to your LuxOS Calendar	Добавляет событие в ваш календарь LuxOS
+Changes an event in your LuxOS Calendar	Меняет событие в вашем календаре LuxOS
+Deletes an event from your LuxOS Calendar	Удаляет событие из вашего календаря LuxOS
+Monday	Понедельник
+Tuesday	Вторник
+Wednesday	Среда
+Thursday	Четверг
+Friday	Пятница
+Saturday	Суббота
+Sunday	Воскресенье
+all day	весь день
+Location: {0}	Место: {0}
+Reminder: {0} min before	Напоминание: за {0} мин
+Calendar: {0}	Календарь: {0}
+Events: {0}	События: {0}
+No events in this period.	В этом периоде нет событий.
+… and {0} more	… и ещё {0}
+Before:	До:
+After:	После:
+Repeating event – the change applies to all its occurrences.	Повторяющееся событие – изменение применяется ко всем его повторениям.
+Added to the calendar.	Добавлено в календарь.
+Changed in the calendar.	Изменено в календаре.
+Deleted from the calendar.	Удалено из календаря.
+Done.	Готово.
+Denied on the phone.	Отклонено на телефоне.
+Not approved on the phone in time.	Не одобрено на телефоне вовремя.
+Blocked by LuxAI safety rules.	Заблокировано правилами безопасности LuxAI.
+This model is not available in LuxAI.	Эта модель недоступна в LuxAI.

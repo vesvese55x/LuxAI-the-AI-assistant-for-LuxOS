@@ -1,0 +1,119 @@
+
+window.luxai, .luxai-main { background-color: @lx_bg; color: @lx_fg; }
+.sidebar { background-color: @lx_side; border-right: 1px solid @lx_border; }
+.sidebar list { background: transparent; }
+.sidebar list row { border-radius: 9px; margin: 1px 8px; padding: 7px 10px; }
+.sidebar list row:selected { background-color: alpha(@lx_accent, 0.85); color: white; }
+.sidebar list row:selected .dim { color: rgba(255,255,255,0.75); }
+.side-title { font-size: 11px; font-weight: 700; color: @lx_dim; margin: 10px 18px 4px; }
+.conv-title { font-weight: 600; }
+.dim { color: @lx_dim; }
+.small { font-size: 11px; }
+.row-delete { padding: 0 4px; min-height: 20px; min-width: 20px; border: none; background: none; box-shadow: none; }
+.search { border-radius: 9px; margin: 8px 10px 2px; }
+button.new-chat { background-image: none; background-color: @lx_accent; color: white; border: none; box-shadow: none;
+                  border-radius: 10px; padding: 7px 12px; margin: 10px 10px 2px; font-weight: 700; }
+button.new-chat:hover { background-color: shade(@lx_accent, 1.1); }
+button.new-chat:active { background-color: shade(@lx_accent, 0.9); }
+button.new-chat label, button.new-chat image { color: white; text-shadow: none; -gtk-icon-shadow: none; }
+button.new-chat .new-chat-key { color: rgba(255,255,255,0.72); font-size: 11px; font-weight: 600; }
+.account { padding: 10px 12px; border-top: 1px solid @lx_border; }
+.avatar { border-radius: 999px; min-width: 30px; min-height: 30px; color: white; font-weight: 800;
+          background-image: linear-gradient(135deg, #3d6bff, #8a4dff); }
+levelbar trough { min-height: 5px; border-radius: 3px; background-color: alpha(@lx_fg, 0.10); border: none; }
+levelbar block.filled { border-radius: 3px; background-color: @lx_accent; border: none; }
+levelbar block.empty { background: none; border: none; }
+.segmented button { padding: 3px 16px; font-weight: 600; }
+.segmented button:checked { background-image: none; background-color: @lx_accent; color: white; }
+.bubble-user { background-image: linear-gradient(135deg, #3d7bff, #6a5cff); color: white;
+               border-radius: 18px 18px 4px 18px; padding: 9px 14px; }
+.bubble-user > label, .user-file > label { color: white; }  /* jen vlastni text: ne kontextova nabidka vybraneho textu (bila na bile) */
+.bubble-ai { background-color: @lx_card; border: 1px solid @lx_border; border-radius: 18px 18px 18px 4px;
+             padding: 10px 15px; }
+.role { font-size: 11px; font-weight: 700; color: @lx_dim; margin: 0 6px; }
+.md-code { background-color: @lx_code; border-radius: 10px; border: 1px solid @lx_border; }
+.md-code-head { padding: 3px 6px 0 12px; }
+.md-code-text { padding: 6px 12px 10px 12px; font-family: monospace; }
+.md-math { padding: 4px 8px; }
+button.msg-copy, .md-code-head button { padding: 0 8px; min-height: 22px; font-size: 11px; color: @lx_dim;
+                                        background: none; border: none; box-shadow: none; text-shadow: none; }
+button.msg-copy:hover label, .md-code-head button:hover label { color: @lx_fg; }
+.md-quote { border-left: 3px solid alpha(@lx_accent, 0.7); padding-left: 10px; }
+.md-table { border: 1px solid @lx_border; border-radius: 8px; }
+.md-cell { padding: 4px 10px; border-bottom: 1px solid @lx_border; }
+.md-head { font-weight: 700; background-color: alpha(@lx_fg, 0.05); }
+button.flat-small { padding: 1px 8px; min-height: 22px; font-size: 11px; }
+.tool-card { background-color: @lx_card; border: 1px solid @lx_border; border-radius: 12px; padding: 8px 12px; }
+.tool-card.waiting { border-color: alpha(@lx_accent, 0.8); }
+.tool-card.danger { border-color: @lx_danger; background-color: alpha(@lx_danger, 0.08); }
+.tool-name { font-weight: 700; }
+.tool-subject { font-family: monospace; font-size: 12px; color: @lx_dim; }
+.tool-pre { font-family: monospace; font-size: 11px; background-color: @lx_code; border-radius: 8px; padding: 8px; }
+.dot { border-radius: 999px; min-width: 9px; min-height: 9px; margin-top: 4px; }
+.dot.running, .dot.waiting { background-color: @lx_warn; }
+.dot.ok { background-color: @lx_ok; }
+.dot.error, .dot.blocked { background-color: @lx_danger; }
+.dot.denied, .dot.cancelled { background-color: @lx_dim; }
+.confirm-text { font-weight: 600; }
+.warn-text { color: @lx_danger; font-weight: 600; }
+button.allow { background-image: none; background-color: @lx_accent; color: white; border: none; }
+button.danger-btn { background-image: none; background-color: @lx_danger; color: white; border: none; }
+.error-row { background-color: alpha(@lx_danger, 0.10); border: 1px solid alpha(@lx_danger, 0.5);
+             border-radius: 12px; padding: 10px 14px; }
+.composer { background-color: @lx_input; border: 1px solid @lx_border; border-radius: 16px; padding: 6px 8px 6px 12px; }
+.composer textview, .composer textview text { background-color: transparent; color: @lx_fg; }
+button.send { border-radius: 999px; min-width: 32px; min-height: 32px; padding: 0; background-image: none;
+              background-color: @lx_accent; color: white; border: none; }
+button.send:disabled { background-color: alpha(@lx_fg, 0.15); }
+button.stop { border-radius: 999px; padding: 4px 14px; background-image: none; background-color: @lx_danger;
+              color: white; border: none; font-weight: 700; }
+.agent-banner { background-color: alpha(@lx_accent, 0.10); border-bottom: 1px solid @lx_border; padding: 6px 14px; }
+.agent-banner.auto { background-color: alpha(@lx_warn, 0.18); }
+.empty-title { font-size: 26px; font-weight: 800; }
+.empty-text { color: @lx_dim; }
+button.pill { border-radius: 999px; padding: 6px 14px; }
+button.primary { background-image: none; background-color: @lx_accent; color: white; border: none; font-weight: 700; }
+button.chip { border-radius: 12px; padding: 8px 12px; background-image: none; background-color: @lx_card;
+              border: 1px solid @lx_border; box-shadow: none; }
+button.chip:hover { border-color: alpha(@lx_accent, 0.7); }
+button.chip label, button.pill label, button.primary label, button.send, button.stop label { text-shadow: none; }
+.status-line { font-size: 11px; color: @lx_dim; margin: 2px 16px 8px 16px; }
+.attach-bar { margin: 0 4px 6px 4px; }
+.attach-chip { background-color: @lx_card; border: 1px solid @lx_border; border-radius: 10px; padding: 4px 4px 4px 8px; }
+.attach-chip button { min-height: 18px; min-width: 18px; padding: 0 2px; border: none; background: none; box-shadow: none; }
+.attach-note { font-size: 11px; color: @lx_warn; margin: 0 8px 6px 8px; }
+button.attach { border-radius: 999px; min-width: 32px; min-height: 32px; padding: 0; }
+.user-file { background-color: alpha(white, 0.18); border-radius: 8px; padding: 2px 8px; font-size: 11px; }
+.tool-elapsed { font-size: 11px; color: @lx_dim; }
+
+.settings-side { background-color: @lx_side; border-right: 1px solid @lx_border; }
+.settings-side list { background: transparent; }
+.settings-side list row { border-radius: 8px; margin: 1px 8px; padding: 7px 10px; }
+.settings-side list row:selected { background-color: alpha(@lx_accent, 0.85); color: white; }
+.settings-page { background-color: @lx_bg; }
+.page-title { font-size: 20px; font-weight: 800; margin: 18px 4px 2px; }
+.group { border-radius: 12px; border: 1px solid @lx_border; background-color: @lx_card; }
+.group-title { font-weight: 700; font-size: 13px; margin: 16px 4px 6px; }
+.group-foot { font-size: 11px; color: @lx_dim; margin: 6px 6px 0; }
+.srow { padding: 9px 14px; }
+.srow-sep { border-top: 1px solid @lx_border; }
+.hint { font-size: 11px; color: @lx_dim; }
+.locked { color: @lx_dim; }
+.folder-path { font-family: monospace; font-size: 12px; }
+.instructions { border: 1px solid @lx_border; border-radius: 8px; background-color: @lx_input; padding: 6px; }
+.instructions textview, .instructions textview text { background-color: transparent; color: @lx_fg; }
+.kbd { font-family: monospace; font-size: 12px; padding: 2px 8px; border-radius: 6px;
+       border: 1px solid @lx_border; background-color: @lx_code; }
+button.destructive { background-image: none; background-color: @lx_danger; color: white; border: none; }
+button.destructive label { color: white; text-shadow: none; }
+.profile-name { font-weight: 800; font-size: 14px; }
+.avatar-big { border-radius: 999px; min-width: 44px; min-height: 44px; color: white; font-weight: 800;
+              font-size: 18px; background-image: linear-gradient(135deg, #3d6bff, #8a4dff); }
+button.profile { padding: 4px 6px; border-radius: 10px; border: none; background: none; box-shadow: none; }
+button.profile:hover { background-color: alpha(@lx_fg, 0.06); }
+headerbar button.titlebutton { background-image:none; border:none; box-shadow:none; min-width:28px; min-height:28px; padding:0; border-radius:999px; color:@lx_dim; }
+headerbar button.titlebutton image { -gtk-icon-transform:scale(0.8); }
+headerbar button.titlebutton:hover { background-color:alpha(@lx_fg,0.12); color:@lx_fg; box-shadow:none; }
+headerbar button.titlebutton.close:hover { background-color:@lx_danger; color:#fff; }
+menu, popover { background-color:@lx_card; color:@lx_fg; border:1px solid @lx_border; border-radius:10px; }
+menu item:hover, popover item:hover { background-color:alpha(@lx_accent,0.85); color:#fff; }

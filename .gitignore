@@ -1,0 +1,18 @@
+# Build outputs
+dist/
+out/
+build/
+*.pkg.tar.zst
+SHA256SUMS
+
+# Python
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Extracted upstream (kept vendored only as src/vendor/*.deb)
+upstream/
+.work/

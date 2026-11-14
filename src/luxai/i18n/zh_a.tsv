@@ -1,0 +1,120 @@
+# LuxAI - 简体中文翻译（英文原文<TAB>中文译文）；{0}、{1}、{2} 占位符必须保留
+(empty file)	（空文件）
+(empty)	（空）
+(no output)	（无输出）
+AI assistant that can work with your computer	可以与您的电脑协同工作的 AI 助手 · 由 BELGESELSEMO 借助 Z.AI 从原版 LuxOS 发行版提取并编译为 Linux/Windows 软件包 · belgeselsemo.com.tr
+About LuxAI	关于 LuxAI
+Accesses private keys or passwords	访问私钥或密码
+Accesses the LuxAI account token	访问 LuxAI 账户令牌
+Agent	智能体
+Agent actions run without asking. Dangerous actions still need two confirmations. Resets when LuxAI restarts.	智能体操作将直接执行而不询问。危险操作仍需两次确认。LuxAI 重启后重置。
+Agent mode · Auto-approve is ON: actions run without asking (dangerous ones still ask twice).	智能体模式 · 自动批准已开启：操作直接执行而不询问（危险操作仍会询问两次）。
+Agent mode · LuxAI can work with your computer. You approve every action that changes something.	智能体模式 · LuxAI 可以操作您的电脑。每一项会改动内容的操作都需您批准。
+Agent mode: I can run commands, manage files, open apps and control the mouse and keyboard – always with your approval.	智能体模式：我可以运行命令、管理文件、打开应用并控制鼠标和键盘——始终经您批准。
+Allow LuxAI to do this?	允许 LuxAI 执行此操作吗？
+Allow once	允许一次
+Allow once…	允许一次…
+Always for this session	本次会话始终允许
+Another conversation is already running on this account. Try again in a moment.	此账户已有另一个对话正在进行。请稍后重试。
+Are you sure? This can cause damage that cannot be undone.	确定吗？这可能造成无法撤销的损坏。
+Arguments	参数
+Ask LuxAI to do something on your computer…	让 LuxAI 在您的电脑上做点什么…
+Ask anything. Switch to Agent mode when you want me to do things on your computer.	随便问。想让我在您的电脑上做事时，切换到智能体模式。
+Attach screenshots for the current model. Turn on only if the model supports images; uses more tokens.	为当前模型附加屏幕截图。仅在模型支持图像时开启；会消耗更多令牌。
+Auto-approve actions	自动批准操作
+Blocked by safety rules	已被安全规则阻止
+Brainstorm	头脑风暴
+CONVERSATIONS	对话
+Cancel	取消
+Changes immutable file attributes	更改不可变文件属性
+Changes permissions of the whole home folder or system	更改整个主目录或系统的权限
+Changes user accounts or passwords	更改用户账户或密码
+Chat	对话
+Chat with AI or let it work with your computer. Sign in with your LuxAI account – one account for all LuxOS apps.	与 AI 聊天，或让它操作您的电脑。使用您的 LuxAI 账户登录——所有 LuxOS 应用共用一个账户。
+Click	点击
+Close window	关闭窗口
+Command timeout (seconds)	命令超时（秒）
+Copied	已复制
+Copy	复制
+Create a free account	创建免费账户
+Create folder	创建文件夹
+Delete	删除
+Delete conversation	删除对话
+Delete this conversation?	删除此对话？
+Deletes all scheduled tasks	删除所有计划任务
+Deletes all untracked files in the repository	删除仓库中所有未跟踪的文件
+Deletes files across the whole home folder or system	删除整个主目录或系统中的文件
+Deletes the whole home folder or system	删除整个主目录或系统
+Denied	已拒绝
+Deny	拒绝
+Details	详情
+Done	完成
+Edit file	编辑文件
+Ends your desktop session	结束您的桌面会话
+Explain how HTTPS keeps my connection private, in simple terms.	用简单的语言解释 HTTPS 如何保护我的连接隐私。
+Explain something	解释一下
+Failed	失败
+Find files	查找文件
+Finish signing in in the LuxAI account window…	请在 LuxAI 账户窗口中完成登录…
+Flash – smarter	Flash——更聪明
+Focus window	聚焦窗口
+Force-pushes and may overwrite remote history	执行强推（force-push），可能覆盖远程历史
+Fork bomb	Fork 炸弹
+Formats or wipes a disk	格式化或清空磁盘
+Free disk space	释放磁盘空间
+Give me 5 ideas for a weekend trip in the Czech Republic.	给我 5 个捷克周末旅行的主意。
+Help with code	编程帮助
+How can I help you today?	今天有什么可以帮您？
+How do I read a JSON file in Python? Show a short example.	在 Python 中如何读取 JSON 文件？请举一个简短的例子。
+It will be permanently removed from this computer.	它将被从此电脑上永久移除。
+Kills all processes or the desktop session	终止所有进程或桌面会话
+List apps	列出应用
+List folder	列出文件夹
+List the files in my Downloads folder grouped by type and suggest what to clean up.	把我“下载”文件夹里的文件按类型分组列出，并建议可以清理哪些。
+List windows	列出窗口
+Lite – faster, larger limit	Lite——更快，额度更大
+Look at my screen	看看我的屏幕
+LuxAI account credentials are never read or changed by the agent	智能体绝不会读取或更改 LuxAI 账户凭据
+LuxAI account…	LuxAI 账户…
+LuxAI can make mistakes. Check important information.	LuxAI 可能会出错。请核对重要信息。
+LuxAI can work with your computer using tools, with your approval	经您批准，LuxAI 可以使用工具操作您的电脑
+Message LuxAI…	给 LuxAI 发消息…
+Model	模型
+Model can see images	模型可以看图
+Move	移动
+Move mouse	移动鼠标
+Moves the whole home folder or system	移动整个主目录或系统
+Network error: {0}	网络错误：{0}
+New chat	新对话
+New conversation	新对话
+No conversations yet	还没有对话
+No result	无结果
+No windows	没有窗口
+Not signed in	未登录
+Not signed in.	未登录。
+Nothing found	未找到任何内容
+Notification	通知
+Offline – usage not available	离线——用量不可用
+Open a website	打开网站
+Open app	打开应用
+Open link	打开链接
+Open lux-ai.cz in the web browser.	在浏览器中打开 lux-ai.cz。
+Overwrites system files	覆盖系统文件
+Plain conversation, no access to your computer	纯对话，不访问您的电脑
+Please sign in again to continue. Your conversations are kept on this computer.	请重新登录以继续。您的对话保存在此电脑上。
+Potentially dangerous action	可能有危险的操作
+Press keys	按键
+Read clipboard	读取剪贴板
+Read file	读取文件
+Recursively deletes a main personal folder	递归删除重要个人文件夹
+Recursively deletes files outside your home folder	递归删除主目录之外的文件
+Refusing to modify the root or home directory itself	拒绝修改根目录或主目录本身
+Removes firewall rules	移除防火墙规则
+Removes installed system packages	移除已安装的系统软件包
+Result	结果
+Run command	运行命令
+Running…	正在运行…
+Runs a script downloaded from the internet	运行从互联网下载的脚本
+Runs with administrator privileges	以管理员权限运行
+Screenshot	屏幕截图
+Scroll	滚动

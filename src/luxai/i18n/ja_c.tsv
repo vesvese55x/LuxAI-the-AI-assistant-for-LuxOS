@@ -1,0 +1,169 @@
+Sign out of LuxAI?	LuxAI からサインアウトしますか？
+Sign out…	サインアウト…
+Signing out failed. Try again in the LuxAI account app.	サインアウトに失敗しました。「LuxAI アカウント」アプリでもう一度お試しください。
+Start	開始
+Stop the answer or command	回答またはコマンドを停止
+Technical	技術的
+The agent never reads or changes anything in these folders.	エージェントはこれらのフォルダー内の何も読み取ったり変更したりしません。
+The folder is blocked in LuxAI settings	フォルダーは LuxAI の設定でブロックされています
+The path is outside the folders allowed in LuxAI settings	パスが LuxAI の設定で許可されたフォルダーの外にあります
+Theme	テーマ
+Used for new conversations. You can switch it any time in the toolbar.	新しい会話に使用します。ツールバーでいつでも切り替えられます。
+Uses the network	ネットワークを使用する
+What Agent mode may do	エージェントモードにできること
+What should LuxAI know about you or how should it answer? E.g. "Call me Tom. Prefer metric units and short answers."	LuxAI はあなたについて何を知るべきですか？またどのように答えるべきですか？例：「トムと呼んで。メートル法と短い回答を好む。」
+When off, new conversations are not saved on this computer and disappear when you close them.	オフの場合、新しい会話はこのコンピューターに保存されず、閉じると消えます。
+With "risky only", read-only commands such as ls, df or git status run without asking.	「リスクの高い操作のみ」では、ls、df、git status などの読み取り専用コマンドは確認なしで実行されます。
+Write and delete files	ファイルを書き込み、削除する
+You will be signed out of your LuxAI account in all LuxOS apps on this computer. Your conversations stay on this computer.	このコンピューター上のすべての LuxOS アプリで LuxAI アカウントからサインアウトします。会話はこのコンピューターに残ります。
+Your messages are sent to the LuxAI service (lux-ai.cz) to generate answers and titles. The agent runs tools only on this computer.	あなたのメッセージは、回答とタイトルを生成するために LuxAI サービス（lux-ai.cz）に送信されます。エージェントはツールをこのコンピューター上でのみ実行します。
+{0} can see images	{0} は画像を見ることができます
+{0} conversations saved	{0} 件の会話を保存済み
+{0} screenshots	スクリーンショット {0} 枚
+# LuxOS の作者への報告（send_feedback）
+(preview not available)	（プレビューを表示できません）
+Bug report	バグ報告
+Contact e-mail for a reply: {0}	返信用の連絡先メール：{0}
+Don't send	送信しない
+Idea	アイデア
+LuxOS could not reach the server. Check the internet connection.	LuxOS がサーバーに接続できませんでした。インターネット接続を確認してください。
+No graphical session; the report is sent without a screenshot.	グラフィカルセッションがないため、報告はスクリーンショットなしで送信されます。
+No screenshot will be attached.	スクリーンショットは添付されません。
+No system information will be attached.	システム情報は添付されません。
+Report sent. Report ID: {0}	報告を送信しました。報告 ID：{0}
+Report text:	報告内容：
+Report to LuxOS	LuxOS に報告
+Search LuxOS docs	LuxOS ドキュメントを検索
+Read LuxOS docs	LuxOS ドキュメントを読む
+Save and send later	保存して後で送信
+Saved. The Feedback app will send the report when you are online.	保存しました。フィードバックアプリがオンラインになったときに報告を送信します。
+Screenshot that will be attached ({0} kB)	添付されるスクリーンショット（{0} kB）
+Screenshots are turned off in LuxAI settings; the report is sent without one.	スクリーンショットは LuxAI の設定でオフになっているため、報告はスクリーンショットなしで送信されます。
+Send report	報告を送信
+Send this report to the author of LuxOS?	この報告を LuxOS の作者に送信しますか？
+Sending failed ({0}).	送信に失敗しました（{0}）。
+Sends the report and attachments shown in this card to the author of LuxOS	このカードに表示された報告と添付ファイルを LuxOS の作者に送信します
+Sent anonymously (you are not signed in).	匿名で送信しました（サインインしていません）。
+Sent with your LuxAI account.	LuxAI アカウントで送信しました。
+Something else	その他
+System information that will be attached (anonymised)	添付されるシステム情報（匿名化済み）
+The e-mail address does not look valid.	メールアドレスが有効な形式ではないようです。
+The message must have 10 to 8000 characters.	メッセージは 10 〜 8000 文字である必要があります。
+The report could not be prepared.	報告を準備できませんでした。
+The report could not be saved: {0}	報告を保存できませんでした：{0}
+The report is too large. Try it without the screenshot.	報告が大きすぎます。スクリーンショットなしでお試しください。
+The screenshot could not be accepted. Try it without the screenshot.	スクリーンショットを受け付けられませんでした。スクリーンショットなしでお試しください。
+The screenshot could not be taken ({0}); the report is sent without one.	スクリーンショットを撮影できませんでした（{0}）。報告はスクリーンショットなしで送信されます。
+The screenshot is too large; the report is sent without one.	スクリーンショットが大きすぎるため、報告はスクリーンショットなしで送信されます。
+Type:	種類：
+You can save the report; the Feedback app will send it automatically later.	報告を保存できます。フィードバックアプリが後で自動的に送信します。
+You have sent many reports in a short time. Please try again later.	短時間に多くの報告を送信しました。しばらくしてからもう一度お試しください。
+At most {0} attachments can be added to one message.	1 つのメッセージには最大 {0} 個の添付ファイルを追加できます。
+At most {0} images can be added to one message.	1 つのメッセージには最大 {0} 枚の画像を追加できます。
+Attach	添付
+Attach images or files	画像やファイルを添付
+Feeds a password to sudo or su (use pkexec instead)	sudo や su にパスワードを渡す（代わりに pkexec を使用してください）
+Pasted image	貼り付けた画像
+Remove attachment	添付ファイルを削除
+The current model cannot see images. They stay in the conversation and are sent when you switch to a model that can see images.	現在のモデルは画像を見ることができません。画像は会話の中に残り、画像に対応したモデルに切り替えたときに送信されます。
+{0} cannot be attached: only images and text files are supported.	{0} は添付できません：画像とテキストファイルのみ対応しています。
+{0} cannot be read as an image.	{0} を画像として読み取れません。
+{0} cannot be read: {1}	{0} を読み取れません：{1}
+{0} is long; only its beginning is attached.	{0} は長いため、冒頭部分のみ添付されます。
+{0} is too large to attach.	{0} は大きすぎて添付できません。
+Administrator commands	管理者コマンド
+Administrator mode was not turned on	管理者モードが有効になっていませんでした
+Ask for the password every time	毎回パスワードを尋ねる
+Password once for 5 minutes, approve each command	パスワードは 5 分間 1 回、各コマンドを承認
+Password once for 5 minutes, without asking	パスワードは 5 分間 1 回、確認なし
+Commands the agent runs as administrator (root). Administrator mode: you enter the administrator password once and for about 5 minutes LuxAI runs administrator commands without asking for it again; only this LuxAI window gets it, other programs still need the password. Requests sent to LuxAI by other programs always need your approval. Only with the Flash model; Lite always asks for the password. Destructive commands (deleting the system or home folder, formatting disks, removing the bootloader, changing accounts, sudo or polkit) are always refused. Every command is logged in ~/.local/state/luxai/root-commands.log.	エージェントが管理者（root）として実行するコマンド。管理者モード：管理者パスワードを 1 回入力すると、約 5 分間は LuxAI が管理者コマンドを再確認なしで実行します。これを受け取るのはこの LuxAI ウィンドウだけで、他のプログラムは引き続きパスワードが必要です。他のプログラムから LuxAI へのリクエストには常にあなたの承認が必要です。Flash モデルのみ対応。Lite は常にパスワードを尋ねます。破壊的なコマンド（システムやホームフォルダーの削除、ディスクのフォーマット、ブートローダーの削除、アカウントの変更、sudo や polkit）は常に拒否されます。すべてのコマンドは ~/.local/state/luxai/root-commands.log に記録されます。
+The request came from another program, not from the LuxAI window	リクエストは LuxAI ウィンドウではなく、別のプログラムから来ました
+Changes LuxAI administrator mode, settings or account	LuxAI の管理者モード、設定またはアカウントを変更する
+Changes owner or permissions of the whole system or a system folder	システム全体またはシステムフォルダーの所有者や権限を変更する
+Changes sudo, polkit or PAM configuration	sudo、polkit、PAM の設定を変更する
+Crashes or instantly reboots the kernel	カーネルをクラッシュさせるか即座に再起動する
+Deletes the whole system, a system folder or a home folder	システム全体、システムフォルダー、ホームフォルダーを削除する
+Disables package signature checks	パッケージの署名検証を無効にする
+Formats, wipes or writes directly to a disk	ディスクをフォーマット、消去、または直接書き込む
+LuxAI administrator mode is not installed (update LuxAI)	LuxAI の管理者モードがインストールされていません（LuxAI をアップデートしてください）
+Removes the bootloader, the EFI partition, kernels or core system packages	ブートローダー、EFI パーティション、カーネル、または中核的なシステムパッケージを削除する
+Runs a script downloaded from the internet as administrator	インターネットからダウンロードしたスクリプトを管理者として実行する
+Runs as administrator (root)	管理者（root）として実行する
+Runs generated or hidden code as administrator, which cannot be checked	検証できない、生成または隠されたコードを管理者として実行する
+The administrator password was not entered	管理者パスワードが入力されていません
+The target of a destructive command cannot be verified (variable, substitution or unknown folder)	破壊的なコマンドの対象を検証できません（変数、置換、不明なフォルダー）
+Installs community (AUR) code, which is not checked by LuxOS	LuxOS が検証していないコミュニティ（AUR）コードをインストールする
+Copy code	コードをコピー
+Copy the whole answer	回答全体をコピー
+Read web page	ウェブページを読む
+Search the web	ウェブを検索
+Web content is in this conversation and may contain hidden instructions	この会話にはウェブの内容が含まれており、隠れた指示が含まれている可能性があります
+Web content is in this conversation: check this command carefully	この会話にはウェブの内容が含まれています：このコマンドを慎重に確認してください
+{0} characters of text	{0} 文字のテキスト
+LuxAI wants to open this web address:	LuxAI がこのウェブアドレスを開こうとしています：
+This address was not given by you or found by web search; it could send data from this conversation to that website	このアドレスはあなたが指定したものでもウェブ検索で見つかったものでもありません。この会話のデータをそのウェブサイトに送信する可能性があります
+Address of a point	ある地点の住所
+Arrivals	到着
+By bike	自転車で
+By car	車で
+Connections found: {0}	見つかった乗り継ぎ：{0} 件
+Current location	現在地
+Departures	出発
+Find on map	地図で探す
+Location is not allowed. Open Maps and click the location button once to allow it.	位置情報が許可されていません。「地図」を開き、位置情報ボタンを 1 回クリックして許可してください。
+LuxOS Maps is not installed (lux install luxos-maps).	LuxOS マップがインストールされていません（lux install luxos-maps）。
+Map data © OpenStreetMap contributors	地図データ © OpenStreetMap contributors
+No connection found	乗り継ぎが見つかりません
+On foot	徒歩で
+Open in Maps	「地図」で開く
+Places found: {0}	見つかった場所：{0} 件
+Places nearby	近くの場所
+Public transport	公共交通機関
+Public transport route	公共交通機関のルート
+Route	ルート
+Show in Maps	「地図」で表示
+Shown in Maps	「地図」に表示されました
+The map service is busy. Try again later.	地図サービスが混み合っています。後でもう一度お試しください。
+Timetable	時刻表
+Walk {0} m	{0} m 歩く
+cancelled	中止
+direct	直通
+platform {0}	プラットフォーム {0}
+{0} transfers	乗り継ぎ {0} 回
+The request is too large – the image or the conversation is too big. Start a new conversation or continue without the image.	リクエストが大きすぎます。画像または会話が大きすぎます。新しい会話を開始するか、画像なしで続行してください。
+This action requires confirmation on the computer	この操作にはコンピューター上での確認が必要です
+The request was stopped.	リクエストは停止されました。
+Another request is still running. Wait for it to finish or cancel it.	別のリクエストがまだ実行中です。完了を待つか、キャンセルしてください。
+You are not signed in to LuxAI. Sign in in the LuxAI app on the computer.	LuxAI にサインインしていません。コンピューター上の LuxAI アプリでサインインしてください。
+Calendar events	カレンダーの予定
+New calendar event	新しいカレンダーの予定
+Change calendar event	カレンダーの予定を変更
+Delete calendar event	カレンダーの予定を削除
+Adds an event to your LuxOS Calendar	LuxOS カレンダーに予定を追加します
+Changes an event in your LuxOS Calendar	LuxOS カレンダーの予定を変更します
+Deletes an event from your LuxOS Calendar	LuxOS カレンダーから予定を削除します
+Monday	月曜日
+Tuesday	火曜日
+Wednesday	水曜日
+Thursday	木曜日
+Friday	金曜日
+Saturday	土曜日
+Sunday	日曜日
+all day	終日
+Location: {0}	場所：{0}
+Reminder: {0} min before	リマインダー：{0} 分前
+Calendar: {0}	カレンダー：{0}
+Events: {0}	予定：{0}
+No events in this period.	この期間には予定がありません。
+… and {0} more	…ほか {0} 件
+Before:	変更前：
+After:	変更後：
+Repeating event – the change applies to all its occurrences.	繰り返しの予定です。変更はすべての繰り返しに適用されます。
+Added to the calendar.	カレンダーに追加しました。
+Changed in the calendar.	カレンダーで変更しました。
+Deleted from the calendar.	カレンダーから削除しました。
+Done.	完了しました。
+Denied on the phone.	スマートフォンで拒否されました。
+Not approved on the phone in time.	スマートフォンで時間内に承認されませんでした。
+Blocked by LuxAI safety rules.	LuxAI の安全ルールによりブロックされました。
+This model is not available in LuxAI.	このモデルは LuxAI では利用できません。

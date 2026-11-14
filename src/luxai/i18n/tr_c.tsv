@@ -1,0 +1,169 @@
+Sign out of LuxAI?	LuxAI oturumu kapatılsın mı?
+Sign out…	Oturumu kapat…
+Signing out failed. Try again in the LuxAI account app.	Oturum kapatma başarısız oldu. LuxAI hesap uygulamasında yeniden deneyin.
+Start	Başlat
+Stop the answer or command	Yanıtı veya komutu durdur
+Technical	Teknik
+The agent never reads or changes anything in these folders.	Agent bu klasörlerdeki hiçbir şeyi asla okumaz veya değiştirmez.
+The folder is blocked in LuxAI settings	Klasör, LuxAI ayarlarında engellenmiş
+The path is outside the folders allowed in LuxAI settings	Yol, LuxAI ayarlarında izin verilen klasörlerin dışında
+Theme	Tema
+Used for new conversations. You can switch it any time in the toolbar.	Yeni sohbetler için kullanılır. Araç çubuğundan dilediğiniz zaman değiştirebilirsiniz.
+Uses the network	Ağı kullanır
+What Agent mode may do	Agent modunun yapabilecekleri
+What should LuxAI know about you or how should it answer? E.g. "Call me Tom. Prefer metric units and short answers."	LuxAI sizin hakkında ne bilsin veya nasıl yanıt versin? Örn. "Bana Tom de. Metrik birimleri ve kısa yanıtları tercih et."
+When off, new conversations are not saved on this computer and disappear when you close them.	Kapalıyken yeni sohbetler bu bilgisayara kaydedilmez ve kapatıldıklarında kaybolur.
+With "risky only", read-only commands such as ls, df or git status run without asking.	"Yalnızca riskli" seçimiyle ls, df veya git status gibi salt okunur komutlar sorulmadan çalışır.
+Write and delete files	Dosyaları yaz ve sil
+You will be signed out of your LuxAI account in all LuxOS apps on this computer. Your conversations stay on this computer.	Bu bilgisayardaki tüm LuxOS uygulamalarında LuxAI hesabınızdan çıkış yapılacak. Sohbetleriniz bu bilgisayarda kalır.
+Your messages are sent to the LuxAI service (lux-ai.cz) to generate answers and titles. The agent runs tools only on this computer.	Mesajlarınız, yanıt ve başlık oluşturmak için LuxAI servisine (lux-ai.cz) gönderilir. Agent, araçları yalnızca bu bilgisayarda çalıştırır.
+{0} can see images	{0} görselleri görebilir
+{0} conversations saved	{0} sohbet kaydedildi
+{0} screenshots	{0} ekran görüntüsü
+# LuxOS yazarına bildirim (send_feedback)
+(preview not available)	(önizleme yok)
+Bug report	Hata bildirimi
+Contact e-mail for a reply: {0}	Yanıt için iletişim e-postası: {0}
+Don't send	Gönderme
+Idea	Fikir
+LuxOS could not reach the server. Check the internet connection.	LuxOS sunucuya ulaşamadı. İnternet bağlantısını denetleyin.
+No graphical session; the report is sent without a screenshot.	Grafiksel oturum yok; bildirim ekran görüntüsü olmadan gönderilir.
+No screenshot will be attached.	Ekran görüntüsü eklenmeyecek.
+No system information will be attached.	Sistem bilgisi eklenmeyecek.
+Report sent. Report ID: {0}	Bildirim gönderildi. Bildirim kimliği: {0}
+Report text:	Bildirim metni:
+Report to LuxOS	LuxOS'a bildir
+Search LuxOS docs	LuxOS belgelerinde ara
+Read LuxOS docs	LuxOS belgelerini oku
+Save and send later	Kaydet ve sonra gönder
+Saved. The Feedback app will send the report when you are online.	Kaydedildi. Geri Bildirim uygulaması, çevrimiçi olduğunuzda bildirimi gönderecek.
+Screenshot that will be attached ({0} kB)	Eklenecek ekran görüntüsü ({0} kB)
+Screenshots are turned off in LuxAI settings; the report is sent without one.	Ekran görüntüleri LuxAI ayarlarında kapalı; bildirim ekran görüntüsü olmadan gönderilir.
+Send report	Bildirimi gönder
+Send this report to the author of LuxOS?	Bu bildirim LuxOS yazarına gönderilsin mi?
+Sending failed ({0}).	Gönderme başarısız oldu ({0}).
+Sends the report and attachments shown in this card to the author of LuxOS	Bu kartta gösterilen bildirimi ve ekleri LuxOS yazarına gönderir
+Sent anonymously (you are not signed in).	Anonim olarak gönderildi (oturum açmadınız).
+Sent with your LuxAI account.	LuxAI hesabınızla gönderildi.
+Something else	Başka bir şey
+System information that will be attached (anonymised)	Eklenecek sistem bilgisi (anonimleştirilmiş)
+The e-mail address does not look valid.	E-posta adresi geçerli görünmüyor.
+The message must have 10 to 8000 characters.	Mesaj 10 ile 8000 karakter arasında olmalı.
+The report could not be prepared.	Bildirim hazırlanamadı.
+The report could not be saved: {0}	Bildirim kaydedilemedi: {0}
+The report is too large. Try it without the screenshot.	Bildirim çok büyük. Ekran görüntüsü olmadan deneyin.
+The screenshot could not be accepted. Try it without the screenshot.	Ekran görüntüsü kabul edilemedi. Ekran görüntüsü olmadan deneyin.
+The screenshot could not be taken ({0}); the report is sent without one.	Ekran görüntüsü alınamadı ({0}); bildirim ekran görüntüsü olmadan gönderilir.
+The screenshot is too large; the report is sent without one.	Ekran görüntüsü çok büyük; bildirim ekran görüntüsü olmadan gönderilir.
+Type:	Tür:
+You can save the report; the Feedback app will send it automatically later.	Bildirimi kaydedebilirsiniz; Geri Bildirim uygulaması onu daha sonra otomatik gönderecek.
+You have sent many reports in a short time. Please try again later.	Kısa sürede çok fazla bildirim gönderdiniz. Lütfen daha sonra tekrar deneyin.
+At most {0} attachments can be added to one message.	Bir mesaja en fazla {0} ek eklenebilir.
+At most {0} images can be added to one message.	Bir mesaja en fazla {0} görsel eklenebilir.
+Attach	Ekle
+Attach images or files	Görsel veya dosya ekle
+Feeds a password to sudo or su (use pkexec instead)	sudo veya su'ya parola besler (yerine pkexec kullanın)
+Pasted image	Yapıştırılan görüntü
+Remove attachment	Eki kaldır
+The current model cannot see images. They stay in the conversation and are sent when you switch to a model that can see images.	Mevcut model görselleri göremiyor. Bunlar sohbette kalır ve görselleri görebilen bir modele geçtiğinizde gönderilir.
+{0} cannot be attached: only images and text files are supported.	{0} eklenemiyor: yalnızca görseller ve metin dosyaları destekleniyor.
+{0} cannot be read as an image.	{0} görsel olarak okunamıyor.
+{0} cannot be read: {1}	{0} okunamıyor: {1}
+{0} is long; only its beginning is attached.	{0} uzun; yalnızca başındaki bölüm ekleniyor.
+{0} is too large to attach.	{0} eklenemeyecek kadar büyük.
+Administrator commands	Yönetici komutları
+Administrator mode was not turned on	Yönetici modu açılmadı
+Ask for the password every time	Her seferinde parola sor
+Password once for 5 minutes, approve each command	Parola 5 dakika için bir kez, her komutu onayla
+Password once for 5 minutes, without asking	Parola 5 dakika için bir kez, sormadan
+Commands the agent runs as administrator (root). Administrator mode: you enter the administrator password once and for about 5 minutes LuxAI runs administrator commands without asking for it again; only this LuxAI window gets it, other programs still need the password. Requests sent to LuxAI by other programs always need your approval. Only with the Flash model; Lite always asks for the password. Destructive commands (deleting the system or home folder, formatting disks, removing the bootloader, changing accounts, sudo or polkit) are always refused. Every command is logged in ~/.local/state/luxai/root-commands.log.	Agent'ın yönetici (root) olarak çalıştırdığı komutlar. Yönetici modu: yönetici parolasını bir kez girersiniz ve yaklaşık 5 dakika boyunca LuxAI yönetici komutlarını yeniden sormadan çalıştırır; bunu yalnızca bu LuxAI penceresi alır, diğer programlar yine de parola ister. Diğer programların LuxAI'ye gönderdiği istekler daima onayınızı gerektirir. Yalnızca Flash modeliyle; Lite daima parolayı sorar. Yıkıcı komutlar (sistemi veya ev klasörünü silmek, diskleri biçimlendirmek, önyükleyiciyi kaldırmak, hesapları değiştirmek, sudo veya polkit) daima reddedilir. Her komut ~/.local/state/luxai/root-commands.log dosyasına kaydedilir.
+The request came from another program, not from the LuxAI window	İstek, LuxAI penceresinden değil başka bir programdan geldi
+Changes LuxAI administrator mode, settings or account	LuxAI yönetici modunu, ayarlarını veya hesabını değiştirir
+Changes owner or permissions of the whole system or a system folder	Tüm sistemin veya bir sistem klasörünün sahibini veya izinlerini değiştirir
+Changes sudo, polkit or PAM configuration	sudo, polkit veya PAM yapılandırmasını değiştirir
+Crashes or instantly reboots the kernel	Çekirdeği çökertir veya anında yeniden başlatır
+Deletes the whole system, a system folder or a home folder	Tüm sistemi, bir sistem klasörünü veya ev klasörünü siler
+Disables package signature checks	Paket imza denetimlerini devre dışı bırakır
+Formats, wipes or writes directly to a disk	Diski biçimlendirir, siler veya doğrudan diske yazar
+LuxAI administrator mode is not installed (update LuxAI)	LuxAI yönetici modu kurulu değil (LuxAI'yi güncelleyin)
+Removes the bootloader, the EFI partition, kernels or core system packages	Önyükleyiciyi, EFI bölümünü, çekirdekleri veya temel sistem paketlerini kaldırır
+Runs a script downloaded from the internet as administrator	İnternetten indirilmiş bir betiği yönetici olarak çalıştırır
+Runs as administrator (root)	Yönetici (root) olarak çalıştırır
+Runs generated or hidden code as administrator, which cannot be checked	Doğrulanamayan, üretilmiş veya gizli kodu yönetici olarak çalıştırır
+The administrator password was not entered	Yönetici parolası girilmedi
+The target of a destructive command cannot be verified (variable, substitution or unknown folder)	Yıkıcı bir komutun hedefi doğrulanamıyor (değişken, ikame veya bilinmeyen klasör)
+Installs community (AUR) code, which is not checked by LuxOS	LuxOS tarafından denetlenmeyen topluluk (AUR) kodu kurar
+Copy code	Kodu kopyala
+Copy the whole answer	Tüm yanıtı kopyala
+Read web page	Web sayfasını oku
+Search the web	Web'de ara
+Web content is in this conversation and may contain hidden instructions	Sohbette web içeriği var ve gizli talimatlar içerebilir
+Web content is in this conversation: check this command carefully	Sohbette web içeriği var: bu komutu dikkatle denetleyin
+{0} characters of text	{0} karakter metin
+LuxAI wants to open this web address:	LuxAI bu web adresini açmak istiyor:
+This address was not given by you or found by web search; it could send data from this conversation to that website	Bu adres sizin tarafınızdan verilmedi veya web aramasında bulunmadı; bu sohbetteki verileri o web sitesine gönderebilir
+Address of a point	Bir noktanın adresi
+Arrivals	Varışlar
+By bike	Bisikletle
+By car	Otomobille
+Connections found: {0}	Bulunan bağlantılar: {0}
+Current location	Mevcut konum
+Departures	Kalkışlar
+Find on map	Haritada bul
+Location is not allowed. Open Maps and click the location button once to allow it.	Konuma izin verilmiyor. İzin vermek için Haritalar'ı açın ve konum düğmesine bir kez tıklayın.
+LuxOS Maps is not installed (lux install luxos-maps).	LuxOS Haritalar kurulu değil (lux install luxos-maps).
+Map data © OpenStreetMap contributors	Harita verileri © OpenStreetMap katkıcıları
+No connection found	Bağlantı bulunamadı
+On foot	Yürüyerek
+Open in Maps	Haritalar'da aç
+Places found: {0}	Bulunan yerler: {0}
+Places nearby	Yakındaki yerler
+Public transport	Toplu taşıma
+Public transport route	Toplu taşıma güzergâhı
+Route	Güzergâh
+Show in Maps	Haritalar'da göster
+Shown in Maps	Haritalar'da gösterildi
+The map service is busy. Try again later.	Harita servisi meşgul. Daha sonra tekrar deneyin.
+Timetable	Zaman çizelgesi
+Walk {0} m	{0} m yürüyüş
+cancelled	iptal edildi
+direct	direkt
+platform {0}	peron {0}
+{0} transfers	{0} aktarma
+The request is too large – the image or the conversation is too big. Start a new conversation or continue without the image.	İstek çok büyük – görsel veya sohbet çok büyük. Yeni bir sohbet başlatın veya görsel olmadan devam edin.
+This action requires confirmation on the computer	Bu eylem bilgisayarda onay gerektiriyor
+The request was stopped.	İstek durduruldu.
+Another request is still running. Wait for it to finish or cancel it.	Başka bir istek hâlâ çalışıyor. Bitmesini bekleyin veya iptal edin.
+You are not signed in to LuxAI. Sign in in the LuxAI app on the computer.	LuxAI'ye oturum açmadınız. Bilgisayardaki LuxAI uygulamasında oturum açın.
+Calendar events	Takvim olayları
+New calendar event	Yeni takvim olayı
+Change calendar event	Takvim olayını değiştir
+Delete calendar event	Takvim olayını sil
+Adds an event to your LuxOS Calendar	LuxOS Takvim'inize bir olay ekler
+Changes an event in your LuxOS Calendar	LuxOS Takviminizdeki bir olayı değiştirir
+Deletes an event from your LuxOS Calendar	LuxOS Takviminizden bir olayı siler
+Monday	Pazartesi
+Tuesday	Salı
+Wednesday	Çarşamba
+Thursday	Perşembe
+Friday	Cuma
+Saturday	Cumartesi
+Sunday	Pazar
+all day	tüm gün
+Location: {0}	Konum: {0}
+Reminder: {0} min before	Hatırlatma: {0} dk önce
+Calendar: {0}	Takvim: {0}
+Events: {0}	Olaylar: {0}
+No events in this period.	Bu dönemde olay yok.
+… and {0} more	… ve {0} tane daha
+Before:	Önce:
+After:	Sonra:
+Repeating event – the change applies to all its occurrences.	Tekrarlayan olay – değişiklik tüm yinelenmelerine uygulanır.
+Added to the calendar.	Takvime eklendi.
+Changed in the calendar.	Takvimde değiştirildi.
+Deleted from the calendar.	Takvimden silindi.
+Done.	Tamamlandı.
+Denied on the phone.	Telefonda reddedildi.
+Not approved on the phone in time.	Telefonda zamanında onaylanmadı.
+Blocked by LuxAI safety rules.	LuxAI güvenlik kuralları tarafından engellendi.
+This model is not available in LuxAI.	Bu model LuxAI'de kullanılamıyor.
