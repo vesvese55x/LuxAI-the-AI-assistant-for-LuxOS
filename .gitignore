@@ -16,3 +16,6 @@ Thumbs.db
 # Extracted upstream (kept vendored only as src/vendor/*.deb)
 upstream/
 .work/
+
+# vendored upstream packages ARE part of the source
+!src/vendor/*.pkg.tar.zst
