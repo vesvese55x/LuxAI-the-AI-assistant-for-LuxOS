@@ -30,13 +30,14 @@ SIG = {
     "sk": "Získané z pôvodnej distribúcie LuxOS a zostavené spoločnosťou BELGESELSEMO pomocou Z.AI ako balíky pre Linux/Windows · belgeselsemo.com.tr",
     "sv": "Hämtad från den ursprungliga LuxOS-distributionen och kompilerad av BELGESELSEMO, med hjälp av Z.AI, som Linux/Windows-paket · belgeselsemo.com.tr",
     "uk": "Отримано з оригінальної дистрибуції LuxOS і скомпільовано BELGESELSEMO за допомогою Z.AI як пакети Linux/Windows · belgeselsemo.com.tr",
+    "hi": "मूल LuxOS वितरण से प्राप्त कर Z.AI की सहायता से BELGESELSEMO द्वारा Linux/Windows पैकेजों के रूप में संकलित · belgeselsemo.com.tr",
 }
 
 os.makedirs(BLD, exist_ok=True)
 os.makedirs(BLD_OS, exist_ok=True)
 
 # 1. new full translations
-for lang in ("tr", "ru", "zh", "ja"):
+for lang in ("tr", "ru", "zh", "ja", "hi"):
     shutil.copy(f"{W}/luxai_{lang}.tsv", f"{BLD}/{lang}.tsv")
     shutil.copy(os.path.join(REPO, "src", "luxai", "i18n", f"account_{lang}.tsv"), f"{BLD_OS}/{lang}.tsv")
 
@@ -61,7 +62,7 @@ for lang in ("cs", "de", "es", "fr", "hu", "it", "nl", "pl", "pt", "sk", "sv", "
 
 # 3. verify account tsvs
 import re
-for lang in ("tr", "ru", "zh", "ja"):
+for lang in ("tr", "ru", "zh", "ja", "hi"):
     p = f"{BLD_OS}/{lang}.tsv"
     n = 0
     bad = 0

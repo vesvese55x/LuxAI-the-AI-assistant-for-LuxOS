@@ -1,0 +1,154 @@
+# LuxAI - हिन्दी अनुवाद (अंग्रेज़ी पाठ<TAB>हिन्दी पाठ); {0}, {1}, {2} अवश्य सुरक्षित रखे जाएँ
+With "risky only", read-only commands such as ls, df or git status run without asking.	"केवल जोखिम भरे" में ls, df या git status जैसी केवल-पठन कमांड पूछे बिना चलती हैं।
+Write and delete files	फ़ाइलें लिखें और हटाएँ
+You will be signed out of your LuxAI account in all LuxOS apps on this computer. Your conversations stay on this computer.	इस कंप्यूटर के सभी LuxOS ऐप्स में आप LuxAI खाते से साइन आउट हो जाएँगे। आपकी बातचीतें इसी कंप्यूटर पर रहती हैं।
+Your messages are sent to the LuxAI service (lux-ai.cz) to generate answers and titles. The agent runs tools only on this computer.	उत्तर और शीर्षक बनाने के लिए आपके संदेश LuxAI सेवा (lux-ai.cz) को भेजे जाते हैं। एजेंट औज़ार केवल इसी कंप्यूटर पर चलाता है।
+{0} can see images	{0} चित्र देख सकता है
+{0} conversations saved	{0} बातचीतें सहेजी गईं
+{0} screenshots	{0} स्क्रीनशॉट
+(preview not available)	(पूर्वावलोकन उपलब्ध नहीं)
+Bug report	बग रिपोर्ट
+Contact e-mail for a reply: {0}	उत्तर के लिए संपर्क ईमेल: {0}
+Don't send	न भेजें
+Idea	विचार
+LuxOS could not reach the server. Check the internet connection.	LuxOS सर्वर तक नहीं पहुँच सका। इंटरनेट कनेक्शन जाँचें।
+No graphical session; the report is sent without a screenshot.	कोई ग्राफ़िकल सत्र नहीं; रिपोर्ट बिना स्क्रीनशॉट भेजी जाती है।
+No screenshot will be attached.	कोई स्क्रीनशॉट संलग्न नहीं होगा।
+No system information will be attached.	कोई सिस्टम सूचना संलग्न नहीं होगी।
+Report sent. Report ID: {0}	रिपोर्ट भेजी गई। रिपोर्ट आईडी: {0}
+Report text:	रिपोर्ट पाठ:
+Report to LuxOS	LuxOS को रिपोर्ट करें
+Search LuxOS docs	LuxOS दस्तावेज़ खोजें
+Read LuxOS docs	LuxOS दस्तावेज़ पढ़ें
+Save and send later	सहेजें और बाद में भेजें
+Saved. The Feedback app will send the report when you are online.	सहेज लिया। ऑनलाइन आने पर Feedback ऐप रिपोर्ट भेज देगा।
+Screenshot that will be attached ({0} kB)	संलग्न होने वाला स्क्रीनशॉट ({0} kB)
+Screenshots are turned off in LuxAI settings; the report is sent without one.	LuxAI सेटिंग्स में स्क्रीनशॉट बंद हैं; रिपोर्ट बिना स्क्रीनशॉट भेजी जाती है।
+Send report	रिपोर्ट भेजें
+Send this report to the author of LuxOS?	यह रिपोर्ट LuxOS के लेखक को भेजनी है?
+Sending failed ({0}).	भेजना विफल रहा ({0})।
+Sends the report and attachments shown in this card to the author of LuxOS	इस कार्ड में दिखाई गई रिपोर्ट और संलग्नक LuxOS के लेखक को भेजता है
+Sent anonymously (you are not signed in).	गुमनाम रूप से भेजी गई (आप साइन इन नहीं हैं)।
+Sent with your LuxAI account.	आपके LuxAI खाते से भेजी गई।
+Something else	अन्य कुछ
+System information that will be attached (anonymised)	संलग्न होने वाली सिस्टम सूचना (गुमनाम की गई)
+The e-mail address does not look valid.	ईमेल पता वैध नहीं लगता।
+The message must have 10 to 8000 characters.	संदेश में 10 से 8000 वर्ण होने चाहिए।
+The report could not be prepared.	रिपोर्ट तैयार नहीं की जा सकी।
+The report could not be saved: {0}	रिपोर्ट सहेजी नहीं जा सकी: {0}
+The report is too large. Try it without the screenshot.	रिपोर्ट बहुत बड़ी है। बिना स्क्रीनशॉट प्रयास करें।
+The screenshot could not be accepted. Try it without the screenshot.	स्क्रीनशॉट स्वीकार नहीं किया जा सका। बिना स्क्रीनशॉट प्रयास करें।
+The screenshot could not be taken ({0}); the report is sent without one.	स्क्रीनशॉट नहीं लिया जा सका ({0}); रिपोर्ट बिना स्क्रीनशॉट भेजी जाती है।
+The screenshot is too large; the report is sent without one.	स्क्रीनशॉट बहुत बड़ा है; रिपोर्ट बिना स्क्रीनशॉट भेजी जाती है।
+Type:	प्रकार:
+You can save the report; the Feedback app will send it automatically later.	आप रिपोर्ट सहेज सकते हैं; Feedback ऐप उसे बाद में स्वतः भेज देगा।
+You have sent many reports in a short time. Please try again later.	आपने छोटे समय में बहुत सारी रिपोर्ट भेजी हैं। कृपया बाद में फिर प्रयास करें।
+At most {0} attachments can be added to one message.	एक संदेश में अधिकतम {0} संलग्नक जोड़े जा सकते हैं।
+At most {0} images can be added to one message.	एक संदेश में अधिकतम {0} चित्र जोड़े जा सकते हैं।
+Attach	संलग्न करें
+Attach images or files	चित्र या फ़ाइलें संलग्न करें
+Feeds a password to sudo or su (use pkexec instead)	sudo या su को पासवर्ड देता है (इसके बदले pkexec का उपयोग करें)
+Pasted image	पेस्ट किया गया चित्र
+Remove attachment	संलग्नक हटाएँ
+The current model cannot see images. They stay in the conversation and are sent when you switch to a model that can see images.	वर्तमान मॉडल चित्र नहीं देख सकता। वे बातचीत में रहते हैं और चित्र देख सकने वाले मॉडल पर जाने पर भेजे जाते हैं।
+{0} cannot be attached: only images and text files are supported.	{0} संलग्न नहीं किया जा सकता: केवल चित्र और पाठ फ़ाइलें समर्थित हैं।
+{0} cannot be read as an image.	{0} को चित्र के रूप में नहीं पढ़ा जा सकता।
+{0} cannot be read: {1}	{0} नहीं पढ़ा जा सकता: {1}
+{0} is long; only its beginning is attached.	{0} लंबा है; केवल उसका प्रारंभिक भाग संलग्न है।
+{0} is too large to attach.	{0} संलग्न करने के लिए बहुत बड़ा है।
+Administrator commands	प्रशासक कमांड
+Administrator mode was not turned on	प्रशासक मोड चालू नहीं किया गया था
+Ask for the password every time	हर बार पासवर्ड माँगें
+Password once for 5 minutes, approve each command	पासवर्ड 5 मिनट के लिए एक बार, हर कमांड की मंज़ूरी लें
+Password once for 5 minutes, without asking	पासवर्ड 5 मिनट के लिए एक बार, बिना पूछे
+Commands the agent runs as administrator (root). Administrator mode: you enter the administrator password once and for about 5 minutes LuxAI runs administrator commands without asking for it again; only this LuxAI window gets it, other programs still need the password. Requests sent to LuxAI by other programs always need your approval. Only with the Flash model; Lite always asks for the password. Destructive commands (deleting the system or home folder, formatting disks, removing the bootloader, changing accounts, sudo or polkit) are always refused. Every command is logged in ~/.local/state/luxai/root-commands.log.	एजेंट द्वारा प्रशासक (root) के रूप में चलाई जाने वाली कमांड। प्रशासक मोड: आप प्रशासक पासवर्ड एक बार दर्ज करते हैं और लगभग 5 मिनट तक LuxAI बिना फिर पूछे प्रशासक कमांड चलाता है; यह केवल इसी LuxAI विंडो को मिलता है, अन्य प्रोग्रामों को फिर भी पासवर्ड चाहिए। अन्य प्रोग्रामों द्वारा LuxAI को भेजे गए अनुरोधों को सदैव आपकी मंज़ूरी चाहिए। केवल Flash मॉडल के साथ; Lite सदैव पासवर्ड माँगता है। विनाशकारी कमांड (सिस्टम या होम फ़ोल्डर हटाना, डिस्क फ़ॉर्मेट करना, बूटलोडर हटाना, खाते बदलना, sudo या polkit) सदैव अस्वीकार की जाती हैं। हर कमांड ~/.local/state/luxai/root-commands.log में लॉग होती है।
+The request came from another program, not from the LuxAI window	अनुरोध LuxAI विंडो से नहीं, अन्य किसी प्रोग्राम से आया
+Changes LuxAI administrator mode, settings or account	LuxAI प्रशासक मोड, सेटिंग्स या खाता बदलता है
+Changes owner or permissions of the whole system or a system folder	पूरे सिस्टम या किसी सिस्टम फ़ोल्डर का स्वामित्व या अनुमतियाँ बदलता है
+Changes sudo, polkit or PAM configuration	sudo, polkit या PAM विन्यास बदलता है
+Crashes or instantly reboots the kernel	कर्नेल को क्रैश या तुरंत रीबूट करता है
+Deletes the whole system, a system folder or a home folder	पूरा सिस्टम, कोई सिस्टम फ़ोल्डर या होम फ़ोल्डर हटाता है
+Disables package signature checks	पैकेज हस्ताक्षर जाँच अक्षम करता है
+Formats, wipes or writes directly to a disk	डिस्क को फ़ॉर्मेट, मिटाता या सीधे उस पर लिखता है
+LuxAI administrator mode is not installed (update LuxAI)	LuxAI प्रशासक मोड स्थापित नहीं है (LuxAI अपडेट करें)
+Removes the bootloader, the EFI partition, kernels or core system packages	बूटलोडर, EFI पार्टीशन, कर्नेल या कोर सिस्टम पैकेज हटाता है
+Runs a script downloaded from the internet as administrator	इंटरनेट से डाउनलोड की गई स्क्रिप्ट प्रशासक के रूप में चलाता है
+Runs as administrator (root)	प्रशासक (root) के रूप में चलाता है
+Runs generated or hidden code as administrator, which cannot be checked	जनित या छिपा हुआ कोड प्रशासक के रूप में चलाता है, जिसे जाँचा नहीं जा सकता
+The administrator password was not entered	प्रशासक पासवर्ड दर्ज नहीं किया गया
+The target of a destructive command cannot be verified (variable, substitution or unknown folder)	विनाशकारी कमांड का लक्ष्य सत्यापित नहीं किया जा सकता (चर, प्रतिस्थापन या अज्ञात फ़ोल्डर)
+Installs community (AUR) code, which is not checked by LuxOS	सामुदायिक (AUR) कोड स्थापित करता है, जिसे LuxOS जाँचता नहीं
+Copy code	कोड कॉपी करें
+Copy the whole answer	पूरा उत्तर कॉपी करें
+Read web page	वेब पेज पढ़ें
+Search the web	वेब खोजें
+Web content is in this conversation and may contain hidden instructions	इस बातचीत में वेब सामग्री है और उसमें छिपे निर्देश हो सकते हैं
+Web content is in this conversation: check this command carefully	इस बातचीत में वेब सामग्री है: इस कमांड को ध्यान से जाँचें
+{0} characters of text	{0} वर्ण का पाठ
+LuxAI wants to open this web address:	LuxAI यह वेब पता खोलना चाहता है:
+This address was not given by you or found by web search; it could send data from this conversation to that website	यह पता आपके द्वारा नहीं दिया गया या वेब खोज से नहीं मिला; यह इस बातचीत का डेटा उस वेबसाइट को भेज सकता है
+Address of a point	किसी स्थान का पता
+Arrivals	आगमन
+By bike	साइकिल से
+By car	कार से
+Connections found: {0}	मिले कनेक्शन: {0}
+Current location	वर्तमान स्थान
+Departures	प्रस्थान
+Find on map	नक्शे पर खोजें
+Location is not allowed. Open Maps and click the location button once to allow it.	स्थान की अनुमति नहीं है। Maps खोलकर स्थान बटन पर एक बार क्लिक करके अनुमति दें।
+LuxOS Maps is not installed (lux install luxos-maps).	LuxOS Maps स्थापित नहीं है (lux install luxos-maps)।
+Map data © OpenStreetMap contributors	नक्शा डेटा © OpenStreetMap contributors
+No connection found	कोई कनेक्शन नहीं मिला
+On foot	पैदल
+Open in Maps	Maps में खोलें
+Places found: {0}	मिले स्थान: {0}
+Places nearby	आस-पास के स्थान
+Public transport	सार्वजनिक परिवहन
+Public transport route	सार्वजनिक परिवहन मार्ग
+Route	मार्ग
+Show in Maps	Maps में दिखाएँ
+Shown in Maps	Maps में दिखाया गया
+The map service is busy. Try again later.	नक्शा सेवा व्यस्त है। बाद में फिर प्रयास करें।
+Timetable	समय-सारणी
+Walk {0} m	{0} मीटर पैदल
+cancelled	रद्द
+direct	सीधा
+platform {0}	प्लेटफ़ॉर्म {0}
+{0} transfers	{0} बार ट्रांसफ़र
+The request is too large – the image or the conversation is too big. Start a new conversation or continue without the image.	अनुरोध बहुत बड़ा है – चित्र या बातचीत बहुत बड़ी है। नई बातचीत शुरू करें या बिना चित्र जारी रखें।
+This action requires confirmation on the computer	इस क्रिया के लिए कंप्यूटर पर पुष्टि चाहिए
+The request was stopped.	अनुरोध रोक दिया गया।
+Another request is still running. Wait for it to finish or cancel it.	अन्य अनुरोध अभी चल रहा है। उसके पूरा होने की प्रतीक्षा करें या उसे रद्द करें।
+You are not signed in to LuxAI. Sign in in the LuxAI app on the computer.	आप LuxAI में साइन इन नहीं हैं। कंप्यूटर पर LuxAI ऐप में साइन इन करें।
+Calendar events	कैलेंडर घटनाएँ
+New calendar event	नई कैलेंडर घटना
+Change calendar event	कैलेंडर घटना बदलें
+Delete calendar event	कैलेंडर घटना हटाएँ
+Adds an event to your LuxOS Calendar	आपके LuxOS कैलेंडर में घटना जोड़ता है
+Changes an event in your LuxOS Calendar	आपके LuxOS कैलेंडर में घटना बदलता है
+Deletes an event from your LuxOS Calendar	आपके LuxOS कैलेंडर से घटना हटाता है
+Monday	सोमवार
+Tuesday	मंगलवार
+Wednesday	बुधवार
+Thursday	गुरुवार
+Friday	शुक्रवार
+Saturday	शनिवार
+Sunday	रविवार
+all day	पूरा दिन
+Location: {0}	स्थान: {0}
+Reminder: {0} min before	अनुस्मारक: {0} मिनट पहले
+Calendar: {0}	कैलेंडर: {0}
+Events: {0}	घटनाएँ: {0}
+No events in this period.	इस अवधि में कोई घटना नहीं।
+… and {0} more	… और {0} अधिक
+Before:	पहले:
+After:	बाद:
+Repeating event – the change applies to all its occurrences.	आवर्ती घटना – परिवर्तन उसकी सभी बारंभियों पर लागू होता है।
+Added to the calendar.	कैलेंडर में जोड़ी गई।
+Changed in the calendar.	कैलेंडर में बदल दी गई।
+Deleted from the calendar.	कैलेंडर से हटा दी गई।
+Done.	पूर्ण।
+Denied on the phone.	फ़ोन पर अस्वीकृत।
+Not approved on the phone in time.	फ़ोन पर समय पर मंज़ूर नहीं हुई।
+Blocked by LuxAI safety rules.	LuxAI सुरक्षा नियमों द्वारा अवरुद्ध।
+This model is not available in LuxAI.	यह मॉडल LuxAI में उपलब्ध नहीं है।

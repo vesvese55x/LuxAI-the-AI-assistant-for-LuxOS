@@ -8,15 +8,19 @@ Depoya `main` dalına push → `.github/workflows/build.yml` çalışır:
    - `src/vendor/` içindeki değiştirilmemiş LuxOS paketlerini açar
      (`luxai 2.0.2-3`, `luxos-account`, `luxos-i18n`)
    - `src/luxai/i18n/*` parçalarını birleştirip `verify_tsv.py` ile doğrular
-   - `patch_binary.py`: binary içindeki sabit boyutlu dil listesini 13 dile
+   - `patch_binary.py`: binary içindeki sabit boyutlu dil listesini 14 dile
      genişletir, CSS'i modernize eder (pencere düğmeleri + popup düzeltmesi)
-   - `finalize_i18n.py`: 16 tam çeviri dosyası + BELGESELSEMO imzaları +
+   - `finalize_i18n.py`: 17 tam çeviri dosyası + BELGESELSEMO imzaları +
      hesap penceresi tsv'leri
    - `assemble_tree.py`: hicolor ikonları + tam çevrilmiş .desktop + python
      vendor + polkit politikası
    - `build_packages.py`: deb / rpm / Arch zst / AppImage + SHA256SUMS
 2. **windows-exe** — `packaging/build-exe.sh` (mingw-w64; deb payload'ını exe'ye gömer)
-3. **release** — `v*` etiketinde: 5 paket + SHA256SUMS → GitHub Release
+3. **screenshots** — derlenen .deb'i runner'a kurar, GUI'yi Xvfb'de gerçekten
+   çalıştırır ve tr/en/hi ekran görüntülerini `promo/assets/screens/runner/`
+   içine işler (repo'ya `[skip ci]` commit'iyle yazar)
+4. **release** — `v*` etiketinde veya workflow_dispatch'ta: 5 paket +
+   SHA256SUMS → GitHub Release (var olan release'in üzerine yazar)
 
 Yerelde aynı akışı çalıştırmak için:
 
@@ -36,7 +40,7 @@ ile parse eder.
 
 1. Gömülü ana CSS'i küçültür (tek satır, yorum/yeni satır temizliği) — bütçe
    8736 baytın altında kalır.
-2. Boşalan alana YENİ kaynaklar yazar: 13 dilli dropdown listesi, genişletilmiş
+2. Boşalan alana YENİ kaynaklar yazar: 14 dilli dropdown listesi, genişletilmiş
    ayar şeması ve İngilizce dil adı haritası.
 3. Init fonksiyonundaki üç `lea` talimatının disp32 alanını yeni kaynak
    başlıklarına yönlendirir.

@@ -44,7 +44,7 @@ t, ln, langmap_json = get_res(LANGMAP_HDR); assert ln == 132
 # ---- 1. new language JSONs ----
 langs = json.loads(drop_json.decode("utf-8"))
 have = {c for c, _ in langs}
-for code, name in (("tr","Türkçe"), ("ru","Русский"), ("zh","中文"), ("ja","日本語")):
+for code, name in (("tr","Türkçe"), ("ru","Русский"), ("zh","中文"), ("ja","日本語"), ("hi","हिन्दी")):
     assert code not in have
     langs.append([code, name])
 new_drop = json.dumps(langs, ensure_ascii=False, separators=(",", ",")) \
@@ -55,13 +55,13 @@ new_drop = re.sub(r'\], \[', '],[', new_drop)
 print("new dropdown:", new_drop, len(new_drop.encode()), "bytes")
 
 schema = json.loads(schema_json.decode("utf-8"))
-order = ["auto","cs","sk","en","de","pl","fr","es","it","uk","tr","ru","zh","ja"]
+order = ["auto","cs","sk","en","de","pl","fr","es","it","uk","tr","ru","zh","ja","hi"]
 schema["language"] = order
 new_schema = json.dumps(schema, ensure_ascii=False, separators=(",", ":"))
 print("new schema len:", len(new_schema.encode()))
 
 lmap = json.loads(langmap_json.decode("utf-8"))
-lmap.update({"tr":"Turkish","ru":"Russian","zh":"Chinese","ja":"Japanese"})
+lmap.update({"tr":"Turkish","ru":"Russian","zh":"Chinese","ja":"Japanese","hi":"Hindi"})
 new_langmap = json.dumps(lmap, ensure_ascii=False, separators=(",", ":"))
 print("new langmap len:", len(new_langmap.encode()))
 
@@ -73,6 +73,12 @@ def minify(css):
     css = re.sub(r"\s*\n\s*", "", css)
     css = re.sub(r"\s*([{};:,])\s*", r"\1", css)
     css = css.replace(";}", "}")
+    # safe extra shrink (GTK CSS): #aabbcc -> #abc, 0.5 -> .5, 0px -> 0,
+    # rgba(255,255,255,a) -> alpha(#fff,a) (alpha(color,a) is valid GTK CSS)
+    css = re.sub(r"#([0-9a-fA-F])\1([0-9a-fA-F])\2([0-9a-fA-F])\3\b", r"#\1\2\3", css)
+    css = re.sub(r"([: ,\(])0\.([0-9])", r"\1.\2", css)
+    css = re.sub(r"([: ,\(])0(px|em|rem|%)", r"\g<1>0", css)
+    css = css.replace("rgba(255,255,255,", "alpha(#fff,")
     return css
 
 min_css = minify(new_css)
@@ -145,7 +151,7 @@ for name, hdr in hdrs.items():
     json.loads(payload.decode("utf-8"))   # must be valid JSON
     print(f"verify {name}: len={ln2} OK")
 dd = json.loads(get_res(hdrs["dropdown"])[2])
-assert [c for c, _ in dd][-4:] == ["tr", "ru", "zh", "ja"]
+assert [c for c, _ in dd][-5:] == ["tr", "ru", "zh", "ja", "hi"]
 print("dropdown codes:", [c for c, _ in dd])
 # css brace balance
 assert min_css.count("{") == min_css.count("}"), "brace mismatch"

@@ -11,12 +11,12 @@ bash packaging/prepare.sh
 
 # 2. assemble full translations from part files
 mkdir -p "$WORK"
-for lang in tr ru zh ja; do
+for lang in tr ru zh ja hi; do
     cat src/luxai/i18n/${lang}_a.tsv src/luxai/i18n/${lang}_b.tsv src/luxai/i18n/${lang}_c.tsv \
         > "$WORK/luxai_${lang}.tsv"
 done
 python3 packaging/verify_tsv.py "$WORK"/luxai_tr.tsv "$WORK"/luxai_ru.tsv \
-    "$WORK"/luxai_zh.tsv "$WORK"/luxai_ja.tsv
+    "$WORK"/luxai_zh.tsv "$WORK"/luxai_ja.tsv "$WORK"/luxai_hi.tsv
 
 # 3. binary patch (13-language dropdown + schema + langmap, modern CSS)
 python3 packaging/patch_binary.py

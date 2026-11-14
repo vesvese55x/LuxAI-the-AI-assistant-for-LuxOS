@@ -3,7 +3,7 @@ import os, sys
 WORK = os.environ.get("WORK") or os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".work")
 REPO = os.path.normpath(os.path.join(WORK, ".."))
 """Assemble the shared package tree (work/build) for all formats:
-patched binary + vendored python + 16-language i18n + hicolor icons +
+patched binary + vendored python + 17-language i18n + hicolor icons +
 fully translated desktop entry + metainfo + polkit policy.
 """
 import os, shutil, stat
@@ -57,6 +57,7 @@ GN = {
     "nl": "AI-assistent", "pl": "Asystent AI", "pt": "Assistente de IA", "ru": "ИИ-ассистент",
     "sk": "AI asistent", "sv": "AI-assistent", "tr": "Yapay Zeka Asistanı", "uk": "ШІ-асистент",
     "zh": "AI 助手",
+    "hi": "AI असिस्टेंट",
 }
 CM = {
     "en": "AI assistant that can work with your computer",
@@ -76,6 +77,7 @@ CM = {
     "tr": "Bilgisayarınızla birlikte çalışabilen yapay zeka asistanı",
     "uk": "ШІ-асистент, який може працювати з вашим комп'ютером",
     "zh": "可以与您的电脑协同工作的 AI 助手",
+    "hi": "आपके कंप्यूटर के साथ काम कर सकने वाला AI असिस्टेंट",
 }
 KW = {
     "en": "AI;assistant;chat;agent;LuxAI;",
@@ -95,8 +97,9 @@ KW = {
     "tr": "Yapay Zeka;Asistan;Sohbet;Ajan;LuxAI;",
     "uk": "ШІ;асистент;чат;агент;LuxAI;штучний інтелект;",
     "zh": "AI;人工智能;助手;聊天;智能体;",
+    "hi": "AI;असिस्टेंट;चैट;एजेंट;LuxAI;कृत्रिम बुद्धिमत्ता;",
 }
-order = ["cs", "de", "es", "fr", "hu", "it", "ja", "nl", "pl", "pt", "ru", "sk", "sv", "tr", "uk", "zh"]
+order = ["cs", "de", "es", "fr", "hi", "hu", "it", "ja", "nl", "pl", "pt", "ru", "sk", "sv", "tr", "uk", "zh"]
 lines = [
     "[Desktop Entry]",
     "Type=Application",

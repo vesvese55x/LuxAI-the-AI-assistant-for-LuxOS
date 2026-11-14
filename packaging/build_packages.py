@@ -27,8 +27,8 @@ ENV = {**os.environ,
 DESCRIPTION = ("LuxAI – the AI assistant for LuxOS. Chat with AI or let the agent "
                "work with your computer. Unofficial multi-distro build by BELGESELSEMO "
                "(Z.AI-assisted extraction from the original LuxOS distribution) with "
-               "16 fully translated languages: tr, ru, zh, ja, de, fr, es, it, nl, pl, "
-               "pt, sk, sv, cs, hu, uk.")
+               "17 fully translated languages: tr, ru, zh, ja, hi, de, fr, es, it, nl, "
+               "pl, pt, sk, sv, cs, hu, uk.")
 
 os.makedirs(DIST, exist_ok=True)
 
@@ -51,8 +51,8 @@ Description: LuxAI – the AI assistant for LuxOS (unofficial build)
  manage files, open apps, take screenshots – always with your approval.
  .
  Unofficial multi-distro build by BELGESELSEMO, compiled from the original
- LuxOS distribution with Z.AI assistance. 16 fully translated languages
- (tr, ru, zh, ja, de, fr, ...), dynamic system-language detection with
+ LuxOS distribution with Z.AI assistance. 17 fully translated languages
+ (tr, ru, zh, ja, hi, de, fr, ...), dynamic system-language detection with
  English fallback, modern window buttons, account panel included.
 """)
     open(f"{ctrl}/postinst", "w").write("""#!/bin/sh
@@ -66,8 +66,15 @@ fi
 exit 0
 """)
     os.chmod(f"{ctrl}/postinst", 0o755)
-    shutil.copytree(BLD, f"{W}/deb/usr", dirs_exist_ok=True)
-    # keep upstream doc path convention
+    # copy the tree's usr/ contents into the package root (NOT BLD itself,
+    # which would create a doubled usr/usr/ inside the .deb)
+    shutil.copytree(f"{BLD}/usr", f"{W}/deb/usr", dirs_exist_ok=True)
+    # real installed size (KiB) for dpkg
+    isize = sum(os.path.getsize(os.path.join(r, f))
+                for r, _, fs in os.walk(f"{W}/deb/usr") for f in fs) // 1024
+    ctrl_text = open(f"{ctrl}/control", encoding="utf-8").read()
+    open(f"{ctrl}/control", "w", encoding="utf-8").write(
+        ctrl_text.replace("Installed-Size: 4200", f"Installed-Size: {isize}"))
     r = subprocess.run(["dpkg-deb", "--root-owner-group", "--build",
                         f"{W}/deb", f"{DIST}/luxai_{VERSION}_amd64.deb"],
                        capture_output=True, text=True)
@@ -155,7 +162,7 @@ def build_zst():
     pkginfo = f"""pkgname = luxai
 pkgbase = luxai
 pkgver = {VERSION}-{RELEASE}
-pkgdesc = LuxAI – the AI assistant for LuxOS (unofficial BELGESELSEMO build, 16 languages)
+pkgdesc = LuxAI – the AI assistant for LuxOS (unofficial BELGESELSEMO build, 17 languages)
 url = http://belgeselsemo.com.tr
 builddate = 1760000000
 packager = BELGESELSEMO <belgeselsemo@belgeselsemo.com.tr>
@@ -228,7 +235,8 @@ exec "${APPDIR}/usr/bin/luxai" "$@"
     print("AppImage OK")
 
 build_deb()
-build_rpm()
+if os.environ.get("SKIP_RPM") != "1":   # local runs without rpmbuild; CI builds the rpm
+    build_rpm()
 build_zst()
 build_appimage()
 

@@ -3,60 +3,72 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LuxAI – the AI assistant for LuxOS · BELGESELSEMO</title>
+<title>LuxAI – the AI assistant for LuxOS (Unofficial multi-distro build) · BELGESELSEMO</title>
 <style>
   :root { --bg:#1c1d29; --side:#222330; --card:#262838; --fg:#eceef7; --dim:rgba(236,238,247,.58);
-          --accent:#4a7dff; --ok:#35c47a; --danger:#ff5f62; }
+          --accent:#4a7dff; --ok:#10b981; --border:rgba(255,255,255,.09); }
   * { box-sizing:border-box; margin:0; padding:0; }
-  body { background:var(--bg); color:var(--fg); font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; line-height:1.6; }
+  body { background:var(--bg); color:var(--fg); font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; line-height:1.65; }
   a { color:var(--accent); text-decoration:none; }
   a:hover { text-decoration:underline; }
-  .wrap { max-width:960px; margin:0 auto; padding:48px 24px; }
-  header { text-align:center; margin-bottom:40px; }
-  h1 { font-size:2.2rem; font-weight:800; margin-bottom:8px; }
+  .wrap { max-width:980px; margin:0 auto; padding:48px 24px; }
+  header { text-align:center; margin-bottom:36px; }
+  h1 { font-size:2.1rem; font-weight:800; margin-bottom:8px; }
   .tag { color:var(--dim); font-size:1.05rem; }
   .badges { margin-top:16px; }
-  .badge { display:inline-block; background:var(--card); border:1px solid rgba(255,255,255,.09); border-radius:999px;
+  .badge { display:inline-block; background:var(--card); border:1px solid var(--border); border-radius:999px;
            padding:4px 14px; margin:4px; font-size:.85rem; color:var(--fg); }
-  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px; margin:32px 0; }
-  .card { background:var(--card); border:1px solid rgba(255,255,255,.09); border-radius:16px; padding:20px 22px; }
+  h2 { font-size:1.5rem; font-weight:800; margin:44px 0 14px; }
+  p.just { text-align:justify; text-justify:inter-word; color:var(--fg); margin:12px 0; }
+  p.just.dim { color:var(--dim); }
+  section.screens img { width:100%; border-radius:14px; border:1px solid var(--border); display:block; margin:10px 0 26px; }
+  .cap { text-align:center; color:var(--dim); font-size:.9rem; margin:-20px 0 26px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px; margin:24px 0; }
+  .card { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:20px 22px; }
   .card h3 { font-size:1.05rem; margin-bottom:8px; color:#fff; }
-  .card p { color:var(--dim); font-size:.95rem; }
-  img.shot { width:100%; border-radius:12px; border:1px solid rgba(255,255,255,.09); display:block; margin:8px 0 32px; }
-  table { width:100%; border-collapse:collapse; background:var(--card); border-radius:12px; overflow:hidden; margin:16px 0 32px; }
-  th,td { padding:10px 14px; text-align:left; border-bottom:1px solid rgba(255,255,255,.07); font-size:.95rem; }
+  .card p { color:var(--dim); font-size:.95rem; text-align:justify; }
+  table { width:100%; border-collapse:collapse; background:var(--card); border-radius:12px; overflow:hidden; margin:16px 0 28px; }
+  th,td { padding:11px 14px; text-align:left; border-bottom:1px solid rgba(255,255,255,.07); font-size:.95rem; vertical-align:middle; }
   th { color:var(--dim); font-weight:700; }
   code { background:#15161f; border-radius:6px; padding:2px 8px; font-family:ui-monospace,Consolas,monospace; font-size:.9em; }
-  .cta { text-align:center; margin:40px 0; }
+  .cta { text-align:center; margin:34px 0; }
   .btn { display:inline-block; background:var(--accent); color:#fff !important; font-weight:700; border-radius:999px;
          padding:12px 28px; margin:6px; }
   .btn:hover { text-decoration:none; filter:brightness(1.1); }
-  footer { text-align:center; color:var(--dim); font-size:.9rem; padding:32px 0 8px; border-top:1px solid rgba(255,255,255,.09); margin-top:48px; }
+  .btn.green { background:var(--ok); }
+  .mono { text-align:center; margin:14px 0 30px; }
+  footer { text-align:center; color:var(--dim); font-size:.92rem; padding:32px 0 8px; border-top:1px solid var(--border); margin-top:48px; }
+  footer p { margin:6px 0; }
 </style>
 </head>
 <body>
 <div class="wrap">
 
 <header>
-  <h1>🤖 LuxAI – the AI assistant for LuxOS</h1>
+  <h1>🤖 LuxAI – the AI assistant for LuxOS<br><span style="color:var(--accent)">(Unofficial multi-distro build)</span></h1>
   <div class="tag">Resmî olmayan ama muhteşem bir AI asistanı — artık LuxOS dışındaki tüm dağıtımlarda</div>
   <div class="badges">
     <span class="badge">v3.1.0</span>
-    <span class="badge">13 dil · %100 çeviri</span>
+    <span class="badge">14 dil · %100 çeviri</span>
     <span class="badge">deb · rpm · AppImage · Arch · Windows</span>
     <span class="badge">Chat + Agent</span>
   </div>
 </header>
 
 <section>
-  <p>LuxAI, LuxOS'un resmî yapay zeka asistanıdır. Bu depo ise <b>BELGESELSEMO</b> tarafından,
-  Z.AI desteğiyle, orijinal LuxOS 1.0.1 dağıtımından elde edilen dosyaların üzerine topluluk
-  yamaları uygulanarak <b>LuxOS dışındaki dağıtımlarda</b> (Ubuntu, Debian, Fedora, Arch,
-  openSUSE, Windows…) da çalışabilen paketler üretir. Resmî proje değildir; LuxOS projesiyle
-  bağı yoktur. Kaynak: <a href="https://luxos.lux-ai.cz/docs/luxos/luxai.html">LuxAI dokümanları</a>.</p>
+  <p class="just">LuxAI, LuxOS'un resmî yapay zeka asistanıdır. Bu depo ise <b>BELGESELSEMO</b> tarafından,
+  Z.AI desteğiyle, orijinal LuxOS 1.0.1 dağıtımından elde edilen değiştirilmemiş LuxAI 2.0.2 dosyalarının
+  üzerine topluluk yamaları uygulanarak, LuxAI'nin <b>LuxOS dışındaki dağıtımlarda</b> (Ubuntu, Debian,
+  Fedora, Arch, openSUSE, Windows…) da kullanılabilmesi amacıyla oluşturuldu. Resmî proje değildir;
+  LuxOS projesiyle bağı yoktur. Tanıtım bilgisi <a href="https://luxos.lux-ai.cz/docs/luxos/luxai.html">resmî
+  LuxAI dokümanlarından</a> alınmıştır.</p>
+  <p class="just dim">Sohbet edin ya da Agent modunu açın: LuxAI komutları çalıştırır, dosyaları yönetir,
+  uygulamalar ve bağlantılar açar, ekran görüntüsü alır — her adım sizin onayınızla gösterilir ve
+  harekete geçmeden önce sizi sorar.</p>
 </section>
 
 <section class="cta">
+  <a class="btn green" href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest">⬇ En güncel sürüm</a>
   <a class="btn" href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest/download/LuxAI-3.1.0-x86_64.AppImage">⬇ AppImage</a>
   <a class="btn" href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest/download/luxai_3.1.0_amd64.deb">⬇ deb</a>
   <a class="btn" href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest/download/luxai-3.1.0-1.x86_64.rpm">⬇ rpm</a>
@@ -64,37 +76,89 @@
   <a class="btn" href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest/download/LuxAI-3.1.0-Setup.exe">⬇ Windows</a>
 </section>
 
-<img class="shot" src="assets/screens/luxai-light.webp" alt="LuxAI arayüzü">
-<img class="shot" src="assets/screens/desktop-dark-960.webp" alt="LuxOS masaüstü">
+<h2>🖥️ Gerçek runner ekranları</h2>
+<p class="just dim">Aşağıdaki ekran görüntüleri sahne değildir: her yeni derlemede GitHub Actions runner'ı,
+derlenen .deb paketini gerçekten kurar, LuxAI GUI'sini Xvfb altında çalıştırır ve bu görüntüleri repoya
+işler — Türkçe, İngilizce ve Hintçe arayüzler.</p>
+<section class="screens">
+  <img src="https://raw.githubusercontent.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/main/promo/assets/screens/runner/luxai-tr.png" alt="LuxAI — Türkçe arayüz">
+  <div class="cap">🇹🇷 Türkçe — hoş geldiniz ekranı (v3.1.0)</div>
+  <img src="https://raw.githubusercontent.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/main/promo/assets/screens/runner/luxai-en.png" alt="LuxAI — English interface">
+  <div class="cap">🇬🇧 English — welcome screen</div>
+  <img src="https://raw.githubusercontent.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/main/promo/assets/screens/runner/luxai-hi.png" alt="LuxAI — हिन्दी इंटरफ़ेस">
+  <div class="cap">🇮🇳 हिन्दी — v3.1.0 ile gelen 14. arayüz dili</div>
+</section>
 
+<h2>⚡ Tek panel, tüm yetenekler</h2>
 <div class="grid">
   <div class="card"><h3>💬 Chat</h3><p>Akış halinde yanıtlar, Markdown, tablolar, kod blokları
-    (kopyala düğmesi + sözdizimi renklendirme), LaTeX, sohbet geçmişi.</p></div>
+    (kopyala düğmesi + sözdizimi renklendirme), LaTeX, kenar çubuğunda sohbet geçmişi.</p></div>
   <div class="card"><h3>🛠️ Agent</h3><p>Komut çalıştırma, dosya yönetimi, uygulama/bağlantı açma,
-    ekran görüntüsü, fare & klavye. LuxAI her eylemden önce sorar.</p></div>
-  <div class="card"><h3>🌍 13 dil</h3><p>Türkçe, Rusça, Çince, Japonca, Almanca, Fransızca ve
-    daha fazlası — %100 çeviri dosyalarıyla. Sistem dili dinamik algılanır; yoksa İngilizce.</p></div>
-  <div class="card"><h3>🛡️ Güvenlik</h3><p>Hassas dosyalar ek onay ister; tehlikeli komutlar iki
-    kez onaylanır; bazı işlemler her koşulda reddedilir. İstem-enjeksiyonu koruması.</p></div>
+    ekran görüntüsü, fare &amp; klavye, pencere yönetimi. LuxAI her eylemden önce sorar.</p></div>
+  <div class="card"><h3>🌍 14 dil · %100 çeviri</h3><p>Türkçe, Rusça, Çince, Japonca, Hintçe, Almanca,
+    Fransızca ve daha fazlası — 457 anahtarın tamamı eksiksiz. Sistem dili dinamik algılanır;
+    yoksa İngilizce.</p></div>
+  <div class="card"><h3>🛡️ Güvenlik</h3><p>Hassas dosyalar ek onay ister; tehlikeli komutlar iki kez
+    onaylanır; bazı işlemler her koşulda reddedilir. İstem-enjeksiyonu koruması.</p></div>
   <div class="card"><h3>📚 Yerleşik dokümanlar</h3><p>Çevrimdışı LSL/LuxOS kılavuzunda arama ve
     okuma — internet olmadan da.</p></div>
   <div class="card"><h3>🪟 Windows</h3><p>LuxAI-Setup.exe, WSLg ile gerçek LuxAI penceresini
     Windows 11'de çalıştırır; Başlat menüsü kısayolu oluşturur.</p></div>
 </div>
 
+<h2>📦 Paketini seç, tek komut</h2>
+<p class="just">Tek satırlık kurulum betiği dağıtımınızı algılar ve GitHub Releases'teki en güncel paketi
+indirip kurar. Tercih ederseniz aşağıdaki tablodan paketinizi kendiniz seçin — tüm paketler aynı
+<strong>LuxAI 3.1.0</strong> sürümünü taşır.</p>
+<p class="mono"><code>curl -fsSL https://raw.githubusercontent.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/main/belgeselsemo-luxai-installer | sh</code></p>
+
 <table>
-  <tr><th>Kurulum</th><th>Komut</th></tr>
-  <tr><td>Debian / Ubuntu / Mint</td><td><code>sudo apt install ./luxai_3.1.0_amd64.deb</code></td></tr>
-  <tr><td>Fedora / openSUSE</td><td><code>sudo dnf install ./luxai-3.1.0-1.x86_64.rpm</code></td></tr>
-  <tr><td>Arch</td><td><code>sudo pacman -U luxai-3.1.0-1-x86_64.pkg.tar.zst</code></td></tr>
-  <tr><td>Herhangi bir dağıtım</td><td><code>./LuxAI-3.1.0-x86_64.AppImage</code></td></tr>
-  <tr><td>Tek satır</td><td><code>curl -fsSL https://raw.githubusercontent.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/main/belgeselsemo-luxai-installer | sh</code></td></tr>
+  <tr><th>Paket</th><th>Ne için?</th><th>Kurulum komutu</th><th>İndir</th></tr>
+  <tr><td>📦 <b>AppImage</b></td><td>Kurulum gerektirmez; her dağıtım</td>
+      <td><code>chmod +x LuxAI-3.1.0-x86_64.AppImage &amp;&amp; ./LuxAI-3.1.0-x86_64.AppImage</code></td>
+      <td><a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest/download/LuxAI-3.1.0-x86_64.AppImage"><b>İNDİR</b></a></td></tr>
+  <tr><td>🐧 <b>deb</b></td><td>Debian / Ubuntu / Mint ve türevleri</td>
+      <td><code>sudo apt install ./luxai_3.1.0_amd64.deb</code></td>
+      <td><a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest/download/luxai_3.1.0_amd64.deb"><b>İNDİR</b></a></td></tr>
+  <tr><td>🎩 <b>rpm</b></td><td>Fedora / openSUSE / RHEL türevleri</td>
+      <td><code>sudo dnf install ./luxai-3.1.0-1.x86_64.rpm</code></td>
+      <td><a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest/download/luxai-3.1.0-1.x86_64.rpm"><b>İNDİR</b></a></td></tr>
+  <tr><td>🏔️ <b>zst</b></td><td>Arch / Manjaro / Cachy OS ve türevleri</td>
+      <td><code>sudo pacman -U luxai-3.1.0-1-x86_64.pkg.tar.zst</code></td>
+      <td><a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest/download/luxai-3.1.0-1-x86_64.pkg.tar.zst"><b>İNDİR</b></a></td></tr>
+  <tr><td>⊞ <b>exe</b></td><td>Windows 10/11 (WSLg)</td>
+      <td><code>LuxAI-3.1.0-Setup.exe</code> → Başlat › LuxAI</td>
+      <td><a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest/download/LuxAI-3.1.0-Setup.exe"><b>İNDİR</b></a></td></tr>
 </table>
+
+<h2>🌐 BELGESELSEMO ekosistemi</h2>
+<p class="just">LuxAI paketleri, BELGESELSEMO evreninin masaüstü yapay zeka parçasıdır: aynı ekosistemdeki
+indirme yöneticisi projesi ve web portalları aşağıdaki tabloda bir aradadır. LuxAI paketleri BELGESELSEMO
+tarafından, Z.AI sayesinde orijinal LuxOS dağıtımından elde edilerek Linux/Windows paketleri olarak
+derlenmiştir.</p>
+<table>
+  <tr><th>Proje</th><th>Açıklama</th></tr>
+  <tr><td><a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS">🤖 LuxAI — bu depo</a></td>
+      <td>LuxOS dışı dağıtımlar için %100 çok dilli LuxAI paketleri</td></tr>
+  <tr><td><a href="https://github.com/vesvese55x/IDM-LINUX">⬇️ IDM-LINUX</a></td>
+      <td>Linux'ta IDM deneyimi (Wine + Python panosu)</td></tr>
+  <tr><td><a href="http://belgeselsemo.com.tr">🌐 belgeselsemo.com.tr</a></td>
+      <td>BELGESELSEMO resmî site ve portalları</td></tr>
+</table>
+
+<h2>🌍 Dil / Language</h2>
+<p class="just dim">Ayrıntılı rehber README'de şu dillerde: Türkçe ·
+<a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS#english">English</a> ·
+<a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS#deutsch">Deutsch</a> ·
+<a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS#русский">Русский</a> ·
+<a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS#中文">中文</a> ·
+<a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS#日本語">日本語</a> ·
+<a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS#हिन्दी">हिन्दी</a></p>
 
 <footer>
   <p>BELGESELSEMO tarafından Z.AI sayesinde orijinal LuxOS distrosundan elde edilerek
   Linux/Windows paketler olarak derlenmiştir · <a href="http://belgeselsemo.com.tr">belgeselsemo.com.tr</a></p>
-  <p>LucAI/LuxOS: <a href="https://luxos.lux-ai.cz">luxos.lux-ai.cz</a> · Bu depo resmî değildir.</p>
+  <p>LuxAI/LuxOS: <a href="https://luxos.lux-ai.cz">luxos.lux-ai.cz</a> · Bu depo resmî değildir.</p>
 </footer>
 
 </div>

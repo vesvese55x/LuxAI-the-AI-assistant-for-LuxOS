@@ -2,9 +2,11 @@
 
 Bu sürüm, orijinal LuxAI 2.0.2 üzerine BELGESELSEMO topluluk yamalarını taşır:
 
-- **13 dil desteği**: Arayüz dil listesine Türkçe, Rusça, Çince ve Japonca eklendi
-  (mevcut 9 dilin tamamı korunur: Čeština, Slovenčina, English, Deutsch, Polski,
-  Français, Español, Italiano, Українська). 16 tam çeviri dosyası ile gelir.
+- **14 dil desteği**: Arayüz dil listesine Türkçe, Rusça, Çince, Japonca ve
+  **Hintçe (हिन्दी)** eklendi (mevcut 9 dilin tamamı korunur: Čeština,
+  Slovenčina, English, Deutsch, Polski, Français, Español, Italiano,
+  Українська). **17 tam çeviri dosyası** ile gelir — 457 arayüz anahtarının
+  tamamı her dilde eksiksiz.
 - **Dinamik sistem dili**: GUI, sistem dilini otomatik algılar; desteklenmeyen
   dillerde İngilizce'ye düşer.
 - **Modern pencere düğmeleri**: Küçült/büyüt/kapat düğmeleri yuvarlak hover,
@@ -22,4 +24,6 @@ Bu sürüm, orijinal LuxAI 2.0.2 üzerine BELGESELSEMO topluluk yamalarını ta�
 Paketler: `.deb` · `.rpm` · `.AppImage` · `.pkg.tar.zst` (Arch) · `.exe` (Windows)
 
 Not: Bu build'ler GitHub Actions ile derlenir; kaynak olarak ISO'dan alınan
-değiştirilmemiş LuxAI paketleri `src/vendor/` içinde saklanır.
+değiştirilmemiş LuxAI paketleri `src/vendor/` içinde saklanır. Runner, derlenen
+.deb'i gerçekten kurup GUI'yi Xvfb altında çalıştırır ve tr/en/hi ekran
+görüntülerini repoya işler — promo'daki görüntüler gerçek uygulamadan gelir.

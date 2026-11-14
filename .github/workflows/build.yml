@@ -5,9 +5,18 @@ on:
     branches: [main]
     tags: ['v*']
   workflow_dispatch:
+    inputs:
+      publish_release:
+        description: 'Publish & overwrite the current release assets (v3.1.0)'
+        type: boolean
+        default: true
 
 permissions:
   contents: write
+
+concurrency:
+  group: luxai-build-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
   linux-packages:
@@ -62,10 +71,55 @@ jobs:
           path: .work/dist/*.exe
           if-no-files-found: error
 
+  screenshots:
+    name: Real GUI screenshots (runner)
+    needs: [linux-packages]
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install runtime, capture and font deps
+        run: |
+          sudo apt-get update -qq
+          # fonts-noto-core brings Noto Sans Devanagari for the Hindi capture
+          sudo apt-get install -y -qq xvfb fonts-noto-core >/dev/null
+          python3 -m pip install --quiet python-xlib pillow
+
+      - name: Download built packages
+        uses: actions/download-artifact@v4
+        with:
+          name: luxai-linux-packages
+          path: dist
+
+      - name: Install LuxAI from the built deb
+        run: sudo apt-get install -y ./dist/luxai_3.1.0_amd64.deb
+
+      - name: Run the real GUI under Xvfb and capture screenshots
+        run: python3 packaging/capture_gui.py / /tmp/shots tr,en,hi
+
+      - name: Copy screenshots into the promo folder
+        run: |
+          mkdir -p promo/assets/screens/runner
+          cp /tmp/shots/luxai-tr.png /tmp/shots/luxai-en.png /tmp/shots/luxai-hi.png promo/assets/screens/runner/
+          ls -la promo/assets/screens/runner/
+
+      - name: Commit real screenshots to the repo
+        run: |
+          git config user.name "BELGESELSEMO CI"
+          git config user.email "belgeselsemo@belgeselsemo.com.tr"
+          git add promo/assets/screens/runner
+          if git diff --cached --quiet; then
+            echo "screenshots unchanged — nothing to commit"
+            exit 0
+          fi
+          git commit -m "[skip ci] gerçek runner ekran görüntüleri (${GITHUB_SHA::7})"
+          git push
+
   release:
     name: Publish GitHub release
-    needs: [linux-packages, windows-exe]
-    if: startsWith(github.ref, 'refs/tags/v')
+    needs: [linux-packages, windows-exe, screenshots]
+    if: startsWith(github.ref, 'refs/tags/v') || (github.event_name == 'workflow_dispatch' && inputs.publish_release)
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -82,10 +136,24 @@ jobs:
           cd dist
           sha256sum *.deb *.rpm *.AppImage *.pkg.tar.zst *.exe > SHA256SUMS
 
-      - name: Create release
+      - name: Determine release tag
+        id: tag
+        run: echo "tag=${{ github.ref_type == 'tag' && github.ref_name || 'v3.1.0' }}" >> "$GITHUB_OUTPUT"
+
+      - name: Remove old assets so the rebuild replaces them
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="${{ steps.tag.outputs.tag }}"
+          for a in $(gh release view "$TAG" --repo "${{ github.repository }}" --json assets -q '.assets[].name' 2>/dev/null || true); do
+            gh release delete-asset "$TAG" "$a" --repo "${{ github.repository }}" --yes || true
+          done
+
+      - name: Create / update release
         uses: softprops/action-gh-release@v2
         with:
-          name: LuxAI ${{ github.ref_name }} — %100 çok dilli paketler
+          tag_name: ${{ steps.tag.outputs.tag }}
+          name: LuxAI ${{ steps.tag.outputs.tag }} — %100 çok dilli paketler
           body_path: packaging/RELEASE_NOTES.md
           generate_release_notes: true
           files: |

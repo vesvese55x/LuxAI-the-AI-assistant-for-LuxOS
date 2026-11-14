@@ -1,0 +1,153 @@
+# LuxAI - हिन्दी अनुवाद (अंग्रेज़ी पाठ<TAB>हिन्दी पाठ); {0}, {1}, {2} अवश्य सुरक्षित रखे जाएँ
+The server returned a web page instead of an API response (HTTP {0}).	सर्वर ने API प्रतिक्रिया के स्थान पर एक वेब पेज लौटाया (HTTP {0})।
+The server returned an invalid response (HTTP {0}).	सर्वर ने अवैध प्रतिक्रिया लौटाई (HTTP {0})।
+The server's web protection blocked the request (HTTP {0}).	सर्वर की वेब सुरक्षा ने अनुरोध अवरुद्ध कर दिया (HTTP {0})।
+Thinking…	सोच रहा है…
+This may access private data	यह निजी डेटा तक पहुँच सकता है
+Tidy up Downloads	Downloads सुव्यवस्थित करें
+Too many requests. Please wait a moment.	बहुत अधिक अनुरोध। कृपया कुछ क्षण प्रतीक्षा करें।
+Type text	पाठ टाइप करें
+Types a dangerous command	खतरनाक कमांड टाइप करता है
+Unsupported URL type	असमर्थित URL प्रकार
+Waiting for your approval	आपकी मंज़ूरी की प्रतीक्षा में
+Welcome to LuxAI	LuxAI में आपका स्वागत है
+What is using the most disk space in my home folder?	मेरे होम फ़ोल्डर में सबसे अधिक डिस्क स्थान क्या उपयोग कर रहा है?
+Working folder	कार्य फ़ोल्डर
+Write a short, friendly email inviting my team to a Friday lunch.	शुक्रवार की लंच के लिए अपनी टीम को आमंत्रित करते हुए एक छोटा, मित्रवत ईमेल लिखिए।
+Write a text	पाठ लिखें
+Write file	फ़ाइल लिखें
+Writes directly to a disk device	डिस्क डिवाइस पर सीधे लिखता है
+Yes, run it	हाँ, चलाइए
+Your LuxAI session has expired or is not valid. Please sign in again.	आपका LuxAI सत्र समाप्त हो गया है या अवैध है। कृपया फिर साइन इन करें।
+Your session has expired	आपका सत्र समाप्त हो गया
+code	कोड
+folder	फ़ोल्डर
+no images	कोई चित्र नहीं
+sees images	चित्र देख सकता है
+{0} open windows	{0} खुली विंडोज़
+{0}: {1} / {2} tokens this month	{0}: इस महीने {1} / {2} टोकन
+{0}: {1} tokens this month	{0}: इस महीने {1} टोकन
+{0}: {1} tokens this month · unlimited	{0}: इस महीने {1} टोकन · असीमित
+You denied this action.	आपने इस क्रिया को अस्वीकार किया।
+Stopped before running.	चलने से पहले ही रुक गया।
+AI behaviour	AI व्यवहार
+Accesses LuxAI settings (including agent permissions)	LuxAI सेटिंग्स (एजेंट अनुमतियों सहित) तक पहुँचता है
+Account and settings	खाता और सेटिंग्स
+Add	जोड़ें
+Add folder…	फ़ोल्डर जोड़ें…
+Added to every conversation. They cannot give the agent more permissions than set in Agent permissions.	हर बातचीत में जोड़ा जाता है। ये एजेंट को एजेंट अनुमतियों में निर्धारित से अधिक अनुमतियाँ नहीं दे सकते।
+After the first answer the fast Lite model suggests a short title. You can rename a conversation any time (right-click it in the sidebar).	पहले उत्तर के बाद तीव्र Lite मॉडल एक संक्षिप्त शीर्षक सुझाता है। आप किसी बातचीत का नाम कभी भी बदल सकते हैं (साइडबार में उस पर राइट-क्लिक करें)।
+Agent permissions	एजेंट अनुमतियाँ
+All saved conversations will be permanently removed from this computer.	सभी सहेजी गई बातचीतें इस कंप्यूटर से स्थायी रूप से हटा दी जाएँगी।
+Allow	अनुमति दें
+Allow without asking	पूछे बिना अनुमति दें
+Allowed folders	अनुमत फ़ोल्डर
+Always ask	सदैव पूछें
+Answer length	उत्तर लंबाई
+Answers	उत्तर
+Appearance	रूप-रंग
+Application	अनुप्रयोग
+Ask only for risky commands	केवल जोखिम भरे कमांड के लिए पूछें
+Attach screenshots in Agent mode. Turn on only if the model supports images.	एजेंट मोड में स्क्रीनशॉट संलग्न करें। केवल तब चालू करें जब मॉडल चित्र समर्थन करता हो।
+Balanced	संतुलित
+Blocked folders	अवरुद्ध फ़ोल्डर
+Changing files is turned off in LuxAI settings	फ़ाइलें बदलना LuxAI सेटिंग्स में बंद है
+Clear all history…	सारा इतिहास मिटाएँ…
+Clicking, typing, pressing keys and closing windows.	क्लिक करना, टाइप करना, कुंजियाँ दबाना और विंडोज़ बंद करना।
+Commands	कमांड
+Concise	संक्षिप्त
+Control mouse and keyboard	माउस और कीबोर्ड नियंत्रित करें
+Conversation	बातचीत
+Conversations	बातचीतें
+Creating, editing, moving and deleting files and folders.	फ़ाइलों और फ़ोल्डरों का निर्माण, संपादन, स्थानांतरण और हटाना।
+Creativity (temperature)	सृजनशीलता (temperature)
+Ctrl+Enter (Enter for a new line)	Ctrl+Enter (नई पंक्ति के लिए Enter)
+Custom instructions	अनुकूलित निर्देश
+Dangerous actions (deleting your home folder, formatting disks, shutting down …) always need two confirmations, and LuxAI never touches its account and settings files. "Always ask" still offers "Always for this session" on the approval card.	खतरनाक क्रियाओं (होम फ़ोल्डर हटाना, डिस्क फ़ॉर्मेट करना, बंद करना…) के लिए सदैव दो पुष्टियाँ ज़रूरी हैं, और LuxAI अपनी खाता व सेटिंग्स फ़ाइलों को कभी नहीं छूता। "सदैव पूछें" में भी अनुमोदन कार्ड पर "इस सत्र के लिए सदैव" विकल्प मिलता है।
+Dark	गहरा
+Data on this computer	इस कंप्यूटर पर डेटा
+Default model	पूर्वनिर्धारित मॉडल
+Delete all	सभी हटाएँ
+Delete all conversations?	सभी बातचीतें हटानी हैं?
+Delete screenshots	स्क्रीनशॉट हटाएँ
+Detailed	विस्तृत
+Enter (Shift+Enter for a new line)	Enter (नई पंक्ति के लिए Shift+Enter)
+Folders	फ़ोल्डर
+Friendly	मित्रवत
+General	सामान्य
+History	इतिहास
+History is turned off	इतिहास बंद है
+If you add folders here, the agent can work with files only inside them. Empty = anywhere (system files need extra confirmation).	यदि आप यहाँ फ़ोल्डर जोड़ते हैं, तो एजेंट केवल उनके अंदर ही फ़ाइलों पर काम कर सकता है। खाली = हर जगह (सिस्टम फ़ाइलों के लिए अतिरिक्त पुष्टि चाहिए)।
+Keep conversation history	बातचीत का इतिहास रखें
+Keyboard shortcuts	कीबोर्ड शॉर्टकट
+Language	भाषा
+Light	हल्का
+Limits from Settings › Agent permissions apply.	सेटिंग्स › एजेंट अनुमतियों की सीमाएँ लागू होती हैं।
+Long	लंबा
+Long-running commands are stopped after this time.	लंबे समय तक चलने वाले कमांड इस समय के बाद रोक दिए जाते हैं।
+LuxAI also remembers the mode you used last.	LuxAI आख़िरी उपयोग किए गए मोड को भी याद रखता है।
+LuxAI answered	LuxAI ने उत्तर दिया
+LuxAI needs your approval	LuxAI को आपकी मंज़ूरी चाहिए
+Manage account	खाता प्रबंधित करें
+Maximum length of one answer. Agent mode always keeps enough room for its tools.	एक उत्तर की अधिकतम लंबाई। एजेंट मोड अपने औज़ारों के लिए सदैव पर्याप्त स्थान रखता है।
+Messages	संदेश
+Mode for new conversations	नई बातचीत के लिए मोड
+Mouse and keyboard control is turned off in LuxAI settings	माउस-कीबोर्ड नियंत्रण LuxAI सेटिंग्स में बंद है
+Name	नाम
+Name conversations automatically	बातचीतों के नाम स्वतः रखें
+Network access	नेटवर्क पहुँच
+Network access is turned off in LuxAI settings	नेटवर्क पहुँच LuxAI सेटिंग्स में बंद है
+Never	कभी नहीं
+New line	नई पंक्ति
+No folders	कोई फ़ोल्डर नहीं
+Normal	सामान्य
+Notifications	सूचनाएँ
+Notify me when LuxAI finishes an answer or needs my approval while the window is in the background.	विंडो पृष्ठभूमि में होने पर LuxAI जब उत्तर पूरा करे या मेरी मंज़ूरी चाहे, तो मुझे सूचित करें।
+Off = the model's default. Lower is more precise, higher more creative. Applied only if the model supports it.	बंद = मॉडल का पूर्वनिर्धारित मान। कम मान अधिक सटीक, अधिक मान अधिक सृजनशील। केवल तब लागू होता है जब मॉडल इसे समर्थन करता हो।
+Open apps and links	ऐप्स और लिंक खोलें
+Opening apps and links is turned off in LuxAI settings	ऐप्स और लिंक खोलना LuxAI सेटिंग्स में बंद है
+Opening web links, downloads and network tools (curl, git clone, package installs). Detected from the command – for strict isolation also set Run commands to Never.	वेब लिंक, डाउनलोड और नेटवर्क औज़ार (curl, git clone, पैकेज स्थापना) खोलना। कमांड से पहचाना जाता है – पूर्ण पृथक्करण के लिए कमांड चलाना भी 'कभी नहीं' करें।
+Privacy & history	गोपनीयता और इतिहास
+Private files (keys, passwords, .env) always need your confirmation.	निजी फ़ाइलों (कुंजियाँ, पासवर्ड, .env) को सदैव आपकी पुष्टि चाहिए।
+Quit	बाहर जाएँ
+Read files	फ़ाइलें पढ़ें
+Reading files is turned off in LuxAI settings	फ़ाइलें पढ़ना LuxAI सेटिंग्स में बंद है
+Relative paths and commands start here.	सापेक्ष पथ और कमांड यहीं से आरंभ होते हैं।
+Remove	हटाएँ
+Rename	नाम बदलें
+Rename conversation	बातचीत का नाम बदलें
+Rename…	नाम बदलें…
+Response style	उत्तर शैली
+Run commands	कमांड चलाएँ
+Running commands is turned off in LuxAI settings	कमांड चलाना LuxAI सेटिंग्स में बंद है
+Same as my message	मेरे संदेश जैसा
+Same as system	सिस्टम जैसा
+Saved conversations	सहेजी गई बातचीतें
+Screenshots	स्क्रीनशॉट
+Screenshots and clipboard	स्क्रीनशॉट और क्लिपबोर्ड
+Screenshots and clipboard are turned off in LuxAI settings	स्क्रीनशॉट और क्लिपबोर्ड LuxAI सेटिंग्स में बंद हैं
+Screenshots taken by the agent	एजेंट द्वारा लिए गए स्क्रीनशॉट
+Send message	संदेश भेजें
+Send message with	संदेश भेजें इसके साथ
+Sends what is on your screen or in the clipboard to the model.	आपकी स्क्रीन या क्लिपबोर्ड पर मौजूद सामग्री मॉडल को भेजता है।
+Settings file	सेटिंग्स फ़ाइल
+Settings…	सेटिंग्स…
+Shell commands are checked for blocked folders in their paths, but a command cannot be fully confined. Set Run commands to Never for strict folder limits.	शेल कमांड में अवरुद्ध फ़ोल्डरों के पथ जाँचे जाते हैं, परंतु किसी कमांड को पूर्णतः बंद नहीं किया जा सकता। सख़्त फ़ोल्डर सीमाओं के लिए कमांड चलाना 'कभी नहीं' करें।
+Short	छोटा
+Sign in with your LuxAI account to chat.	चैट करने के लिए अपने LuxAI खाते से साइन इन करें।
+Sign out	साइन आउट
+Sign out of LuxAI?	LuxAI से साइन आउट करना है?
+Sign out…	साइन आउट…
+Signing out failed. Try again in the LuxAI account app.	साइन आउट विफल रहा। LuxAI खाता ऐप में फिर प्रयास करें।
+Start	प्रारंभ
+Stop the answer or command	उत्तर या कमांड रोकें
+Technical	तकनीकी
+The agent never reads or changes anything in these folders.	एजेंट इन फ़ोल्डरों में कुछ भी कभी नहीं पढ़ता या बदलता।
+The folder is blocked in LuxAI settings	फ़ोल्डर LuxAI सेटिंग्स में अवरुद्ध है
+The path is outside the folders allowed in LuxAI settings	पथ LuxAI सेटिंग्स में अनुमत फ़ोल्डरों के बाहर है
+Theme	थीम
+Used for new conversations. You can switch it any time in the toolbar.	नई बातचीत के लिए उपयोग होता है। आप इसे टूलबार में कभी भी बदल सकते हैं।
+Uses the network	नेटवर्क का उपयोग करता है
+What Agent mode may do	एजेंट मोड क्या कर सकता है
+What should LuxAI know about you or how should it answer? E.g. "Call me Tom. Prefer metric units and short answers."	LuxAI को आपके बारे में क्या जानना चाहिए या वह कैसे उत्तर दे? उदाहरण: "मुझे राहुल कहकर बुलाइए। मीट्रिक इकाइयाँ और छोटे उत्तर पसंद हैं।"
+When off, new conversations are not saved on this computer and disappear when you close them.	बंद होने पर नई बातचीतें इस कंप्यूटर पर सहेजी नहीं जातीं और बंद करने पर समाप्त हो जाती हैं।

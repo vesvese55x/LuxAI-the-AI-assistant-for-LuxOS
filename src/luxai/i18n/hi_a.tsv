@@ -1,0 +1,153 @@
+# LuxAI - हिन्दी अनुवाद (अंग्रेज़ी पाठ<TAB>हिन्दी पाठ); {0}, {1}, {2} अवश्य सुरक्षित रखे जाएँ
+(empty file)	(खाली फ़ाइल)
+(empty)	(खाली)
+(no output)	(कोई आउटपुट नहीं)
+AI assistant that can work with your computer	आपके कंप्यूटर के साथ काम कर सकने वाला AI असिस्टेंट · मूल LuxOS वितरण से प्राप्त कर Z.AI की सहायता से BELGESELSEMO द्वारा Linux/Windows पैकेजों के रूप में संकलित · belgeselsemo.com.tr
+About LuxAI	LuxAI के बारे में
+Accesses private keys or passwords	निजी कुंजियों या पासवर्ड तक पहुँचता है
+Accesses the LuxAI account token	LuxAI खाता टोकन तक पहुँचता है
+Agent	एजेंट
+Agent actions run without asking. Dangerous actions still need two confirmations. Resets when LuxAI restarts.	एजेंट क्रियाएँ पूछे बिना चलती हैं। खतरनाक क्रियाओं के लिए फिर भी दो पुष्टियाँ ज़रूरी हैं। LuxAI पुनः आरंभ होने पर रीसेट हो जाता है।
+Agent mode · Auto-approve is ON: actions run without asking (dangerous ones still ask twice).	एजेंट मोड · स्वतः-अनुमोदन चालू है: क्रियाएँ पूछे बिना चलती हैं (खतरनाक क्रियाएँ फिर भी दो बार पूछती हैं)।
+Agent mode · LuxAI can work with your computer. You approve every action that changes something.	एजेंट मोड · LuxAI आपके कंप्यूटर के साथ काम कर सकता है। कुछ भी बदलने वाली हर क्रिया को आप मंज़ूरी देते हैं।
+Agent mode: I can run commands, manage files, open apps and control the mouse and keyboard – always with your approval.	एजेंट मोड: मैं कमांड चला सकता हूँ, फ़ाइलें प्रबंधित कर सकता हूँ, ऐप्स खोल सकता हूँ और माउस-कीबोर्ड नियंत्रित कर सकता हूँ – हमेशा आपकी अनुमति से।
+Allow LuxAI to do this?	LuxAI को ऐसा करने देना है?
+Allow once	एक बार अनुमति दें
+Allow once…	एक बार अनुमति दें…
+Always for this session	इस सत्र के लिए सदैव
+Another conversation is already running on this account. Try again in a moment.	इस खाते पर पहले से एक बातचीत चल रही है। कुछ क्षण बाद फिर प्रयास करें।
+Are you sure? This can cause damage that cannot be undone.	क्या आप निश्चित हैं? इससे ऐसी क्षति हो सकती है जिसे पूर्ववत नहीं किया जा सकता।
+Arguments	तर्क (Arguments)
+Ask LuxAI to do something on your computer…	LuxAI से अपने कंप्यूटर पर कोई काम करने को कहें…
+Ask anything. Switch to Agent mode when you want me to do things on your computer.	कुछ भी पूछें। जब आप चाहें कि मैं आपके कंप्यूटर पर काम करूँ, तो एजेंट मोड पर जाएँ।
+Attach screenshots for the current model. Turn on only if the model supports images; uses more tokens.	वर्तमान मॉडल के लिए स्क्रीनशॉट संलग्न करें। केवल तब चालू करें जब मॉडल चित्र समर्थन करता हो; अधिक टोकन खर्च होते हैं।
+Auto-approve actions	क्रियाएँ स्वतः अनुमोदित करें
+Blocked by safety rules	सुरक्षा नियमों द्वारा अवरुद्ध
+Brainstorm	विचार-मंथन
+CONVERSATIONS	बातचीतें
+Cancel	रद्द करें
+Changes immutable file attributes	अपरिवर्तनीय फ़ाइल गुण बदलता है
+Changes permissions of the whole home folder or system	पूरे होम फ़ोल्डर या सिस्टम की अनुमतियाँ बदलता है
+Changes user accounts or passwords	उपयोगकर्ता खाते या पासवर्ड बदलता है
+Chat	चैट
+Chat with AI or let it work with your computer. Sign in with your LuxAI account – one account for all LuxOS apps.	AI से चैट करें या उसे अपने कंप्यूटर पर काम करने दें। अपने LuxAI खाते से साइन इन करें – सभी LuxOS ऐप्स के लिए एक ही खाता।
+Click	क्लिक करें
+Close window	विंडो बंद करें
+Command timeout (seconds)	कमांड टाइमआउट (सेकंड)
+Copied	कॉपी हो गया
+Copy	कॉपी करें
+Create a free account	निःशुल्क खाता बनाएँ
+Create folder	फ़ोल्डर बनाएँ
+Delete	हटाएँ
+Delete conversation	बातचीत हटाएँ
+Delete this conversation?	यह बातचीत हटानी है?
+Deletes all scheduled tasks	सभी निर्धारित कार्य हटाता है
+Deletes all untracked files in the repository	रिपॉज़िटरी में सभी अनट्रैक्ड फ़ाइलें हटाता है
+Deletes files across the whole home folder or system	पूरे होम फ़ोल्डर या सिस्टम में फ़ाइलें हटाता है
+Deletes the whole home folder or system	पूरा होम फ़ोल्डर या सिस्टम हटाता है
+Denied	अस्वीकृत
+Deny	अस्वीकार करें
+Details	विवरण
+Done	पूर्ण
+Edit file	फ़ाइल संपादित करें
+Ends your desktop session	आपका डेस्कटॉप सत्र समाप्त करता है
+Explain how HTTPS keeps my connection private, in simple terms.	सरल भाषा में समझाइए कि HTTPS मेरे कनेक्शन को निजी कैसे रखता है।
+Explain something	कुछ समझाइए
+Failed	असफल
+Find files	फ़ाइलें खोजें
+Finish signing in in the LuxAI account window…	LuxAI खाता विंडो में साइन इन पूरा करें…
+Flash – smarter	Flash – अधिक बुद्धिमान
+Focus window	विंडो फ़ोकस करें
+Force-pushes and may overwrite remote history	फ़ोर्स-पुश करता है और रिमोट इतिहास अध्यारोपित कर सकता है
+Fork bomb	फ़ोर्क बॉम्ब
+Formats or wipes a disk	डिस्क फ़ॉर्मेट या मिटाता है
+Free disk space	डिस्क स्थान मुक्त करें
+Give me 5 ideas for a weekend trip in the Czech Republic.	चेक गणराज्य में सप्ताहांत यात्रा के लिए 5 विचार दीजिए।
+Help with code	कोड में सहायता
+How can I help you today?	आज मैं आपकी कैसे मदद कर सकता हूँ?
+How do I read a JSON file in Python? Show a short example.	Python में JSON फ़ाइल कैसे पढ़ते हैं? एक छोटा उदाहरण दिखाइए।
+It will be permanently removed from this computer.	इसे इस कंप्यूटर से स्थायी रूप से हटा दिया जाएगा।
+Kills all processes or the desktop session	सभी प्रक्रियाएँ या डेस्कटॉप सत्र समाप्त करता है
+List apps	ऐप्स सूचीबद्ध करें
+List folder	फ़ोल्डर सूचीबद्ध करें
+List the files in my Downloads folder grouped by type and suggest what to clean up.	मेरे Downloads फ़ोल्डर की फ़ाइलें प्रकार अनुसार समूहित करके सूचीबद्ध कीजिए और क्या साफ़ करना चाहिए, बताइए।
+List windows	विंडोज़ सूचीबद्ध करें
+Lite – faster, larger limit	Lite – तेज़, बड़ी सीमा
+Look at my screen	मेरी स्क्रीन देखिए
+LuxAI account credentials are never read or changed by the agent	एजेंट LuxAI खाता क्रेडेंशियल को कभी पढ़ता या बदलता नहीं है
+LuxAI account…	LuxAI खाता…
+LuxAI can make mistakes. Check important information.	LuxAI गलतियाँ कर सकता है। महत्वपूर्ण जानकारी जाँच लें।
+LuxAI can work with your computer using tools, with your approval	आपकी अनुमति से LuxAI औज़ारों द्वारा आपके कंप्यूटर पर काम कर सकता है
+Message LuxAI…	LuxAI को संदेश लिखें…
+Model	मॉडल
+Model can see images	मॉडल चित्र देख सकता है
+Move	स्थानांतरित करें
+Move mouse	माउस घुमाएँ
+Moves the whole home folder or system	पूरा होम फ़ोल्डर या सिस्टम स्थानांतरित करता है
+Network error: {0}	नेटवर्क त्रुटि: {0}
+New chat	नई चैट
+New conversation	नई बातचीत
+No conversations yet	अभी कोई बातचीत नहीं
+No result	कोई परिणाम नहीं
+No windows	कोई विंडो नहीं
+Not signed in	साइन इन नहीं है
+Not signed in.	साइन इन नहीं है।
+Nothing found	कुछ नहीं मिला
+Notification	सूचना
+Offline – usage not available	ऑफ़लाइन – उपयोग उपलब्ध नहीं
+Open a website	कोई वेबसाइट खोलें
+Open app	ऐप खोलें
+Open link	लिंक खोलें
+Open lux-ai.cz in the web browser.	वेब ब्राउज़र में lux-ai.cz खोलें।
+Overwrites system files	सिस्टम फ़ाइलें अध्यारोपित करता है
+Plain conversation, no access to your computer	साधारण बातचीत, आपके कंप्यूटर तक कोई पहुँच नहीं
+Please sign in again to continue. Your conversations are kept on this computer.	जारी रखने के लिए कृपया फिर साइन इन करें। आपकी बातचीतें इसी कंप्यूटर पर सुरक्षित रहती हैं।
+Potentially dangerous action	संभावित रूप से खतरनाक क्रिया
+Press keys	कुंजियाँ दबाएँ
+Read clipboard	क्लिपबोर्ड पढ़ें
+Read file	फ़ाइल पढ़ें
+Recursively deletes a main personal folder	किसी मुख्य व्यक्तिगत फ़ोल्डर को पुनरावर्ती रूप से हटाता है
+Recursively deletes files outside your home folder	आपके होम फ़ोल्डर के बाहर फ़ाइलें पुनरावर्ती रूप से हटाता है
+Refusing to modify the root or home directory itself	रूट या होम निर्देशिका को स्वयं बदलने से इनकार
+Removes firewall rules	फ़ायरवॉल नियम हटाता है
+Removes installed system packages	स्थापित सिस्टम पैकेज हटाता है
+Result	परिणाम
+Run command	कमांड चलाएँ
+Running…	चल रहा है…
+Runs a script downloaded from the internet	इंटरनेट से डाउनलोड की गई स्क्रिप्ट चलाता है
+Runs with administrator privileges	प्रशासक विशेषाधिकारों के साथ चलाता है
+Screenshot	स्क्रीनशॉट
+Scroll	स्क्रॉल करें
+Search conversations	बातचीतें खोजें
+Search text	पाठ खोजें
+Searches the whole system	पूरे सिस्टम में खोजता है
+Send (Enter)	भेजें (Enter)
+Session expired	सत्र समाप्त हो गया
+Settings	सेटिंग्स
+Show or hide the sidebar	साइडबार दिखाएँ या छिपाएँ
+Shuts down or restarts the computer	कंप्यूटर बंद या पुनः आरंभ करता है
+Sign in	साइन इन
+Sign in again	फिर साइन इन करें
+Sign in to continue this conversation.	यह बातचीत जारी रखने के लिए साइन इन करें।
+Sign in with LuxAI account	LuxAI खाते से साइन इन करें
+Stop	रोकें
+Stop the answer and any running command (Esc)	उत्तर और चल रही किसी कमांड को रोकें (Esc)
+Stopped	रुक गया
+Stopped after too many steps. Send a message to continue.	बहुत अधिक चरणों के बाद रुक गया। जारी रखने के लिए एक संदेश भेजें।
+Stopped.	रुक गया।
+Stopping…	रोका जा रहा है…
+System info	सिस्टम सूचना
+Take a screenshot and tell me which windows are open.	एक स्क्रीनशॉट लेकर बताइए कि कौन-सी विंडोज़ खुली हैं।
+The LuxAI API endpoint was not found on the server.	सर्वर पर LuxAI API एंडपॉइंट नहीं मिला।
+The LuxAI service is not available right now.	LuxAI सेवा इस समय उपलब्ध नहीं है।
+The LuxOS account tool (luxos-account) is not installed.	LuxOS खाता औज़ार (luxos-account) स्थापित नहीं है।
+The answer was cut off (length limit).	उत्तर काट दिया गया (लंबाई सीमा)।
+The file is run automatically at login	फ़ाइल लॉगिन पर स्वतः चलती है
+The key combination may end your session	यह कुंजी-संयोजन आपका सत्र समाप्त कर सकता है
+The model failed: {0}	मॉडल विफल रहा: {0}
+The monthly Flash limit is used up. Switch to Lite or wait for the next month.	मासिक Flash सीमा समाप्त हो गई है। Lite पर जाएँ या अगले महीने की प्रतीक्षा करें।
+The monthly Lite limit is used up.	मासिक Lite सीमा समाप्त हो गई है।
+The path is outside your home folder (system files)	पथ आपके होम फ़ोल्डर के बाहर है (सिस्टम फ़ाइलें)
+The path may contain passwords or keys	पथ में पासवर्ड या कुंजियाँ हो सकती हैं
+The server did not respond in time.	सर्वर ने समय पर उत्तर नहीं दिया।
+The server rejected the request (invalid chat).	सर्वर ने अनुरोध अस्वीकार कर दिया (अवैध चैट)।
