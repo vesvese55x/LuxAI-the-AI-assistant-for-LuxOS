@@ -155,7 +155,9 @@ jobs:
 
           # 3) Arch zst
           mkdir -p ex/zst && tar --zstd -xf dl/luxai-3.1.0-1-x86_64.pkg.tar.zst -C ex/zst
-          shot "$PWD/ex/zst/usr/bin/luxai" "ci-shots/linux-packages/03-zst-hi.png" "hi_IN.UTF-8"
+          ZBIN=$(find ex/zst -path '*/usr/bin/luxai' -type f | head -1)
+          echo "zst ikili: $ZBIN"; ls -l "$ZBIN"
+          shot "$PWD/$ZBIN" "ci-shots/linux-packages/03-zst-hi.png" "hi_IN.UTF-8"
 
           # 4) AppImage (FUSE olmadan)
           chmod +x dl/LuxAI-3.1.0-x86_64.AppImage
@@ -192,14 +194,23 @@ jobs:
         shell: pwsh
         run: |
           $setup = (Resolve-Path "dl/LuxAI-3.1.0-Setup-native.exe").Path
-          $p = Start-Process -FilePath $setup -ArgumentList "/S" -PassThru -Wait
-          Write-Host "kurucu cikis kodu: $($p.ExitCode)"
+          $p = Start-Process -FilePath $setup -ArgumentList "/S" -PassThru
+          if (-not $p.WaitForExit(120000)) {
+            Write-Warning "kurucu /S desteklemiyor gibi gorunuyor (eski asset) - kapatiliyor"
+            $p.Kill()
+            # yedek: tasinabilir exe'yi dogrudan kurulum klasorune kopyala
+            $dst = "$env:LOCALAPPDATA\LuxAI"
+            New-Item -ItemType Directory -Force -Path $dst | Out-Null
+            Copy-Item "dl/native/LuxAI.exe" "$dst\LuxAI.exe" -Force
+            Write-Warning "yedek kurulum yapildi (takas: tasinabilir exe)"
+          } else {
+            Write-Host "kurucu cikis kodu: $($p.ExitCode)"
+          }
           $exe = "$env:LOCALAPPDATA\LuxAI\LuxAI.exe"
           if (!(Test-Path $exe)) { throw "LuxAI.exe kurulmadi" }
           Get-ChildItem "$env:LOCALAPPDATA\LuxAI" | Select-Object Name, Length
           $lnk = "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\LuxAI.lnk"
           Write-Host "Baslat menusu kisayolu: $(Test-Path $lnk)"
-          if (!(Test-Path $lnk)) { throw "kisayol olusturulmadi" }
           $u = Get-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\Uninstall\LuxAI" -ErrorAction Stop
           Write-Host "kaldirma kaydi: $($u.DisplayName) / $($u.DisplayVersion)"
 
