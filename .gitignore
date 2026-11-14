@@ -19,3 +19,6 @@ upstream/
 
 # vendored upstream packages ARE part of the source
 !src/vendor/*.pkg.tar.zst
+
+# native Windows derleme ciktilari
+windows/build/

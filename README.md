@@ -170,6 +170,12 @@
     <td><code>LuxAI-3.1.0-Setup.exe</code> (WSL kurulu olmalı) → Başlat › LuxAI</td>
     <td align="center"><a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest/download/LuxAI-3.1.0-Setup.exe" target="_blank" rel="noreferrer"><img src="https://img.shields.io/badge/%C4%B0ND%C4%B0R-10b981?style=for-the-badge&amp;logo=github&amp;logoColor=white" alt="İNDİR — Windows exe"></a></td>
   </tr>
+  <tr>
+    <td>🪟 <strong>exe (native)</strong></td>
+    <td><strong>WSL GEREKMEZ</strong> — doğrudan Windows uygulaması, tek dosya, Windows 7 SP1+ / 10 / 11 (x64). GTK yok, sanal makine yok.</td>
+    <td><code>LuxAI-3.1.0-Setup-native.exe</code> → Başlat › LuxAI</td>
+    <td align="center"><a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest/download/LuxAI-3.1.0-Setup-native.exe" target="_blank" rel="noreferrer"><img src="https://img.shields.io/badge/%C4%B0ND%C4%B0R-10b981?style=for-the-badge&amp;logo=github&amp;logoColor=white" alt="İNDİR — Windows native exe"></a></td>
+  </tr>
 </table>
 
 <p align="center">

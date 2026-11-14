@@ -28,6 +28,24 @@ dağıtımlarının tamamında mevcuttur).
 3. LuxAI, Debian WSL içine kurulur; Başlat menüsüne **LuxAI** kısayolu eklenir.
 4. Kısayoldan çalıştırın (WSLg penceresi açılır) ve LuxAI hesabınızla oturum açın.
 
+## Windows (native — WSL'siz)
+
+`LuxAI-3.1.0-Setup-native.exe` veya tek dosya `LuxAI-3.1.0-Windows-native-x64.zip` içindeki
+`LuxAI.exe`. Windows 7 SP1 / 8 / 8.1 / 10 / 11 (x64).
+
+1. Kurucuyu çalıştırın (yönetici gerekmez): `%LOCALAPPDATA%\LuxAI` içine kurar,
+   Başlat menüsü + masaüstü kısayolu oluşturur, "Programlar ve Özellikler" kaydı ekler.
+2. İlk açılışta LuxAI hesabınızla giriş yapın (e-posta + parola). Hesap yoksa
+   <https://lux-ai.cz/register>.
+3. Ajan modunda araçlar Windows üzerinde çalışır (`cmd.exe`, dosya araçları, ekran görüntüsü…).
+
+Derleme: `bash windows/build-win.sh` → `windows/build/LuxAI.exe` (mingw-w64; ~257 KB, harici DLL yok).
+Teknik ayrıntılar ve repo analizi: [`docs/ANALIZ-WINDOWS.md`](ANALIZ-WINDOWS.md),
+kullanım: [`windows/README-TR.md`](../windows/README-TR.md).
+
+> Windows 7 notu: `lux-ai.cz` TLS 1.2 istediği için KB3140245 + `DefaultSecureProtocols=0xA00`
+> gerekir (ayrıntı windows/README-TR.md).
+
 ## Kaldırma / Uninstall
 
 - deb: `sudo apt remove luxai`
