@@ -20,7 +20,7 @@ jobs:
       - name: Install packaging tools
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y -qq rpmbuild zstd binutils gcc-mingw-w64-x86-64-posix >/dev/null
+          sudo apt-get install -y -qq rpm zstd binutils gcc-mingw-w64-x86-64-posix >/dev/null
 
       - name: Build packages
         run: bash packaging/build-all.sh "${{ github.ref_name }}"
@@ -44,8 +44,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Build Linux packages first (exe embeds the deb)
+        run: bash packaging/build-all.sh
+
       - name: Build Windows exe
-        run: bash packaging/build-exe.sh "${{ github.ref_name }}"
+        run: bash packaging/build-exe.sh
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
