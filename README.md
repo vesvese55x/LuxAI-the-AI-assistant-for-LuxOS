@@ -22,13 +22,7 @@
 > <a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest"><strong>⬇ Sürümü indir</strong></a> ·
 > <a href="#platform-paketleri-ve-kurulum-komutları"><strong>📦 Kurulum tabloları →</strong></a> ·
 > <a href="#tanıtım-sunumu"><strong>🌐 Tanıtım</strong></a> ·
-> <a href="#-belgeselsemo-ekosistemi"><strong>🧩 Ekosistem</strong></a><br>
-> <sub><strong>Rehber:</strong></sub>
-> <a href="#deutsch">🇩🇪</a>
-> <a href="#русский">🇷🇺</a>
-> <a href="#中文">🇨🇳</a>
-> <a href="#日本語">🇯🇵</a>
-> <a href="#हिन्दी">🇮🇳</a>
+> <a href="#-belgeselsemo-ekosistemi"><strong>🧩 Ekosistem</strong></a>
 > </p>
 
 <p align="center">
@@ -132,7 +126,6 @@
   </tr>
 </table>
 
-<p align="justify">Masaüstü tarafında aynı evrenin parçaları: <a href="https://github.com/vesvese55x/IDM-LINUX"><strong>⬇️ IDM-LINUX</strong></a> — Linux'ta IDM deneyimi (Wine + Python panosu) · <a href="http://belgeselsemo.com.tr"><strong>🌐 belgeselsemo.com.tr</strong></a> — BELGESELSEMO resmî site, portalları ve destek sayfası.</p>
 
 ## Platform paketleri ve kurulum komutları
 

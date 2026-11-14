@@ -11,6 +11,14 @@
   body { background:var(--bg); color:var(--fg); font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; line-height:1.65; }
   a { color:var(--accent); text-decoration:none; }
   a:hover { text-decoration:underline; }
+  .langbar { position:sticky; top:0; z-index:50; display:flex; flex-wrap:wrap; align-items:center; justify-content:center;
+             gap:6px; padding:10px 12px; background:rgba(28,29,41,.86); backdrop-filter:blur(10px);
+             border-bottom:1px solid var(--border); }
+  .lg-globe { font-size:1rem; margin-right:2px; }
+  .lp { cursor:pointer; font-family:inherit; border:1px solid var(--border); background:var(--card); color:var(--fg);
+        border-radius:999px; padding:5px 13px; font-size:.88rem; transition:border-color .15s, background .15s; }
+  .lp:hover { border-color:var(--accent); text-decoration:none; }
+  .lp.on { background:var(--accent); border-color:var(--accent); color:#fff; font-weight:700; }
   .wrap { max-width:980px; margin:0 auto; padding:48px 24px; }
   header { text-align:center; margin-bottom:36px; }
   h1 { font-size:2.1rem; font-weight:800; margin-bottom:8px; }
@@ -49,36 +57,60 @@
   .mob strong { display:block; color:#fff; font-size:.9rem; line-height:1.3; }
   .mob sub { color:var(--dim); font-size:.8rem; }
   .mob.soon { opacity:.55; }
+  @media (max-width:640px) {
+    .wrap { padding:28px 14px; }
+    h1 { font-size:1.55rem; }
+    h2 { font-size:1.25rem; }
+    .btn { padding:10px 16px; font-size:.92rem; }
+    .lp { padding:4px 10px; font-size:.8rem; }
+    .langbar { gap:5px; padding:8px 6px; }
+    table { display:block; overflow-x:auto; white-space:nowrap; }
+    .grid { grid-template-columns:1fr; }
+    .mob-grid { grid-template-columns:repeat(2,1fr); }
+    code { word-break:break-all; white-space:normal; }
+  }
 </style>
 </head>
 <body>
+
+<nav class="langbar" aria-label="Language / Dil">
+  <span class="lg-globe">🌐</span>
+  <button class="lp" data-lang="tr" type="button">🇹🇷 Türkçe</button>
+  <button class="lp" data-lang="en" type="button">🇬🇧 English</button>
+  <button class="lp" data-lang="de" type="button">🇩🇪 Deutsch</button>
+  <button class="lp" data-lang="ru" type="button">🇷🇺 Русский</button>
+  <button class="lp" data-lang="zh" type="button">🇨🇳 中文</button>
+  <button class="lp" data-lang="ja" type="button">🇯🇵 日本語</button>
+  <button class="lp" data-lang="hi" type="button">🇮🇳 हिन्दी</button>
+</nav>
+
 <div class="wrap">
 
 <header>
-  <h1>🤖 LuxAI – the AI assistant for LuxOS<br><span style="color:var(--accent)">(Unofficial multi-distro build)</span></h1>
-  <div class="tag">Resmî olmayan ama muhteşem bir AI asistanı — artık LuxOS dışındaki tüm dağıtımlarda</div>
+  <h1>🤖 LuxAI – the AI assistant for LuxOS<br><span style="color:var(--accent)" data-i18n="ub">(Unofficial multi-distro build)</span></h1>
+  <div class="tag" data-i18n="tag">Resmî olmayan ama muhteşem bir AI asistanı — artık LuxOS dışındaki tüm dağıtımlarda</div>
   <div class="badges">
     <span class="badge">v3.1.0</span>
-    <span class="badge">14 dil · %100 çeviri</span>
+    <span class="badge" data-i18n="b14">14 dil · %100 çeviri</span>
     <span class="badge">deb · rpm · AppImage · Arch · Windows</span>
     <span class="badge">Chat + Agent</span>
   </div>
 </header>
 
 <section>
-  <p class="just">LuxAI, LuxOS'un resmî yapay zeka asistanıdır. Bu depo ise <b>BELGESELSEMO</b> tarafından,
+  <p class="just" data-i18n="intro1">LuxAI, LuxOS'un resmî yapay zeka asistanıdır. Bu depo ise <b>BELGESELSEMO</b> tarafından,
   Z.AI desteğiyle, orijinal LuxOS 1.0.1 dağıtımından elde edilen değiştirilmemiş LuxAI 2.0.2 dosyalarının
   üzerine topluluk yamaları uygulanarak, LuxAI'nin <b>LuxOS dışındaki dağıtımlarda</b> (Ubuntu, Debian,
   Fedora, Arch, openSUSE, Windows…) da kullanılabilmesi amacıyla oluşturuldu. Resmî proje değildir;
   LuxOS projesiyle bağı yoktur. Tanıtım bilgisi <a href="https://luxos.lux-ai.cz/docs/luxos/luxai.html">resmî
   LuxAI dokümanlarından</a> alınmıştır.</p>
-  <p class="just dim">Sohbet edin ya da Agent modunu açın: LuxAI komutları çalıştırır, dosyaları yönetir,
+  <p class="just dim" data-i18n="intro2">Sohbet edin ya da Agent modunu açın: LuxAI komutları çalıştırır, dosyaları yönetir,
   uygulamalar ve bağlantılar açar, ekran görüntüsü alır — her adım sizin onayınızla gösterilir ve
   harekete geçmeden önce sizi sorar.</p>
 </section>
 
 <section class="cta">
-  <a class="btn green" href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest">⬇ En güncel sürüm</a>
+  <a class="btn green" href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest" data-i18n="latest">⬇ En güncel sürüm</a>
   <a class="btn" href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest/download/LuxAI-3.1.0-x86_64.AppImage">⬇ AppImage</a>
   <a class="btn" href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest/download/luxai_3.1.0_amd64.deb">⬇ deb</a>
   <a class="btn" href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest/download/luxai-3.1.0-1.x86_64.rpm">⬇ rpm</a>
@@ -86,63 +118,63 @@
   <a class="btn" href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest/download/LuxAI-3.1.0-Setup.exe">⬇ Windows</a>
 </section>
 
-<h2>🖥️ Gerçek runner ekranları</h2>
-<p class="just dim">Aşağıdaki ekran görüntüleri sahne değildir: her yeni derlemede GitHub Actions runner'ı,
+<h2 data-i18n="shotsH">🖥️ Gerçek runner ekranları</h2>
+<p class="just dim" data-i18n="shotsP">Aşağıdaki ekran görüntüleri sahne değildir: her yeni derlemede GitHub Actions runner'ı,
 derlenen .deb paketini gerçekten kurar, LuxAI GUI'sini Xvfb altında çalıştırır ve bu görüntüleri repoya
 işler — Türkçe, İngilizce ve Hintçe arayüzler.</p>
 <section class="screens">
   <img src="https://raw.githubusercontent.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/main/promo/assets/screens/runner/luxai-tr.png" alt="LuxAI — Türkçe arayüz">
-  <div class="cap">🇹🇷 Türkçe — hoş geldiniz ekranı (v3.1.0)</div>
+  <div class="cap" data-i18n="capTr">🇹🇷 Türkçe — hoş geldiniz ekranı (v3.1.0)</div>
   <img src="https://raw.githubusercontent.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/main/promo/assets/screens/runner/luxai-en.png" alt="LuxAI — English interface">
-  <div class="cap">🇬🇧 English — welcome screen</div>
+  <div class="cap" data-i18n="capEn">🇬🇧 English — welcome screen</div>
   <img src="https://raw.githubusercontent.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/main/promo/assets/screens/runner/luxai-hi.png" alt="LuxAI — हिन्दी इंटरफ़ेस">
-  <div class="cap">🇮🇳 हिन्दी — v3.1.0 ile gelen 14. arayüz dili</div>
+  <div class="cap" data-i18n="capHi">🇮🇳 हिन्दी — v3.1.0 ile gelen 14. arayüz dili</div>
 </section>
 
-<h2>⚡ Tek panel, tüm yetenekler</h2>
+<h2 data-i18n="featH">⚡ Tek panel, tüm yetenekler</h2>
 <div class="grid">
-  <div class="card"><h3>💬 Chat</h3><p>Akış halinde yanıtlar, Markdown, tablolar, kod blokları
+  <div class="card"><h3>💬 Chat</h3><p data-i18n="f1p">Akış halinde yanıtlar, Markdown, tablolar, kod blokları
     (kopyala düğmesi + sözdizimi renklendirme), LaTeX, kenar çubuğunda sohbet geçmişi.</p></div>
-  <div class="card"><h3>🛠️ Agent</h3><p>Komut çalıştırma, dosya yönetimi, uygulama/bağlantı açma,
+  <div class="card"><h3>🛠️ Agent</h3><p data-i18n="f2p">Komut çalıştırma, dosya yönetimi, uygulama/bağlantı açma,
     ekran görüntüsü, fare &amp; klavye, pencere yönetimi. LuxAI her eylemden önce sorar.</p></div>
-  <div class="card"><h3>🌍 14 dil · %100 çeviri</h3><p>Türkçe, Rusça, Çince, Japonca, Hintçe, Almanca,
+  <div class="card"><h3 data-i18n="f3h">🌍 14 dil · %100 çeviri</h3><p data-i18n="f3p">Türkçe, Rusça, Çince, Japonca, Hintçe, Almanca,
     Fransızca ve daha fazlası — 457 anahtarın tamamı eksiksiz. Sistem dili dinamik algılanır;
     yoksa İngilizce.</p></div>
-  <div class="card"><h3>🛡️ Güvenlik</h3><p>Hassas dosyalar ek onay ister; tehlikeli komutlar iki kez
+  <div class="card"><h3 data-i18n="f4h">🛡️ Güvenlik</h3><p data-i18n="f4p">Hassas dosyalar ek onay ister; tehlikeli komutlar iki kez
     onaylanır; bazı işlemler her koşulda reddedilir. İstem-enjeksiyonu koruması.</p></div>
-  <div class="card"><h3>📚 Yerleşik dokümanlar</h3><p>Çevrimdışı LSL/LuxOS kılavuzunda arama ve
+  <div class="card"><h3 data-i18n="f5h">📚 Yerleşik dokümanlar</h3><p data-i18n="f5p">Çevrimdışı LSL/LuxOS kılavuzunda arama ve
     okuma — internet olmadan da.</p></div>
-  <div class="card"><h3>🪟 Windows</h3><p>LuxAI-Setup.exe, WSLg ile gerçek LuxAI penceresini
+  <div class="card"><h3>🪟 Windows</h3><p data-i18n="f6p">LuxAI-Setup.exe, WSLg ile gerçek LuxAI penceresini
     Windows 11'de çalıştırır; Başlat menüsü kısayolu oluşturur.</p></div>
 </div>
 
-<h2>📦 Paketini seç, tek komut</h2>
-<p class="just">Tek satırlık kurulum betiği dağıtımınızı algılar ve GitHub Releases'teki en güncel paketi
+<h2 data-i18n="pkgH">📦 Paketini seç, tek komut</h2>
+<p class="just" data-i18n="pkgP">Tek satırlık kurulum betiği dağıtımınızı algılar ve GitHub Releases'teki en güncel paketi
 indirip kurar. Tercih ederseniz aşağıdaki tablodan paketinizi kendiniz seçin — tüm paketler aynı
 <strong>LuxAI 3.1.0</strong> sürümünü taşır.</p>
 <p class="mono"><code>curl -fsSL https://raw.githubusercontent.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/main/belgeselsemo-luxai-installer | sh</code></p>
 
 <table>
-  <tr><th>Paket</th><th>Ne için?</th><th>Kurulum komutu</th><th>İndir</th></tr>
-  <tr><td>📦 <b>AppImage</b></td><td>Kurulum gerektirmez; her dağıtım</td>
+  <tr><th data-i18n="th1">Paket</th><th data-i18n="th2">Ne için?</th><th data-i18n="th3">Kurulum komutu</th><th data-i18n="th4">İndir</th></tr>
+  <tr><td>📦 <b>AppImage</b></td><td data-i18n="r1d">Kurulum gerektirmez; her dağıtım</td>
       <td><code>chmod +x LuxAI-3.1.0-x86_64.AppImage &amp;&amp; ./LuxAI-3.1.0-x86_64.AppImage</code></td>
-      <td><a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest/download/LuxAI-3.1.0-x86_64.AppImage"><b>İNDİR</b></a></td></tr>
-  <tr><td>🐧 <b>deb</b></td><td>Debian / Ubuntu / Mint ve türevleri</td>
+      <td><a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest/download/LuxAI-3.1.0-x86_64.AppImage"><b data-i18n="dl">İNDİR</b></a></td></tr>
+  <tr><td>🐧 <b>deb</b></td><td data-i18n="r2d">Debian / Ubuntu / Mint ve türevleri</td>
       <td><code>sudo apt install ./luxai_3.1.0_amd64.deb</code></td>
-      <td><a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest/download/luxai_3.1.0_amd64.deb"><b>İNDİR</b></a></td></tr>
-  <tr><td>🎩 <b>rpm</b></td><td>Fedora / openSUSE / RHEL türevleri</td>
+      <td><a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest/download/luxai_3.1.0_amd64.deb"><b data-i18n="dl">İNDİR</b></a></td></tr>
+  <tr><td>🎩 <b>rpm</b></td><td data-i18n="r3d">Fedora / openSUSE / RHEL türevleri</td>
       <td><code>sudo dnf install ./luxai-3.1.0-1.x86_64.rpm</code></td>
-      <td><a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest/download/luxai-3.1.0-1.x86_64.rpm"><b>İNDİR</b></a></td></tr>
-  <tr><td>🏔️ <b>zst</b></td><td>Arch / Manjaro / Cachy OS ve türevleri</td>
+      <td><a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest/download/luxai-3.1.0-1.x86_64.rpm"><b data-i18n="dl">İNDİR</b></a></td></tr>
+  <tr><td>🏔️ <b>zst</b></td><td data-i18n="r4d">Arch / Manjaro / Cachy OS ve türevleri</td>
       <td><code>sudo pacman -U luxai-3.1.0-1-x86_64.pkg.tar.zst</code></td>
-      <td><a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest/download/luxai-3.1.0-1-x86_64.pkg.tar.zst"><b>İNDİR</b></a></td></tr>
-  <tr><td>⊞ <b>exe</b></td><td>Windows 10/11 (WSLg)</td>
-      <td><code>LuxAI-3.1.0-Setup.exe</code> → Başlat › LuxAI</td>
-      <td><a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest/download/LuxAI-3.1.0-Setup.exe"><b>İNDİR</b></a></td></tr>
+      <td><a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest/download/luxai-3.1.0-1-x86_64.pkg.tar.zst"><b data-i18n="dl">İNDİR</b></a></td></tr>
+  <tr><td>⊞ <b>exe</b></td><td data-i18n="r5d">Windows 10/11 (WSLg)</td>
+      <td><code>LuxAI-3.1.0-Setup.exe</code> → <span data-i18n="exeRun">Başlat › LuxAI</span></td>
+      <td><a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest/download/LuxAI-3.1.0-Setup.exe"><b data-i18n="dl">İNDİR</b></a></td></tr>
 </table>
 
-<h2>🌐 BELGESELSEMO ekosistemi</h2>
-<p class="just">LuxAI paketleri, BELGESELSEMO evreninin masaüstü yapay zeka parçasıdır — ve BELGESELSEMO dünyası
+<h2 data-i18n="ecoH">🌐 BELGESELSEMO ekosistemi</h2>
+<p class="just" data-i18n="ecoP">LuxAI paketleri, BELGESELSEMO evreninin masaüstü yapay zeka parçasıdır — ve BELGESELSEMO dünyası
 masaüstüyle sınırlı değildir: web portalları, YouTube kanalı, IDM-LINUX gibi masaüstü araçları ve Android
 tarafındaki belgesel, trivia, TV rehberi, nöbetçi eczane, Nutuk ve ekonomi odaklı uygulama katmanları aynı
 ekosistemi paylaşır. LuxAI paketleri BELGESELSEMO tarafından, Z.AI sayesinde orijinal LuxOS dağıtımından
@@ -152,36 +184,35 @@ puanı veya bağış yollarıyla projelere katkı verilebilir.</p>
 <div class="mob-grid">
   <a class="mob" href="https://play.google.com/store/apps/details?id=com.belgeselsemo.tr" target="_blank" rel="noreferrer">
     <img src="https://raw.githubusercontent.com/vesvese55x/IDM-LINUX/main/src/idm_linux/assets/app_belgeselsemo.png" alt="BELGESELSEMO" loading="lazy">
-    <strong>BELGESELSEMO</strong><sub>HD Belgesel &amp; Araçlar Portalı</sub>
+    <strong>BELGESELSEMO</strong><sub data-i18n="m1s">HD Belgesel &amp; Araçlar Portalı</sub>
   </a>
   <a class="mob" href="https://play.google.com/store/apps/details?id=com.belgeselsemo.trivia" target="_blank" rel="noreferrer">
     <img src="https://raw.githubusercontent.com/vesvese55x/IDM-LINUX/main/src/idm_linux/assets/app_trivia.png" alt="BELGESELSEMO TRIVIA" loading="lazy">
-    <strong>BELGESELSEMO TRIVIA</strong><sub>Bilgi yarışması</sub>
+    <strong>BELGESELSEMO TRIVIA</strong><sub data-i18n="m2s">Bilgi yarışması</sub>
   </a>
   <a class="mob" href="https://play.google.com/store/apps/details?id=com.belgeselsemo.epgviewer" target="_blank" rel="noreferrer">
     <img src="https://raw.githubusercontent.com/vesvese55x/IDM-LINUX/main/src/idm_linux/assets/app_epg.png" alt="BELGESELSEMO TV REHBERİ (EPG)" loading="lazy">
-    <strong>TV REHBERİ (EPG)</strong><sub>Yayın akışı görüntüleyici</sub>
+    <strong data-i18n="m3n">TV REHBERİ (EPG)</strong><sub data-i18n="m3s">Yayın akışı görüntüleyici</sub>
   </a>
   <a class="mob" href="https://play.google.com/store/apps/details?id=com.belgeselsemo.nb724" target="_blank" rel="noreferrer">
     <img src="https://raw.githubusercontent.com/vesvese55x/IDM-LINUX/main/src/idm_linux/assets/app_nb724.png" alt="NÖBETÇİ ECZANE 7/24" loading="lazy">
-    <strong>NÖBETÇİ ECZANE 7/24</strong><sub>TR &amp; KKTC</sub>
+    <strong data-i18n="m4n">NÖBETÇİ ECZANE 7/24</strong><sub data-i18n="m4s">TR &amp; KKTC</sub>
   </a>
   <a class="mob" href="https://play.google.com/store/apps/details?id=com.belgeselsemo.nutuk" target="_blank" rel="noreferrer">
     <img src="https://raw.githubusercontent.com/vesvese55x/IDM-LINUX/main/src/idm_linux/assets/app_nutuk.png" alt="NUTUK 1919-1927" loading="lazy">
-    <strong>NUTUK 1919-1927</strong><sub>Sözlü &amp; sesli</sub>
+    <strong>NUTUK 1919-1927</strong><sub data-i18n="m5s">Sözlü &amp; sesli</sub>
   </a>
   <span class="mob soon">
     <img src="https://raw.githubusercontent.com/vesvese55x/IDM-LINUX/main/src/idm_linux/assets/proj_economy.png" alt="BELGESELSEMO ECONOMY" loading="lazy">
-    <strong>BELGESELSEMO ECONOMY</strong><sub>Yakında…</sub>
+    <strong>BELGESELSEMO ECONOMY</strong><sub data-i18n="m6s">Yakında…</sub>
   </span>
 </div>
 
-<p class="just">Masaüstü tarafında aynı evrenin parçaları: <a href="https://github.com/vesvese55x/IDM-LINUX"><b>⬇️ IDM-LINUX</b></a> —
-Linux'ta IDM deneyimi (Wine + Python panosu) · <a href="http://belgeselsemo.com.tr"><b>🌐 belgeselsemo.com.tr</b></a> —
-BELGESELSEMO resmî site, portalları ve destek sayfası.</p>
+<p class="just"><a href="https://github.com/vesvese55x/IDM-LINUX"><b>⬇️ IDM-LINUX</b></a> — <span data-i18n="dsk1">Linux'ta IDM deneyimi (Wine + Python panosu)</span> ·
+<a href="http://belgeselsemo.com.tr"><b>🌐 belgeselsemo.com.tr</b></a> — <span data-i18n="dsk2">BELGESELSEMO resmî site, portalları ve destek sayfası</span>.</p>
 
-<h2>🌍 Dil / Language</h2>
-<p class="just dim">Ayrıntılı rehber README'de şu dillerde:
+<h2 data-i18n="langH">🌍 Dil / Language</h2>
+<p class="just dim"><span data-i18n="langP">Ayrıntılı rehber README'de şu dillerde:</span>
 🇹🇷 <a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS#-luxai--the-ai-assistant-for-luxos-unofficial-multi-distro-build">Türkçe</a> ·
 🇬🇧 <a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS#english">English</a> ·
 🇩🇪 <a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS#deutsch">Deutsch</a> ·
@@ -195,11 +226,394 @@ BELGESELSEMO resmî site, portalları ve destek sayfası.</p>
     <img src="https://raw.githubusercontent.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/main/promo/assets/luxai-icon.png" alt="LuxAI">
     <strong>LuxAI – the AI assistant for LuxOS</strong>
   </div>
-  <p>BELGESELSEMO tarafından Z.AI sayesinde orijinal LuxOS distrosundan elde edilerek
+  <p data-i18n="foot1">BELGESELSEMO tarafından Z.AI sayesinde orijinal LuxOS distrosundan elde edilerek
   Linux/Windows paketler olarak derlenmiştir · <a href="http://belgeselsemo.com.tr">belgeselsemo.com.tr</a></p>
-  <p>LuxAI/LuxOS: <a href="https://luxos.lux-ai.cz">luxos.lux-ai.cz</a> · Bu depo resmî değildir.</p>
+  <p data-i18n="foot2">LuxAI/LuxOS: <a href="https://luxos.lux-ai.cz">luxos.lux-ai.cz</a> · Bu depo resmî değildir.</p>
 </footer>
 
 </div>
+
+<script>
+(function () {
+  "use strict";
+  var I18N = {
+    tr: {
+      title: "LuxAI – the AI assistant for LuxOS (Resmî olmayan çok-distro derlemesi) · BELGESELSEMO",
+      ub: "(Resmî olmayan çok-distro derlemesi)",
+      tag: "Resmî olmayan ama muhteşem bir AI asistanı — artık LuxOS dışındaki tüm dağıtımlarda",
+      b14: "14 dil · %100 çeviri",
+      intro1: "LuxAI, LuxOS'un resmî yapay zeka asistanıdır. Bu depo ise <b>BELGESELSEMO</b> tarafından, Z.AI desteğiyle, orijinal LuxOS 1.0.1 dağıtımından elde edilen değiştirilmemiş LuxAI 2.0.2 dosyalarının üzerine topluluk yamaları uygulanarak, LuxAI'nin <b>LuxOS dışındaki dağıtımlarda</b> (Ubuntu, Debian, Fedora, Arch, openSUSE, Windows…) da kullanılabilmesi amacıyla oluşturuldu. Resmî proje değildir; LuxOS projesiyle bağı yoktur. Tanıtım bilgisi <a href=\"https://luxos.lux-ai.cz/docs/luxos/luxai.html\">resmî LuxAI dokümanlarından</a> alınmıştır.",
+      intro2: "Sohbet edin ya da Agent modunu açın: LuxAI komutları çalıştırır, dosyaları yönetir, uygulamalar ve bağlantılar açar, ekran görüntüsü alır — her adım sizin onayınızla gösterilir ve harekete geçmeden önce sizi sorar.",
+      latest: "⬇ En güncel sürüm",
+      shotsH: "🖥️ Gerçek runner ekranları",
+      shotsP: "Aşağıdaki ekran görüntüleri sahne değildir: her yeni derlemede GitHub Actions runner'ı, derlenen .deb paketini gerçekten kurar, LuxAI GUI'sini Xvfb altında çalıştırır ve bu görüntüleri repoya işler — Türkçe, İngilizce ve Hintçe arayüzler.",
+      capTr: "🇹🇷 Türkçe — hoş geldiniz ekranı (v3.1.0)",
+      capEn: "🇬🇧 English — welcome screen",
+      capHi: "🇮🇳 हिन्दी — v3.1.0 ile gelen 14. arayüz dili",
+      featH: "⚡ Tek panel, tüm yetenekler",
+      f1p: "Akış halinde yanıtlar, Markdown, tablolar, kod blokları (kopyala düğmesi + sözdizimi renklendirme), LaTeX, kenar çubuğunda sohbet geçmişi.",
+      f2p: "Komut çalıştırma, dosya yönetimi, uygulama/bağlantı açma, ekran görüntüsü, fare &amp; klavye, pencere yönetimi. LuxAI her eylemden önce sorar.",
+      f3h: "🌍 14 dil · %100 çeviri",
+      f3p: "Türkçe, Rusça, Çince, Japonca, Hintçe, Almanca, Fransızca ve daha fazlası — 457 anahtarın tamamı eksiksiz. Sistem dili dinamik algılanır; yoksa İngilizce.",
+      f4h: "🛡️ Güvenlik",
+      f4p: "Hassas dosyalar ek onay ister; tehlikeli komutlar iki kez onaylanır; bazı işlemler her koşulda reddedilir. İstem-enjeksiyonu koruması.",
+      f5h: "📚 Yerleşik dokümanlar",
+      f5p: "Çevrimdışı LSL/LuxOS kılavuzunda arama ve okuma — internet olmadan da.",
+      f6p: "LuxAI-Setup.exe, WSLg ile gerçek LuxAI penceresini Windows 11'de çalıştırır; Başlat menüsü kısayolu oluşturur.",
+      pkgH: "📦 Paketini seç, tek komut",
+      pkgP: "Tek satırlık kurulum betiği dağıtımınızı algılar ve GitHub Releases'teki en güncel paketi indirip kurar. Tercih ederseniz aşağıdaki tablodan paketinizi kendiniz seçin — tüm paketler aynı <strong>LuxAI 3.1.0</strong> sürümünü taşır.",
+      th1: "Paket", th2: "Ne için?", th3: "Kurulum komutu", th4: "İndir",
+      r1d: "Kurulum gerektirmez; her dağıtım",
+      r2d: "Debian / Ubuntu / Mint ve türevleri",
+      r3d: "Fedora / openSUSE / RHEL türevleri",
+      r4d: "Arch / Manjaro / Cachy OS ve türevleri",
+      r5d: "Windows 10/11 (WSLg)",
+      exeRun: "Başlat › LuxAI",
+      dl: "İNDİR",
+      ecoH: "🌐 BELGESELSEMO ekosistemi",
+      ecoP: "LuxAI paketleri, BELGESELSEMO evreninin masaüstü yapay zeka parçasıdır — ve BELGESELSEMO dünyası masaüstüyle sınırlı değildir: web portalları, YouTube kanalı, IDM-LINUX gibi masaüstü araçları ve Android tarafındaki belgesel, trivia, TV rehberi, nöbetçi eczane, Nutuk ve ekonomi odaklı uygulama katmanları aynı ekosistemi paylaşır. LuxAI paketleri BELGESELSEMO tarafından, Z.AI sayesinde orijinal LuxOS dağıtımından elde edilerek Linux/Windows paketleri olarak derlenmiştir. Destek sayfasından YouTube aboneliği, Google Play puanı veya bağış yollarıyla projelere katkı verilebilir.",
+      dsk1: "Linux'ta IDM deneyimi (Wine + Python panosu)",
+      dsk2: "BELGESELSEMO resmî site, portalları ve destek sayfası",
+      m1s: "HD Belgesel &amp; Araçlar Portalı",
+      m2s: "Bilgi yarışması",
+      m3n: "TV REHBERİ (EPG)", m3s: "Yayın akışı görüntüleyici",
+      m4n: "NÖBETÇİ ECZANE 7/24", m4s: "TR &amp; KKTC",
+      m5s: "Sözlü &amp; sesli",
+      m6s: "Yakında…",
+      langH: "🌍 Dil / Language",
+      langP: "Ayrıntılı rehber README'de şu dillerde:",
+      foot1: "BELGESELSEMO tarafından Z.AI sayesinde orijinal LuxOS distrosundan elde edilerek Linux/Windows paketler olarak derlenmiştir · <a href=\"http://belgeselsemo.com.tr\">belgeselsemo.com.tr</a>",
+      foot2: "LuxAI/LuxOS: <a href=\"https://luxos.lux-ai.cz\">luxos.lux-ai.cz</a> · Bu depo resmî değildir."
+    },
+    en: {
+      title: "LuxAI – the AI assistant for LuxOS (Unofficial multi-distro build) · BELGESELSEMO",
+      ub: "(Unofficial multi-distro build)",
+      tag: "Unofficial but awesome AI assistant — now on every distro outside LuxOS",
+      b14: "14 languages · 100% translated",
+      intro1: "LuxAI is the official AI assistant of LuxOS. This repository was created by <b>BELGESELSEMO</b>, with the help of Z.AI, by applying community patches on top of the unmodified LuxAI 2.0.2 files taken from the original LuxOS 1.0.1 image, so that LuxAI can also be used on <b>distros other than LuxOS</b> (Ubuntu, Debian, Fedora, Arch, openSUSE, Windows…). It is not an official project and has no affiliation with the LuxOS project. Product information is taken from the <a href=\"https://luxos.lux-ai.cz/docs/luxos/luxai.html\">official LuxAI documentation</a>.",
+      intro2: "Chat or switch on Agent mode: LuxAI runs commands, manages files, opens apps and links, takes screenshots — every step is shown for your approval and asks before acting.",
+      latest: "⬇ Latest release",
+      shotsH: "🖥️ Real runner screenshots",
+      shotsP: "These screenshots are not staged: on every new build the GitHub Actions runner actually installs the built .deb package, runs the LuxAI GUI under Xvfb and commits the images back to the repository — Turkish, English and Hindi interfaces.",
+      capTr: "🇹🇷 Turkish — welcome screen (v3.1.0)",
+      capEn: "🇬🇧 English — welcome screen",
+      capHi: "🇮🇳 Hindi — the 14th UI language, new in v3.1.0",
+      featH: "⚡ One panel, every capability",
+      f1p: "Streaming answers, Markdown, tables, code blocks (copy button + syntax highlighting), LaTeX, chat history in the sidebar.",
+      f2p: "Run commands, manage files, open apps and links, screenshots, mouse &amp; keyboard, window management. LuxAI asks before every action.",
+      f3h: "🌍 14 languages · 100% translated",
+      f3p: "Turkish, Russian, Chinese, Japanese, Hindi, German, French and more — all 457 keys complete. The system language is detected dynamically; English otherwise.",
+      f4h: "🛡️ Security",
+      f4p: "Sensitive files require extra approval; dangerous commands are confirmed twice; some operations are always refused. Prompt-injection protection.",
+      f5h: "📚 Built-in docs",
+      f5p: "Search and read the offline LSL/LuxOS guide — even without internet.",
+      f6p: "LuxAI-Setup.exe runs the real LuxAI window on Windows 11 via WSLg and creates a Start-menu shortcut.",
+      pkgH: "📦 Pick your package, one command",
+      pkgP: "The one-line installer detects your distro and installs the latest package from GitHub Releases. Prefer manual? Pick your package from the table below — all packages carry the same <strong>LuxAI 3.1.0</strong> release.",
+      th1: "Package", th2: "What for?", th3: "Install command", th4: "Download",
+      r1d: "No installation required; any distro",
+      r2d: "Debian / Ubuntu / Mint and derivatives",
+      r3d: "Fedora / openSUSE / RHEL derivatives",
+      r4d: "Arch / Manjaro / Cachy OS and derivatives",
+      r5d: "Windows 10/11 (WSLg)",
+      exeRun: "Start › LuxAI",
+      dl: "DOWNLOAD",
+      ecoH: "🌐 BELGESELSEMO ecosystem",
+      ecoP: "The LuxAI packages are the desktop AI piece of the BELGESELSEMO universe — and the BELGESELSEMO world is not limited to the desktop: web portals, the YouTube channel, desktop tools like IDM-LINUX and the Android layer of documentary, trivia, TV-guide, on-duty pharmacy, Nutuk and economy apps all share the same ecosystem. The LuxAI packages were built by BELGESELSEMO, with the help of Z.AI, from the original LuxOS distribution as Linux/Windows packages. You can support the projects via the support page — with a YouTube subscription, a Google Play rating or a donation.",
+      dsk1: "the IDM experience on Linux (Wine + Python panel)",
+      dsk2: "official BELGESELSEMO site, portals and support page",
+      m1s: "HD Documentary &amp; Tools Portal",
+      m2s: "Trivia quiz",
+      m3n: "TV GUIDE (EPG)", m3s: "TV schedule viewer",
+      m4n: "ON-DUTY PHARMACY 7/24", m4s: "TR &amp; KKTC",
+      m5s: "Spoken &amp; audio",
+      m6s: "Coming soon…",
+      langH: "🌍 Language",
+      langP: "Detailed guide in the README in:",
+      foot1: "Built by BELGESELSEMO with the help of Z.AI from the original LuxOS distro, packaged for Linux/Windows · <a href=\"http://belgeselsemo.com.tr\">belgeselsemo.com.tr</a>",
+      foot2: "LuxAI/LuxOS: <a href=\"https://luxos.lux-ai.cz\">luxos.lux-ai.cz</a> · This repository is unofficial."
+    },
+    de: {
+      title: "LuxAI – der KI-Assistent für LuxOS (Inoffizieller Multi-Distro-Build) · BELGESELSEMO",
+      ub: "(Inoffizieller Multi-Distro-Build)",
+      tag: "Inoffizieller, aber großartiger KI-Assistent — jetzt auf allen Distributionen außer LuxOS",
+      b14: "14 Sprachen · 100 % übersetzt",
+      intro1: "LuxAI ist der offizielle KI-Assistent von LuxOS. Dieses Repository wurde von <b>BELGESELSEMO</b> mit Unterstützung von Z.AI erstellt, indem Community-Patches auf die unveränderten LuxAI-2.0.2-Dateien aus dem Original-LuxOS-1.0.1-Image angewendet wurden, damit LuxAI auch auf <b>Distributionen außerhalb von LuxOS</b> (Ubuntu, Debian, Fedora, Arch, openSUSE, Windows…) genutzt werden kann. Kein offizielles Projekt; keine Verbindung zum LuxOS-Projekt. Die Produktinformationen stammen aus der <a href=\"https://luxos.lux-ai.cz/docs/luxos/luxai.html\">offiziellen LuxAI-Dokumentation</a>.",
+      intro2: "Chatten oder den Agent-Modus aktivieren: LuxAI führt Befehle aus, verwaltet Dateien, öffnet Apps und Links, macht Screenshots — jeder Schritt wird zur Bestätigung angezeigt und fragt, bevor etwas passiert.",
+      latest: "⬇ Neueste Version",
+      shotsH: "🖥️ Echte Runner-Screenshots",
+      shotsP: "Diese Screenshots sind nicht inszeniert: Bei jedem neuen Build installiert der GitHub-Actions-Runner das erstellte .deb-Paket wirklich, führt die LuxAI-GUI unter Xvfb aus und committet die Bilder ins Repository — türkische, englische und Hindi-Oberflächen.",
+      capTr: "🇹🇷 Türkçe — Willkommensbildschirm (v3.1.0)",
+      capEn: "🇬🇧 English — Willkommensbildschirm",
+      capHi: "🇮🇳 हिन्दी — die 14. Oberflächensprache, neu in v3.1.0",
+      featH: "⚡ Ein Panel, alle Fähigkeiten",
+      f1p: "Antworten im Streaming, Markdown, Tabellen, Codeblöcke (Kopierbutton + Syntaxhervorhebung), LaTeX, Chatverlauf in der Seitenleiste.",
+      f2p: "Befehle ausführen, Dateien verwalten, Apps und Links öffnen, Screenshots, Maus &amp; Tastatur, Fensterverwaltung. LuxAI fragt vor jeder Aktion.",
+      f3h: "🌍 14 Sprachen · 100 % übersetzt",
+      f3p: "Türkisch, Russisch, Chinesisch, Japanisch, Hindi, Deutsch, Französisch und mehr — alle 457 Schlüssel vollständig. Die Systemsprache wird dynamisch erkannt, sonst Englisch.",
+      f4h: "🛡️ Sicherheit",
+      f4p: "Sensible Dateien erfordern zusätzliche Bestätigung; gefährliche Befehle werden zweimal bestätigt; manche Vorgänge werden immer abgelehnt. Schutz vor Prompt-Injection.",
+      f5h: "📚 Eingebaute Dokumentation",
+      f5p: "Offline-LSL/LuxOS-Handbuch durchsuchen und lesen — sogar ohne Internet.",
+      f6p: "LuxAI-Setup.exe startet das echte LuxAI-Fenster über WSLg unter Windows 11 und erstellt eine Startmenü-Verknüpfung.",
+      pkgH: "📦 Paket wählen, ein Befehl",
+      pkgP: "Das Einzeilen-Installationsskript erkennt Ihre Distribution und installiert das neueste Paket aus GitHub Releases. Lieber manuell? Wählen Sie Ihr Paket aus der Tabelle unten — alle Pakete tragen dieselbe Version <strong>LuxAI 3.1.0</strong>.",
+      th1: "Paket", th2: "Wofür?", th3: "Installationsbefehl", th4: "Download",
+      r1d: "Keine Installation nötig; jede Distribution",
+      r2d: "Debian / Ubuntu / Mint und Derivate",
+      r3d: "Fedora / openSUSE / RHEL-Derivate",
+      r4d: "Arch / Manjaro / Cachy OS und Derivate",
+      r5d: "Windows 10/11 (WSLg)",
+      exeRun: "Start › LuxAI",
+      dl: "DOWNLOAD",
+      ecoH: "🌐 BELGESELSEMO-Ökosystem",
+      ecoP: "Die LuxAI-Pakete sind das Desktop-KI-Teil des BELGESELSEMO-Universums — und die BELGESELSEMO-Welt beschränkt sich nicht auf den Desktop: Webportale, der YouTube-Kanal, Desktop-Tools wie IDM-LINUX und die Android-Ebene mit Dokumentar-, Quiz-, TV-Programm-, Apotheken-, Nutuk- und Wirtschafts-Apps teilen dasselbe Ökosystem. Die LuxAI-Pakete wurden von BELGESELSEMO mit Hilfe von Z.AI aus der Original-LuxOS-Distribution als Linux/Windows-Pakete erstellt. Über die Supportseite können Sie die Projekte mit einem YouTube-Abo, einer Google-Play-Bewertung oder einer Spende unterstützen.",
+      dsk1: "das IDM-Erlebnis unter Linux (Wine + Python-Panel)",
+      dsk2: "offizielle BELGESELSEMO-Website, Portale und Supportseite",
+      m1s: "HD-Dokumentarfilm- &amp; Tools-Portal",
+      m2s: "Quizspiel",
+      m3n: "TV-PROGRAMM (EPG)", m3s: "TV-Programm-Viewer",
+      m4n: "NOTDIENST-APOTHEKE 7/24", m4s: "TR &amp; KKTC",
+      m5s: "Gesprochen &amp; mit Ton",
+      m6s: "Demnächst…",
+      langH: "🌍 Sprache",
+      langP: "Ausführliche Anleitung im README in:",
+      foot1: "Von BELGESELSEMO mit Hilfe von Z.AI aus der Original-LuxOS-Distro erstellt und als Linux/Windows-Pakete gebaut · <a href=\"http://belgeselsemo.com.tr\">belgeselsemo.com.tr</a>",
+      foot2: "LuxAI/LuxOS: <a href=\"https://luxos.lux-ai.cz\">luxos.lux-ai.cz</a> · Dieses Repository ist inoffiziell."
+    },
+    ru: {
+      title: "LuxAI – ИИ-ассистент для LuxOS (Неофициальная сборка для разных дистрибутивов) · BELGESELSEMO",
+      ub: "(Неофициальная сборка для разных дистрибутивов)",
+      tag: "Неофициальный, но потрясающий ИИ-ассистент — теперь на всех дистрибутивах вне LuxOS",
+      b14: "14 языков · 100 % перевод",
+      intro1: "LuxAI — официальный ИИ-ассистент LuxOS. Этот репозиторий создан <b>BELGESELSEMO</b> при поддержке Z.AI: поверх немодифицированных файлов LuxAI 2.0.2, взятых из оригинального образа LuxOS 1.0.1, применены патчи сообщества, чтобы LuxAI работал и на <b>дистрибутивах вне LuxOS</b> (Ubuntu, Debian, Fedora, Arch, openSUSE, Windows…). Это не официальный проект и не связан с проектом LuxOS. Информация о продукте взята из <a href=\"https://luxos.lux-ai.cz/docs/luxos/luxai.html\">официальной документации LuxAI</a>.",
+      intro2: "Общайтесь или включите режим агента: LuxAI выполняет команды, управляет файлами, открывает приложения и ссылки, делает скриншоты — каждый шаг показывается на согласование, и перед действием он спрашивает вас.",
+      latest: "⬇ Последний релиз",
+      shotsH: "🖥️ Настоящие скриншоты с раннера",
+      shotsP: "Эти скриншоты не постановочные: при каждой новой сборке раннер GitHub Actions действительно устанавливает собранный .deb-пакет, запускает GUI LuxAI под Xvfb и коммитит изображения в репозиторий — интерфейсы на турецком, английском и хинди.",
+      capTr: "🇹🇷 Türkçe — экран приветствия (v3.1.0)",
+      capEn: "🇬🇧 English — экран приветствия",
+      capHi: "🇮🇳 हिन्दी — 14-й язык интерфейса, новинка v3.1.0",
+      featH: "⚡ Одна панель — все возможности",
+      f1p: "Ответы в реальном времени, Markdown, таблицы, блоки кода (кнопка копирования + подсветка синтаксиса), LaTeX, история чатов в боковой панели.",
+      f2p: "Выполнение команд, работа с файлами, открытие приложений и ссылок, скриншоты, мышь и клавиатура, управление окнами. Перед каждым действием LuxAI спрашивает.",
+      f3h: "🌍 14 языков · 100 % перевод",
+      f3p: "Турецкий, русский, китайский, японский, хинди, немецкий, французский и другие — все 457 ключей полностью. Язык системы определяется динамически, иначе английский.",
+      f4h: "🛡️ Безопасность",
+      f4p: "Чувствительные файлы требуют дополнительного подтверждения; опасные команды подтверждаются дважды; некоторые операции всегда отклоняются. Защита от prompt-инъекций.",
+      f5h: "📚 Встроенная документация",
+      f5p: "Поиск и чтение офлайн-руководства LSL/LuxOS — даже без интернета.",
+      f6p: "LuxAI-Setup.exe запускает настоящее окно LuxAI в Windows 11 через WSLg и создаёт ярлык в меню «Пуск».",
+      pkgH: "📦 Выберите пакет — одна команда",
+      pkgP: "Скрипт установки в одну строку определяет ваш дистрибутив и устанавливает новейший пакет из GitHub Releases. Предпочитаете вручную? Выберите пакет из таблицы ниже — все пакеты содержат один и тот же релиз <strong>LuxAI 3.1.0</strong>.",
+      th1: "Пакет", th2: "Для чего?", th3: "Команда установки", th4: "Скачать",
+      r1d: "Установка не требуется; любой дистрибутив",
+      r2d: "Debian / Ubuntu / Mint и производные",
+      r3d: "Fedora / openSUSE / производные RHEL",
+      r4d: "Arch / Manjaro / Cachy OS и производные",
+      r5d: "Windows 10/11 (WSLg)",
+      exeRun: "Пуск › LuxAI",
+      dl: "СКАЧАТЬ",
+      ecoH: "🌐 Экосистема BELGESELSEMO",
+      ecoP: "Пакеты LuxAI — настольная ИИ-часть вселенной BELGESELSEMO, и мир BELGESELSEMO не ограничивается настольными системами: веб-порталы, YouTube-канал, настольные инструменты вроде IDM-LINUX и Android-слой приложений — документальные фильмы, викторины, телепрограмма, дежурные аптеки, «Нутук» и экономика — используют одну экосистему. Пакеты LuxAI собраны BELGESELSEMO с помощью Z.AI из оригинального дистрибутива LuxOS в виде пакетов Linux/Windows. Поддержать проекты можно со страницы поддержки: подпиской на YouTube, оценкой в Google Play или пожертвованием.",
+      dsk1: "опыт IDM на Linux (Wine + панель на Python)",
+      dsk2: "официальный сайт, порталы и страница поддержки BELGESELSEMO",
+      m1s: "Портал HD-документалистики и инструментов",
+      m2s: "Викторина",
+      m3n: "ТЕЛЕПРОГРАММА (EPG)", m3s: "Программа передач",
+      m4n: "ДЕЖУРНЫЕ АПТЕКИ 7/24", m4s: "ТР и KKTC",
+      m5s: "Озвученный и звуковой",
+      m6s: "Скоро…",
+      langH: "🌍 Язык",
+      langP: "Подробное руководство в README на:",
+      foot1: "Собрано BELGESELSEMO с помощью Z.AI из оригинального дистрибутива LuxOS в виде пакетов Linux/Windows · <a href=\"http://belgeselsemo.com.tr\">belgeselsemo.com.tr</a>",
+      foot2: "LuxAI/LuxOS: <a href=\"https://luxos.lux-ai.cz\">luxos.lux-ai.cz</a> · Репозиторий неофициальный."
+    },
+    zh: {
+      title: "LuxAI – LuxOS 的 AI 助手（非官方多发行版构建）· BELGESELSEMO",
+      ub: "（非官方多发行版构建）",
+      tag: "非官方却出色的 AI 助手 — 现已登陆 LuxOS 之外的所有发行版",
+      b14: "14 种语言 · 100% 翻译",
+      intro1: "LuxAI 是 LuxOS 的官方 AI 助手。本仓库由 <b>BELGESELSEMO</b> 借助 Z.AI 构建：在取自原始 LuxOS 1.0.1 镜像的未修改 LuxAI 2.0.2 文件之上应用社区补丁，使 LuxAI 也能在 <b>LuxOS 之外的发行版</b>（Ubuntu、Debian、Fedora、Arch、openSUSE、Windows……）上使用。本仓库并非官方项目，与 LuxOS 项目没有任何关联。产品介绍取自 <a href=\"https://luxos.lux-ai.cz/docs/luxos/luxai.html\">LuxAI 官方文档</a>。",
+      intro2: "无论是聊天还是开启 Agent 模式：LuxAI 会执行命令、管理文件、打开应用与链接、截取屏幕——每一步都会展示给你确认，行动之前先征得你的同意。",
+      latest: "⬇ 最新版本",
+      shotsH: "🖥️ 真实的 runner 截图",
+      shotsP: "这些截图并非摆拍：每次新构建时，GitHub Actions runner 会真正安装编译出的 .deb 包，在 Xvfb 下运行 LuxAI 图形界面，并将图像提交回仓库——分别为土耳其语、英语和印地语界面。",
+      capTr: "🇹🇷 土耳其语 — 欢迎界面（v3.1.0）",
+      capEn: "🇬🇧 英语 — 欢迎界面",
+      capHi: "🇮🇳 印地语 — 第 14 种界面语言，v3.1.0 新增",
+      featH: "⚡ 一个面板，全部能力",
+      f1p: "流式回答、Markdown、表格、代码块（复制按钮 + 语法高亮）、LaTeX，侧边栏保存聊天历史。",
+      f2p: "执行命令、管理文件、打开应用和链接、截图、鼠标与键盘、窗口管理。LuxAI 在每个操作前都会先询问。",
+      f3h: "🌍 14 种语言 · 100% 翻译",
+      f3p: "土耳其语、俄语、中文、日语、印地语、德语、法语等——457 个键全部完整。系统语言动态检测，否则使用英语。",
+      f4h: "🛡️ 安全",
+      f4p: "敏感文件需要额外确认；危险命令需两次确认；某些操作一律拒绝。具备提示注入防护。",
+      f5h: "📚 内置文档",
+      f5p: "离线搜索并阅读 LSL/LuxOS 指南——没有网络也可以。",
+      f6p: "LuxAI-Setup.exe 通过 WSLg 在 Windows 11 上运行真正的 LuxAI 窗口，并创建开始菜单快捷方式。",
+      pkgH: "📦 选好软件包，一条命令",
+      pkgP: "单行安装脚本会自动识别你的发行版，并从 GitHub Releases 安装最新软件包。也可以手动选择：从下表挑选你的软件包——所有软件包均为同一个 <strong>LuxAI 3.1.0</strong> 版本。",
+      th1: "软件包", th2: "用途", th3: "安装命令", th4: "下载",
+      r1d: "无需安装；适用于所有发行版",
+      r2d: "Debian / Ubuntu / Mint 及其衍生版",
+      r3d: "Fedora / openSUSE / RHEL 衍生版",
+      r4d: "Arch / Manjaro / Cachy OS 及其衍生版",
+      r5d: "Windows 10/11（WSLg）",
+      exeRun: "开始 › LuxAI",
+      dl: "下载",
+      ecoH: "🌐 BELGESELSEMO 生态系统",
+      ecoP: "LuxAI 软件包是 BELGESELSEMO 宇宙的桌面 AI 部分，而 BELGESELSEMO 的世界并不局限于桌面：网站门户、YouTube 频道、IDM-LINUX 等桌面工具，以及 Android 端的纪录片、问答、电视节目单、值班药房、Nutuk 与经济类应用，共同构成同一生态系统。LuxAI 软件包由 BELGESELSEMO 借助 Z.AI 从原始 LuxOS 发行版制作而成，打包为 Linux/Windows 安装包。你可以通过支持页面订阅 YouTube、在 Google Play 评分或捐赠来支持这些项目。",
+      dsk1: "Linux 上的 IDM 体验（Wine + Python 面板）",
+      dsk2: "BELGESELSEMO 官方网站、门户与支持页面",
+      m1s: "高清纪录片与工具门户",
+      m2s: "知识问答",
+      m3n: "电视节目单（EPG）", m3s: "节目单查看器",
+      m4n: "值班药房 7/24", m4s: "土耳其与北塞浦路斯",
+      m5s: "语音朗读",
+      m6s: "即将推出…",
+      langH: "🌍 语言",
+      langP: "README 中的详细指南：",
+      foot1: "由 BELGESELSEMO 借助 Z.AI 从原始 LuxOS 发行版制作，打包为 Linux/Windows 安装包 · <a href=\"http://belgeselsemo.com.tr\">belgeselsemo.com.tr</a>",
+      foot2: "LuxAI/LuxOS：<a href=\"https://luxos.lux-ai.cz\">luxos.lux-ai.cz</a> · 本仓库非官方。"
+    },
+    ja: {
+      title: "LuxAI – LuxOS用AIアシスタント（非公式マルチディストロビルド）· BELGESELSEMO",
+      ub: "（非公式マルチディストロビルド）",
+      tag: "非公式だけど最高のAIアシスタント — LuxOS以外のすべてのディストリビューションで",
+      b14: "14言語 · 100%翻訳",
+      intro1: "LuxAIはLuxOSの公式AIアシスタントです。本リポジトリは、<b>BELGESELSEMO</b>がZ.AIの協力のもと、オリジナルのLuxOS 1.0.1イメージから取得した無変更のLuxAI 2.0.2ファイルにコミュニティパッチを適用し、<b>LuxOS以外のディストリビューション</b>（Ubuntu、Debian、Fedora、Arch、openSUSE、Windows…）でもLuxAIを使えるようにするために作られました。公式プロジェクトではなく、LuxOSプロジェクトとは無関係です。製品情報は<a href=\"https://luxos.lux-ai.cz/docs/luxos/luxai.html\">公式LuxAIドキュメント</a>から引用しています。",
+      intro2: "チャットでもエージェントモードでも：LuxAIはコマンドの実行、ファイルの管理、アプリやリンクの起動、スクリーンショットを行います — すべてのステップが承認用に表示され、実行前に確認を求めます。",
+      latest: "⬇ 最新リリース",
+      shotsH: "🖥️ 本物のランナースクリーンショット",
+      shotsP: "これらのスクリーンショットは演出ではありません。新しいビルドのたびに、GitHub Actionsのランナーが実際にビルド済みの.debパッケージをインストールし、Xvfb上でLuxAIのGUIを起動し、画像をリポジトリにコミットします — トルコ語・英語・ヒンディー語のインターフェース。",
+      capTr: "🇹🇷 トルコ語 — ウェルカム画面（v3.1.0）",
+      capEn: "🇬🇧 英語 — ウェルカム画面",
+      capHi: "🇮🇳 ヒンディー語 — v3.1.0で追加された14番目のUI言語",
+      featH: "⚡ ひとつのパネルに、すべての能力",
+      f1p: "ストリーミング回答、Markdown、表、コードブロック（コピーボタン＋シンタックスハイライト）、LaTeX、サイドバーのチャット履歴。",
+      f2p: "コマンド実行、ファイル管理、アプリ・リンクの起動、スクリーンショット、マウス＆キーボード、ウィンドウ管理。LuxAIはすべての操作の前に確認します。",
+      f3h: "🌍 14言語 · 100%翻訳",
+      f3p: "トルコ語、ロシア語、中国語、日本語、ヒンディー語、ドイツ語、フランス語など — 457キーすべて完全収録。システム言語を動的に検出し、なければ英語。",
+      f4h: "🛡️ セキュリティ",
+      f4p: "機密ファイルは追加承認が必要。危険なコマンドは二重確認。一部の操作は常に拒否されます。プロンプトインジェクション対策も搭載。",
+      f5h: "📚 内蔵ドキュメント",
+      f5p: "オフラインのLSL/LuxOSガイドを検索・閲覧 — インターネットなしでもOK。",
+      f6p: "LuxAI-Setup.exeはWSLg経由でWindows 11に本物のLuxAIウィンドウを表示し、スタートメニューのショートカットも作成します。",
+      pkgH: "📦 パッケージを選んで、ワンコマンド",
+      pkgP: "ワンラインのインストーラースクリプトがディストリビューションを判別し、GitHub Releasesから最新パッケージをインストールします。手動がお好みなら、下の表からパッケージを選んでください — すべてのパッケージが同じ<strong>LuxAI 3.1.0</strong>です。",
+      th1: "パッケージ", th2: "用途", th3: "インストールコマンド", th4: "ダウンロード",
+      r1d: "インストール不要。すべてのディストリビューションで",
+      r2d: "Debian / Ubuntu / Mintおよび派生版",
+      r3d: "Fedora / openSUSE / RHEL派生版",
+      r4d: "Arch / Manjaro / Cachy OSおよび派生版",
+      r5d: "Windows 10/11（WSLg）",
+      exeRun: "スタート › LuxAI",
+      dl: "ダウンロード",
+      ecoH: "🌐 BELGESELSEMOエコシステム",
+      ecoP: "LuxAIパッケージはBELGESELSEMOユニバースのデスクトップAI部分です。そしてBELGESELSEMOの世界はデスクトップにとどまりません：ウェブポータル、YouTubeチャンネル、IDM-LINUXのようなデスクトップツール、そしてAndroid側のドキュメンタリー、クイズ、TV番組表、当番薬局、Nutuk、経済系アプリのレイヤーが同じエコシステムを共有しています。LuxAIパッケージはBELGESELSEMOがZ.AIの協力のもと、オリジナルのLuxOSディストリビューションからLinux/Windowsパッケージとしてビルドしました。サポートページから、YouTube登録、Google Playのレビュー、寄付でプロジェクトを応援できます。",
+      dsk1: "Linux上のIDM体験（Wine＋Pythonパネル）",
+      dsk2: "BELGESELSEMO公式サイト・ポータル・サポートページ",
+      m1s: "HDドキュメンタリー＆ツールポータル",
+      m2s: "クイズ",
+      m3n: "TV番組表（EPG）", m3s: "番組表ビューアー",
+      m4n: "当番薬局 7/24", m4s: "トルコ＆北キプロス",
+      m5s: "音声読み上げ",
+      m6s: "近日公開…",
+      langH: "🌍 言語",
+      langP: "READMEの詳細ガイド：",
+      foot1: "BELGESELSEMOがZ.AIの協力のもと、オリジナルのLuxOSディストロから取得し、Linux/Windowsパッケージとしてビルド · <a href=\"http://belgeselsemo.com.tr\">belgeselsemo.com.tr</a>",
+      foot2: "LuxAI/LuxOS：<a href=\"https://luxos.lux-ai.cz\">luxos.lux-ai.cz</a> · 本リポジトリは非公式です。"
+    },
+    hi: {
+      title: "LuxAI – LuxOS का AI असिस्टेंट (अनौपचारिक मल्टी-डिस्ट्रो बिल्ड) · BELGESELSEMO",
+      ub: "(अनौपचारिक मल्टी-डिस्ट्रो बिल्ड)",
+      tag: "अनौपचारिक लेकिन शानदार AI असिस्टेंट — अब LuxOS से बाहर हर डिस्ट्रो पर",
+      b14: "14 भाषाएँ · 100% अनुवाद",
+      intro1: "LuxAI, LuxOS का आधिकारिक AI असिस्टेंट है। यह रिपॉज़िटरी <b>BELGESELSEMO</b> द्वारा, Z.AI की मदद से, मूल LuxOS 1.0.1 इमेज से ली गई बिना-बदली LuxAI 2.0.2 फ़ाइलों पर कम्युनिटी पैच लगाकर बनाई गई, ताकि LuxAI का उपयोग <b>LuxOS से इतर डिस्ट्रो</b> (Ubuntu, Debian, Fedora, Arch, openSUSE, Windows…) पर भी हो सके। यह आधिकारिक प्रोजेक्ट नहीं है; LuxOS प्रोजेक्ट से इसका कोई संबंध नहीं है। उत्पाद जानकारी <a href=\"https://luxos.lux-ai.cz/docs/luxos/luxai.html\">आधिकारिक LuxAI दस्तावेज़ों</a> से ली गई है।",
+      intro2: "चैट करें या Agent मोड चालू करें: LuxAI कमांड चलाता है, फ़ाइलें प्रबंधित करता है, ऐप्स और लिंक खोलता है, स्क्रीनशॉट लेता है — हर कदम आपकी स्वीकृति के लिए दिखाया जाता है और काम से पहले पूछता है।",
+      latest: "⬇ नवीनतम रिलीज़",
+      shotsH: "🖥️ असली रनर स्क्रीनशॉट",
+      shotsP: "ये स्क्रीनशॉट मंचित नहीं हैं: हर नए बिल्ड पर GitHub Actions रनर बने हुए .deb पैकेज को सच में इंस्टॉल करता है, Xvfb के तहत LuxAI GUI चलाता है और ये चित्र रिपॉज़िटरी में कमिट करता है — तुर्की, अंग्रेज़ी और हिन्दी इंटरफ़ेस।",
+      capTr: "🇹🇷 तुर्की — स्वागत स्क्रीन (v3.1.0)",
+      capEn: "🇬🇧 English — स्वागत स्क्रीन",
+      capHi: "🇮🇳 हिन्दी — v3.1.0 में नई, 14वीं UI भाषा",
+      featH: "⚡ एक पैनल, हर क्षमता",
+      f1p: "स्ट्रीमिंग उत्तर, Markdown, टेबल, कोड ब्लॉक (कॉपी बटन + सिंटैक्स हाइलाइटिंग), LaTeX, साइडबार में चैट इतिहास।",
+      f2p: "कमांड चलाना, फ़ाइल प्रबंधन, ऐप/लिंक खोलना, स्क्रीनशॉट, माउस और कीबोर्ड, विंडो प्रबंधन। हर काम से पहले LuxAI पूछता है।",
+      f3h: "🌍 14 भाषाएँ · 100% अनुवाद",
+      f3p: "तुर्की, रूसी, चीनी, जापानी, हिन्दी, जर्मन, फ़्रेंच और भी बहुत कुछ — 457 कुंजियाँ पूरी। सिस्टम भाषा गतिक पहचानी जाती है; न हो तो अंग्रेज़ी।",
+      f4h: "🛡️ सुरक्षा",
+      f4p: "संवेदनशील फ़ाइलों के लिए अतिरिक्त स्वीकृति; ख़तरनाक कमांड दो बार पुष्ट की जाती हैं; कुछ काम हर हाल में अस्वीकृत। प्रॉम्प्ट-इंजेक्शन सुरक्षा।",
+      f5h: "📚 अंतर्निहित दस्तावेज़",
+      f5p: "ऑफ़लाइन LSL/LuxOS गाइड में खोजें और पढ़ें — बिना इंटरनेट भी।",
+      f6p: "LuxAI-Setup.exe WSLg से Windows 11 पर असली LuxAI विंडो चलाता है और स्टार्ट मेन्यू शॉर्टकट बनाता है।",
+      pkgH: "📦 पैकेज चुनें, एक कमांड",
+      pkgP: "एक-पंक्ति का इंस्टॉलर आपका डिस्ट्रो पहचानकर GitHub Releases से नवीनतम पैकेज इंस्टॉल करता है। ख़ुद चुनना चाहें? नीचे तालिका से अपना पैकेज चुनें — सभी पैकेज एक ही <strong>LuxAI 3.1.0</strong> रिलीज़ लाते हैं।",
+      th1: "पैकेज", th2: "किस लिए?", th3: "इंस्टॉल कमांड", th4: "डाउनलोड",
+      r1d: "इंस्टॉल ज़रूरी नहीं; हर डिस्ट्रो",
+      r2d: "Debian / Ubuntu / Mint और व्युत्पन्न",
+      r3d: "Fedora / openSUSE / RHEL व्युत्पन्न",
+      r4d: "Arch / Manjaro / Cachy OS और व्युत्पन्न",
+      r5d: "Windows 10/11 (WSLg)",
+      exeRun: "स्टार्ट › LuxAI",
+      dl: "डाउनलोड",
+      ecoH: "🌐 BELGESELSEMO इकोसिस्टम",
+      ecoP: "LuxAI पैकेज BELGESELSEMO ब्रह्मांड का डेस्कटॉप AI हिस्सा हैं — और BELGESELSEMO की दुनिया डेस्कटॉप तक सीमित नहीं है: वेब पोर्टल, YouTube चैनल, IDM-LINUX जैसे डेस्कटॉप टूल और Android की वृत्तचित्र, ट्रिविया, TV गाइड, ड्यूटी फ़ार्मेसी, Nutuk और अर्थव्यवस्था ऐप परतें एक ही इकोसिस्टम साझा करती हैं। LuxAI पैकेज BELGESELSEMO द्वारा, Z.AI की मदद से, मूल LuxOS डिस्ट्रिब्यूशन से Linux/Windows पैकेज के रूप में बनाए गए। सपोर्ट पेज से YouTube सब्सक्रिप्शन, Google Play रेटिंग या दान के ज़रिए प्रोजेक्ट्स को सहयोग दें।",
+      dsk1: "Linux पर IDM अनुभव (Wine + Python पैनल)",
+      dsk2: "BELGESELSEMO आधिकारिक साइट, पोर्टल और सपोर्ट पेज",
+      m1s: "HD वृत्तचित्र और टूल्स पोर्टल",
+      m2s: "ज्ञान क्विज़",
+      m3n: "TV गाइड (EPG)", m3s: "TV गाइड व्यूअर",
+      m4n: "ड्यूटी फ़ार्मेसी 7/24", m4s: "तुर्की और KKTC",
+      m5s: "बोलकर और ध्वनि सहित",
+      m6s: "जल्द आ रहा है…",
+      langH: "🌍 भाषा",
+      langP: "README में विस्तृत गाइड इन भाषाओं में:",
+      foot1: "BELGESELSEMO द्वारा, Z.AI की मदद से, मूल LuxOS डिस्ट्रो से बनाकर Linux/Windows पैकेज के रूप में संकलित · <a href=\"http://belgeselsemo.com.tr\">belgeselsemo.com.tr</a>",
+      foot2: "LuxAI/LuxOS: <a href=\"https://luxos.lux-ai.cz\">luxos.lux-ai.cz</a> · यह रिपॉज़िटरी अनौपचारिक है।"
+    }
+  };
+
+  function detect() {
+    try { var s = localStorage.getItem("luxai-lang"); if (s && I18N[s]) return s; } catch (e) {}
+    var list = (navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || "tr"]);
+    for (var i = 0; i < list.length; i++) {
+      var p = String(list[i] || "").toLowerCase();
+      if (p.indexOf("tr") === 0) return "tr";
+      if (p.indexOf("en") === 0) return "en";
+      if (p.indexOf("de") === 0) return "de";
+      if (p.indexOf("ru") === 0) return "ru";
+      if (p.indexOf("zh") === 0) return "zh";
+      if (p.indexOf("ja") === 0) return "ja";
+      if (p.indexOf("hi") === 0) return "hi";
+    }
+    return "tr";
+  }
+
+  function apply(l) {
+    var d = I18N[l] || I18N.tr;
+    var nodes = document.querySelectorAll("[data-i18n]");
+    for (var i = 0; i < nodes.length; i++) {
+      var k = nodes[i].getAttribute("data-i18n");
+      if (d[k] != null) nodes[i].innerHTML = d[k];
+    }
+    document.documentElement.lang = l;
+    if (d.title) document.title = d.title;
+    var pills = document.querySelectorAll(".lp");
+    for (var j = 0; j < pills.length; j++) {
+      pills[j].classList.toggle("on", pills[j].getAttribute("data-lang") === l);
+      pills[j].setAttribute("aria-pressed", pills[j].getAttribute("data-lang") === l ? "true" : "false");
+    }
+    try { localStorage.setItem("luxai-lang", l); } catch (e) {}
+  }
+
+  var buttons = document.querySelectorAll(".lp");
+  for (var b = 0; b < buttons.length; b++) {
+    buttons[b].addEventListener("click", function () { apply(this.getAttribute("data-lang")); });
+  }
+  apply(detect());
+})();
+</script>
 </body>
 </html>
