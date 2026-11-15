@@ -981,7 +981,7 @@ static void compute_layout(double w, double h, int painting)
     /* ---- giris karti ---- */
     L.lcard = L.lgo = L.lweb = L.lcancel = L.lclose = R(0, 0, 0, 0);
     if (g_login_open) {
-        double cw = 464, ch = 424;
+        double cw = 464, ch = (g_login_tab == 2) ? 424 : 380;
         double cx = (w - cw) / 2, cy = (h - ch) / 2;
         if (cx < 10) cx = 10;
         if (cy < HS + 10) cy = HS + 10;
@@ -990,10 +990,12 @@ static void compute_layout(double w, double h, int painting)
         double tw3 = (cw - 44) / 3.0;
         for (int t = 0; t < 3; t++)
             g_lr_tab[t] = R(cx + 22 + tw3 * t, cy + 58, tw3, 34);
+        int mail_y = (g_login_tab == 2) ? 210 : 140;
+        int pass_y = (g_login_tab == 2) ? 280 : 210;
         g_lr_name = R(cx + 22, cy + 140, cw - 44, 34);
-        g_lr_mail = R(cx + 22, cy + 206, cw - 44 - (g_login_tab == 1 ? 132 : 0), 34);
-        g_lr_send = R(cx + cw - 22 - 124, cy + 206, 124, 34);
-        g_lr_pass = R(cx + 22, cy + 272, cw - 44, 34);
+        g_lr_mail = R(cx + 22, cy + mail_y, cw - 44 - (g_login_tab == 1 ? 132 : 0), 34);
+        g_lr_send = R(cx + cw - 22 - 124, cy + mail_y, 124, 34);
+        g_lr_pass = R(cx + 22, cy + pass_y, cw - 44, 34);
         L.lgo     = R(cx + 22, cy + ch - 56, 124, 36);
         L.lweb    = R(cx + 156, cy + ch - 56, 168, 36);
         L.lcancel = R(cx + cw - 100, cy + ch - 56, 78, 36);
@@ -1390,23 +1392,23 @@ static void draw_login(double w, double h)
     /* --- alan etiketleri --- */
     if (g_login_tab == 2) {
         sk_text(c.x + 24, c.y + 120, 200, T(S_YOURNAME, b, 256), 12, 600, 0, SK.dim, 0);
-        sk_text(c.x + 24, c.y + 186, 200, T(S_EMAIL, b, 256), 12, 600, 0, SK.dim, 0);
-        sk_text(c.x + 24, c.y + 252, 200, T(S_PASSWORD, b, 256), 12, 600, 0, SK.dim, 0);
-        sk_text(c.x + 24, c.y + 314, c.w - 48, T(S_PW_HINT, b, 256), 11, 400, 0, SK.dim, 0);
+        sk_text(c.x + 24, c.y + 190, 200, T(S_EMAIL, b, 256), 12, 600, 0, SK.dim, 0);
+        sk_text(c.x + 24, c.y + 260, 200, T(S_PASSWORD, b, 256), 12, 600, 0, SK.dim, 0);
+        sk_text(c.x + 24, c.y + 320, c.w - 48, T(S_PW_HINT, b, 256), 11, 400, 0, SK.dim, 0);
     } else if (g_login_tab == 1) {
-        sk_text(c.x + 24, c.y + 186, 200, T(S_EMAIL, b, 256), 12, 600, 0, SK.dim, 0);
-        sk_text(c.x + 24, c.y + 252, 200, T(S_CODE, b, 256), 12, 600, 0, SK.dim, 0);
-        sk_text(c.x + 24, c.y + 314, c.w - 48, T(S_CODE_HINT, b, 256), 11, 400, 0, SK.dim, 0);
+        sk_text(c.x + 24, c.y + 120, 200, T(S_EMAIL, b, 256), 12, 600, 0, SK.dim, 0);
+        sk_text(c.x + 24, c.y + 190, 200, T(S_CODE, b, 256), 12, 600, 0, SK.dim, 0);
+        sk_text(c.x + 24, c.y + 254, c.w - 48, T(S_CODE_HINT, b, 256), 11, 400, 0, SK.dim, 0);
         Rect sb = g_lr_send;
         sk_round(sb.x, sb.y, sb.w, sb.h, 17,
                  (g_hover_kind == H_LOGIN_SENDCODE) ? 0xFF5B8CFF : SK.accent);
         sk_text_box(sb.x, sb.y, sb.w, sb.h, T(S_SEND_CODE, b, 256), 12, 700, 0,
                     0xFFFFFFFF, 1);
     } else {
-        sk_text(c.x + 24, c.y + 186, 200, T(S_EMAIL, b, 256), 12, 600, 0, SK.dim, 0);
-        sk_text(c.x + 24, c.y + 252, 200, T(S_PASSWORD, b, 256), 12, 600, 0, SK.dim, 0);
+        sk_text(c.x + 24, c.y + 120, 200, T(S_EMAIL, b, 256), 12, 600, 0, SK.dim, 0);
+        sk_text(c.x + 24, c.y + 190, 200, T(S_PASSWORD, b, 256), 12, 600, 0, SK.dim, 0);
         T(S_LOGIN_HINT, b2, 256);
-        wrap_center(b2, c.x + c.w / 2, c.y + 314, c.w - 48, 11, 400, SK.dim, 1);
+        wrap_center(b2, c.x + c.w / 2, c.y + 254, c.w - 48, 11, 400, SK.dim, 1);
     }
 
     /* --- giris kutulari --- */
