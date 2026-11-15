@@ -1,0 +1,170 @@
+name: video-record-live
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  REL: https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/download/v2.0.2
+
+jobs:
+  record-linux:
+    name: Canli kayit - Linux (Xvfb + ffmpeg)
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Bagimliliklar + simge/emoji fontlari (kutu/tofu olmasin)
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg xvfb xdotool wmctrl openbox dbus-x11 x11-apps imagemagick \
+            fonts-noto fonts-noto-core fonts-noto-extra fonts-noto-color-emoji fonts-noto-cjk fonts-noto-cjk-extra \
+            adwaita-icon-theme papirus-icon-theme hicolor-icon-theme humanity-icon-theme \
+            libgtk-3-0 gir1.2-gtk-3.0 python3-gi libcurl4 curl unzip >/dev/null
+          fc-list | grep -i -E "emoji|noto sans" | head -20
+          echo "ICON_THEME check:"; ls /usr/share/icons/Papirus/index.theme /usr/share/icons/Adwaita/index.theme
+
+      - name: v2.0.2 deb indir + kur
+        run: |
+          curl -sL -o luxai.deb "$REL/luxai_2.0.2_amd64.deb"
+          ls -lh luxai.deb
+          sudo apt-get install -y ./luxai.deb >/dev/null 2>&1 || sudo dpkg -i luxai.deb || true
+          which luxai luxos-account; ls /usr/share/luxai/projects/ | head -20
+
+      - name: Canli kayit (1600x1000, gercek masaustu)
+        run: |
+          mkdir -p rec
+          export DISPLAY=:99
+          Xvfb :99 -screen 0 1600x1000x24 > /tmp/xvfb.log 2>&1 &
+          sleep 2
+          export XDG_CURRENT_DESKTOP=GNOME GTK_THEME=adwaita:light
+          export XDG_DATA_DIRS=/usr/share:/usr/local/share
+          dbus-launch --sh-syntax > /tmp/dbus.env; cat /tmp/dbus.env >> "$GITHUB_ENV"; source /tmp/dbus.env
+          openbox > /tmp/openbox.log 2>&1 &
+          sleep 2
+          # koyu lacivert/indigo masaustu (duz siyah degil)
+          xsetroot -solid "#1b2340" || true
+          # kaydi baslat (110 sn, kendi kendine durur)
+          ffmpeg -y -f x11grab -video_size 1600x1000 -framerate 25 -i :99 -t 112 \
+            -c:v libx264 -preset veryfast -pix_fmt yuv420p -movflags +faststart rec/linux_live.mp4 > /tmp/ffmpeg.log 2>&1 &
+          FFPID=$!
+          sleep 2
+          click_rel() { # win-id x-oran y-oran
+            eval $(xdotool getwindowgeometry --shell "$1")
+            X=$(( X + WIDTH * $2 / 1000 )); Y=$(( Y + HEIGHT * $3 / 1000 ))
+            xdotool mousemove $X $Y sleep 0.4 click 1
+          }
+          # 1) Ana uygulama (TR hos geldin)
+          LANG=tr_TR.UTF-8 LC_ALL=tr_TR.UTF-8 /usr/bin/luxai > /tmp/luxai.log 2>&1 &
+          sleep 14
+          WID=$(xdotool search --name "LuxAI" | tail -1 || true)
+          echo "main WID=$WID"; [ -n "$WID" ] && wmctrl -i -r "$WID" -e 0,60,30,1480,930 || true
+          sleep 6
+          import -window root rec/linux_01_main.png || true
+          # 2) Hesap penceresi: sekmeler (Projelerimiz -> kaydir, Saglayicilar)
+          /usr/bin/luxos-account > /tmp/acct.log 2>&1 &
+          sleep 10
+          AWID=$(xdotool search --name "LuxAI Account|LuxAI Hesab|Sign in" | tail -1 || true)
+          echo "acct WID=$AWID"
+          if [ -n "$AWID" ]; then
+            wmctrl -i -r "$AWID" -e 0,340,25,920,950 || true
+            sleep 2
+            click_rel "$AWID" 638 335; sleep 5   # Our projects / Projelerimiz
+            import -window root rec/linux_02_projects.png || true
+            xdotool mousemove 800 560 click --repeat 6 5; sleep 4   # asagi kaydir
+            import -window root rec/linux_03_projects_scroll.png || true
+            click_rel "$AWID" 815 335; sleep 5   # Providers / Saglayicilar
+            import -window root rec/linux_04_providers.png || true
+            xdotool mousemove 800 560 click --repeat 4 5; sleep 4
+            import -window root rec/linux_05_providers_scroll.png || true
+            click_rel "$AWID" 160 335; sleep 4   # Password sekmesi
+          fi
+          sleep 8
+          # 3) Ana pencereye don, biraz daha bekle (canli his)
+          [ -n "$WID" ] && wmctrl -i -a "$WID" || true
+          sleep 10
+          import -window root rec/linux_06_final.png || true
+          wait $FFPID || true
+          ls -lh rec/; tail -5 /tmp/ffmpeg.log; tail -20 /tmp/luxai.log /tmp/acct.log || true
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: live-linux
+          path: rec/*
+          if-no-files-found: warn
+
+  record-windows:
+    name: Canli kayit - Windows (gdigrab)
+    runs-on: windows-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: ffmpeg indir
+        shell: pwsh
+        run: |
+          Invoke-WebRequest "https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.zip" -OutFile ffmpeg.zip
+          Expand-Archive ffmpeg.zip -DestinationPath ff -Force
+          $bin = (Get-ChildItem ff -Recurse -Filter ffmpeg.exe | Select-Object -First 1).FullName
+          "FFMPEG=$bin" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+          & $bin -version | Select-Object -First 1
+
+      - name: v2.0.2 kurulum (sessiz, Program Files)
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force -Path dl, rec | Out-Null
+          Invoke-WebRequest "$env:REL/LuxAI-2.0.2-Setup-native.exe" -OutFile dl/setup.exe
+          $p = Start-Process dl/setup.exe -ArgumentList "/S" -PassThru
+          if (-not $p.WaitForExit(120000)) { $p.Kill(); throw "kurulum zaman asimi" }
+          $exe = "$env:ProgramFiles\LuxAI\LuxAI.exe"
+          if (!(Test-Path $exe)) { $exe = "$env:LOCALAPPDATA\Programs\LuxAI\LuxAI.exe" }
+          if (!(Test-Path $exe)) { throw "LuxAI.exe bulunamadi" }
+          "LUXAI_EXE=$exe" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+          Write-Host "EXE: $exe"
+
+      - name: Sahte sunucu + ayarlar
+        shell: pwsh
+        run: |
+          Start-Process python -ArgumentList "windows/tests/mock_server.py","8777"
+          Start-Sleep 3
+          $dir = "$env:APPDATA\LuxAI"; New-Item -ItemType Directory -Force -Path $dir | Out-Null
+          @("model=0","mode=1","lang=0","theme=1","send_ctrl_enter=0","auto_approve=1","max_tokens=4096","stream=1","use_openai=1","endpoint=http://127.0.0.1:8777/v1/chat/completions","api_key=ci","workdir=$env:USERPROFILE") | Set-Content -Encoding ASCII "$dir\settings.ini"
+
+      - name: Canli kayit (gdigrab, 120 sn)
+        shell: pwsh
+        run: |
+          $ff = $env:FFMPEG; $exe = $env:LUXAI_EXE; $dir = "$env:APPDATA\LuxAI"
+          # kayit arka planda, -t ile kendi kendine durur
+          $rec = Start-Process $ff -ArgumentList '-y','-f','gdigrab','-framerate','25','-i','desktop','-t','118','-c:v','libx264','-preset','veryfast','-pix_fmt','yuv420p','-movflags','+faststart','rec/windows_live.mp4' -PassThru -NoNewWindow
+          Start-Sleep 3
+          function Scene($argsLine, $wait) {
+            Get-Process LuxAI -ErrorAction SilentlyContinue | Stop-Process -Force; Start-Sleep 2
+            Start-Process $exe -ArgumentList $argsLine
+            Start-Sleep $wait
+            & powershell -NoProfile -ExecutionPolicy Bypass -File windows/tests/screenshot.ps1 -Out "rec/win_scene_$([Math]::Floor((Get-Date).TimeOfDay.TotalSeconds)).png" -FullScreen
+          }
+          # 1) Ajan: canli akis (mock sunucu token token yazar)
+          Scene '--theme 1 --mode 1 --lang 0 --ask "Sistem bilgini göster ve disk kullanımını özetle"' 22
+          # 2) Koyu tema Ingilizce
+          Scene '--theme 2 --mode 1 --lang 1 --ask "Show my system information and summarise the disk usage"' 20
+          # 3) Projelerimiz (gercek simgeler)
+          Scene '--theme 1 --lang 0 --projects' 16
+          # 4) Hesap penceresi
+          '{"version":1,"origin":"https://lux-ai.cz","sessionToken":"demo-token","user":{"email":"[PII_EMAIL_ADDRESS]","username":"demo","displayName":"Demo"},"client":"luxai-win"}' | Set-Content -Encoding UTF8 "$dir\account.json"
+          Scene '--theme 1 --lang 0 --account' 16
+          # 5) Hos geldin + atif
+          Remove-Item "$dir\account.json" -ErrorAction SilentlyContinue
+          Scene '--theme 1 --lang 0' 16
+          $rec.WaitForExit(30000) | Out-Null
+          Get-ChildItem rec | Select-Object Name, Length
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: live-windows
+          path: rec/*
+          if-no-files-found: warn
