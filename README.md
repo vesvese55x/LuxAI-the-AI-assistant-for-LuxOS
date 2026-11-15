@@ -18,12 +18,6 @@
 >
 > <p align="justify">LuxAI, LuxOS'un resmî yapay zeka asistanıdır: sohbet eder ve <strong>Agent</strong> modunda bilgisayarınızla gerçekten çalışır — komut çalıştırır, dosyaları yönetir, uygulama açar, ekran görüntüsü alır; her adım sizin onayınızla. Bu depo, LuxAI'nin LuxOS dışındaki dağıtımlarda da (Ubuntu, Debian, Fedora, Arch, openSUSE, Windows…) kullanılabilmesi için BELGESELSEMO tarafından, Z.AI desteğiyle, orijinal LuxOS 1.0.1 imajından alınan <strong>değiştirilmemiş LuxAI 2.0.2 dosyaları</strong> üzerine topluluk yamaları uygulanarak oluşturuldu. LuxOS projesiyle bağı yoktur.</p>
 >
-> <p>
-> <a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest"><strong>⬇ Sürümü indir</strong></a> ·
-> <a href="#platform-paketleri-ve-kurulum-komutları"><strong>📦 Kurulum tabloları →</strong></a> ·
-> <a href="#tanıtım-sunumu"><strong>🌐 Tanıtım</strong></a> ·
-> <a href="#-belgeselsemo-ekosistemi"><strong>🧩 Ekosistem</strong></a>
-> </p>
 
 <p align="center">
   <img src="promo/assets/screens/runner/luxai-tr.png" alt="LuxAI — Türkçe arayüz (gerçek runner ekran görüntüsü)" width="88%">
@@ -41,7 +35,9 @@
 
 > ⚡ **Tek satırlık otomatik kurulum / One-line auto install**
 >
-> `curl -fsSL https://raw.githubusercontent.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/main/belgeselsemo-luxai-installer | sh`
+> 🐧 **Linux:** `curl -fsSL https://raw.githubusercontent.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/main/belgeselsemo-luxai-installer | sh`
+>
+> 🪟 **Windows (cmd, yönetici olarak çalıştırın):** `curl -fsSL https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/download/v2.0.2/luxai-kur.bat -o luxai-kur.bat && luxai-kur.bat`
 
 <p align="justify"><strong>v2.0.2 yenilikleri:</strong> Sohbet alanındaki <a href="https://belgeselsemo.com.tr">belgeselsemo.com.tr</a> atıf notu artık hem boş sohbette hem de sohbet sırasında her zaman görünür (Linux'ta boş durum alt yazısına işlenir, Windows'ta sohbet alanının altında sabitlenir). Projelerimiz kataloğu artık <strong>gerçek uygulama simgelerini</strong> gösterir (idm-linux deposundaki simgeler Linux paketlerinde <code>/usr/share/luxai/projects/</code>, Windows'ta exe içine gömülü) ve <strong>Aç</strong> butonları kartların içinde, taşmadan görünür. Windows kurulum sihirbazındaki kurulum yeri metni düzeltildi: <code>%ProgramFiles%\LuxAI</code>. Uygulama menüde <strong>Geliştirme (Development)</strong> kategorisinde, kendi simgesiyle listelenir. Arayüze <strong>Azerbaycanca, Endonezyaca ve Vietnamca</strong> tam destekle eklendi — toplam <strong>21 dil</strong>.</p>
 
@@ -75,7 +71,7 @@
 
 <p align="justify"><strong>Sohbet alanına atıf notu eklendi:</strong> "LuxAI'ye Hoş Geldiniz" başlığının altında <em>BELGESELSEMO tarafından Z.AI sayesinde orijinal LuxOS dağıtımından elde edilerek Linux/Windows paketleri olarak derlenmiştir</em> notu ve tıklanabilir <a href="https://belgeselsemo.com.tr">belgeselsemo.com.tr</a> bağlantısı yer alır — 21 dilde.</p>
 
-<p align="justify"><strong>Hamburger menüye "Projelerimiz" girdisi eklendi</strong> (Ayarlar ile LuxAI Hesabı arasında). Açılan katalog, BELGESELSEMO ekosisteminin 11 projesini kategori rozetleriyle (Web / Android / Desktop / Yakında) listeler ve her kart ilgili adresi tarayıcıda açar: belgeselsemo.com.tr, YouTube kanalı, MATPAY, BELGESELSEMOFLIX, EPG, Android uygulamaları, TRIVIA ve yakında çıkacak RETRO EMULATOR / ECONOMY.</p>
+<p align="justify"><strong>Hamburger menüye "Projelerimiz" girdisi eklendi</strong> (Ayarlar ile LuxAI Hesabı arasında). Açılan katalog, BELGESELSEMO ekosisteminin 12 projesini kategori rozetleriyle (Web / Android / Desktop / Yakında) listeler ve her kart ilgili adresi tarayıcıda açar: belgeselsemo.com.tr, YouTube kanalı, MATPAY, BELGESELSEMOFLIX, EPG, Android uygulamaları, TRIVIA ve yakında çıkacak RETRO EMULATOR / ECONOMY.</p>
 
 
 <p align="justify"><strong>Linux'ta "Projelerimiz":</strong> Linux ana penceresi upstream ikili olduğu için menü öğeleri değiştirilemiyor; bu yüzden proje kataloğu, kenar çubuğundaki kullanıcı kartından açılan <em>LuxAI hesap penceresine</em> <strong>dördüncü sekme</strong> olarak eklendi (Parola · E-posta ile Kod · Yeni Hesap · <strong>Projelerimiz</strong>). Aynı pencereye 21 dilli hesap çeviri dosyaları üretildi (<code>usr/share/luxos/i18n/*.tsv</code>, daha önce yalnızca 5 dil vardı). Atıf notu ise Linux'ta sohbet ekranındaki boş durum alt satırına 21 dilde işleniyor (<code>packaging/attrib.json</code>).</p>
@@ -118,7 +114,7 @@
 
 ## 18 arayüz dili · eksiksiz çeviri tablosu
 
-<p align="justify">Dil listesi binary içinden dıştan yüklenen <code>i18n/*.tsv</code> dosyalarıyla çalışır; kaynak dosyasındaki sabit boyutlu liste güvenle <strong>21 dile</strong> genişletildi: Türkçe, İngilizce, Rusça, Ukraynaca, Çince, Japonca, Hintçe, Almanca, Fransızca, İspanyolca, İtalyanca, Hollandaca, Lehçe, Portekizce, Slovakça, Çekçe, İsveççe ve Macarca. Windows istemcisinde 109 arayüz anahtarının tamamı bu 21 dilde çevrilidir (<code>windows/src/i18n_ids.h</code> + <code>i18n_extra.py</code> → <code>gen_i18n.py</code> ile üretilen <code>i18n_data.c</code>); yeni sekmeli giriş ekranı, Projelerimiz kataloğu ve atıf notu da dâhil hiçbir metin İngilizceye düşmez. Arayüz metinleri mümkün olduğunca iki yana yaslı (justify) ve doğal kelime aralıklı çizilir. GUI, sistem dilini dinamik algılar (<code>LC_ALL → LC_MESSAGES → LANG</code>); desteklenmeyen dillerde İngilizce gösterilir. Aşağıdaki ekran görüntüsü <strong>gerçek</strong> bir GitHub Actions runner'ında kurulan LuxAI'den alınmıştır — Hintçe arayüz.</p>
+<p align="justify">Dil listesi binary içinden dıştan yüklenen <code>i18n/*.tsv</code> dosyalarıyla çalışır; kaynak dosyasındaki sabit boyutlu liste güvenle <strong>21 dile</strong> genişletildi: Türkçe, İngilizce, Rusça, Ukraynaca, Çince, Japonca, Hintçe, Almanca, Fransızca, İspanyolca, İtalyanca, Hollandaca, Lehçe, Portekizce, Slovakça, Çekçe, İsveççe, Macarca, Azerbaycanca, Endonezyaca ve Vietnamca. Windows istemcisinde 116 arayüz anahtarının tamamı bu 21 dilde çevrilidir (<code>windows/src/i18n_ids.h</code> + <code>i18n_extra.py</code> → <code>gen_i18n.py</code> ile üretilen <code>i18n_data.c</code>); yeni sekmeli giriş ekranı, Projelerimiz kataloğu ve atıf notu da dâhil hiçbir metin İngilizceye düşmez. Arayüz metinleri mümkün olduğunca iki yana yaslı (justify) ve doğal kelime aralıklı çizilir. GUI, sistem dilini dinamik algılar (<code>LC_ALL → LC_MESSAGES → LANG</code>); desteklenmeyen dillerde İngilizce gösterilir. Aşağıdaki ekran görüntüsü <strong>gerçek</strong> bir GitHub Actions runner'ında kurulan LuxAI'den alınmıştır — Hintçe arayüz.</p>
 
 <p align="center">
   <img src="promo/assets/screens/runner/luxai-hi.png" alt="LuxAI — हिन्दी इंटरफ़ेस (real runner screenshot)" width="88%">
@@ -134,7 +130,10 @@
 | 🇩🇪 Almanca | ✅ | ✅ | %100 |
 | 🇫🇷 Fransızca | ✅ | ✅ | %100 |
 | 🇨🇿 Çekçe · 🇸🇰 Slovakça · 🇪🇸 İspanyolca · 🇮🇹 İtalyanca · 🇳🇱 Felemenkçe · 🇵🇱 Lehçe · 🇵🇹 Portekizce · 🇸🇪 İsveççe · 🇺🇦 Ukraynaca | ✅ | ✅ | %100 |
-| İngilizce | ✅ | ✅ | varsayılan / geri dönüş dili |
+| 🇦🇿 Azerbaycanca | ✅ | ✅ | %100 (bu depo — v2.0.2'da yeni) |
+| 🇮🇩 Endonezyaca | ✅ | ✅ | %100 (bu depo — v2.0.2'da yeni) |
+| 🇻🇳 Vietnamca | ✅ | ✅ | %100 (bu depo — v2.0.2'da yeni) |
+| 🇬🇧 İngilizce | ✅ | ✅ | varsayılan / geri dönüş dili |
 
 ## 🌐 BELGESELSEMO ekosistemi
 
@@ -180,12 +179,36 @@
   </tr>
 </table>
 
+<p align="center"><sub>Tüm projelerimiz — GUI'deki <strong>Projelerimiz</strong> kataloğuyla aynı liste (gerçek simgeler, IDM-Linux deposundan):</sub></p>
+
+<table>
+  <tr>
+    <td align="center" width="25%"><a href="https://belgeselsemo.com.tr"><img src="https://raw.githubusercontent.com/vesvese55x/idm-linux/main/src/idm_linux/assets/app_belgeselsemo.png" width="56" alt="BELGESELSEMO"><br><strong>BELGESELSEMO</strong><br><sub>Web Portalı (HD Belgesel &amp; Araçlar)</sub></a></td>
+    <td align="center" width="25%"><a href="https://www.youtube.com/@belgeselsemo55"><img src="https://raw.githubusercontent.com/vesvese55x/idm-linux/main/src/idm_linux/assets/proj_youtube.png" width="56" alt="YouTube"><br><strong>BELGESELSEMO Learn &amp; Explore</strong><br><sub>YouTube kanalı</sub></a></td>
+    <td align="center" width="25%"><a href="http://matpay.blogspot.com"><img src="https://raw.githubusercontent.com/vesvese55x/idm-linux/main/src/idm_linux/assets/proj_matpay.png" width="56" alt="MATPAY"><br><strong>MATPAY</strong><br><sub>Matematik Paylaşımları (Lisans Notları)</sub></a></td>
+    <td align="center" width="25%"><a href="https://github.com/vesvese55x/belgeselsemoflix"><img src="https://raw.githubusercontent.com/vesvese55x/idm-linux/main/src/idm_linux/assets/proj_belgeselsemoflix.png" width="56" alt="BELGESELSEMOFLIX"><br><strong>BELGESELSEMOFLIX</strong><br><sub>Masaüstü Medya &amp; Araç Üssü</sub></a></td>
+  </tr>
+  <tr>
+    <td align="center" width="25%"><a href="https://play.google.com/store/apps/details?id=com.belgeselsemo.epgviewer"><img src="https://raw.githubusercontent.com/vesvese55x/idm-linux/main/src/idm_linux/assets/app_epg.png" width="56" alt="EPG"><br><strong>BELGESELSEMO TV Rehberi (EPG)</strong><br><sub>Android</sub></a></td>
+    <td align="center" width="25%"><a href="https://play.google.com/store/apps/details?id=com.belgeselsemo.tr"><img src="https://raw.githubusercontent.com/vesvese55x/idm-linux/main/src/idm_linux/assets/app_belgeselsemo.png" width="56" alt="BELGESELSEMO Android"><br><strong>BELGESELSEMO</strong><br><sub>HD Belgesel &amp; 20+ Günlük Araç (Android)</sub></a></td>
+    <td align="center" width="25%"><a href="https://play.google.com/store/apps/details?id=com.belgeselsemo.nb724"><img src="https://raw.githubusercontent.com/vesvese55x/idm-linux/main/src/idm_linux/assets/app_nb724.png" width="56" alt="Nöbetçi Eczaneler"><br><strong>Nöbetçi Eczaneler 7/24</strong><br><sub>TR-KKTC (Android)</sub></a></td>
+    <td align="center" width="25%"><a href="https://play.google.com/store/apps/details?id=com.belgeselsemo.nutuk"><img src="https://raw.githubusercontent.com/vesvese55x/idm-linux/main/src/idm_linux/assets/app_nutuk.png" width="56" alt="NUTUK"><br><strong>NUTUK 1919-1927</strong><br><sub>Sesli Kitap, Sözlük &amp; Yarışma</sub></a></td>
+  </tr>
+  <tr>
+    <td align="center" width="25%"><a href="https://play.google.com/store/apps/details?id=com.belgeselsemo.trivia"><img src="https://raw.githubusercontent.com/vesvese55x/idm-linux/main/src/idm_linux/assets/app_trivia.png" width="56" alt="TRIVIA"><br><strong>BELGESELSEMO TRIVIA</strong><br><sub>Online Bilgi Yarışması</sub></a></td>
+    <td align="center" width="25%"><a href="https://belgeselsemo.com.tr"><img src="https://raw.githubusercontent.com/vesvese55x/idm-linux/main/src/idm_linux/assets/proj_retro_icon.png" width="56" alt="RETRO"><br><strong>BELGESELSEMO RETRO EMULATOR</strong><br><sub>Çapraz Platform · Yakında</sub></a></td>
+    <td align="center" width="25%"><a href="https://belgeselsemo.com.tr"><img src="https://raw.githubusercontent.com/vesvese55x/idm-linux/main/src/idm_linux/assets/proj_economy.png" width="56" alt="ECONOMY"><br><strong>BELGESELSEMO ECONOMY</strong><br><sub>Yakında</sub></a></td>
+    <td align="center" width="25%"><a href="https://github.com/vesvese55x/idm-linux"><img src="https://raw.githubusercontent.com/vesvese55x/idm-linux/main/src/idm_linux/assets/idm-linux-icon.png" width="56" alt="IDM-Linux"><br><strong>IDM-Linux</strong><br><sub>İnternet Download Manager (Linux)</sub></a></td>
+  </tr>
+</table>
+
 
 ## Platform paketleri ve kurulum komutları
 
 ⚡ <strong>Tek satırda otomatik kurulum</strong> — betik dağıtımınızı algılar (Debian/Ubuntu/Mint, Fedora/openSUSE/RHEL, Arch/Manjaro/Cachy OS ve türevleri; tanımayan sistemlerde AppImage), GitHub Releases'teki <em>en güncel</em> paketi indirip kurar:
 
 <p align="center"><code>curl -fsSL https://raw.githubusercontent.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/main/belgeselsemo-luxai-installer | sh</code></p>
+<p align="center">🪟 <strong>Windows (cmd):</strong> <code>curl -fsSL https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/download/v2.0.2/luxai-kur.bat -o luxai-kur.bat &amp;&amp; luxai-kur.bat</code></p>
 
 <table>
   <tr>

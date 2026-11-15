@@ -107,6 +107,16 @@ class _Panel(Gtk.Box):
         _css(btn, "primary", "pill")
         btn.connect("clicked", lambda *_: self.open_form(-1))
         row.pack_start(btn, False, False, 0)
+        # Yedekle / Restore Et: Ekle butonuyla ayni tasarimda, hafif mesafeyle
+        bak_btn = Gtk.Button(label=_tr("Backup"))
+        _css(bak_btn, "pill")
+        bak_btn.set_margin_start(4)
+        bak_btn.connect("clicked", lambda *_: self.backup())
+        row.pack_start(bak_btn, False, False, 0)
+        res_btn = Gtk.Button(label=_tr("Restore"))
+        _css(res_btn, "pill")
+        res_btn.connect("clicked", lambda *_: self.restore())
+        row.pack_start(res_btn, False, False, 0)
         self.del_btn = Gtk.Button(label=_tr("Delete"))
         self.del_btn.connect("clicked", lambda *_: self.delete(self.sel))
         row.pack_end(self.del_btn, False, False, 0)
@@ -120,6 +130,79 @@ class _Panel(Gtk.Box):
             return
         h = Gtk.Separator(orientation=Gtk.Orientation.HORIZONTAL)
         row.set_header(h)
+
+    # ------------------------------------------------------------ yedek/restore
+    def _dialog(self, title, text, kind=Gtk.MessageType.INFO):
+        dlg = Gtk.MessageDialog(transient_for=self.get_toplevel(),
+                                modal=True, message_type=kind,
+                                buttons=Gtk.ButtonsType.OK, text=title)
+        if text:
+            dlg.format_secondary_text(text)
+        dlg.run()
+        dlg.destroy()
+
+    def backup(self):
+        if _pc is None:
+            self._dialog(_tr("Backup"), _tr("Provider support is not available in this build."),
+                         Gtk.MessageType.WARNING)
+            return
+        chooser = Gtk.FileChooserDialog(
+            title=_tr("Back up providers"), transient_for=self.get_toplevel(),
+            action=Gtk.FileChooserAction.SAVE)
+        chooser.add_buttons(Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL,
+                            Gtk.STOCK_SAVE, Gtk.ResponseType.OK)
+        chooser.set_do_overwrite_confirmation(True)
+        chooser.set_current_name("luxai-providers-backup.json")
+        filt = Gtk.FileFilter()
+        filt.set_name("LuxAI (*.json, *.ini)")
+        filt.add_pattern("*.json")
+        filt.add_pattern("*.ini")
+        chooser.add_filter(filt)
+        try:
+            if chooser.run() == Gtk.ResponseType.OK:
+                path = chooser.get_filename()
+                if path:
+                    if not (path.endswith(".json") or path.endswith(".ini")):
+                        path += ".json"
+                    _pc.export_backup(path, self.provs, self.sel)
+                    self._dialog(_tr("Backup"),
+                                 _tr("Providers were backed up to:") + "\n" + path)
+        except Exception as exc:                       # noqa: BLE001
+            self._dialog(_tr("Backup"), str(exc), Gtk.MessageType.ERROR)
+        finally:
+            chooser.destroy()
+
+    def restore(self):
+        if _pc is None:
+            self._dialog(_tr("Restore"), _tr("Provider support is not available in this build."),
+                         Gtk.MessageType.WARNING)
+            return
+        chooser = Gtk.FileChooserDialog(
+            title=_tr("Restore providers from backup"), transient_for=self.get_toplevel(),
+            action=Gtk.FileChooserAction.OPEN)
+        chooser.add_buttons(Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL,
+                            Gtk.STOCK_OPEN, Gtk.ResponseType.OK)
+        filt = Gtk.FileFilter()
+        filt.set_name("LuxAI (*.json, *.ini)")
+        filt.add_pattern("*.json")
+        filt.add_pattern("*.ini")
+        chooser.add_filter(filt)
+        try:
+            if chooser.run() == Gtk.ResponseType.OK:
+                path = chooser.get_filename()
+                if path:
+                    try:
+                        self.provs, self.sel = _pc.import_backup(path)
+                        self._fill_rows()
+                        self._dialog(_tr("Restore"),
+                                     _tr("Backup restored. Providers are now listed in the Providers tab."))
+                    except Exception as exc:           # noqa: BLE001
+                        self._dialog(_tr("Restore"),
+                                     _tr("This file is not a valid LuxAI providers backup.") +
+                                     "\n" + str(exc), Gtk.MessageType.ERROR)
+        finally:
+            chooser.destroy()
+
 
     def _fill_rows(self):
         for ch in self.listbox.get_children():

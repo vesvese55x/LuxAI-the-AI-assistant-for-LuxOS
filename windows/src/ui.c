@@ -16,6 +16,7 @@
 #include <shellapi.h>
 #include <shlwapi.h>
 #include <commctrl.h>
+#include <commdlg.h>
 #include <windowsx.h>
 #include <wctype.h>
 
@@ -27,6 +28,8 @@ static int  modal_msg(HWND h, UINT m, WPARAM w, LPARAM l);
 static int  modal_active(void);
 static int  confirm_ui(const wchar_t *title, const wchar_t *body, int danger);
 static void account_open(void);
+
+static void prov_edit_open(int idx);
 static void prov_edit_open(int idx);
 
 /* ---------------- genel ---------------- */
@@ -114,6 +117,8 @@ static const Proj g_projs[] = {
    L"https://belgeselsemo.com.tr", 0xFF38BDF8, 3, 209},
  { L"EC", L"BELGESELSEMO ECONOMY - Android",
    L"https://belgeselsemo.com.tr", 0xFF10B981, 3, 210},
+ { L"IDM", L"IDM-Linux - Internet Download Manager (Linux)",
+   L"https://github.com/vesvese55x/idm-linux", 0xFFF97316, 2, 211},
 };
 #define NPROJ ((int)(sizeof g_projs / sizeof g_projs[0]))
 
@@ -2812,9 +2817,9 @@ static void alert_ui(const wchar_t *title, const wchar_t *body);
 typedef struct {
     int mode, running, result, hov, nbtn, danger;
     wchar_t title[192], body[1024];
-    wchar_t btn[3][80];
-    int  primary[3];
-    Rect card, rb[3], rclose, rrow[8];
+    wchar_t btn[6][80];
+    int  primary[6];
+    Rect card, rb[6], rclose, rrow[8];
     Rect pf[4];              /* saglayici editoru alanlari */
     int  nrow, pfhov;
     int  edit_idx;           /* duzenlenen saglayici (-1 = yeni) */
@@ -3018,7 +3023,7 @@ static void draw_modal(double w, double h)
         for (int i = 0; i < D.nbtn; i++) {
             Rect r = D.rb[i];
             int hov = (D.hov == i);
-            int del = (i == 1 && D.edit_idx >= 0);
+            int del = (i == 3 && D.edit_idx >= 0);
             DWORD bg = i == 0 ? (hov ? 0xFF5B8CFF : SK.accent)
                               : del ? (hov ? 0xFFE5484D : (SK.danger & 0x00FFFFFF) | 0x22000000)
                                     : ((SK.fg & 0x00FFFFFF) | (hov ? 0x1F000000 : 0x0F000000));
@@ -3069,7 +3074,9 @@ static void modal_click(double x, double y)
             }
         for (int i = 0; i < D.nbtn; i++)
             if (in_rect(D.rb[i], x, y)) {
-                D.result = (i == 0) ? 1 : (i == 1) ? 2 : 0;
+                /* 0=Kaydet 1=Yedekle 2=Restore 3=Sil(duzenleme) son=Vazgec */
+                D.result = (i == 0) ? 1 : (i == 1) ? 3 : (i == 2) ? 4
+                         : (D.edit_idx >= 0 && i == 3) ? 2 : 0;
                 D.running = 0;
                 return;
             }
@@ -3241,6 +3248,149 @@ static void place_prov_edits(void)
     }
 }
 
+/* ---- saglayici yedekleme / restore (Linux ile ayni JSON bicimi) ---- */
+static void json_escape(Buf *b, const char *s)
+{
+    for (; s && *s; s++) {
+        unsigned char c = (unsigned char)*s;
+        if (c == '"' || c == '\\') { buf_addc(b, '\\'); buf_addc(b, (char)c); }
+        else if (c == '\n') buf_adds(b, "\\n");
+        else if (c < 0x20) { char t[8]; _snprintf(t, sizeof t, "\\u%04x", c); buf_adds(b, t); }
+        else buf_addc(b, (char)c);
+    }
+}
+
+static int prov_backup_dialog(void)
+{
+    wchar_t path[MAX_PATH * 2] = L"luxai-providers-backup.json";
+    OPENFILENAMEW ofn; ZeroMemory(&ofn, sizeof ofn);
+    ofn.lStructSize = sizeof ofn; ofn.hwndOwner = g_hMain;
+    ofn.lpstrFilter = L"LuxAI yedek (*.json;*.ini)\0*.json;*.ini\0JSON (*.json)\0*.json\0INI (*.ini)\0*.ini\0Tum dosyalar (*.*)\0*.*\0";
+    ofn.lpstrFile = path; ofn.nMaxFile = MAX_PATH * 2;
+    ofn.lpstrDefExt = L"json";
+    ofn.Flags = OFN_OVERWRITEPROMPT | OFN_PATHMUSTEXIST;
+    if (!GetSaveFileNameW(&ofn)) return 0;
+    Buf b; buf_init(&b);
+    char head[64]; _snprintf(head, sizeof head, "{\n  \"format\": \"LuxAI-providers-backup\",\n  \"version\": 1,\n  \"app\": \"LuxAI\",\n  \"sel\": %d,\n  \"providers\": [", g_prov_sel);
+    buf_adds(&b, head);
+    for (int i = 0; i < g_nprov; i++) {
+        Provider *pv = &g_prov[i];
+        if (i) buf_addc(&b, ',');
+        buf_adds(&b, "\n    {\"name\": \""); json_escape(&b, pv->name);
+        buf_adds(&b, "\", \"endpoint\": \""); json_escape(&b, pv->endpoint);
+        buf_adds(&b, "\", \"key\": \""); json_escape(&b, pv->key);
+        buf_adds(&b, "\", \"model\": \""); json_escape(&b, pv->model);
+        char ag[16]; _snprintf(ag, sizeof ag, "\", \"agent\": %d}", pv->agent ? 1 : 0);
+        buf_adds(&b, ag);
+    }
+    buf_adds(&b, g_nprov ? "\n  ]\n}\n" : "]\n}\n");
+    int ok = file_write_utf8(path, b.p ? b.p : "", b.n);
+    buf_free(&b);
+    if (ok) alert_ui(tw(S_PROVIDERS), tw(S_BACKUP_DONE));
+    return ok;
+}
+
+static const char *prov_json_str(const char *p, const char *key, char *out, size_t cap)
+{
+    char pat[64]; _snprintf(pat, sizeof pat, "\"%s\"", key);
+    const char *k = strstr(p, pat);
+    if (!k) { out[0] = 0; return NULL; }
+    k = strchr(k + strlen(pat), ':');
+    if (!k) { out[0] = 0; return NULL; }
+    k++;
+    while (*k == ' ' || *k == '\t') k++;
+    if (*k != '"') { out[0] = 0; return k; }
+    k++;
+    size_t n = 0;
+    while (*k && *k != '"') {
+        char c = *k++;
+        if (c == '\\' && *k) { char e = *k++; c = (e == 'n') ? '\n' : e; }
+        if (n + 1 < cap) out[n++] = c;
+    }
+    out[n] = 0;
+    return k;
+}
+
+static int prov_restore_dialog(void)
+{
+    wchar_t path[MAX_PATH * 2] = L"";
+    OPENFILENAMEW ofn; ZeroMemory(&ofn, sizeof ofn);
+    ofn.lStructSize = sizeof ofn; ofn.hwndOwner = g_hMain;
+    ofn.lpstrFilter = L"LuxAI yedek (*.json;*.ini)\0*.json;*.ini\0JSON (*.json)\0*.json\0INI (*.ini)\0*.ini\0Tum dosyalar (*.*)\0*.*\0";
+    ofn.lpstrFile = path; ofn.nMaxFile = MAX_PATH * 2;
+    ofn.Flags = OFN_FILEMUSTEXIST | OFN_PATHMUSTEXIST;
+    if (!GetOpenFileNameW(&ofn)) return 0;
+    char *d = file_read_utf8(path);
+    if (!d) { alert_ui(tw(S_PROVIDERS), tw(S_RESTORE_BAD)); return 0; }
+    int ok = 0;
+    char *p = d;
+    while (*p == ' ' || *p == '\n' || *p == '\r' || *p == '\t') p++;
+    if (*p == '{') {
+        if (strstr(p, "\"providers\"")) {
+            Provider np[MAX_PROV]; int nn = 0, nsel = -1;
+            { char sv[16]; prov_json_str(p, "sel", sv, sizeof sv); nsel = atoi(sv); }
+            const char *arr = strstr(p, "\"providers\"");
+            const char *o = arr ? strchr(arr, '[') : NULL;
+            while (o && nn < MAX_PROV) {
+                o = strchr(o, '{');
+                if (!o) break;
+                const char *close = strchr(o, '}');
+                if (!close) break;
+                char chunk[4096]; size_t cl = (size_t)(close - o);
+                if (cl > sizeof chunk - 1) cl = sizeof chunk - 1;
+                memcpy(chunk, o, cl); chunk[cl] = 0;
+                Provider *pv = &np[nn]; ZeroMemory(pv, sizeof *pv);
+                prov_json_str(chunk, "name", pv->name, sizeof pv->name);
+                prov_json_str(chunk, "endpoint", pv->endpoint, sizeof pv->endpoint);
+                prov_json_str(chunk, "key", pv->key, sizeof pv->key);
+                prov_json_str(chunk, "model", pv->model, sizeof pv->model);
+                { char av[8]; prov_json_str(chunk, "agent", av, sizeof av); pv->agent = atoi(av); }
+                if (pv->name[0] && pv->endpoint[0]) nn++;
+                o = close + 1;
+                if (strchr(o, ']') && (!strchr(o, '{') || strchr(o, ']') < strchr(o, '{'))) break;
+            }
+            if (nn > 0) {
+                memcpy(g_prov, np, sizeof np); g_nprov = nn;
+                if (nsel < 0 || nsel >= nn) nsel = -1;
+                if (nsel >= 0) prov_apply(nsel); else { g_prov_sel = -1; prov_save(); }
+                ok = 1;
+            }
+        }
+    } else if (strstr(d, "p=") || strstr(d, "sel=")) {
+        /* ini bicimi: mevcut yukleyiciyle gecici olarak ayni ayristirma */
+        Provider savep[MAX_PROV]; int sn = g_nprov, ss = g_prov_sel;
+        memcpy(savep, g_prov, sizeof savep);
+        g_nprov = 0;
+        char *line = d;
+        while (line && *line) {
+            char *nl = strchr(line, '\n'); if (nl) *nl = 0;
+            size_t ln = strlen(line); if (ln && line[ln-1] == '\r') line[ln-1] = 0;
+            if (!strncmp(line, "sel=", 4)) g_prov_sel = atoi(line + 4);
+            else if (!strncmp(line, "p=", 2) && g_nprov < MAX_PROV) {
+                char *f = line + 2, *bar; Provider *pv = &g_prov[g_nprov]; ZeroMemory(pv, sizeof *pv);
+                for (int i = 0; i < 5; i++) {
+                    bar = strchr(f, '|'); if (bar) *bar = 0;
+                    char *dst = i==0?pv->name:i==1?pv->endpoint:i==2?pv->key:i==3?pv->model:NULL;
+                    if (dst) strncpy(dst, f, (i==1||i==2)?255:127);
+                    else pv->agent = atoi(f);
+                    if (!bar) break; f = bar + 1;
+                }
+                if (pv->name[0] && pv->endpoint[0]) g_nprov++;
+            }
+            line = nl ? nl + 1 : NULL;
+        }
+        if (g_nprov > 0) {
+            if (g_prov_sel < 0 || g_prov_sel >= g_nprov) g_prov_sel = -1;
+            if (g_prov_sel >= 0) prov_apply(g_prov_sel); else prov_save();
+            ok = 1;
+        } else { memcpy(g_prov, savep, sizeof savep); g_nprov = sn; g_prov_sel = ss; }
+    }
+    free(d);
+    alert_ui(tw(S_PROVIDERS), tw(ok ? S_RESTORE_DONE : S_RESTORE_BAD));
+    if (ok) InvalidateRect(g_hMain, NULL, FALSE);
+    return ok;
+}
+
 static void prov_edit_open(int idx)
 {
     wchar_t b1[80], b2[80], b3[80];
@@ -3265,10 +3415,16 @@ static void prov_edit_open(int idx)
     D.pfhov = -1;
     D.title[0] = 0;
     D.body[0] = 0;
-    /* 3 dugme: Kaydet / Sil / Iptal (Sil yalnizca duzenlemede etkin) */
+    /* Kaydet / Yedekle / Restore Et / Sil / Vazgec — Yedekle ve Restore,
+       Kaydet'in yaninda ayni tasarimda (Linux Saglayicilar sekmesiyle birebir) */
+    wchar_t b4[80], b5[80];
+    T(S_PROV_BACKUP, b4, 80);
+    T(S_PROV_RESTORE, b5, 80);
     D.nbtn = 0;
     wcsncpy(D.btn[0], b1, 79); D.primary[0] = 1; D.btn[0][79] = 0; D.nbtn = 1;
-    if (D.edit_idx >= 0) { wcsncpy(D.btn[1], b2, 79); D.primary[1] = 0; D.btn[1][79] = 0; D.nbtn = 2; }
+    wcsncpy(D.btn[1], b4, 79); D.primary[1] = 0; D.btn[1][79] = 0; D.nbtn = 2;
+    wcsncpy(D.btn[2], b5, 79); D.primary[2] = 0; D.btn[2][79] = 0; D.nbtn = 3;
+    if (D.edit_idx >= 0) { wcsncpy(D.btn[3], b2, 79); D.primary[3] = 0; D.btn[3][79] = 0; D.nbtn = 4; }
     wcsncpy(D.btn[D.nbtn], b3, 79); D.primary[D.nbtn] = 0; D.btn[D.nbtn][79] = 0; D.nbtn++;
     D.hov = -1;
     layout_soft();
@@ -3276,6 +3432,8 @@ static void prov_edit_open(int idx)
     UpdateWindow(g_hMain);
     int r = modal_pump();
     if (r == 0) return;
+    if (r == 3) { prov_backup_dialog(); return; }   /* yedekle */
+    if (r == 4) { prov_restore_dialog(); return; }  /* restore et */
     if (r == 2 && D.edit_idx >= 0) {           /* sil */
         for (int i = D.edit_idx; i < g_nprov - 1; i++) g_prov[i] = g_prov[i + 1];
         g_nprov--;

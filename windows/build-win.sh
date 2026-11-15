@@ -44,7 +44,7 @@ OBJS+=("build/luxai_res.o")
       -static-libgcc -static-libstdc++ \
       -Wl,--major-os-version,6 -Wl,--minor-os-version,1 \
       -Wl,--major-subsystem-version,6 -Wl,--minor-subsystem-version,1 \
-      -lwinhttp -lcomctl32 -lgdiplus -luxtheme -lshell32 -lole32 -luuid -lshlwapi \
+      -lwinhttp -lcomctl32 -lcomdlg32 -lgdiplus -luxtheme -lshell32 -lole32 -luuid -lshlwapi \
       -lgdi32 -luser32 -ladvapi32
 
 echo "[4/4] doğrulama"

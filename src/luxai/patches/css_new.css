@@ -113,7 +113,9 @@ button.profile { padding: 4px 6px; border-radius: 10px; border: none; background
 button.profile:hover { background-color: alpha(@lx_fg, 0.06); }
 headerbar button.titlebutton { background-image:none; border:none; box-shadow:none; min-width:28px; min-height:28px; padding:0; border-radius:999px; color:@lx_dim; }
 headerbar button.titlebutton image { -gtk-icon-transform:scale(0.8); }
-headerbar button.titlebutton:hover { background-color:alpha(@lx_fg,0.12); color:@lx_fg; box-shadow:none; }
+headerbar button.titlebutton:hover image, headerbar button.titlebutton:active image { -gtk-icon-transform:scale(0.8); }
+headerbar button.titlebutton, headerbar button.titlebutton image { transition:none; animation:none; }
+headerbar button.titlebutton:hover { background-color:alpha(@lx_fg,0.10); color:@lx_fg; box-shadow:none; }
 headerbar button.titlebutton.close:hover { background-color:@lx_danger; color:#fff; }
 menu, popover { background-color:@lx_card; color:@lx_fg; border:1px solid @lx_border; border-radius:10px; }
 menu item:hover, popover item:hover { background-color:alpha(@lx_accent,0.85); color:#fff; }

@@ -348,3 +348,84 @@ def main(argv=None):
 
 if __name__ == "__main__":
     sys.exit(main())
+
+
+# ---------------------------------------------------------------- yedek / restore
+BACKUP_FORMAT = "LuxAI-providers-backup"
+BACKUP_VERSION = 1
+
+
+def export_backup(path_out, provs=None, sel=None):
+    """Tüm sağlayıcıları (tüm verileriyle) LuxAI yedek dosyasına yazar (JSON).
+
+    Dosya biçimi programın kendi biçimidir; restore ile geri yüklenir.
+    Ayrıca eski .ini yedekleri de restore edilebilir (bkz. import_backup).
+    """
+    if provs is None:
+        provs, sel = load()
+    data = {
+        "format": BACKUP_FORMAT,
+        "version": BACKUP_VERSION,
+        "app": "LuxAI",
+        "sel": (-1 if sel is None else int(sel)),
+        "providers": [
+            {"name": p.get("name", ""), "endpoint": p.get("endpoint", ""),
+             "key": p.get("key", ""), "model": p.get("model", ""),
+             "agent": int(p.get("agent") or 0)}
+            for p in provs[:MAX_PROV] if p.get("name") and p.get("endpoint")
+        ],
+    }
+    with open(path_out, "w", encoding="utf-8") as fh:
+        json.dump(data, fh, ensure_ascii=False, indent=2)
+        fh.write("\n")
+    try:
+        os.chmod(path_out, 0o600)      # icinde API anahtarlari var
+    except OSError:
+        pass
+    return data
+
+
+def import_backup(path_in):
+    """Bir yedek dosyasını (JSON yedek veya providers.ini) okuyup kaydeder.
+
+    (saglayicilar, secili) dondurur; bicim taninmazsa ValueError firlatir.
+    """
+    with open(path_in, encoding="utf-8", errors="replace") as fh:
+        raw = fh.read()
+    provs, sel = [], -1
+    txt = raw.strip()
+    if txt.startswith("{"):
+        data = json.loads(txt)
+        if not isinstance(data, dict) or "providers" not in data:
+            raise ValueError("not a LuxAI providers backup")
+        for p in data.get("providers") or []:
+            if not isinstance(p, dict):
+                continue
+            rec = _blank(p.get("name", ""), p.get("endpoint", ""), p.get("key", ""),
+                         p.get("model", ""), p.get("agent", 0))
+            if rec["name"] and rec["endpoint"]:
+                provs.append(rec)
+        try:
+            sel = int(data.get("sel", -1))
+        except (TypeError, ValueError):
+            sel = -1
+    elif "p=" in raw or "sel=" in raw:
+        # ini bicimi: gecici dosyaya yazip ayni ayristiriciyi kullan
+        import tempfile
+        fd, tmp = tempfile.mkstemp(suffix=".ini")
+        try:
+            with os.fdopen(fd, "w", encoding="utf-8") as fh:
+                fh.write(raw)
+            provs, sel = load(tmp)
+        finally:
+            try:
+                os.unlink(tmp)
+            except OSError:
+                pass
+    else:
+        raise ValueError("not a LuxAI providers backup")
+    provs = provs[:MAX_PROV]
+    if not (0 <= sel < len(provs)):
+        sel = -1
+    return save(provs, sel)
+

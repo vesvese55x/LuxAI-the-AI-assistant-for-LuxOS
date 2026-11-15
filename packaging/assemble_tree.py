@@ -393,6 +393,20 @@ for _k, _v in _shim_extra.items():
     if _k in _shim:
         _shim[_k].update(_v)
 
+
+_shim_backup = {
+    "Backup": {"tr": "Yedekle", "en": "Backup", "ru": "Резервная копия", "zh": "备份", "ja": "バックアップ", "hi": "बैकअप", "de": "Sichern", "fr": "Sauvegarder", "es": "Copia de seguridad", "it": "Backup", "nl": "Back-up", "pl": "Kopia zapasowa", "pt": "Cópia de segurança", "sk": "Záloha", "sv": "Säkerhetskopia", "cs": "Záloha", "hu": "Biztonsági mentés", "uk": "Резервна копія", "az": "Yedəklə", "id": "Cadangkan", "vi": "Sao lưu"},
+    "Restore": {"tr": "Restore Et", "en": "Restore", "ru": "Восстановить", "zh": "恢复", "ja": "復元", "hi": "पुनर्स्थापित करें", "de": "Wiederherstellen", "fr": "Restaurer", "es": "Restaurar", "it": "Ripristina", "nl": "Herstellen", "pl": "Przywróć", "pt": "Restaurar", "sk": "Obnoviť", "sv": "Återställ", "cs": "Obnovit", "hu": "Visszaállítás", "uk": "Відновити", "az": "Bərpa et", "id": "Pulihkan", "vi": "Khôi phục"},
+    "Back up providers": {"tr": "Sağlayıcıları yedekle", "en": "Back up providers", "az": "Provayderləri yedəklə", "id": "Cadangkan penyedia", "vi": "Sao lưu nhà cung cấp"},
+    "Restore providers from backup": {"tr": "Sağlayıcıları yedekten geri yükle", "en": "Restore providers from backup", "az": "Provayderləri yedəkdən bərpa et", "id": "Pulihkan penyedia dari cadangan", "vi": "Khôi phục nhà cung cấp từ bản sao lưu"},
+    "Providers were backed up to:": {"tr": "Sağlayıcılar şuraya yedeklendi:", "en": "Providers were backed up to:", "az": "Provayderlər bura yedəkləndi:", "id": "Penyedia dicadangkan ke:", "vi": "Nhà cung cấp đã được sao lưu tới:"},
+    "Backup restored. Providers are now listed in the Providers tab.": {"tr": "Yedek geri yüklendi. Sağlayıcılar artık Sağlayıcılar sekmesinde listeleniyor.", "en": "Backup restored. Providers are now listed in the Providers tab.", "az": "Yedək bərpa edildi. Provayderlər artıq Provayderlər sekmesinde siyahıdadır.", "id": "Cadangan dipulihkan. Penyedia sekarang terdaftar di tab Penyedia.", "vi": "Đã khôi phục bản sao lưu. Các nhà cung cấp hiện có trong tab Nhà cung cấp."},
+    "This file is not a valid LuxAI providers backup.": {"tr": "Bu dosya geçerli bir LuxAI sağlayıcı yedeği değil.", "en": "This file is not a valid LuxAI providers backup.", "az": "Bu fayl etibarlı LuxAI provayder yedeği deyil.", "id": "File ini bukan cadangan penyedia LuxAI yang valid.", "vi": "Tệp này không phải bản sao lưu nhà cung cấp LuxAI hợp lệ."},
+    "Provider support is not available in this build.": {"tr": "Bu derlemede sağlayıcı desteği yok.", "en": "Provider support is not available in this build.", "az": "Bu yığımda provayder dəstəyi yoxdur.", "id": "Dukungan penyedia tidak tersedia di build ini.", "vi": "Hỗ trợ nhà cung cấp không có trong bản dựng này."},
+}
+for _k, _v in _shim_backup.items():
+    _shim.setdefault(_k, {}).update(_v)
+
 _os_made = 0
 for path in sorted(_glob.glob(os.path.join(_appdir, "*.tsv"))):
     lang = os.path.basename(path)[:-4]

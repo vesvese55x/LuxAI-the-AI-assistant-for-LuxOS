@@ -38,6 +38,9 @@ PROJECTS = [
      "https://belgeselsemo.com.tr", "#38bdf8"),
     ("proj_economy.png", "EC", "BELGESELSEMO ECONOMY", "Coming soon",
      "https://belgeselsemo.com.tr", "#10b981"),
+    ("idm-linux.png", "IDM", "IDM-Linux — İnternet Download Manager (Linux)",
+     "Linux · Windows",
+     "https://github.com/vesvese55x/idm-linux", "#f97316"),
 ]
 
 ATTRIB = "BELGESELSEMO · Z.AI · belgeselsemo.com.tr"
@@ -100,9 +103,10 @@ def projects_box(open_url_fn):
         " — " + ATTRIB))
     outer.pack_start(head, False, False, 0)
 
-    sw = Gtk.ScrolledWindow(min_content_height=260, max_content_height=340)
+    sw = Gtk.ScrolledWindow(min_content_height=420)
     sw.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC)
     sw.set_hexpand(True)
+    sw.set_vexpand(True)
     grid = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=8)
     grid.set_hexpand(True)
     grid.set_margin_start(2)

@@ -124,7 +124,12 @@
     X(S_SOON,          "Yakında",                            "Coming soon") \
     X(S_NOMODEL,      "Bu model yanıt vermedi.",             "The model returned no answer.") \
     X(S_PROV_INVALID, "Ad ve uç nokta zorunludur. Örnek: OpenAI — https://api.openai.com/v1", \
-                      "Name and endpoint are required. Example: OpenAI — https://api.openai.com/v1")
+                      "Name and endpoint are required. Example: OpenAI — https://api.openai.com/v1") \
+    X(S_PROV_BACKUP,  "Yedekle",                            "Backup") \
+    X(S_PROV_RESTORE, "Restore Et",                         "Restore") \
+    X(S_BACKUP_DONE,  "Sağlayıcılar yedek dosyasına kaydedildi.", "Providers were saved to the backup file.") \
+    X(S_RESTORE_DONE, "Yedek geri yüklendi. Sağlayıcılar listelendi.", "Backup restored. Providers are now listed.") \
+    X(S_RESTORE_BAD,  "Bu dosya geçerli bir LuxAI sağlayıcı yedeği değil.", "This file is not a valid LuxAI providers backup.")
 
 enum {
 #define X(id, tr, en) id,
