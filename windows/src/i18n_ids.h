@@ -97,6 +97,31 @@
                        "Cannot reach the server — showing offline information.") \
     X(S_ATTACH,       "Dosya ekle",                          "Attach file") \
     X(S_NOT_NOW,      "Şimdi değil",                         "Not now") \
+    X(S_PROJECTS,      "Projelerimiz",                       "Our projects") \
+    X(S_PROJECTS_T,    "BELGESELSEMO projeleri",             "BELGESELSEMO projects") \
+    X(S_PROJECTS_H,    "Web portalları, Android uygulamaları, masaüstü araçları ve YouTube kanalı — hepsi tek ekosistemde.", \
+                       "Web portals, Android apps, desktop tools and a YouTube channel — one ecosystem.") \
+    X(S_OPEN,          "Aç",                                 "Open") \
+    X(S_TAB_PW,        "Parola",                             "Password") \
+    X(S_TAB_CODE,      "E-posta ile kod",                    "Code by e-mail") \
+    X(S_TAB_REG,       "Yeni hesap",                         "New account") \
+    X(S_SEND_CODE,     "Kod gönder",                         "Send code") \
+    X(S_CODE,          "Doğrulama kodu",                     "Verification code") \
+    X(S_CODE_HINT,     "E-postanıza gelen 6 haneli kodu girin.", "Enter the 6-digit code sent to your e-mail.") \
+    X(S_YOURNAME,      "Adınız",                             "Your name") \
+    X(S_SIGNING_IN,    "Giriş yapılıyor…",                   "Signing in…") \
+    X(S_CREATE_ACC,    "Hesap oluştur",                      "Create account") \
+    X(S_PW_HINT,       "En az 12 karakter",                  "At least 12 characters") \
+    X(S_ATTRIB,        "BELGESELSEMO tarafından Z.AI sayesinde orijinal LuxOS dağıtımından elde edilerek Linux/Windows paketleri olarak derlenmiştir.", \
+                       "Built by BELGESELSEMO from the original LuxOS distribution with the help of Z.AI, packaged for Linux and Windows.") \
+    X(S_PROVIDER,      "Sağlayıcı",                          "Provider") \
+    X(S_PROVIDERS,     "Sağlayıcılar",                       "Providers") \
+    X(S_ADD_PROVIDER,  "Sağlayıcı ekle",                     "Add provider") \
+    X(S_PROVIDER_NAME, "Sağlayıcı adı",                      "Provider name") \
+    X(S_CUSTOM,        "Özel (OpenAI uyumlu)",               "Custom (OpenAI compatible)") \
+    X(S_DEFAULT,       "Varsayılan",                         "Default") \
+    X(S_EDIT,          "Düzenle",                            "Edit") \
+    X(S_SOON,          "Yakında",                            "Coming soon") \
     X(S_NOMODEL,      "Bu model yanıt vermedi.",             "The model returned no answer.")
 
 enum {

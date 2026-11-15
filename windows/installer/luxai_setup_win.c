@@ -1,8 +1,9 @@
 /* LuxAI Setup for Windows — native kurucu (WSL GEREKTIRMEZ).
  *
- * LuxAI.exe'yi (RCDATA 201) %LOCALAPPDATA%\LuxAI icine cikarir, Baslat menusu ve
- * masaustu kisayolu olusturur, "Programlar ve Ozellikler" kaydi ekler ve
- * kaldirma betigini yazar. mingw-w64 ile derlenir.
+ * LuxAI.exe'yi (RCDATA 201) %ProgramFiles%\LuxAI icine cikarir (yönetici
+ * hakki ister; yükseltme reddedilirse %LOCALAPPDATA%\Programs\LuxAI'ye kurar),
+ * Baslat menusu + masaustu kisayolu olusturur, "Programlar ve Ozellikler"
+ * kaydini (HKLM/HKCU) ekler ve kaldirma betigini yazar. mingw-w64 ile derlenir.
  */
 #include <windows.h>
 #include <shlobj.h>
@@ -14,6 +15,31 @@
 #define IDR_ICO 202
 
 static int g_tr;
+
+/* yönetici (admin) mi? */
+static int is_admin(void)
+{
+    HANDLE tok = NULL;
+    if (!OpenProcessToken(GetCurrentProcess(), TOKEN_QUERY, &tok)) return 0;
+    TOKEN_ELEVATION el;
+    DWORD n = 0;
+    int adm = 0;
+    if (GetTokenInformation(tok, TokenElevation, &el, sizeof el, &n)) adm = el.TokenIsElevated ? 1 : 0;
+    CloseHandle(tok);
+    return adm;
+}
+
+/* Program Files'e yazilabiliyor mu? (admin degilse genelde hayir) */
+static int dir_writable(const wchar_t *dir)
+{
+    wchar_t probe[MAX_PATH * 2];
+    _snwprintf(probe, MAX_PATH * 2, L"%s\\_luxai.tmp", dir);
+    HANDLE h = CreateFileW(probe, GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_TEMPORARY, NULL);
+    if (h == INVALID_HANDLE_VALUE) return 0;
+    CloseHandle(h);
+    DeleteFileW(probe);
+    return 1;
+}
 
 static const wchar_t *T(const wchar_t *tr, const wchar_t *en) { return g_tr ? tr : en; }
 
@@ -70,7 +96,11 @@ static void write_uninstaller(const wchar_t *dir, const wchar_t *appdata)
     FILE *f = _wfopen(path, L"wb");
     if (!f) return;
     fwprintf(f, L"@echo off\r\n");
+    fwprintf(f, L"setlocal\r\n");
     fwprintf(f, L"echo LuxAI kaldiriliyor / uninstalling LuxAI...\r\n");
+    /* Program Files altindaysa yonetici hakki gerekir: kendini yukselt */
+    fwprintf(f, L"net session >nul 2>&1 || (powershell -NoProfile -Command \"Start-Process -Verb RunAs -FilePath '%~f0'\" & exit /b)\r\n");
+    fwprintf(f, L"reg delete \"HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\LuxAI\" /f >nul 2>&1\r\n");
     fwprintf(f, L"reg delete \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\LuxAI\" /f >nul 2>&1\r\n");
     fwprintf(f, L"del /q \"%%APPDATA%%\\Microsoft\\Windows\\Start Menu\\Programs\\LuxAI.lnk\" >nul 2>&1\r\n");
     fwprintf(f, L"del /q \"%%USERPROFILE%%\\Desktop\\LuxAI.lnk\" >nul 2>&1\r\n");
@@ -80,16 +110,21 @@ static void write_uninstaller(const wchar_t *dir, const wchar_t *appdata)
     fclose(f);
 }
 
+static int g_machine;
+
 static void register_uninstall(const wchar_t *dir, const wchar_t *icon)
 {
     HKEY k;
-    if (RegCreateKeyExW(HKEY_CURRENT_USER,
+    if (RegCreateKeyExW(g_machine ? HKEY_LOCAL_MACHINE : HKEY_CURRENT_USER,
                         L"Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\LuxAI",
                         0, NULL, 0, KEY_WRITE, NULL, &k, NULL) != ERROR_SUCCESS)
         return;
     wchar_t un[MAX_PATH * 2], buf[MAX_PATH * 2];
     _snwprintf(un, MAX_PATH * 2, L"\"%s\\uninstall.cmd\"", dir);
-    RegSetValueExW(k, L"DisplayName", 0, REG_SZ, (const BYTE *)L"LuxAI 3.1 (Windows native)", 2 * 30);
+    {
+        const wchar_t *dn = L"LuxAI 3.1 (Windows native)";
+        RegSetValueExW(k, L"DisplayName", 0, REG_SZ, (const BYTE *)dn, (DWORD)(2 * (wcslen(dn) + 1)));
+    }
     RegSetValueExW(k, L"DisplayVersion", 0, REG_SZ, (const BYTE *)L"3.1.0-win.1", 2 * 12);
     RegSetValueExW(k, L"DisplayIcon", 0, REG_SZ, (const BYTE *)icon, (DWORD)(2 * (wcslen(icon) + 1)));
     RegSetValueExW(k, L"Publisher", 0, REG_SZ, (const BYTE *)L"BELGESELSEMO topluluk yapisi", 2 * 30);
@@ -109,22 +144,8 @@ int WINAPI wWinMain(HINSTANCE hInst, HINSTANCE hPrev, PWSTR cmd, int show)
 
     wchar_t appdata[MAX_PATH], dir[MAX_PATH * 2], exe[MAX_PATH * 2], ico[MAX_PATH * 2];
     if (!SHGetSpecialFolderPathW(NULL, appdata, CSIDL_APPDATA, TRUE)) return 1;
-    {
-        wchar_t local[MAX_PATH] = L"";
-        if (GetEnvironmentVariableW(L"LOCALAPPDATA", local, MAX_PATH) && local[0])
-            _snwprintf(dir, MAX_PATH * 2, L"%s\\LuxAI", local);
-        else
-            _snwprintf(dir, MAX_PATH * 2, L"%s\\LuxAI", appdata);
-    }
-    CreateDirectoryW(dir, NULL);
-    _snwprintf(exe, MAX_PATH * 2, L"%s\\LuxAI.exe", dir);
-    _snwprintf(ico, MAX_PATH * 2, L"%s\\luxai.ico", dir);
 
-    HWND owner = GetConsoleWindow();
-    if (owner) ShowWindow(owner, SW_HIDE);
-
-    /* /S = sessiz kurulum (CI/otomasyon), /LAUNCH = kurulumdan sonra baslat */
-    int silent = 0, launch = 0;
+    int silent = 0, launch = 0, elevated = 0, forcemachine = 0, forceuser = 0;
     {
         int argc = 0;
         LPWSTR *argv = CommandLineToArgvW(GetCommandLineW(), &argc);
@@ -133,14 +154,65 @@ int WINAPI wWinMain(HINSTANCE hInst, HINSTANCE hPrev, PWSTR cmd, int show)
                 silent = 1;
             else if (!lstrcmpiW(argv[i], L"/LAUNCH") || !lstrcmpiW(argv[i], L"--launch"))
                 launch = 1;
+            else if (!lstrcmpiW(argv[i], L"/ELEVATED") || !lstrcmpiW(argv[i], L"--elevated"))
+                elevated = 1;
+            else if (!lstrcmpiW(argv[i], L"/MACHINE") || !lstrcmpiW(argv[i], L"--machine"))
+                forcemachine = 1;
+            else if (!lstrcmpiW(argv[i], L"/USER") || !lstrcmpiW(argv[i], L"--user"))
+                forceuser = 1;
         }
         if (argv) LocalFree(argv);
     }
+    (void)elevated; (void)forcemachine;
+
+    /* 1) %ProgramFiles%\LuxAI  (tüm kullanicilar, yönetici hakki) */
+    wchar_t pfiles[MAX_PATH] = L"";
+    if (!SHGetSpecialFolderPathW(NULL, pfiles, CSIDL_PROGRAM_FILES, TRUE) || !pfiles[0]) {
+        wchar_t env[MAX_PATH] = L"";
+        if (GetEnvironmentVariableW(L"ProgramFiles", env, MAX_PATH) && env[0]) wcscpy(pfiles, env);
+    }
+    wchar_t machine_dir[MAX_PATH * 2] = L"", user_dir[MAX_PATH * 2] = L"";
+    if (pfiles[0]) _snwprintf(machine_dir, MAX_PATH * 2, L"%s\\LuxAI", pfiles);
+    {
+        wchar_t local[MAX_PATH] = L"";
+        if (GetEnvironmentVariableW(L"LOCALAPPDATA", local, MAX_PATH) && local[0])
+            _snwprintf(user_dir, MAX_PATH * 2, L"%s\\Programs\\LuxAI", local);
+        else
+            _snwprintf(user_dir, MAX_PATH * 2, L"%s\\LuxAI", appdata);
+    }
+
+    if (!forceuser && machine_dir[0]) {
+        CreateDirectoryW(machine_dir, NULL);
+        /* yönetici degilsek ve Program Files yazilamiyorsa: yükseltmeyi dene */
+        if (!is_admin() && !dir_writable(machine_dir)) {
+            if (!silent) {
+                wchar_t self[MAX_PATH * 2], args[MAX_PATH * 4];
+                GetModuleFileNameW(NULL, self, MAX_PATH * 2);
+                _snwprintf(args, MAX_PATH * 4, L"\"%s\" /ELEVATED /MACHINE%s%s",
+                           self, launch ? L" /LAUNCH" : L"", silent ? L" /S" : L"");
+                HINSTANCE r = ShellExecuteW(NULL, L"runas", self, args, NULL, SW_SHOWNORMAL);
+                if ((INT_PTR)r > 32) return 0;      /* yükseltilmiş kopya kurulumu yapar */
+                /* kullanici UAC'yi reddetti -> bu kullanici icin kur */
+            }
+            wcscpy(dir, user_dir);
+        } else {
+            wcscpy(dir, machine_dir);
+        }
+    } else {
+        wcscpy(dir, user_dir);
+    }
+    int machine = (!wcsncmp(dir, machine_dir, wcslen(machine_dir)) && machine_dir[0]);
+    CreateDirectoryW(dir, NULL);
+    _snwprintf(exe, MAX_PATH * 2, L"%s\\LuxAI.exe", dir);
+    _snwprintf(ico, MAX_PATH * 2, L"%s\\luxai.ico", dir);
+
+    HWND owner = GetConsoleWindow();
+    if (owner) ShowWindow(owner, SW_HIDE);
 
     if (!silent && MessageBoxW(NULL,
             T(L"LuxAI (Windows, native) kurulacak.\n\n"
               "WSL gerekmez: LuxAI dogrudan Windows uygulamasi olarak calisir.\n"
-              "Kurulum yeri: %LOCALAPPDATA%\\LuxAI\n\nDevam edilsin mi?",
+              "Kurulum yeri: %ProgramFiles%\\LuxAI  (bu kullanici icin: %%LOCALAPPDATA%%\\Programs\\LuxAI)\n\nDevam edilsin mi?",
               L"LuxAI (Windows, native) will be installed.\n\n"
               "No WSL required: LuxAI runs as a native Windows application.\n"
               "Install folder: %LOCALAPPDATA%\\LuxAI\n\nContinue?"),
@@ -171,6 +243,7 @@ int WINAPI wWinMain(HINSTANCE hInst, HINSTANCE hPrev, PWSTR cmd, int show)
         make_shortcut(exe, dir, ico, lnk);
     }
     write_uninstaller(dir, appdata);
+    g_machine = machine;
     register_uninstall(dir, ico);
     CoUninitialize();
 

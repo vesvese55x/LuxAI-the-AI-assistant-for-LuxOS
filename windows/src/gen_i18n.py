@@ -16,6 +16,12 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.abspath(os.path.join(HERE, "..", ".."))
 sys.path.insert(0, HERE)
 from i18n_manual import MANUAL
+try:
+    from i18n_extra import EXTRA
+except Exception:
+    EXTRA = {}
+for _l, _d in EXTRA.items():
+    MANUAL.setdefault(_l, {}).update(_d)
 
 LANGS = ["tr", "en", "ru", "zh", "ja", "hi", "de", "fr", "es", "it",
          "nl", "pl", "pt", "sk", "sv", "cs", "hu", "uk"]

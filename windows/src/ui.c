@@ -42,6 +42,8 @@ MsgList g_conv;
 static HINSTANCE g_inst;
 static DWORD g_ui_thread;
 static int   g_dark, g_page, g_login_open, g_sidebar_open = 1;
+static int   g_login_tab, g_reg_pending;   /* 0=parola 1=e-posta kodu 2=yeni hesap */
+
 static int   g_busy_ui;
 static wchar_t g_conv_id[64];
 static char   g_status[512];
@@ -64,7 +66,7 @@ static HBITMAP g_mbmp;
 static HGDIOBJ g_mold;
 
 /* metin kutulari */
-static HWND g_edComposer, g_edSearch, g_edMail, g_edPass,
+static HWND g_edComposer, g_edSearch, g_edMail, g_edPass, g_edName,
             g_edWork, g_edEnd, g_edKey, g_edTok;
 static HFONT g_fEdit, g_fEditMono;
 static HBRUSH g_brInput, g_brField, g_brCode;
@@ -77,6 +79,44 @@ static int g_me_used = -1, g_me_limit = -1, g_me_busy;
 
 /* ---------------- kucuk yardimcilar ---------------- */
 typedef struct { double x, y, w, h; } Rect;
+/* ---- BELGESELSEMO projeler katalogu (IDM-LINUX projects_data.py ile ayni) ---- */
+typedef struct {
+    const wchar_t *badge;   /* rozet harfleri */
+    const wchar_t *title;
+    const wchar_t *url;
+    DWORD          col;
+    int            cat;     /* 0=web 1=android 2=masaustu 3=yakinda */
+} Proj;
+
+static const Proj g_projs[] = {
+ { L"BS", L"BELGESELSEMO - Web Portalı (HD Belgesel & Araçlar)",
+   L"https://belgeselsemo.com.tr", 0xFF0EA5E9, 0 },
+ { L"YT", L"BELGESELSEMO Learn & Explore - YouTube",
+   L"https://www.youtube.com/@belgeselsemo55", 0xFFEF4444, 0 },
+ { L"MP", L"MATPAY - Matematik Paylaşımları (Lisans Notları)",
+   L"http://matpay.blogspot.com", 0xFF6366F1, 0 },
+ { L"FX", L"BELGESELSEMOFLIX - Masaüstü Medya & Araç Üssü",
+   L"https://github.com/vesvese55x/belgeselsemoflix", 0xFF10B981, 2 },
+ { L"EPG", L"BELGESELSEMO TV Rehberi / TV Guide (EPG)",
+   L"https://play.google.com/store/apps/details?id=com.belgeselsemo.epgviewer", 0xFF22C55E, 1 },
+ { L"BS", L"BELGESELSEMO - HD Belgesel & 20+ Günlük Araç (Android)",
+   L"https://play.google.com/store/apps/details?id=com.belgeselsemo.tr", 0xFF22C55E, 1 },
+ { L"N7", L"Nöbetçi Eczaneler 7/24 TR-KKTC (Nobetci Eczane)",
+   L"https://play.google.com/store/apps/details?id=com.belgeselsemo.nb724", 0xFFEF4444, 1 },
+ { L"NT", L"NUTUK 1919-1927 - Sesli Kitap, Sözlük & Yarışma",
+   L"https://play.google.com/store/apps/details?id=com.belgeselsemo.nutuk", 0xFFF59E0B, 1 },
+ { L"TR", L"BELGESELSEMO TRIVIA - Online Bilgi Yarışması",
+   L"https://play.google.com/store/apps/details?id=com.belgeselsemo.trivia", 0xFFA855F7, 1 },
+ { L"RE", L"BELGESELSEMO RETRO EMULATOR - Çapraz Platform",
+   L"https://belgeselsemo.com.tr", 0xFF38BDF8, 3 },
+ { L"EC", L"BELGESELSEMO ECONOMY - Android",
+   L"https://belgeselsemo.com.tr", 0xFF10B981, 3 },
+};
+#define NPROJ ((int)(sizeof g_projs / sizeof g_projs[0]))
+
+
+/* giris karti alanlari (yerlesim -> cizim/tiklama) */
+static Rect g_lr_name, g_lr_mail, g_lr_pass, g_lr_send, g_lr_tab[3];
 static Rect R(double x, double y, double w, double h)
 {
     Rect r; r.x = x; r.y = y; r.w = w; r.h = h; return r;
@@ -97,7 +137,8 @@ static const wchar_t *T(int id, wchar_t *b, size_t cch)
 enum {
     H_NONE = 0, H_MIN, H_MAX, H_CLOSE, H_SIDEBAR, H_NEWCHATBTN, H_SEG_CHAT, H_SEG_AGENT,
     H_COMBO, H_MENU, H_NEWCHAT, H_SEARCH, H_ROW, H_ROWX, H_ACCT, H_SEND, H_STOP,
-    H_EMPTY_MAIN, H_EMPTY_LINK, H_LOGIN_GO, H_LOGIN_WEB, H_LOGIN_CANCEL, H_LOGIN_CLOSE,
+    H_EMPTY_MAIN, H_EMPTY_LINK, H_ATTR_LINK, H_LOGIN_GO, H_LOGIN_WEB, H_LOGIN_CANCEL, H_LOGIN_CLOSE,
+    H_LOGIN_TAB, H_LOGIN_SENDCODE, H_PROJ,
     H_SET_BACK, H_SET_SAVE, H_SET_CLOSE, H_SET_ROW, H_SET_BROWSE
 };
 typedef struct { int kind, idx; Rect r; } Hit;
@@ -793,7 +834,8 @@ static double bubble(const char *role, const wchar_t *text, const char *tool_cal
 typedef struct {
     Rect header, sidebar, main, msgs, composer, send, stop, status, newchat, search,
          list, acct, seg0, seg1, sbbtn, ncbtn, combo, hmenu, bmin, bmax, bclose,
-         logo, ebtn, elink, lcard, lgo, lweb, lcancel, lclose, back, setbtn, closebtn;
+         logo, ebtn, elink, eattr, lcard, lgo, lweb, lcancel, lclose, back, setbtn, closebtn;
+    Rect proj[12];
 } Lay;
 static Lay L;
 
@@ -908,7 +950,7 @@ static void compute_layout(double w, double h, int painting)
     }
 
     /* ---- bos durum ---- */
-    L.logo = L.ebtn = L.elink = R(0, 0, 0, 0);
+    L.logo = L.ebtn = L.elink = L.eattr = R(0, 0, 0, 0);
     if (!g_conv.n && !g_stream && g_page == 0 && !g_login_open) {
         double cx = L.main.x + L.main.w / 2;
         double avail = L.msgs.h;
@@ -926,30 +968,59 @@ static void compute_layout(double w, double h, int painting)
             L.elink = R(cx - 110, L.ebtn.y + 42 + 16, 220, 24);
             hit_add(H_EMPTY_LINK, 0, L.elink);
         }
+        /* BELGESELSEMO x Z.AI x orijinal LuxOS notu (her durumda gorunur) */
+        double ya = (L.ebtn.w > 0) ? (L.elink.y + 34)
+                                   : (L.logo.y + 64 + 20 + 34 + 12 + subh + 24);
+        if (ya + 74 > L.msgs.y + L.msgs.h) ya = L.msgs.y + L.msgs.h - 78;
+        L.eattr = R(cx - 300, ya + 46, 600, 22);
+        hit_add(H_ATTR_LINK, 0, L.eattr);
     }
 
     /* ---- giris karti ---- */
     L.lcard = L.lgo = L.lweb = L.lcancel = L.lclose = R(0, 0, 0, 0);
     if (g_login_open) {
-        double cw = 424, ch = 348;
+        double cw = 464, ch = 404;
         double cx = (w - cw) / 2, cy = (h - ch) / 2;
         if (cx < 10) cx = 10;
         if (cy < HS + 10) cy = HS + 10;
         L.lcard = R(cx, cy, cw, ch);
         L.lclose = R(cx + cw - 38, cy + 10, 28, 28);
-        L.lgo     = R(cx + 22, cy + ch - 62, 108, 36);
-        L.lweb    = R(cx + 140, cy + ch - 62, 168, 36);
-        L.lcancel = R(cx + cw - 100, cy + ch - 62, 78, 36);
+        double tw3 = (cw - 44) / 3.0;
+        for (int t = 0; t < 3; t++)
+            g_lr_tab[t] = R(cx + 22 + tw3 * t, cy + 58, tw3, 34);
+        g_lr_name = R(cx + 22, cy + 140, cw - 44, 34);
+        g_lr_mail = R(cx + 22, cy + 206, cw - 44 - (g_login_tab == 1 ? 132 : 0), 34);
+        g_lr_send = R(cx + cw - 22 - 124, cy + 206, 124, 34);
+        g_lr_pass = R(cx + 22, cy + 272, cw - 44, 34);
+        L.lgo     = R(cx + 22, cy + ch - 56, 124, 36);
+        L.lweb    = R(cx + 156, cy + ch - 56, 168, 36);
+        L.lcancel = R(cx + cw - 100, cy + ch - 56, 78, 36);
         hit_add(H_LOGIN_CLOSE, 0, L.lclose);
+        for (int t = 0; t < 3; t++) hit_add(H_LOGIN_TAB, t, g_lr_tab[t]);
         hit_add(H_LOGIN_GO, 0, L.lgo);
         hit_add(H_LOGIN_WEB, 0, L.lweb);
         hit_add(H_LOGIN_CANCEL, 0, L.lcancel);
+        if (g_login_tab == 1) hit_add(H_LOGIN_SENDCODE, 0, g_lr_send);
+    }
+
+    /* ---- projeler sayfasi ---- */
+    for (int i = 0; i < 12; i++) L.proj[i] = R(0, 0, 0, 0);
+    if (g_page == 2 && !g_login_open) {
+        double x = L.main.x + PAD + 4, y = HS + 12 + 44 + 56;
+        double gw = L.main.w - PAD * 2 - 40;
+        if (gw > 900) gw = 900;
+        double cwid = (gw - 12) / 2;
+        for (int i = 0; i < NPROJ && i < 12; i++) {
+            int col = i % 2, row = i / 2;
+            L.proj[i] = R(x + col * (cwid + 12), y + row * 84, cwid, 76);
+            hit_add(H_PROJ, i, L.proj[i]);
+        }
     }
 
     /* ---- ayarlar ---- */
     L.back = L.setbtn = L.closebtn = R(0, 0, 0, 0);
     for (int i = 0; i < SR_COUNT; i++) g_srow[i] = g_sval[i] = R(0, 0, 0, 0);
-    if (g_page == 1) {
+    if (g_page == 1 || g_page == 2) {
         double x = L.main.x + PAD + 4, y = HS + 12;
         L.back = R(x, y + 3, 30, 30);
         hit_add(H_SET_BACK, 0, L.back);
@@ -1015,8 +1086,10 @@ static void place_edits(void)
                      L.search.h - 12),
        g_sidebar_open && !g_login_open && g_page == 0 && !modal_active());
     int lg = g_login_open && !modal_active();
-    MV(g_edMail, R(L.lcard.x + 34, L.lcard.y + 113, L.lcard.w - 68, 24), lg);
-    MV(g_edPass, R(L.lcard.x + 34, L.lcard.y + 179, L.lcard.w - 68, 24), lg);
+    MV(g_edMail, R(g_lr_mail.x + 12, g_lr_mail.y + 8, g_lr_mail.w - 24, g_lr_mail.h - 14), lg);
+    MV(g_edPass, R(g_lr_pass.x + 12, g_lr_pass.y + 8, g_lr_pass.w - 24, g_lr_pass.h - 14), lg);
+    MV(g_edName, R(g_lr_name.x + 12, g_lr_name.y + 8, g_lr_name.w - 24, g_lr_name.h - 14),
+       lg && g_login_tab == 2);
     int st = (g_page == 1 && !g_login_open && !modal_active());
     MV(g_edWork, R(g_sval[SR_WORK].x, g_sval[SR_WORK].y, g_sval[SR_WORK].w - 84,
                    g_sval[SR_WORK].h), st);
@@ -1174,6 +1247,21 @@ static void draw_empty(void)
         sk_text_box(L.elink.x, L.elink.y, L.elink.w, L.elink.h, b, 14, 400, 0, SK.accent, 1);
         sk_line(cx - lw / 2, L.elink.y + 21, cx + lw / 2, L.elink.y + 21, SK.accent, 1);
     }
+    /* --- atif notu: BELGESELSEMO / Z.AI / orijinal LuxOS --- */
+    if (L.eattr.w > 0) {
+        wchar_t ab[768];
+        T(S_ATTRIB, ab, 768);
+        sk_line(cx - 60, L.eattr.y - 22, cx + 60, L.eattr.y - 22,
+                (SK.fg & 0x00FFFFFF) | 0x22000000, 1);
+        double th = wrap_center(ab, cx, L.eattr.y - 12, 520, 11, 400, SK.dim, 1);
+        static const wchar_t *lnk = L"belgeselsemo.com.tr";
+        double lw2 = sk_tw_s(lnk, 12, 600, 0);
+        int hov = (g_hover_kind == H_ATTR_LINK);
+        sk_text_box(cx - lw2 / 2, L.eattr.y - 12 + th + 4, lw2 + 4, 20, lnk, 12, 600, 0,
+                    hov ? 0xFF5B8CFF : SK.accent, 1);
+        sk_line(cx - lw2 / 2, L.eattr.y - 12 + th + 22, cx + lw2 / 2,
+                L.eattr.y - 12 + th + 22, hov ? 0xFF5B8CFF : SK.accent, 1);
+    }
 }
 
 static void draw_messages(void)
@@ -1263,32 +1351,76 @@ static void draw_login(double w, double h)
     sk_round(c.x + 2, c.y + 6, c.w, c.h, 16, 0x33000000);
     sk_round(c.x, c.y, c.w, c.h, 14, SK.card);
     sk_rline(c.x, c.y, c.w, c.h, 14, SK.border, 1);
-    sk_text(c.x + 22, c.y + 18, c.w - 60, T(S_LOGIN_TITLE, b, 256), 17, 700, 0, SK.fg, 0);
+    /* baslik + logo */
+    sk_grad(c.x + 22, c.y + 14, 30, 30, 9, 0xFF3D6BFF, 0xFF8A4DFF, 1);
+    sk_text(c.x + 30, c.y + 20, 22, L"L", 15, 800, 0, 0xFFFFFFFF, 1);
+    sk_text(c.x + 62, c.y + 20, c.w - 110, T(S_LOGIN_TITLE, b, 256), 16, 700, 0, SK.fg, 0);
     sk_icon(SKI_CLOSE, L.lclose.x + 14, L.lclose.y + 14, 13, SK.dim, 1.5);
-    T(S_LOGIN_HINT, b2, 256);
-    wrap_center(b2, c.x + c.w / 2, c.y + 46, c.w - 44, 12, 400, SK.dim, 1);
-    sk_text(c.x + 22, c.y + 82, 200, T(S_EMAIL, b, 256), 12, 600, 0, SK.dim, 0);
-    sk_text(c.x + 22, c.y + 148, 200, T(S_PASSWORD, b, 256), 12, 600, 0, SK.dim, 0);
-    sk_round(c.x + 21, c.y + 107, c.w - 42, 36, 9, SK.card);
-    sk_rline(c.x + 21, c.y + 107, c.w - 42, 36, 9, SK.border, 1);
-    sk_round(c.x + 21, c.y + 173, c.w - 42, 36, 9, SK.card);
-    sk_rline(c.x + 21, c.y + 173, c.w - 42, 36, 9, SK.border, 1);
-    /* dugmeler */
+
+    /* --- sekmeler: Parola / E-posta ile kod / Yeni hesap --- */
+    static const int tabs[3] = { S_TAB_PW, S_TAB_CODE, S_TAB_REG };
+    for (int t = 0; t < 3; t++) {
+        Rect r = g_lr_tab[t];
+        int on = (g_login_tab == t);
+        if (on) sk_round(r.x, r.y, r.w, r.h, 9, SK.accent);
+        else if (g_hover_kind == H_LOGIN_TAB && g_hover_idx == t)
+            sk_round(r.x, r.y, r.w, r.h, 9, (SK.fg & 0x00FFFFFF) | 0x10000000);
+        T(tabs[t], b2, 256);
+        sk_text_box(r.x + 3, r.y, r.w - 6, r.h, b2, 12, on ? 700 : 500, 0,
+                    on ? 0xFFFFFFFF : SK.dim, 1);
+    }
+    sk_line(c.x + 22, c.y + 102, c.x + c.w - 22, c.y + 102,
+            (SK.fg & 0x00FFFFFF) | 0x1A000000, 1);
+
+    /* --- alan etiketleri --- */
+    if (g_login_tab == 2) {
+        sk_text(c.x + 24, c.y + 120, 200, T(S_YOURNAME, b, 256), 12, 600, 0, SK.dim, 0);
+        sk_text(c.x + 24, c.y + 186, 200, T(S_EMAIL, b, 256), 12, 600, 0, SK.dim, 0);
+        sk_text(c.x + 24, c.y + 252, 200, T(S_PASSWORD, b, 256), 12, 600, 0, SK.dim, 0);
+        sk_text(c.x + 24, c.y + 314, c.w - 48, T(S_PW_HINT, b, 256), 11, 400, 0, SK.dim, 0);
+    } else if (g_login_tab == 1) {
+        sk_text(c.x + 24, c.y + 186, 200, T(S_EMAIL, b, 256), 12, 600, 0, SK.dim, 0);
+        sk_text(c.x + 24, c.y + 252, 200, T(S_CODE, b, 256), 12, 600, 0, SK.dim, 0);
+        sk_text(c.x + 24, c.y + 314, c.w - 48, T(S_CODE_HINT, b, 256), 11, 400, 0, SK.dim, 0);
+        Rect sb = g_lr_send;
+        sk_round(sb.x, sb.y, sb.w, sb.h, 17,
+                 (g_hover_kind == H_LOGIN_SENDCODE) ? 0xFF5B8CFF : SK.accent);
+        sk_text_box(sb.x, sb.y, sb.w, sb.h, T(S_SEND_CODE, b, 256), 12, 700, 0,
+                    0xFFFFFFFF, 1);
+    } else {
+        sk_text(c.x + 24, c.y + 186, 200, T(S_EMAIL, b, 256), 12, 600, 0, SK.dim, 0);
+        sk_text(c.x + 24, c.y + 252, 200, T(S_PASSWORD, b, 256), 12, 600, 0, SK.dim, 0);
+        T(S_LOGIN_HINT, b2, 256);
+        wrap_center(b2, c.x + c.w / 2, c.y + 314, c.w - 48, 11, 400, SK.dim, 1);
+    }
+
+    /* --- giris kutulari --- */
+    Rect f[2]; int nf = 0;
+    if (g_login_tab == 2) f[nf++] = g_lr_name;
+    f[nf++] = g_lr_mail;
+    f[nf++] = g_lr_pass;
+    for (int i = 0; i < nf; i++) {
+        sk_round(f[i].x, f[i].y, f[i].w, f[i].h, 9, SK.card);
+        sk_rline(f[i].x, f[i].y, f[i].w, f[i].h, 9, SK.border, 1);
+    }
+
+    /* --- dugmeler --- */
+    int prim = (g_login_tab == 2) ? S_CREATE_ACC : S_LOGIN;
     sk_round(L.lgo.x, L.lgo.y, L.lgo.w, L.lgo.h, 18, SK.accent);
-    sk_text_box(L.lgo.x, L.lgo.y, L.lgo.w, L.lgo.h, T(S_LOGIN, b, 256), 14, 700, 0,
-                0xFFFFFFFF, 1);
+    T(prim, b, 256);
+    sk_text_box(L.lgo.x, L.lgo.y, L.lgo.w, L.lgo.h, b, 13, 700, 0, 0xFFFFFFFF, 1);
     sk_round(L.lweb.x, L.lweb.y, L.lweb.w, L.lweb.h, 18,
              (SK.fg & 0x00FFFFFF) | 0x0F000000);
-    sk_text_box(L.lweb.x, L.lweb.y, L.lweb.w, L.lweb.h, T(S_REGISTER, b, 256), 13, 600,
+    sk_text_box(L.lweb.x, L.lweb.y, L.lweb.w, L.lweb.h, T(S_REGISTER, b, 256), 12, 600,
                 0, SK.fg, 1);
     sk_round(L.lcancel.x, L.lcancel.y, L.lcancel.w, L.lcancel.h, 18,
              (SK.fg & 0x00FFFFFF) | 0x0F000000);
     sk_text_box(L.lcancel.x, L.lcancel.y, L.lcancel.w, L.lcancel.h, T(S_CANCEL, b, 256),
-                13, 600, 0, SK.fg, 1);
+                12, 600, 0, SK.fg, 1);
     if (g_status[0] && g_login_open) {
         wchar_t *ws = u16(g_status);
         if (ws) {
-            sk_text_box(c.x + 22, c.y + c.h - 96, c.w - 44, 22, ws, 12, 400, 0,
+            sk_text_box(c.x + 24, c.y + c.h - 92, c.w - 48, 22, ws, 12, 400, 0,
                         SK.danger, 0);
             free(ws);
         }
@@ -1328,6 +1460,49 @@ static void draw_toggle(Rect r, int on)
     sk_round(x, y, tw_, th_, th_ / 2, on ? SK.accent : ((SK.fg & 0x00FFFFFF) | 0x2A000000));
     sk_circle(on ? x + tw_ - th_ / 2 : x + th_ / 2, y + th_ / 2, th_ / 2 - 2.5, 0xFFFFFFFF);
 }
+
+static double wrap_text(const wchar_t *s, double x, double y, double maxw, int px,
+                        int weight, DWORD col, int paint);
+
+static void draw_projects(void)
+{
+    wchar_t b[512];
+    double x = L.main.x + PAD + 4, y = HS + 12;
+    sk_icon(SKI_BACK, L.back.x + 15, L.back.y + 14, 16, SK.fg, 1.8);
+    sk_text(x + 42, y + 1, 420, T(S_PROJECTS_T, b, 512), 20, 700, 0, SK.fg, 0);
+    double gw = L.main.w - PAD * 2 - 40;
+    if (gw > 900) gw = 900;
+    wrap_text(T(S_PROJECTS_H, b, 512), x + 42, y + 30, gw - 42, 12, 400, SK.dim, 1);
+    /* ince ayrac */
+    sk_line(x, HS + 12 + 44 + 44, x + gw, HS + 12 + 44 + 44, SK.border, 1);
+    for (int i = 0; i < NPROJ && i < 12; i++) {
+        Rect r = L.proj[i];
+        if (r.w <= 0) continue;
+        int hov = (g_hover_kind == H_PROJ && g_hover_idx == i);
+        sk_round(r.x, r.y, r.w, r.h, 12, SK.card);
+        sk_rline(r.x, r.y, r.w, r.h, 12, hov ? SK.accent : SK.border, 1);
+        /* rozet */
+        DWORD col = g_projs[i].col;
+        sk_round(r.x + 12, r.y + 14, 44, 44, 12, (col & 0x00FFFFFF) | 0x33000000);
+        sk_text_box(r.x + 12, r.y + 14, 44, 44, g_projs[i].badge, 13, 800, 0, col, 1);
+        /* baslik */
+        sk_text(r.x + 66, r.y + 15, r.w - 66 - 96, g_projs[i].title, 13, 600, 0, SK.fg, 0);
+        /* kategori rozeti */
+        const wchar_t *cat = g_projs[i].cat == 1 ? L"Android"
+                            : g_projs[i].cat == 2 ? L"Desktop"
+                            : g_projs[i].cat == 3 ? T(S_SOON, b, 512) : L"Web";
+        double cw2 = sk_tw_s(cat, 10, 700, 0) + 16;
+        sk_round(r.x + 66, r.y + 40, cw2, 18, 9, (col & 0x00FFFFFF) | 0x26000000);
+        sk_text_box(r.x + 66, r.y + 40, cw2, 18, cat, 10, 700, 0, col, 1);
+        /* url */
+        sk_text(r.x + 66 + cw2 + 10, r.y + 40, r.w - 66 - cw2 - 60,
+                g_projs[i].url, 10, 400, 0, SK.dim, 0);
+        sk_icon(SKI_CHEV_D, r.x + r.w - 20, r.y + r.h / 2 + 2, 12,
+                hov ? SK.accent : SK.dim, 1.5);
+    }
+}
+
+static void draw_projects(void);
 
 static void draw_settings(void)
 {
@@ -1405,6 +1580,8 @@ static void draw_all(double w, double h)
     draw_sidebar(w, h);
     if (g_page == 1) {
         draw_settings();
+    } else if (g_page == 2) {
+        draw_projects();
     } else if (!g_conv.n && !g_stream) {
         draw_empty();
     } else {
@@ -1544,7 +1721,163 @@ static void popup_open(int id, Rect anchor, const wchar_t **items, int n, int cu
 }
 
 /* ================= eylemler ================= */
+/* ---- genel yardimcilar: oturum + kod + kayit ---- */
+static void status_w(const wchar_t *w)
+{
+    char *x = w ? u8(w) : NULL;
+    if (x) { strncpy(g_status, x, sizeof g_status - 1); g_status[sizeof g_status - 1] = 0; free(x); }
+    else g_status[0] = 0;
+}
+
+/* 200 + sessionToken -> oturumu kaydet; aksi halde hata metni */
+static int session_take(const char *json, wchar_t *err, size_t errcch)
+{
+    if (!json) return 0;
+    JVal *v = json_parse(json);
+    int ok = 0;
+    const char *tok = json_str(v, "sessionToken");
+    if (tok) {
+        wchar_t *wt = u16(tok);
+        if (wt) { wcsncpy(g_token, wt, 1023); g_token[1023] = 0; free(wt); }
+        JVal *u = json_get(v, "user");
+        if (u) {
+            const char *em = json_str(u, "email");
+            const char *nm = json_str(u, "name");
+            const char *un = json_str(u, "username");
+            if (em) { wchar_t *w = u16(em); if (w) { wcsncpy(g_email, w, 255); free(w); } }
+            if (un) { wchar_t *w = u16(un); if (w) { wcsncpy(g_username, w, 127); free(w); } }
+            else if (nm) { wchar_t *w = u16(nm); if (w) { wcsncpy(g_username, w, 127); free(w); } }
+        }
+        account_save();
+        ok = 1;
+    } else {
+        const char *code = json_str(v, "error");
+        if (!code) code = json_str(v, "message");
+        if (code) {
+            if (!strcmp(code, "invalid_credentials") || !strcmp(code, "invalid_code") ||
+                !strcmp(code, "code_invalid"))
+                wcsncpy(err, tw(S_BAD_CREDS), errcch - 1);
+            else if (!strcmp(code, "weak_password"))
+                wcsncpy(err, tw(S_PW_HINT), errcch - 1);
+            else if (!strcmp(code, "account_exists"))
+                wcsncpy(err, L"Hesap zaten var / account already exists", errcch - 1);
+            else if (!strcmp(code, "terms_required"))
+                wcsncpy(err, L"Kosullar / terms required", errcch - 1);
+            else {
+                wchar_t *w = u16(code);
+                if (w) { wcsncpy(err, w, errcch - 1); free(w); }
+            }
+        } else {
+            wcsncpy(err, tw(S_LOGIN_FAIL), errcch - 1);
+        }
+        err[errcch - 1] = 0;
+    }
+    json_free(v);
+    return ok;
+}
+
+/* POST /api/<path> gonderir; yaniti *resp icine yazar */
+static int post_json(const wchar_t *url, const char *json, size_t len, Buf *resp, int *status)
+{
+    Buf errb;
+    buf_init(&errb);
+    volatile LONG cancel = 0;
+    int st = 0;
+    http_request(url, L"Content-Type: application/json; charset=utf-8\r\nX-Lux-Client: luxai\r\n",
+                 (char *)json, len, resp_sink_ui, resp, &st, &errb, &cancel);
+    buf_free(&errb);
+    if (status) *status = st;
+    return st;
+}
+
+/* e-posta ile kod iste */
+static int do_send_code(const wchar_t *email, wchar_t *err, size_t errcch)
+{
+    Buf body, resp;
+    buf_init(&body);
+    buf_init(&resp);
+    char *e8 = u8(email);
+    buf_adds(&body, "{\"email\":");
+    json_write_str(&body, e8 ? e8 : "");
+    buf_addc(&body, '}');
+    free(e8);
+    int st = 0;
+    post_json(L"https://lux-ai.cz/api/auth/code/request", body.p, body.n, &resp, &st);
+    buf_free(&body);
+    int ok = (st == 200 || st == 202 || st == 204);
+    if (!ok) {
+        if (st == 0) wcsncpy(err, tw(S_NET_ERR), errcch - 1);
+        else _snwprintf(err, errcch, L"HTTP %d", st);
+        err[errcch - 1] = 0;
+    }
+    buf_free(&resp);
+    return ok;
+}
+
+/* kodu dogrula (giris veya kayit tamamlama) */
+static int do_login_code(const wchar_t *email, const wchar_t *code, wchar_t *err, size_t errcch)
+{
+    Buf body, resp;
+    buf_init(&body);
+    buf_init(&resp);
+    char *e8 = u8(email), *c8 = u8(code);
+    buf_adds(&body, "{\"email\":");
+    json_write_str(&body, e8 ? e8 : "");
+    buf_adds(&body, ",\"code\":");
+    json_write_str(&body, c8 ? c8 : "");
+    buf_addc(&body, '}');
+    free(e8);
+    free(c8);
+    int st = 0;
+    post_json(L"https://lux-ai.cz/api/auth/code/verify", body.p, body.n, &resp, &st);
+    buf_free(&body);
+    int ok = 0;
+    if (st == 200 && resp.p) ok = session_take(resp.p, err, errcch);
+    else if (st == 0) { wcsncpy(err, tw(S_NET_ERR), errcch - 1); err[errcch - 1] = 0; }
+    else if (st == 401 || st == 400) { wcsncpy(err, tw(S_BAD_CREDS), errcch - 1); err[errcch - 1] = 0; }
+    else { _snwprintf(err, errcch, L"HTTP %d", st); err[errcch - 1] = 0; }
+    buf_free(&resp);
+    return ok;
+}
+
+/* yeni hesap: sunucu 6 haneli kod gonderir, hesap kod dogrulaninca olusur */
+static int do_register_start(const wchar_t *name, const wchar_t *email, const wchar_t *pass,
+                             wchar_t *err, size_t errcch)
+{
+    Buf body, resp;
+    buf_init(&body);
+    buf_init(&resp);
+    char *e8 = u8(email), *p8 = u8(pass), *n8 = u8(name);
+    buf_adds(&body, "{\"email\":");
+    json_write_str(&body, e8 ? e8 : "");
+    buf_adds(&body, ",\"password\":");
+    json_write_str(&body, p8 ? p8 : "");
+    buf_adds(&body, ",\"displayName\":");
+    json_write_str(&body, n8 ? n8 : "");
+    buf_adds(&body, ",\"termsAccepted\":true}");
+    free(e8);
+    free(p8);
+    free(n8);
+    int st = 0;
+    post_json(L"https://lux-ai.cz/api/auth/register/start", body.p, body.n, &resp, &st);
+    buf_free(&body);
+    int ok = (st == 200 || st == 201 || st == 202 || st == 204);
+    if (!ok) {
+        wchar_t e2[300];
+        e2[0] = 0;
+        if (resp.p) session_take(resp.p, e2, 300);       /* hata kodunu cozumle */
+        if (e2[0]) wcsncpy(err, e2, errcch - 1);
+        else if (st == 0) wcsncpy(err, tw(S_NET_ERR), errcch - 1);
+        else _snwprintf(err, errcch, L"HTTP %d", st);
+        err[errcch - 1] = 0;
+    }
+    buf_free(&resp);
+    return ok;
+}
+
 static void do_login_flow(const wchar_t *email, const wchar_t *pass);
+static wchar_t *get_text(HWND h);
+static void account_open(void);
 static void do_send(void);
 static void settings_open(void);
 static void settings_save(void);
@@ -1622,14 +1955,15 @@ static void on_hit(Hit hit)
         break;
     }
     case H_MENU: {
-        static const wchar_t *it[5];
+        static const wchar_t *it[6];
         wchar_t a[128];
         it[0] = _wcsdup(T(S_NEW, a, 128));
         it[1] = _wcsdup(T(S_SETTINGS, a, 128));
-        it[2] = _wcsdup(g_token[0] ? T(S_ACCT_TITLE, a, 128) : T(S_LOGIN, a, 128));
-        it[3] = _wcsdup(g_token[0] ? T(S_LOGOUT, a, 128) : T(S_ACCT_TITLE, a, 128));
-        it[4] = _wcsdup(L"GitHub");
-        popup_open(P_MENU, L.hmenu, it, 5, -1);
+        it[2] = _wcsdup(T(S_PROJECTS, a, 128));            /* Ayarlar <-> Hesap arasi */
+        it[3] = _wcsdup(g_token[0] ? T(S_ACCT_TITLE, a, 128) : T(S_LOGIN, a, 128));
+        it[4] = _wcsdup(g_token[0] ? T(S_LOGOUT, a, 128) : T(S_ACCT_TITLE, a, 128));
+        it[5] = _wcsdup(L"GitHub");
+        popup_open(P_MENU, L.hmenu, it, 6, -1);
         break;
     }
     case H_SEARCH: SetFocus(g_edSearch); break;
@@ -1655,6 +1989,13 @@ static void on_hit(Hit hit)
     case H_EMPTY_LINK:
         ShellExecuteW(NULL, L"open", L"https://lux-ai.cz/register", NULL, NULL, SW_SHOWNORMAL);
         break;
+    case H_PROJ:
+        if (hit.idx >= 0 && hit.idx < NPROJ && g_projs[hit.idx].url)
+            ShellExecuteW(NULL, L"open", g_projs[hit.idx].url, NULL, NULL, SW_SHOWNORMAL);
+        break;
+    case H_ATTR_LINK:
+        ShellExecuteW(NULL, L"open", L"https://belgeselsemo.com.tr", NULL, NULL, SW_SHOWNORMAL);
+        break;
     case H_LOGIN_CLOSE:
     case H_LOGIN_CANCEL:
         g_login_open = 0;
@@ -1665,16 +2006,82 @@ static void on_hit(Hit hit)
     case H_LOGIN_WEB:
         ShellExecuteW(NULL, L"open", L"https://lux-ai.cz/register", NULL, NULL, SW_SHOWNORMAL);
         break;
+    case H_LOGIN_TAB:
+        if (hit.idx >= 0 && hit.idx < 3 && hit.idx != g_login_tab) {
+            g_login_tab = hit.idx;
+            g_status[0] = 0;
+            layout_soft();
+            InvalidateRect(g_hMain, NULL, FALSE);
+            SetFocus(g_login_tab == 2 ? g_edName : g_edMail);
+        }
+        break;
+    case H_LOGIN_SENDCODE: {
+        wchar_t *em = get_text(g_edMail);
+        wchar_t err[300];
+        err[0] = 0;
+        if (!em || !*em) status_w(tw(S_EMAIL));
+        else if (do_send_code(em, err, 300)) status_w(tw(S_CODE_HINT));
+        else status_w(err);
+        free(em);
+        layout_soft();
+        InvalidateRect(g_hMain, NULL, FALSE);
+        SetFocus(g_edPass);
+        break;
+    }
     case H_LOGIN_GO: {
         wchar_t *em = NULL, *pw = NULL;
-        int n1 = GetWindowTextLengthW(g_edMail), n2 = GetWindowTextLengthW(g_edPass);
-        em = (wchar_t *)calloc((size_t)n1 + 2, sizeof(wchar_t));
-        pw = (wchar_t *)calloc((size_t)n2 + 2, sizeof(wchar_t));
-        if (em && pw) {
-            GetWindowTextW(g_edMail, em, n1 + 1);
-            GetWindowTextW(g_edPass, pw, n2 + 1);
-            do_login_flow(em, pw);
+        if (g_login_tab == 2) {                     /* --- yeni hesap --- */
+            wchar_t *nm = get_text(g_edName);
+            em = get_text(g_edMail);
+            pw = get_text(g_edPass);
+            wchar_t err[300];
+            err[0] = 0;
+            if (!nm || !*nm) status_w(tw(S_YOURNAME));
+            else if (!em || !*em) status_w(tw(S_EMAIL));
+            else if (!pw || wcslen(pw) < 12) status_w(tw(S_PW_HINT));
+            else if (do_register_start(nm, em, pw, err, 300)) {
+                g_reg_pending = 1;
+                g_login_tab = 1;                    /* kod sekmesine gec */
+                status_w(tw(S_CODE_HINT));
+            } else status_w(err);
+            free(nm);
+            free(em);
+            free(pw);
+            layout_soft();
+            InvalidateRect(g_hMain, NULL, FALSE);
+            if (g_reg_pending) SetFocus(g_edPass);
+            break;
         }
+        if (g_login_tab == 1) {                     /* --- e-posta kodu --- */
+            em = get_text(g_edMail);
+            pw = get_text(g_edPass);
+            if (!em || !*em) {
+                status_w(tw(S_EMAIL));
+            } else if (!pw || !*pw) {
+                status_w(tw(S_CODE));
+            } else {
+                wchar_t err[300];
+                err[0] = 0;
+                if (do_login_code(em, pw, err, 300)) {
+                    g_login_open = 0;
+                    g_reg_pending = 0;
+                    g_status[0] = 0;
+                    SetWindowTextW(g_edPass, L"");
+                    ui_set_status(t(S_READY));
+                    layout_soft();
+                } else {
+                    status_w(err);
+                    layout_soft();
+                }
+            }
+            free(em);
+            free(pw);
+            InvalidateRect(g_hMain, NULL, FALSE);
+            break;
+        }
+        em = get_text(g_edMail);
+        pw = get_text(g_edPass);
+        if (em && pw) do_login_flow(em, pw);
         free(em);
         free(pw);
         break;
@@ -1911,7 +2318,10 @@ static const wchar_t *edit_hint(HWND h, wchar_t *b, size_t cch)
     if (h == g_edComposer) T(S_MSG_HINT, b, cch);
     else if (h == g_edSearch) T(S_SEARCH_PH, b, cch);
     else if (h == g_edMail) wcsncpy(b, L"ornek@lux-ai.cz", cch - 1);
-    else if (h == g_edPass) T(S_PASSWORD, b, cch);
+    else if (h == g_edPass) {
+        if (g_login_open && g_login_tab == 1) T(S_CODE, b, cch); else T(S_PASSWORD, b, cch);
+    }
+    else if (h == g_edName) T(S_YOURNAME, b, cch);
     b[cch - 1] = 0;
     return b;
 }
@@ -1926,6 +2336,12 @@ static LRESULT CALLBACK edit_proc(HWND h, UINT m, WPARAM w, LPARAM l, UINT_PTR i
             BOOL shift = (GetKeyState(VK_SHIFT) & 0x8000) != 0;
             int sendnow = g_cfg.send_ctrl_enter ? (ctrl && !shift) : (!ctrl && !shift);
             if (sendnow) { do_send(); return 0; }
+        } else if (h == g_edName) {
+            SetFocus(g_edMail);
+            return 0;
+        } else if (h == g_edMail && g_login_tab == 1) {
+            on_hit((Hit){ H_LOGIN_SENDCODE, 0, R(0, 0, 0, 0) });
+            return 0;
         } else if (h == g_edMail) {
             SetFocus(g_edPass);
             return 0;
@@ -2029,11 +2445,12 @@ static int apply_popup(int id, int idx)
     case P_MENU:
         if (idx == 0) new_chat();
         else if (idx == 1) settings_open();
-        else if (idx == 2 && g_token[0]) account_open();
-        else if (idx == 2) { g_login_open = 1; layout_soft(); SetFocus(g_edMail); }
-        else if (idx == 3 && g_token[0]) do_logout();
-        else if (idx == 3) account_open();
-        else if (idx == 4) ShellExecuteW(NULL, L"open", L"https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS", NULL, NULL, SW_SHOWNORMAL);
+        else if (idx == 2) { g_page = 2; layout_soft(); }
+        else if (idx == 3 && g_token[0]) account_open();
+        else if (idx == 3) { g_login_open = 1; g_login_tab = 0; layout_soft(); SetFocus(g_edMail); }
+        else if (idx == 4 && g_token[0]) do_logout();
+        else if (idx == 4) account_open();
+        else if (idx == 5) ShellExecuteW(NULL, L"open", L"https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS", NULL, NULL, SW_SHOWNORMAL);
         break;
     default: break;
     }
@@ -2863,6 +3280,7 @@ void ui_run(void)
     g_edSearch   = mk_edit(g_hMain, 101, 0);
     g_edMail     = mk_edit(g_hMain, 102, 0);
     g_edPass     = mk_edit(g_hMain, 103, 0);
+    g_edName     = mk_edit(g_hMain, 108, 0);
     g_edWork     = mk_edit(g_hMain, 104, 0);
     g_edEnd      = mk_edit(g_hMain, 105, 0);
     g_edKey      = mk_edit(g_hMain, 106, 0);
