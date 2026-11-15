@@ -1,0 +1,78 @@
+name: video-record-v4d-win
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [video-live-record]
+    paths: ['.github/workflows/video-record-v4d.yml']
+
+permissions:
+  contents: read
+
+env:
+  REL: https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/download/v2.0.2
+
+jobs:
+  windows-v4d:
+    name: V4d Windows - cmd kurulum + GUI (final)
+    runs-on: windows-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - name: ffmpeg
+        shell: pwsh
+        run: |
+          Invoke-WebRequest "https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.zip" -OutFile ffmpeg.zip
+          Expand-Archive ffmpeg.zip -DestinationPath ff -Force
+          $bin=(Get-ChildItem ff -Recurse -Filter ffmpeg.exe|Select-Object -First 1).FullName
+          "FFMPEG=$bin"|Out-File $env:GITHUB_ENV -Append -Encoding utf8
+      - name: Canli kayit (295 sn, kendi kendine kapanir)
+        shell: pwsh
+        run: |
+          $ErrorActionPreference="Continue"
+          New-Item -ItemType Directory -Force -Path rec | Out-Null
+          $ff=$env:FFMPEG
+          $rec=Start-Process $ff -ArgumentList '-y','-f','gdigrab','-framerate','25','-i','desktop','-t','292','-c:v','libx264','-preset','veryfast','-pix_fmt','yuv420p','-movflags','+faststart','rec/windows_v4.mp4' -PassThru -NoNewWindow
+          Start-Sleep 4
+          $ws=New-Object -ComObject WScript.Shell
+          # FAZ A: cmd ile kurulum (indir + CRLF duzelt + calistir)
+          Start-Process cmd; Start-Sleep 3
+          $ws.SendKeys('curl -L -o luxai-kur.bat https://raw.githubusercontent.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/main/windows/cmd/luxai-kur.bat'); $ws.SendKeys('{ENTER}')
+          Start-Sleep 8
+          $ws.SendKeys('powershell -c "[IO.File]::WriteAllText(''luxai-run.bat'',[IO.File]::ReadAllText(''luxai-kur.bat'') -replace \"`n\",\"`r`n\")"'); $ws.SendKeys('{ENTER}')
+          Start-Sleep 5
+          $ws.SendKeys('call luxai-run.bat'); $ws.SendKeys('{ENTER}')
+          Start-Sleep 65
+          & powershell -NoProfile -ExecutionPolicy Bypass -File windows/tests/screenshot.ps1 -Out rec/win_install_done.png -FullScreen
+          $exe="$env:ProgramFiles\LuxAI\LuxAI.exe"; if(!(Test-Path $exe)){ $exe="$env:LOCALAPPDATA\Programs\LuxAI\LuxAI.exe" }
+          if(!(Test-Path $exe)){
+            Invoke-WebRequest "$env:REL/LuxAI-2.0.2-Setup-native.exe" -OutFile rec/setup.exe
+            $p=Start-Process rec/setup.exe -ArgumentList "/S" -PassThru; $p.WaitForExit(120000)|Out-Null; Start-Sleep 3
+            $exe="$env:ProgramFiles\LuxAI\LuxAI.exe"; if(!(Test-Path $exe)){ $exe="$env:LOCALAPPDATA\Programs\LuxAI\LuxAI.exe" }
+          }
+          Write-Host "EXE=$exe exists=$(Test-Path $exe)"
+          # FAZ B: Baslat menusu klasoru kaniti
+          Start-Process explorer -ArgumentList "$env:APPDATA\Microsoft\Windows\Start Menu\Programs"; Start-Sleep 6
+          & powershell -NoProfile -ExecutionPolicy Bypass -File windows/tests/screenshot.ps1 -Out rec/win_startmenu.png -FullScreen
+          Start-Sleep 3
+          try{ Get-Process explorer -ErrorAction SilentlyContinue|Stop-Process -Force }catch{}
+          # FAZ C: GUI sahneleri
+          Start-Process python -ArgumentList "windows/tests/mock_server.py","8777"; Start-Sleep 3
+          $dir="$env:APPDATA\LuxAI"; New-Item -ItemType Directory -Force -Path $dir|Out-Null
+          function Scene($a,$w,$n){ try{ Get-Process LuxAI -ErrorAction SilentlyContinue|Stop-Process -Force; Start-Sleep 2; Start-Process $exe -ArgumentList $a; Start-Sleep $w; & powershell -NoProfile -ExecutionPolicy Bypass -File windows/tests/screenshot.ps1 -Out "rec/$n" -FullScreen }catch{ Write-Warning $_ } }
+          @("model=0","mode=1","lang=0","theme=1","send_ctrl_enter=0","auto_approve=1","max_tokens=4096","stream=1","use_openai=1","endpoint=http://127.0.0.1:8777/v1/chat/completions","api_key=ci","workdir=$env:USERPROFILE")|Set-Content -Encoding ASCII "$dir\settings.ini"
+          Scene '--theme 1 --mode 1 --lang 0 --ask "Sistem bilgini göster ve disk kullanımını özetle"' 20 win_agent.png
+          try{ Get-Process python -ErrorAction SilentlyContinue|Stop-Process -Force }catch{}; Start-Sleep 1
+          $env:LUXAI_MOCK_TOOL="run_command"; Start-Process python -ArgumentList "windows/tests/mock_server.py","8777"; Start-Sleep 3
+          @("model=0","mode=1","lang=0","theme=1","send_ctrl_enter=0","auto_approve=0","max_tokens=4096","stream=1","use_openai=1","endpoint=http://127.0.0.1:8777/v1/chat/completions","api_key=ci","workdir=$env:USERPROFILE")|Set-Content -Encoding ASCII "$dir\settings.ini"
+          Scene '--theme 1 --mode 1 --lang 0 --ask "Bir komut calistir"' 16 win_permission.png
+          Scene '--theme 2 --mode 1 --lang 1 --ask "Show my system information"' 14 win_dark_en.png
+          Scene '--theme 1 --lang 0 --projects' 13 win_projects.png
+          Scene '--theme 1 --lang 0' 12 win_welcome.png
+          # ffmpeg -t ile kendi kendine kapanir; kapanmasini bekle
+          $rec.WaitForExit(180000)|Out-Null
+          Write-Host "recording closed, exit=$($rec.ExitCode)"
+          Get-ChildItem rec|Select-Object Name,Length
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: {name: v4d-windows, path: rec/*, if-no-files-found: warn}
