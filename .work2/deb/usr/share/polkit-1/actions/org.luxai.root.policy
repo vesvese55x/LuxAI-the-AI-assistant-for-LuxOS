@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE policyconfig PUBLIC "-//freedesktop//DTD PolicyKit Policy Configuration 1.0//EN"
+ "http://www.freedesktop.org/standards/PolicyKit/1/policyconfig.dtd">
+<!-- LuxAI: prikazy agenta jako root. Nikdy bez hesla: org.luxai.root vzdy heslo spravce,
+     org.luxai.root-auto (rezim spravce) heslo jednou a polkit si ho ~5 minut pamatuje jen pro proces,
+     ktery heslo zadal (auth_admin_keep: docasne povoleni je vazane na volajici proces = bezici LuxAI,
+     jiny program stejneho uzivatele se musi prokazat heslem sam). Pomocnik luxai-root-auto navic
+     pusti jen rodice /usr/bin/luxai. Drivejsi pravidla 49-luxai-root-<uzivatel>.rules (bez hesla pro
+     kazdy program uzivatele) maze luxai.install pri aktualizaci; od 2.0.2 je nic nezapisuje. -->
+<policyconfig>
+  <vendor>LuxOS</vendor>
+  <vendor_url>https://lux-ai.cz</vendor_url>
+
+  <action id="org.luxai.root">
+    <description>Run a command from LuxAI as administrator</description>
+    <message>LuxAI wants to run a command with administrator rights</message>
+    <icon_name>luxai</icon_name>
+    <defaults>
+      <allow_any>no</allow_any>
+      <allow_inactive>no</allow_inactive>
+      <allow_active>auth_admin</allow_active>
+    </defaults>
+    <annotate key="org.freedesktop.policykit.exec.path">/usr/lib/luxai/luxai-root</annotate>
+  </action>
+
+  <action id="org.luxai.root-auto">
+    <description>Run a command from LuxAI as administrator (administrator mode)</description>
+    <message>LuxAI wants to run administrator commands (the password is remembered for about 5 minutes, only for LuxAI)</message>
+    <icon_name>luxai</icon_name>
+    <defaults>
+      <allow_any>no</allow_any>
+      <allow_inactive>no</allow_inactive>
+      <allow_active>auth_admin_keep</allow_active>
+    </defaults>
+    <annotate key="org.freedesktop.policykit.exec.path">/usr/lib/luxai/luxai-root-auto</annotate>
+  </action>
+
+  <action id="org.luxai.root-setup">
+    <description>Remove the old LuxAI administrator mode rule</description>
+    <message>Remove the old LuxAI administrator mode rule (administrator commands without a password)?</message>
+    <icon_name>luxai</icon_name>
+    <defaults>
+      <allow_any>no</allow_any>
+      <allow_inactive>no</allow_inactive>
+      <allow_active>auth_admin</allow_active>
+    </defaults>
+    <annotate key="org.freedesktop.policykit.exec.path">/usr/lib/luxai/luxai-root-setup</annotate>
+  </action>
+</policyconfig>

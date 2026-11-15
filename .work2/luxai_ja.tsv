@@ -1,0 +1,460 @@
+# LuxAI - 日本語翻訳（英語原文<TAB>日本語訳）；{0}、{1}、{2} のプレースホルダーは保持する必要があります
+(empty file)	（空のファイル）
+(empty)	（空）
+(no output)	（出力なし）
+AI assistant that can work with your computer	コンピューターと一緒に作業できる AI アシスタント · BELGESELSEMO が Z.AI の協力を得て、オリジナルの LuxOS ディストリビューションから取り出し、Linux/Windows パッケージとしてコンパイルしました · belgeselsemo.com.tr
+About LuxAI	LuxAI について
+Accesses private keys or passwords	秘密鍵やパスワードにアクセスする
+Accesses the LuxAI account token	LuxAI アカウントトークンにアクセスする
+Agent	エージェント
+Agent actions run without asking. Dangerous actions still need two confirmations. Resets when LuxAI restarts.	エージェントの操作は確認なしで実行されます。危険な操作は引き続き 2 回の確認が必要です。LuxAI を再起動するとリセットされます。
+Agent mode · Auto-approve is ON: actions run without asking (dangerous ones still ask twice).	エージェントモード · 自動承認がオン：操作は確認なしで実行されます（危険な操作は引き続き 2 回確認します）。
+Agent mode · LuxAI can work with your computer. You approve every action that changes something.	エージェントモード · LuxAI はコンピューターで作業できます。何かを変更する操作はすべてあなたが承認します。
+Agent mode: I can run commands, manage files, open apps and control the mouse and keyboard – always with your approval.	エージェントモード：コマンドの実行、ファイルの管理、アプリの起動、マウスとキーボードの操作ができます。すべてあなたの承認の下で行います。
+Allow LuxAI to do this?	LuxAI にこれを許可しますか？
+Allow once	一度だけ許可
+Allow once…	一度だけ許可…
+Always for this session	このセッションでは常に許可
+Another conversation is already running on this account. Try again in a moment.	このアカウントでは別の会話が実行中です。しばらくしてからもう一度お試しください。
+Are you sure? This can cause damage that cannot be undone.	よろしいですか？元に戻せない損害が生じる可能性があります。
+Arguments	引数
+Ask LuxAI to do something on your computer…	LuxAI にコンピューターでの作業を依頼…
+Ask anything. Switch to Agent mode when you want me to do things on your computer.	何でも聞いてください。コンピューターでの作業を依頼したいときはエージェントモードに切り替えてください。
+Attach screenshots for the current model. Turn on only if the model supports images; uses more tokens.	現在のモデル用にスクリーンショットを添付します。モデルが画像に対応している場合のみオンにしてください。トークンを多く消費します。
+Auto-approve actions	操作を自動承認
+Blocked by safety rules	安全ルールによりブロックされました
+Brainstorm	ブレインストーミング
+CONVERSATIONS	会話
+Cancel	キャンセル
+Changes immutable file attributes	不変のファイル属性を変更する
+Changes permissions of the whole home folder or system	ホームフォルダー全体またはシステムの権限を変更する
+Changes user accounts or passwords	ユーザーアカウントやパスワードを変更する
+Chat	チャット
+Chat with AI or let it work with your computer. Sign in with your LuxAI account – one account for all LuxOS apps.	AI とチャットするか、コンピューターでの作業を任せましょう。LuxAI アカウントでサインイン——すべての LuxOS アプリで使える 1 つのアカウントです。
+Click	クリック
+Close window	ウィンドウを閉じる
+Command timeout (seconds)	コマンドのタイムアウト（秒）
+Copied	コピーしました
+Copy	コピー
+Create a free account	無料アカウントを作成
+Create folder	フォルダーを作成
+Delete	削除
+Delete conversation	会話を削除
+Delete this conversation?	この会話を削除しますか？
+Deletes all scheduled tasks	スケジュール済みのタスクをすべて削除する
+Deletes all untracked files in the repository	リポジトリ内の追跡されていないファイルをすべて削除する
+Deletes files across the whole home folder or system	ホームフォルダー全体またはシステムのファイルを削除する
+Deletes the whole home folder or system	ホームフォルダー全体またはシステムを削除する
+Denied	拒否されました
+Deny	拒否
+Details	詳細
+Done	完了
+Edit file	ファイルを編集
+Ends your desktop session	デスクトップセッションを終了します
+Explain how HTTPS keeps my connection private, in simple terms.	HTTPS がどのように接続のプライバシーを守るのか、わかりやすく説明して。
+Explain something	何かを説明して
+Failed	失敗
+Find files	ファイルを検索
+Finish signing in in the LuxAI account window…	LuxAI アカウントウィンドウでサインインを完了してください…
+Flash – smarter	Flash – より賢い
+Focus window	ウィンドウにフォーカス
+Force-pushes and may overwrite remote history	強制プッシュを行い、リモートの履歴を上書きする可能性がある
+Fork bomb	Fork 爆弾
+Formats or wipes a disk	ディスクをフォーマットまたは消去する
+Free disk space	ディスク容量を空ける
+Give me 5 ideas for a weekend trip in the Czech Republic.	チェコへの週末旅行のアイデアを 5 つください。
+Help with code	コードの支援
+How can I help you today?	今日はどのようにお手伝いしましょうか？
+How do I read a JSON file in Python? Show a short example.	Python で JSON ファイルを読むには？短い例を見せて。
+It will be permanently removed from this computer.	このコンピューターから完全に削除されます。
+Kills all processes or the desktop session	すべてのプロセスまたはデスクトップセッションを強制終了する
+List apps	アプリ一覧
+List folder	フォルダー一覧
+List the files in my Downloads folder grouped by type and suggest what to clean up.	ダウンロードフォルダーのファイルを種類ごとにグループ化して一覧表示し、片付けるべきものを提案して。
+List windows	ウィンドウ一覧
+Lite – faster, larger limit	Lite – 高速、上限が大きい
+Look at my screen	私の画面を見て
+LuxAI account credentials are never read or changed by the agent	エージェントが LuxAI アカウントの認証情報を読み取ったり変更したりすることはありません
+LuxAI account…	LuxAI アカウント…
+LuxAI can make mistakes. Check important information.	LuxAI は間違うことがあります。重要な情報は確認してください。
+LuxAI can work with your computer using tools, with your approval	あなたの承認を得て、LuxAI はツールを使ってコンピューターで作業できます
+Message LuxAI…	LuxAI にメッセージ…
+Model	モデル
+Model can see images	モデルは画像を見ることができる
+Move	移動
+Move mouse	マウスを動かす
+Moves the whole home folder or system	ホームフォルダー全体またはシステムを移動する
+Network error: {0}	ネットワークエラー：{0}
+New chat	新しいチャット
+New conversation	新しい会話
+No conversations yet	まだ会話はありません
+No result	結果なし
+No windows	ウィンドウなし
+Not signed in	未サインイン
+Not signed in.	未サインインです。
+Nothing found	何も見つかりませんでした
+Notification	通知
+Offline – usage not available	オフライン – 使用量を取得できません
+Open a website	ウェブサイトを開く
+Open app	アプリを開く
+Open link	リンクを開く
+Open lux-ai.cz in the web browser.	ウェブブラウザーで lux-ai.cz を開いて。
+Overwrites system files	システムファイルを上書きする
+Plain conversation, no access to your computer	普通の会話。コンピューターにはアクセスしません
+Please sign in again to continue. Your conversations are kept on this computer.	続行するにはもう一度サインインしてください。会話はこのコンピューターに保存されています。
+Potentially dangerous action	危険の可能性がある操作
+Press keys	キーを押す
+Read clipboard	クリップボードを読む
+Read file	ファイルを読む
+Recursively deletes a main personal folder	主要な個人フォルダーを再帰的に削除する
+Recursively deletes files outside your home folder	ホームフォルダー外のファイルを再帰的に削除する
+Refusing to modify the root or home directory itself	ルートディレクトリやホームディレクトリ自体の変更を拒否しています
+Removes firewall rules	ファイアウォールのルールを削除する
+Removes installed system packages	インストール済みのシステムパッケージを削除する
+Result	結果
+Run command	コマンドを実行
+Running…	実行中…
+Runs a script downloaded from the internet	インターネットからダウンロードしたスクリプトを実行する
+Runs with administrator privileges	管理者権限で実行する
+Screenshot	スクリーンショット
+Scroll	スクロール
+Search conversations	会話を検索
+Search text	テキストを検索
+Searches the whole system	システム全体を検索する
+Send (Enter)	送信（Enter）
+Session expired	セッションの有効期限が切れました
+Settings	設定
+Show or hide the sidebar	サイドバーの表示/非表示
+Shuts down or restarts the computer	コンピューターをシャットダウンまたは再起動する
+Sign in	サインイン
+Sign out	サインアウト
+Sign in again	もう一度サインイン
+Sign in to continue this conversation.	この会話を続けるにはサインインしてください。
+Sign in with LuxAI account	LuxAI アカウントでサインイン
+Stop	停止
+Stop the answer and any running command (Esc)	回答と実行中のコマンドを停止します（Esc）
+Stopped	停止しました
+Stopped after too many steps. Send a message to continue.	ステップが多すぎたため停止しました。続けるにはメッセージを送信してください。
+Stopped.	停止しました。
+Stopping…	停止中…
+System info	システム情報
+Take a screenshot and tell me which windows are open.	スクリーンショットを撮って、どのウィンドウが開いているか教えて。
+The LuxAI API endpoint was not found on the server.	サーバー上に LuxAI の API エンドポイントが見つかりませんでした。
+The LuxAI service is not available right now.	LuxAI サービスは現在利用できません。
+The LuxOS account tool (luxos-account) is not installed.	LuxOS アカウントツール（luxos-account）がインストールされていません。
+The answer was cut off (length limit).	回答が途切れました（長さ制限）。
+The file is run automatically at login	このファイルはログイン時に自動的に実行されます
+The key combination may end your session	このキーの組み合わせはセッションを終了させる可能性があります
+The model failed: {0}	モデルが失敗しました：{0}
+The monthly Flash limit is used up. Switch to Lite or wait for the next month.	月間の Flash 上限を使い切りました。Lite に切り替えるか、来月までお待ちください。
+The monthly Lite limit is used up.	月間の Lite 上限を使い切りました。
+The path is outside your home folder (system files)	パスがホームフォルダーの外にあります（システムファイル）
+The path may contain passwords or keys	パスにパスワードや鍵が含まれている可能性があります
+The server did not respond in time.	サーバーが時間内に応答しませんでした。
+The server rejected the request (invalid chat).	サーバーがリクエストを拒否しました（無効なチャット）。
+The server returned a web page instead of an API response (HTTP {0}).	サーバーが API レスポンスではなくウェブページを返しました（HTTP {0}）。
+The server returned an invalid response (HTTP {0}).	サーバーが無効なレスポンスを返しました（HTTP {0}）。
+The server's web protection blocked the request (HTTP {0}).	サーバーのウェブ保護がリクエストをブロックしました（HTTP {0}）。
+Thinking…	考えています…
+This may access private data	非公開データにアクセスする可能性があります
+Tidy up Downloads	ダウンロードを整理する
+Too many requests. Please wait a moment.	リクエストが多すぎます。しばらくお待ちください。
+Type text	テキストを入力する
+Types a dangerous command	危険なコマンドを入力する
+Unsupported URL type	対応していない URL タイプです
+Waiting for your approval	あなたの承認待ち
+Welcome to LuxAI	LuxAI へようこそ
+What is using the most disk space in my home folder?	ホームフォルダーで最もディスク容量を使っているのは何？
+Working folder	作業フォルダー
+Write a short, friendly email inviting my team to a Friday lunch.	チームを金曜日のランチに招待する短く親しみやすいメールを書いて。
+Write a text	文章を書く
+Write file	ファイルを書き込む
+Writes directly to a disk device	ディスクデバイスに直接書き込む
+Yes, run it	はい、実行します
+Your LuxAI session has expired or is not valid. Please sign in again.	LuxAI のセッションの有効期限が切れたか、無効です。もう一度サインインしてください。
+Your session has expired	セッションの有効期限が切れました
+code	コード
+folder	フォルダー
+no images	画像は見えない
+sees images	画像が見える
+{0} open windows	{0} 個の開いているウィンドウ
+{0}: {1} / {2} tokens this month	{0}：今月 {1} / {2} トークン
+{0}: {1} tokens this month	{0}：今月 {1} トークン
+{0}: {1} tokens this month · unlimited	{0}：今月 {1} トークン · 無制限
+You denied this action.	この操作を拒否しました。
+Stopped before running.	実行前に停止しました。
+# 設定、プロフィール、会話名
+AI behaviour	AI の振る舞い
+Accesses LuxAI settings (including agent permissions)	LuxAI の設定（エージェント権限を含む）にアクセスする
+Account and settings	アカウントと設定
+Add	追加
+Add folder…	フォルダーを追加…
+Added to every conversation. They cannot give the agent more permissions than set in Agent permissions.	すべての会話に追加されます。「エージェント権限」で設定した以上の権限をエージェントに与えることはできません。
+After the first answer the fast Lite model suggests a short title. You can rename a conversation any time (right-click it in the sidebar).	最初の回答の後、高速な Lite モデルが短いタイトルを提案します。会話はいつでも名前を変更できます（サイドバーで右クリック）。
+Agent permissions	エージェント権限
+All saved conversations will be permanently removed from this computer.	保存されたすべての会話がこのコンピューターから完全に削除されます。
+Allow	許可
+Allow without asking	確認なしで許可
+Allowed folders	許可されたフォルダー
+Always ask	常に確認
+Answer length	回答の長さ
+Answers	回答
+Appearance	外観
+Application	アプリケーション
+Ask only for risky commands	リスクの高いコマンドだけ確認
+Attach screenshots in Agent mode. Turn on only if the model supports images.	エージェントモードでスクリーンショットを添付します。モデルが画像に対応している場合のみオンにしてください。
+Balanced	バランス
+Blocked folders	ブロックされたフォルダー
+Changing files is turned off in LuxAI settings	ファイルの変更は LuxAI の設定でオフになっています
+Clear all history…	すべての履歴を消去…
+Clicking, typing, pressing keys and closing windows.	クリック、入力、キー操作、ウィンドウを閉じること。
+Commands	コマンド
+Concise	簡潔
+Control mouse and keyboard	マウスとキーボードを操作する
+Conversation	会話
+Conversations	会話
+Creating, editing, moving and deleting files and folders.	ファイルとフォルダーの作成、編集、移動、削除。
+Creativity (temperature)	創造性（温度）
+Ctrl+Enter (Enter for a new line)	Ctrl+Enter（Enter は改行）
+Custom instructions	カスタム指示
+Dangerous actions (deleting your home folder, formatting disks, shutting down …) always need two confirmations, and LuxAI never touches its account and settings files. "Always ask" still offers "Always for this session" on the approval card.	危険な操作（ホームフォルダーの削除、ディスクのフォーマット、シャットダウンなど）には常に 2 回の確認が必要で、LuxAI は自分のアカウントや設定ファイルには決して触れません。「常に確認」でも承認カードには「このセッションでは常に許可」が表示されます。
+Dark	ダーク
+Data on this computer	このコンピューター上のデータ
+Default model	デフォルトのモデル
+Delete all	すべて削除
+Delete all conversations?	すべての会話を削除しますか？
+Delete screenshots	スクリーンショットを削除
+Detailed	詳細
+Enter (Shift+Enter for a new line)	Enter（Shift+Enter は改行）
+Folders	フォルダー
+Friendly	フレンドリー
+General	一般
+History	履歴
+History is turned off	履歴はオフです
+If you add folders here, the agent can work with files only inside them. Empty = anywhere (system files need extra confirmation).	ここにフォルダーを追加すると、エージェントはその中のファイルのみ扱えます。空欄 = どこでも（システムファイルは追加の確認が必要です）。
+Keep conversation history	会話履歴を保持する
+Keyboard shortcuts	キーボードショートカット
+Language	言語
+Light	ライト
+Limits from Settings › Agent permissions apply.	「設定 › エージェント権限」の制限が適用されます。
+Long	長い
+Long-running commands are stopped after this time.	長時間実行されるコマンドはこの時間の後に停止されます。
+LuxAI also remembers the mode you used last.	LuxAI は最後に使ったモードも記憶します。
+LuxAI answered	LuxAI が回答しました
+LuxAI needs your approval	LuxAI があなたの承認を必要としています
+Manage account	アカウントの管理
+Maximum length of one answer. Agent mode always keeps enough room for its tools.	1 回の回答の最大の長さ。エージェントモードではツール用のスペースが常に確保されます。
+Messages	メッセージ
+Mode for new conversations	新しい会話のモード
+Mouse and keyboard control is turned off in LuxAI settings	マウスとキーボードの操作は LuxAI の設定でオフになっています
+Name	名前
+Name conversations automatically	会話に自動的に名前を付ける
+Network access	ネットワークアクセス
+Network access is turned off in LuxAI settings	ネットワークアクセスは LuxAI の設定でオフになっています
+Never	許可しない
+New line	改行
+No folders	フォルダーなし
+Normal	標準
+Notifications	通知
+Notify me when LuxAI finishes an answer or needs my approval while the window is in the background.	ウィンドウがバックグラウンドの間に、LuxAI が回答を完了したときや承認が必要なときに通知してください。
+Off = the model's default. Lower is more precise, higher more creative. Applied only if the model supports it.	オフ = モデルのデフォルト。低いほど正確に、高いほど創造的になります。モデルが対応している場合のみ適用されます。
+Open apps and links	アプリとリンクを開く
+Opening apps and links is turned off in LuxAI settings	アプリとリンクを開く操作は LuxAI の設定でオフになっています
+Opening web links, downloads and network tools (curl, git clone, package installs). Detected from the command – for strict isolation also set Run commands to Never.	ウェブリンク、ダウンロード、ネットワークツール（curl、git clone、パッケージのインストール）を開く操作。コマンドから検出されます。厳格な分離のためには「コマンドを実行」を「許可しない」にも設定してください。
+Privacy & history	プライバシーと履歴
+Private files (keys, passwords, .env) always need your confirmation.	非公開ファイル（鍵、パスワード、.env）には常にあなたの確認が必要です。
+Quit	終了
+Read files	ファイルを読む
+Reading files is turned off in LuxAI settings	ファイルの読み取りは LuxAI の設定でオフになっています
+Relative paths and commands start here.	相対パスとコマンドはここから始まります。
+Remove	削除
+Rename	名前を変更
+Rename conversation	会話の名前を変更
+Rename…	名前を変更…
+Response style	回答のスタイル
+Run commands	コマンドを実行
+Running commands is turned off in LuxAI settings	コマンドの実行は LuxAI の設定でオフになっています
+Same as my message	自分のメッセージと同じ
+Same as system	システムと同じ
+Saved conversations	保存された会話
+Screenshots	スクリーンショット
+Screenshots and clipboard	スクリーンショットとクリップボード
+Screenshots and clipboard are turned off in LuxAI settings	スクリーンショットとクリップボードは LuxAI の設定でオフになっています
+Screenshots taken by the agent	エージェントが撮影したスクリーンショット
+Send message	メッセージを送信
+Send message with	メッセージの送信キー
+Sends what is on your screen or in the clipboard to the model.	画面上やクリップボードにある内容をモデルに送信します。
+Settings file	設定ファイル
+Settings…	設定…
+Shell commands are checked for blocked folders in their paths, but a command cannot be fully confined. Set Run commands to Never for strict folder limits.	シェルコマンドのパスにあるブロックされたフォルダーはチェックされますが、コマンドを完全に制限することはできません。厳格なフォルダー制限のためには「コマンドを実行」を「許可しない」に設定してください。
+Short	短い
+Sign in with your LuxAI account to chat.	チャットするには LuxAI アカウントでサインインしてください。
+Sign out of LuxAI?	LuxAI からサインアウトしますか？
+Sign out…	サインアウト…
+Signing out failed. Try again in the LuxAI account app.	サインアウトに失敗しました。「LuxAI アカウント」アプリでもう一度お試しください。
+Start	開始
+Stop the answer or command	回答またはコマンドを停止
+Technical	技術的
+The agent never reads or changes anything in these folders.	エージェントはこれらのフォルダー内の何も読み取ったり変更したりしません。
+The folder is blocked in LuxAI settings	フォルダーは LuxAI の設定でブロックされています
+The path is outside the folders allowed in LuxAI settings	パスが LuxAI の設定で許可されたフォルダーの外にあります
+Theme	テーマ
+Used for new conversations. You can switch it any time in the toolbar.	新しい会話に使用します。ツールバーでいつでも切り替えられます。
+Uses the network	ネットワークを使用する
+What Agent mode may do	エージェントモードにできること
+What should LuxAI know about you or how should it answer? E.g. "Call me Tom. Prefer metric units and short answers."	LuxAI はあなたについて何を知るべきですか？またどのように答えるべきですか？例：「トムと呼んで。メートル法と短い回答を好む。」
+When off, new conversations are not saved on this computer and disappear when you close them.	オフの場合、新しい会話はこのコンピューターに保存されず、閉じると消えます。
+With "risky only", read-only commands such as ls, df or git status run without asking.	「リスクの高い操作のみ」では、ls、df、git status などの読み取り専用コマンドは確認なしで実行されます。
+Write and delete files	ファイルを書き込み、削除する
+You will be signed out of your LuxAI account in all LuxOS apps on this computer. Your conversations stay on this computer.	このコンピューター上のすべての LuxOS アプリで LuxAI アカウントからサインアウトします。会話はこのコンピューターに残ります。
+Your messages are sent to the LuxAI service (lux-ai.cz) to generate answers and titles. The agent runs tools only on this computer.	あなたのメッセージは、回答とタイトルを生成するために LuxAI サービス（lux-ai.cz）に送信されます。エージェントはツールをこのコンピューター上でのみ実行します。
+{0} can see images	{0} は画像を見ることができます
+{0} conversations saved	{0} 件の会話を保存済み
+{0} screenshots	スクリーンショット {0} 枚
+# LuxOS の作者への報告（send_feedback）
+(preview not available)	（プレビューを表示できません）
+Bug report	バグ報告
+Contact e-mail for a reply: {0}	返信用の連絡先メール：{0}
+Don't send	送信しない
+Idea	アイデア
+LuxOS could not reach the server. Check the internet connection.	LuxOS がサーバーに接続できませんでした。インターネット接続を確認してください。
+No graphical session; the report is sent without a screenshot.	グラフィカルセッションがないため、報告はスクリーンショットなしで送信されます。
+No screenshot will be attached.	スクリーンショットは添付されません。
+No system information will be attached.	システム情報は添付されません。
+Report sent. Report ID: {0}	報告を送信しました。報告 ID：{0}
+Report text:	報告内容：
+Report to LuxOS	LuxOS に報告
+Search LuxOS docs	LuxOS ドキュメントを検索
+Read LuxOS docs	LuxOS ドキュメントを読む
+Save and send later	保存して後で送信
+Saved. The Feedback app will send the report when you are online.	保存しました。フィードバックアプリがオンラインになったときに報告を送信します。
+Screenshot that will be attached ({0} kB)	添付されるスクリーンショット（{0} kB）
+Screenshots are turned off in LuxAI settings; the report is sent without one.	スクリーンショットは LuxAI の設定でオフになっているため、報告はスクリーンショットなしで送信されます。
+Send report	報告を送信
+Send this report to the author of LuxOS?	この報告を LuxOS の作者に送信しますか？
+Sending failed ({0}).	送信に失敗しました（{0}）。
+Sends the report and attachments shown in this card to the author of LuxOS	このカードに表示された報告と添付ファイルを LuxOS の作者に送信します
+Sent anonymously (you are not signed in).	匿名で送信しました（サインインしていません）。
+Sent with your LuxAI account.	LuxAI アカウントで送信しました。
+Something else	その他
+System information that will be attached (anonymised)	添付されるシステム情報（匿名化済み）
+The e-mail address does not look valid.	メールアドレスが有効な形式ではないようです。
+The message must have 10 to 8000 characters.	メッセージは 10 〜 8000 文字である必要があります。
+The report could not be prepared.	報告を準備できませんでした。
+The report could not be saved: {0}	報告を保存できませんでした：{0}
+The report is too large. Try it without the screenshot.	報告が大きすぎます。スクリーンショットなしでお試しください。
+The screenshot could not be accepted. Try it without the screenshot.	スクリーンショットを受け付けられませんでした。スクリーンショットなしでお試しください。
+The screenshot could not be taken ({0}); the report is sent without one.	スクリーンショットを撮影できませんでした（{0}）。報告はスクリーンショットなしで送信されます。
+The screenshot is too large; the report is sent without one.	スクリーンショットが大きすぎるため、報告はスクリーンショットなしで送信されます。
+Type:	種類：
+You can save the report; the Feedback app will send it automatically later.	報告を保存できます。フィードバックアプリが後で自動的に送信します。
+You have sent many reports in a short time. Please try again later.	短時間に多くの報告を送信しました。しばらくしてからもう一度お試しください。
+At most {0} attachments can be added to one message.	1 つのメッセージには最大 {0} 個の添付ファイルを追加できます。
+At most {0} images can be added to one message.	1 つのメッセージには最大 {0} 枚の画像を追加できます。
+Attach	添付
+Attach images or files	画像やファイルを添付
+Feeds a password to sudo or su (use pkexec instead)	sudo や su にパスワードを渡す（代わりに pkexec を使用してください）
+Pasted image	貼り付けた画像
+Remove attachment	添付ファイルを削除
+The current model cannot see images. They stay in the conversation and are sent when you switch to a model that can see images.	現在のモデルは画像を見ることができません。画像は会話の中に残り、画像に対応したモデルに切り替えたときに送信されます。
+{0} cannot be attached: only images and text files are supported.	{0} は添付できません：画像とテキストファイルのみ対応しています。
+{0} cannot be read as an image.	{0} を画像として読み取れません。
+{0} cannot be read: {1}	{0} を読み取れません：{1}
+{0} is long; only its beginning is attached.	{0} は長いため、冒頭部分のみ添付されます。
+{0} is too large to attach.	{0} は大きすぎて添付できません。
+Administrator commands	管理者コマンド
+Administrator mode was not turned on	管理者モードが有効になっていませんでした
+Ask for the password every time	毎回パスワードを尋ねる
+Password once for 5 minutes, approve each command	パスワードは 5 分間 1 回、各コマンドを承認
+Password once for 5 minutes, without asking	パスワードは 5 分間 1 回、確認なし
+Commands the agent runs as administrator (root). Administrator mode: you enter the administrator password once and for about 5 minutes LuxAI runs administrator commands without asking for it again; only this LuxAI window gets it, other programs still need the password. Requests sent to LuxAI by other programs always need your approval. Only with the Flash model; Lite always asks for the password. Destructive commands (deleting the system or home folder, formatting disks, removing the bootloader, changing accounts, sudo or polkit) are always refused. Every command is logged in ~/.local/state/luxai/root-commands.log.	エージェントが管理者（root）として実行するコマンド。管理者モード：管理者パスワードを 1 回入力すると、約 5 分間は LuxAI が管理者コマンドを再確認なしで実行します。これを受け取るのはこの LuxAI ウィンドウだけで、他のプログラムは引き続きパスワードが必要です。他のプログラムから LuxAI へのリクエストには常にあなたの承認が必要です。Flash モデルのみ対応。Lite は常にパスワードを尋ねます。破壊的なコマンド（システムやホームフォルダーの削除、ディスクのフォーマット、ブートローダーの削除、アカウントの変更、sudo や polkit）は常に拒否されます。すべてのコマンドは ~/.local/state/luxai/root-commands.log に記録されます。
+The request came from another program, not from the LuxAI window	リクエストは LuxAI ウィンドウではなく、別のプログラムから来ました
+Changes LuxAI administrator mode, settings or account	LuxAI の管理者モード、設定またはアカウントを変更する
+Changes owner or permissions of the whole system or a system folder	システム全体またはシステムフォルダーの所有者や権限を変更する
+Changes sudo, polkit or PAM configuration	sudo、polkit、PAM の設定を変更する
+Crashes or instantly reboots the kernel	カーネルをクラッシュさせるか即座に再起動する
+Deletes the whole system, a system folder or a home folder	システム全体、システムフォルダー、ホームフォルダーを削除する
+Disables package signature checks	パッケージの署名検証を無効にする
+Formats, wipes or writes directly to a disk	ディスクをフォーマット、消去、または直接書き込む
+LuxAI administrator mode is not installed (update LuxAI)	LuxAI の管理者モードがインストールされていません（LuxAI をアップデートしてください）
+Removes the bootloader, the EFI partition, kernels or core system packages	ブートローダー、EFI パーティション、カーネル、または中核的なシステムパッケージを削除する
+Runs a script downloaded from the internet as administrator	インターネットからダウンロードしたスクリプトを管理者として実行する
+Runs as administrator (root)	管理者（root）として実行する
+Runs generated or hidden code as administrator, which cannot be checked	検証できない、生成または隠されたコードを管理者として実行する
+The administrator password was not entered	管理者パスワードが入力されていません
+The target of a destructive command cannot be verified (variable, substitution or unknown folder)	破壊的なコマンドの対象を検証できません（変数、置換、不明なフォルダー）
+Installs community (AUR) code, which is not checked by LuxOS	LuxOS が検証していないコミュニティ（AUR）コードをインストールする
+Copy code	コードをコピー
+Copy the whole answer	回答全体をコピー
+Read web page	ウェブページを読む
+Search the web	ウェブを検索
+Web content is in this conversation and may contain hidden instructions	この会話にはウェブの内容が含まれており、隠れた指示が含まれている可能性があります
+Web content is in this conversation: check this command carefully	この会話にはウェブの内容が含まれています：このコマンドを慎重に確認してください
+{0} characters of text	{0} 文字のテキスト
+LuxAI wants to open this web address:	LuxAI がこのウェブアドレスを開こうとしています：
+This address was not given by you or found by web search; it could send data from this conversation to that website	このアドレスはあなたが指定したものでもウェブ検索で見つかったものでもありません。この会話のデータをそのウェブサイトに送信する可能性があります
+Address of a point	ある地点の住所
+Arrivals	到着
+By bike	自転車で
+By car	車で
+Connections found: {0}	見つかった乗り継ぎ：{0} 件
+Current location	現在地
+Departures	出発
+Find on map	地図で探す
+Location is not allowed. Open Maps and click the location button once to allow it.	位置情報が許可されていません。「地図」を開き、位置情報ボタンを 1 回クリックして許可してください。
+LuxOS Maps is not installed (lux install luxos-maps).	LuxOS マップがインストールされていません（lux install luxos-maps）。
+Map data © OpenStreetMap contributors	地図データ © OpenStreetMap contributors
+No connection found	乗り継ぎが見つかりません
+On foot	徒歩で
+Open in Maps	「地図」で開く
+Places found: {0}	見つかった場所：{0} 件
+Places nearby	近くの場所
+Public transport	公共交通機関
+Public transport route	公共交通機関のルート
+Route	ルート
+Show in Maps	「地図」で表示
+Shown in Maps	「地図」に表示されました
+The map service is busy. Try again later.	地図サービスが混み合っています。後でもう一度お試しください。
+Timetable	時刻表
+Walk {0} m	{0} m 歩く
+cancelled	中止
+direct	直通
+platform {0}	プラットフォーム {0}
+{0} transfers	乗り継ぎ {0} 回
+The request is too large – the image or the conversation is too big. Start a new conversation or continue without the image.	リクエストが大きすぎます。画像または会話が大きすぎます。新しい会話を開始するか、画像なしで続行してください。
+This action requires confirmation on the computer	この操作にはコンピューター上での確認が必要です
+The request was stopped.	リクエストは停止されました。
+Another request is still running. Wait for it to finish or cancel it.	別のリクエストがまだ実行中です。完了を待つか、キャンセルしてください。
+You are not signed in to LuxAI. Sign in in the LuxAI app on the computer.	LuxAI にサインインしていません。コンピューター上の LuxAI アプリでサインインしてください。
+Calendar events	カレンダーの予定
+New calendar event	新しいカレンダーの予定
+Change calendar event	カレンダーの予定を変更
+Delete calendar event	カレンダーの予定を削除
+Adds an event to your LuxOS Calendar	LuxOS カレンダーに予定を追加します
+Changes an event in your LuxOS Calendar	LuxOS カレンダーの予定を変更します
+Deletes an event from your LuxOS Calendar	LuxOS カレンダーから予定を削除します
+Monday	月曜日
+Tuesday	火曜日
+Wednesday	水曜日
+Thursday	木曜日
+Friday	金曜日
+Saturday	土曜日
+Sunday	日曜日
+all day	終日
+Location: {0}	場所：{0}
+Reminder: {0} min before	リマインダー：{0} 分前
+Calendar: {0}	カレンダー：{0}
+Events: {0}	予定：{0}
+No events in this period.	この期間には予定がありません。
+… and {0} more	…ほか {0} 件
+Before:	変更前：
+After:	変更後：
+Repeating event – the change applies to all its occurrences.	繰り返しの予定です。変更はすべての繰り返しに適用されます。
+Added to the calendar.	カレンダーに追加しました。
+Changed in the calendar.	カレンダーで変更しました。
+Deleted from the calendar.	カレンダーから削除しました。
+Done.	完了しました。
+Denied on the phone.	スマートフォンで拒否されました。
+Not approved on the phone in time.	スマートフォンで時間内に承認されませんでした。
+Blocked by LuxAI safety rules.	LuxAI の安全ルールによりブロックされました。
+This model is not available in LuxAI.	このモデルは LuxAI では利用できません。

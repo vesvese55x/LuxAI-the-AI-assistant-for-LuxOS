@@ -57,12 +57,146 @@ for f in ("luxai-root", "luxai-root-auto", "luxai-root-setup"):
 if os.path.isdir(f"{UP}/share/luxai"):
     shutil.copytree(f"{UP}/share/luxai", f"{BLD}/usr/share/luxai", dirs_exist_ok=True)
 
+# 2b. HOS GELDIN EKRANINA ATIF NOTU (18 dil, idempotent)
+#     "Bilgisayarinizla birlikte calisabilen yapay zeka asistani" alt satiri
+#     LuxAI'nin bos sohbet ekraninda basligin hemen altinda gorunur.
+import glob, json as _json
+NOTE_FILE = os.path.join(REPO, "packaging", "attrib.json")
+NOTE_KEY = "AI assistant that can work with your computer"
+_i18n_dir = f"{BLD}/usr/share/luxai/i18n"
+if os.path.isfile(NOTE_FILE) and os.path.isdir(_i18n_dir):
+    notes = _json.load(open(NOTE_FILE, encoding="utf-8"))
+    _done = 0
+    for path in sorted(glob.glob(os.path.join(_i18n_dir, "*.tsv"))):
+        lang = os.path.basename(path)[:-4]
+        note = notes.get(lang)
+        if not note:
+            print(f"  ! atif notu yok: {lang}")
+            continue
+        rows = open(path, encoding="utf-8").read().splitlines()
+        hit = False
+        for i, line in enumerate(rows):
+            if line.startswith(NOTE_KEY + "\t"):
+                val = line.split("\t", 1)[1]
+                base = val.split(" · BELGESELSEMO")[0].split(" · Z původní")[0]
+                # onceki imzalari temizle (idempotent)
+                for sep in (" · ",):
+                    if "belgeselsemo.com.tr" in base:
+                        base = base.split(" · ")[0]
+                rows[i] = NOTE_KEY + "\t" + base.rstrip(" .") + " · " + note
+                hit = True
+                break
+        if hit:
+            open(path, "w", encoding="utf-8").write("\n".join(rows) + "\n")
+            _done += 1
+        else:
+            print(f"  ! anahtar bulunamadi: {lang}")
+    # Ingilizce kaynak metin disinda oldugu icin en.tsv yok: atif notu icin olustur
+    en_path = os.path.join(_i18n_dir, "en.tsv")
+    if not os.path.isfile(en_path):
+        with open(en_path, "w", encoding="utf-8") as fh:
+            fh.write("# LuxAI English strings (BELGESELSEMO note only)\n")
+            fh.write("%s\t%s \u00b7 %s\n" % (NOTE_KEY,
+                     "AI assistant that can work with your computer", notes.get("en", "")))
+    print(f"atif notu eklenen dil dosyasi: {_done}/18")
+
 # 3. vendored python (account CLI + modules)
 cp(f"{ACC}/bin/luxos-account", f"{BLD}/usr/bin/luxos-account", exe=True)
 for f in ("luxai_account.py", "luxai_account_gtk.py"):
     cp(f"{ACC}/lib/luxos/python/{f}", f"{BLD}/usr/lib/luxos/python/{f}")
 cp(f"{W}/upstream/i18npkg/usr/lib/luxos/python/luxos_i18n.py",
    f"{BLD}/usr/lib/luxos/python/luxos_i18n.py")
+
+# 3b. "PROJELERIMIZ" SEKMESI (Python/GTK hesap penceresi)
+#     Linux ana penceresi upstream ikili oldugu icin menu ogeleri degistirilemez;
+#     hesap penceresi (kenar cubugundaki kullanici kartindan acilir) tamamen
+#     bizim Python kodumuz. Oraya 4. sekme olarak proje katalogu ekleniyor.
+_pj = f"{BLD}/usr/lib/luxos/python/luxai_projects_gtk.py"
+if os.path.isfile(os.path.join(REPO, "packaging", "projects_gtk.py")):
+    cp(os.path.join(REPO, "packaging", "projects_gtk.py"), _pj)
+    _acc = f"{BLD}/usr/lib/luxos/python/luxai_account_gtk.py"
+    src = open(_acc, encoding="utf-8").read()
+    if "luxai_projects_gtk" not in src:
+        src = src.replace("from gi.repository import Gdk, GLib, Gtk",
+                          "from gi.repository import Gdk, GLib, Gtk\nimport luxai_projects_gtk as _projects_mod", 1)
+        src = src.replace('("register", _("New Account"))):',
+                          '("register", _("New Account")),\n                            ("projects", _("Our projects"))):', 1)
+        src = src.replace('self.stack.add_named(self.code_reg, "register-verify")',
+                          'self.stack.add_named(self.code_reg, "register-verify")\n'
+                          '        self.stack.add_named(_projects_mod.projects_box(self.open_url), "projects")', 1)
+        src = src.replace('"register": self.reg_email}[self.mode] \\',
+                          '"register": self.reg_email}.get(self.mode, self.pw_email) \\', 1)
+        src = src.replace('"register": "register-" + self.stage["register"]}[self.mode]',
+                          '"register": "register-" + self.stage["register"],\n'
+                          '                "projects": "projects"}[self.mode]', 1)
+        open(_acc, "w", encoding="utf-8").write(src)
+        print("  projeler sekmasi:", "luxai_projects_gtk" in src)
+
+# 3c. hesap penceresi icin 18 dilli /usr/share/luxos/i18n dosyalari
+#     (upstream yalnizca 5 dil getiriyor; kalan diller ana arayuz TSV'sinden turetilir)
+import glob as _glob
+_osdir = f"{BLD}/usr/share/luxos/i18n"
+_appdir = f"{BLD}/usr/share/luxai/i18n"
+os.makedirs(_osdir, exist_ok=True)
+_shim = {
+    "Our projects": {
+        "tr": "Projelerimiz", "en": "Our projects", "ru": "Наши проекты", "zh": "我们的项目",
+        "ja": "私たちのプロジェクト", "hi": "हमारे प्रोजेक्ट", "de": "Unsere Projekte",
+        "fr": "Nos projets", "es": "Nuestros proyectos", "it": "I nostri progetti",
+        "nl": "Onze projecten", "pl": "Nasze projekty", "pt": "Os nossos projetos",
+        "sk": "Naše projekty", "sv": "Våra projekt", "cs": "Naše projekty",
+        "hu": "Projektjeink", "uk": "Наші проєкти",
+    },
+    "Open": {
+        "tr": "Aç", "en": "Open", "ru": "Открыть", "zh": "打开", "ja": "開く", "hi": "खोलें",
+        "de": "Öffnen", "fr": "Ouvrir", "es": "Abrir", "it": "Apri", "nl": "Openen",
+        "pl": "Otwórz", "pt": "Abrir", "sk": "Otvoriť", "sv": "Öppna", "cs": "Otevřít",
+        "hu": "Megnyitás", "uk": "Відкрити",
+    },
+    "Web portals, Android apps, desktop tools and a YouTube channel": {
+        "tr": "Web portalları, Android uygulamaları, masaüstü araçları ve YouTube kanalı",
+        "en": "Web portals, Android apps, desktop tools and a YouTube channel",
+        "ru": "Веб-порталы, приложения Android, настольные инструменты и канал YouTube",
+        "zh": "网页门户、安卓应用、桌面工具和 YouTube 频道",
+        "ja": "Web ポータル、Android アプリ、デスクトップツール、YouTube チャンネル",
+        "hi": "वेब पोर्टल, Android ऐप्स, डेस्कटॉप टूल्स और YouTube चैनल",
+        "de": "Webportale, Android-Apps, Desktop-Werkzeuge und ein YouTube-Kanal",
+        "fr": "Portails web, applications Android, outils de bureau et une chaîne YouTube",
+        "es": "Portales web, aplicaciones Android, herramientas de escritorio y un canal de YouTube",
+        "it": "Portali web, app Android, strumenti desktop e un canale YouTube",
+        "nl": "Webportalen, Android-apps, desktoptools en een YouTube-kanaal",
+        "pl": "Portale internetowe, aplikacje Android, narzędzia desktopowe i kanał YouTube",
+        "pt": "Portais web, aplicações Android, ferramentas de ambiente de trabalho e um canal do YouTube",
+        "sk": "Webové portály, aplikácie pre Android, nástroje pre počítač a kanál YouTube",
+        "sv": "Webbportaler, Android-appar, skrivbordsverktyg och en YouTube-kanal",
+        "cs": "Webové portály, aplikace pro Android, nástroje pro počítač a kanál YouTube",
+        "hu": "Webportálok, Android-alkalmazások, asztali eszközök és egy YouTube-csatorna",
+        "uk": "Вебпортали, застосунки Android, настільні інструменти та канал YouTube",
+    },
+}
+_os_made = 0
+for path in sorted(_glob.glob(os.path.join(_appdir, "*.tsv"))):
+    lang = os.path.basename(path)[:-4]
+    dst = os.path.join(_osdir, f"{lang}.tsv")
+    rows = {}
+    if os.path.isfile(dst):
+        for line in open(dst, encoding="utf-8"):
+            if "\t" in line and not line.startswith("#"):
+                k, v = line.rstrip("\n").split("\t", 1)
+                rows[k] = v
+    for line in open(path, encoding="utf-8"):
+        if "\t" in line and not line.startswith("#"):
+            k, v = line.rstrip("\n").split("\t", 1)
+            rows.setdefault(k, v)
+    for k in _shim:
+        if lang in _shim[k]:
+            rows[k] = _shim[k][lang]
+    with open(dst, "w", encoding="utf-8") as fh:
+        fh.write("# LuxAI hesap penceresi cevirileri (%s) - BELGESELSEMO\n" % lang)
+        for k, v in rows.items():
+            fh.write(f"{k}\t{v}\n")
+    _os_made += 1
+print(f"luxos/i18n dosyasi: {_os_made} dil")
 
 # 4. hicolor icons - THE menu icon fix (all sizes)
 for size in ("16x16", "24x24", "32x32", "48x48", "64x64", "128x128", "256x256", "512x512"):

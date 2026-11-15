@@ -1,0 +1,461 @@
+# LuxAI hesap penceresi cevirileri (sk) - BELGESELSEMO
+(empty file)	(prázdny súbor)
+(empty)	(prázdne)
+(no output)	(žiadny výstup)
+AI assistant that can work with your computer	AI asistent, ktorý vie pracovať s vaším počítačom · Vytvoril BELGESELSEMO z pôvodnej distribúcie LuxOS s pomocou Z.AI a zabalil ako balíky pre Linux a Windows · https://belgeselsemo.com.tr
+About LuxAI	O aplikácii LuxAI
+Accesses private keys or passwords	Pristupuje k súkromným kľúčom alebo heslám
+Accesses the LuxAI account token	Pristupuje k tokenu účtu LuxAI
+Agent	Agent
+Agent actions run without asking. Dangerous actions still need two confirmations. Resets when LuxAI restarts.	Akcie agenta prebehnú bez opýtania. Nebezpečné akcie stále vyžadujú dve potvrdenia. Po reštarte LuxAI sa vypne.
+Agent mode · Auto-approve is ON: actions run without asking (dangerous ones still ask twice).	Režim Agent · Automatické schvaľovanie je ZAPNUTÉ: akcie prebehnú bez opýtania (nebezpečné sa stále pýtajú dvakrát).
+Agent mode · LuxAI can work with your computer. You approve every action that changes something.	Režim Agent · LuxAI môže pracovať s vaším počítačom. Každú akciu, ktorá niečo mení, schvaľujete vy.
+Agent mode: I can run commands, manage files, open apps and control the mouse and keyboard – always with your approval.	Režim Agent: viem spúšťať príkazy, spravovať súbory, otvárať aplikácie a ovládať myš a klávesnicu – vždy s vaším súhlasom.
+Allow LuxAI to do this?	Povoliť LuxAI túto akciu?
+Allow once	Povoliť raz
+Allow once…	Povoliť raz…
+Always for this session	Vždy v tejto relácii
+Another conversation is already running on this account. Try again in a moment.	Na tomto účte už beží iná konverzácia. Skúste to o chvíľu.
+Are you sure? This can cause damage that cannot be undone.	Naozaj? Táto akcia môže spôsobiť škodu, ktorú nemožno vrátiť.
+Arguments	Argumenty
+Ask LuxAI to do something on your computer…	Požiadajte LuxAI, nech niečo urobí na vašom počítači…
+Ask anything. Switch to Agent mode when you want me to do things on your computer.	Pýtajte sa na čokoľvek. Keď mám niečo urobiť na vašom počítači, prepnite do režimu Agent.
+Attach screenshots for the current model. Turn on only if the model supports images; uses more tokens.	Prikladať snímky obrazovky pre aktuálny model. Zapnite len vtedy, keď model podporuje obrázky; spotrebuje viac tokenov.
+Auto-approve actions	Automaticky schvaľovať akcie
+Blocked by safety rules	Zablokované bezpečnostnými pravidlami
+Brainstorm	Nápady
+CONVERSATIONS	KONVERZÁCIE
+Cancel	Zrušiť
+Changes immutable file attributes	Mení nemenné atribúty súborov
+Changes permissions of the whole home folder or system	Mení oprávnenia celého domovského priečinka alebo systému
+Changes user accounts or passwords	Mení používateľské účty alebo heslá
+Chat	Chat
+Chat with AI or let it work with your computer. Sign in with your LuxAI account – one account for all LuxOS apps.	Rozprávajte sa s AI alebo ju nechajte pracovať s počítačom. Prihláste sa účtom LuxAI – jeden účet pre všetky aplikácie LuxOS.
+Click	Kliknutie
+Close window	Zavrieť okno
+Command timeout (seconds)	Časový limit príkazu (sekundy)
+Copied	Skopírované
+Copy	Kopírovať
+Create a free account	Vytvoriť účet zadarmo
+Create folder	Vytvoriť priečinok
+Delete	Vymazať
+Delete conversation	Vymazať konverzáciu
+Delete this conversation?	Vymazať túto konverzáciu?
+Deletes all scheduled tasks	Vymaže všetky naplánované úlohy
+Deletes all untracked files in the repository	Vymaže všetky nesledované súbory v repozitári
+Deletes files across the whole home folder or system	Maže súbory v celom domovskom priečinku alebo systéme
+Deletes the whole home folder or system	Vymaže celý domovský priečinok alebo systém
+Denied	Zamietnuté
+Deny	Zamietnuť
+Details	Podrobnosti
+Done	Hotovo
+Edit file	Úprava súboru
+Ends your desktop session	Ukončí vaše prihlásenie k ploche
+Explain how HTTPS keeps my connection private, in simple terms.	Vysvetli jednoducho, ako HTTPS chráni súkromie môjho pripojenia.
+Explain something	Vysvetli niečo
+Failed	Zlyhalo
+Find files	Hľadať súbory
+Finish signing in in the LuxAI account window…	Dokončite prihlásenie v okne účtu LuxAI…
+Flash – smarter	Flash – múdrejší
+Focus window	Aktivovať okno
+Force-pushes and may overwrite remote history	Vynútený push môže prepísať vzdialenú históriu
+Fork bomb	Fork bomba
+Formats or wipes a disk	Formátuje alebo maže disk
+Free disk space	Miesto na disku
+Give me 5 ideas for a weekend trip in the Czech Republic.	Daj mi 5 tipov na víkendový výlet po Slovensku.
+Help with code	Pomoc s kódom
+How can I help you today?	S čím vám dnes môžem pomôcť?
+How do I read a JSON file in Python? Show a short example.	Ako v Pythone načítam súbor JSON? Ukáž krátky príklad.
+It will be permanently removed from this computer.	Bude natrvalo odstránená z tohto počítača.
+Kills all processes or the desktop session	Ukončí všetky procesy alebo prihlásenie k ploche
+List apps	Zoznam aplikácií
+List folder	Obsah priečinka
+List the files in my Downloads folder grouped by type and suggest what to clean up.	Vypíš súbory v priečinku Stiahnuté podľa typu a navrhni, čo upratať.
+List windows	Zoznam okien
+Lite – faster, larger limit	Lite – rýchlejší, väčší limit
+Look at my screen	Pozri sa na obrazovku
+LuxAI account credentials are never read or changed by the agent	Prihlasovacie údaje účtu LuxAI agent nikdy nečíta ani nemení
+LuxAI account…	Účet LuxAI…
+LuxAI can make mistakes. Check important information.	LuxAI sa môže mýliť. Dôležité informácie si overte.
+LuxAI can work with your computer using tools, with your approval	LuxAI môže s vaším súhlasom pracovať s počítačom pomocou nástrojov
+Message LuxAI…	Napíšte LuxAI…
+Model	Model
+Model can see images	Model vidí obrázky
+Move	Presunutie
+Move mouse	Pohyb myši
+Moves the whole home folder or system	Presúva celý domovský priečinok alebo systém
+Network error: {0}	Chyba siete: {0}
+New chat	Nový chat
+New conversation	Nová konverzácia
+No conversations yet	Zatiaľ žiadne konverzácie
+No result	Bez výsledku
+No windows	Žiadne okná
+Not signed in	Neprihlásené
+Not signed in.	Neprihlásené.
+Nothing found	Nič sa nenašlo
+Notification	Oznámenie
+Offline – usage not available	Offline – spotreba nie je k dispozícii
+Open a website	Otvor web
+Open app	Otvoriť aplikáciu
+Open link	Otvoriť odkaz
+Open lux-ai.cz in the web browser.	Otvor lux-ai.cz vo webovom prehliadači.
+Overwrites system files	Prepisuje systémové súbory
+Plain conversation, no access to your computer	Obyčajná konverzácia bez prístupu k počítaču
+Please sign in again to continue. Your conversations are kept on this computer.	Ak chcete pokračovať, znova sa prihláste. Vaše konverzácie zostávajú v tomto počítači.
+Potentially dangerous action	Potenciálne nebezpečná akcia
+Press keys	Stlačenie klávesov
+Read clipboard	Čítanie schránky
+Read file	Čítanie súboru
+Recursively deletes a main personal folder	Rekurzívne maže hlavný osobný priečinok
+Recursively deletes files outside your home folder	Rekurzívne maže súbory mimo vášho domovského priečinka
+Refusing to modify the root or home directory itself	Koreňový ani domovský adresár samotný nemožno meniť
+Removes firewall rules	Odstraňuje pravidlá firewallu
+Removes installed system packages	Odstraňuje nainštalované systémové balíky
+Result	Výsledok
+Run command	Spustenie príkazu
+Running…	Prebieha…
+Runs a script downloaded from the internet	Spúšťa skript stiahnutý z internetu
+Runs with administrator privileges	Beží s právami správcu
+Screenshot	Snímka obrazovky
+Scroll	Posun kolieskom
+Search conversations	Hľadať v konverzáciách
+Search text	Hľadať text
+Searches the whole system	Prehľadáva celý systém
+Send (Enter)	Odoslať (Enter)
+Session expired	Prihlásenie vypršalo
+Settings	Nastavenia
+Show or hide the sidebar	Zobraziť alebo skryť bočný panel
+Shuts down or restarts the computer	Vypne alebo reštartuje počítač
+Sign in	Prihlásiť sa
+Sign in again	Prihlásiť sa znova
+Sign in to continue this conversation.	Ak chcete pokračovať v tejto konverzácii, prihláste sa.
+Sign in with LuxAI account	Prihlásiť sa účtom LuxAI
+Stop	Zastaviť
+Stop the answer and any running command (Esc)	Zastaviť odpoveď aj bežiaci príkaz (Esc)
+Stopped	Zastavené
+Stopped after too many steps. Send a message to continue.	Zastavené po príliš mnohých krokoch. Ak chcete pokračovať, pošlite správu.
+Stopped.	Zastavené.
+Stopping…	Zastavujem…
+System info	Informácie o systéme
+Take a screenshot and tell me which windows are open.	Urob snímku obrazovky a povedz mi, aké okná sú otvorené.
+The LuxAI API endpoint was not found on the server.	Rozhranie LuxAI API sa na serveri nenašlo.
+The LuxAI service is not available right now.	Služba LuxAI teraz nie je dostupná.
+The LuxOS account tool (luxos-account) is not installed.	Nástroj pre účet LuxOS (luxos-account) nie je nainštalovaný.
+The answer was cut off (length limit).	Odpoveď bola skrátená (limit dĺžky).
+The file is run automatically at login	Súbor sa spúšťa automaticky pri prihlásení
+The key combination may end your session	Klávesová skratka môže ukončiť vaše prihlásenie
+The model failed: {0}	Model zlyhal: {0}
+The monthly Flash limit is used up. Switch to Lite or wait for the next month.	Mesačný limit modelu Flash je vyčerpaný. Prepnite na Lite alebo počkajte na ďalší mesiac.
+The monthly Lite limit is used up.	Mesačný limit modelu Lite je vyčerpaný.
+The path is outside your home folder (system files)	Cesta je mimo vášho domovského priečinka (systémové súbory)
+The path may contain passwords or keys	Cesta môže obsahovať heslá alebo kľúče
+The server did not respond in time.	Server neodpovedal včas.
+The server rejected the request (invalid chat).	Server požiadavku odmietol (neplatný chat).
+The server returned a web page instead of an API response (HTTP {0}).	Server namiesto odpovede API vrátil webovú stránku (HTTP {0}).
+The server returned an invalid response (HTTP {0}).	Server vrátil neplatnú odpoveď (HTTP {0}).
+The server's web protection blocked the request (HTTP {0}).	Webová ochrana servera požiadavku zablokovala (HTTP {0}).
+Thinking…	Premýšľam…
+This may access private data	Táto akcia môže pristupovať k súkromným dátam
+Tidy up Downloads	Upratanie stiahnutých súborov
+Too many requests. Please wait a moment.	Príliš veľa požiadaviek. Chvíľu počkajte.
+Type text	Písanie textu
+Types a dangerous command	Píše nebezpečný príkaz
+Unsupported URL type	Nepodporovaný typ adresy URL
+Waiting for your approval	Čaká na vaše schválenie
+Welcome to LuxAI	Vitajte v LuxAI
+What is using the most disk space in my home folder?	Čo zaberá najviac miesta v mojom domovskom priečinku?
+Working folder	Pracovný priečinok
+Write a short, friendly email inviting my team to a Friday lunch.	Napíš krátky priateľský e-mail, ktorým pozvem tím na piatkový obed.
+Write a text	Napíš text
+Write file	Zápis súboru
+Writes directly to a disk device	Zapisuje priamo na diskové zariadenie
+Yes, run it	Áno, spustiť
+Your LuxAI session has expired or is not valid. Please sign in again.	Vaše prihlásenie do LuxAI vypršalo alebo nie je platné. Prihláste sa, prosím, znova.
+Your session has expired	Vaše prihlásenie vypršalo
+code	kód
+folder	priečinok
+no images	bez obrázkov
+sees images	vidí obrázky
+{0} open windows	Otvorené okná: {0}
+{0}: {1} / {2} tokens this month	{0}: {1} / {2} tokenov tento mesiac
+{0}: {1} tokens this month	{0}: {1} tokenov tento mesiac
+{0}: {1} tokens this month · unlimited	{0}: {1} tokenov tento mesiac · bez limitu
+You denied this action.	Akciu ste zamietli.
+Stopped before running.	Zastavené pred spustením.
+AI behaviour	Správanie AI
+Accesses LuxAI settings (including agent permissions)	Pristupuje k nastaveniam LuxAI (vrátane oprávnení agenta)
+Account and settings	Účet a nastavenia
+Add	Pridať
+Add folder…	Pridať priečinok…
+Added to every conversation. They cannot give the agent more permissions than set in Agent permissions.	Pridávajú sa ku každej konverzácii. Nemôžu agentovi dať viac oprávnení, než je nastavené v Oprávneniach agenta.
+After the first answer the fast Lite model suggests a short title. You can rename a conversation any time (right-click it in the sidebar).	Po prvej odpovedi navrhne rýchly model Lite krátky názov. Konverzáciu môžete kedykoľvek premenovať (kliknutím pravým tlačidlom v bočnom paneli).
+Agent permissions	Oprávnenia agenta
+All saved conversations will be permanently removed from this computer.	Všetky uložené konverzácie budú z tohto počítača natrvalo odstránené.
+Allow	Povoliť
+Allow without asking	Povoliť bez opýtania
+Allowed folders	Povolené priečinky
+Always ask	Vždy sa pýtať
+Answer length	Dĺžka odpovede
+Answers	Odpovede
+Appearance	Vzhľad
+Application	Aplikácia
+Ask only for risky commands	Pýtať sa len pri rizikových príkazoch
+Attach screenshots in Agent mode. Turn on only if the model supports images.	V režime Agent prikladať snímky obrazovky. Zapnite len vtedy, ak model podporuje obrázky.
+Balanced	Vyvážený
+Blocked folders	Zakázané priečinky
+Changing files is turned off in LuxAI settings	Zmeny súborov sú v nastaveniach LuxAI vypnuté
+Clear all history…	Vymazať celú históriu…
+Clicking, typing, pressing keys and closing windows.	Klikanie, písanie, stláčanie klávesov a zatváranie okien.
+Commands	Príkazy
+Concise	Stručný
+Control mouse and keyboard	Ovládať myš a klávesnicu
+Conversation	Konverzácia
+Conversations	Konverzácie
+Creating, editing, moving and deleting files and folders.	Vytváranie, úpravy, presúvanie a mazanie súborov a priečinkov.
+Creativity (temperature)	Kreativita (teplota)
+Ctrl+Enter (Enter for a new line)	Ctrl+Enter (Enter pre nový riadok)
+Custom instructions	Vlastné pokyny
+Dangerous actions (deleting your home folder, formatting disks, shutting down …) always need two confirmations, and LuxAI never touches its account and settings files. "Always ask" still offers "Always for this session" on the approval card.	Nebezpečné akcie (vymazanie domovského priečinka, formátovanie disku, vypnutie …) vždy vyžadujú dve potvrdenia a súbory účtu a nastavení LuxAI agent nikdy nezmení. „Vždy sa pýtať“ na karte potvrdenia stále ponúka „Vždy v tejto relácii“.
+Dark	Tmavý
+Data on this computer	Dáta v tomto počítači
+Default model	Predvolený model
+Delete all	Vymazať všetko
+Delete all conversations?	Vymazať všetky konverzácie?
+Delete screenshots	Vymazať snímky obrazovky
+Detailed	Podrobný
+Enter (Shift+Enter for a new line)	Enter (Shift+Enter pre nový riadok)
+Folders	Priečinky
+Friendly	Priateľský
+General	Všeobecné
+History	História
+History is turned off	História je vypnutá
+If you add folders here, the agent can work with files only inside them. Empty = anywhere (system files need extra confirmation).	Ak sem pridáte priečinky, agent smie pracovať so súbormi len v nich. Prázdne = kdekoľvek (systémové súbory vyžadujú ďalšie potvrdenie).
+Keep conversation history	Ukladať históriu konverzácií
+Keyboard shortcuts	Klávesové skratky
+Language	Jazyk
+Light	Svetlý
+Limits from Settings › Agent permissions apply.	Platia obmedzenia z Nastavenia › Oprávnenia agenta.
+Long	Dlhá
+Long-running commands are stopped after this time.	Dlho bežiace príkazy sa po tomto čase zastavia.
+LuxAI also remembers the mode you used last.	LuxAI si tiež pamätá naposledy použitý režim.
+LuxAI answered	LuxAI odpovedal
+LuxAI needs your approval	LuxAI potrebuje vaše schválenie
+Manage account	Spravovať účet
+Maximum length of one answer. Agent mode always keeps enough room for its tools.	Maximálna dĺžka jednej odpovede. Režim Agent si vždy ponechá dosť miesta na nástroje.
+Messages	Správy
+Mode for new conversations	Režim nových konverzácií
+Mouse and keyboard control is turned off in LuxAI settings	Ovládanie myši a klávesnice je v nastaveniach LuxAI vypnuté
+Name	Názov
+Name conversations automatically	Pomenúvať konverzácie automaticky
+Network access	Prístup k sieti
+Network access is turned off in LuxAI settings	Prístup k sieti je v nastaveniach LuxAI vypnutý
+Never	Nikdy
+New line	Nový riadok
+No folders	Žiadne priečinky
+Normal	Bežná
+Notifications	Oznámenia
+Notify me when LuxAI finishes an answer or needs my approval while the window is in the background.	Upozorniť, keď LuxAI dokončí odpoveď alebo potrebuje schválenie a okno je v pozadí.
+Off = the model's default. Lower is more precise, higher more creative. Applied only if the model supports it.	Vypnuté = predvolená hodnota modelu. Nižšia je presnejšia, vyššia kreatívnejšia. Použije sa len vtedy, ak ju model podporuje.
+Open apps and links	Otvárať aplikácie a odkazy
+Opening apps and links is turned off in LuxAI settings	Otváranie aplikácií a odkazov je v nastaveniach LuxAI vypnuté
+Opening web links, downloads and network tools (curl, git clone, package installs). Detected from the command – for strict isolation also set Run commands to Never.	Otváranie webových odkazov, sťahovanie a sieťové nástroje (curl, git clone, inštalácia balíkov). Rozpoznáva sa z príkazu – na úplné oddelenie nastavte aj Spúšťať príkazy na Nikdy.
+Privacy & history	Súkromie a história
+Private files (keys, passwords, .env) always need your confirmation.	Súkromné súbory (kľúče, heslá, .env) vždy vyžadujú vaše potvrdenie.
+Quit	Ukončiť
+Read files	Čítať súbory
+Reading files is turned off in LuxAI settings	Čítanie súborov je v nastaveniach LuxAI vypnuté
+Relative paths and commands start here.	Relatívne cesty a príkazy začínajú tu.
+Remove	Odstrániť
+Rename	Premenovať
+Rename conversation	Premenovať konverzáciu
+Rename…	Premenovať…
+Response style	Štýl odpovedí
+Run commands	Spúšťať príkazy
+Running commands is turned off in LuxAI settings	Spúšťanie príkazov je v nastaveniach LuxAI vypnuté
+Same as my message	Rovnaký ako moja správa
+Same as system	Podľa systému
+Saved conversations	Uložené konverzácie
+Screenshots	Snímky obrazovky
+Screenshots and clipboard	Snímky obrazovky a schránka
+Screenshots and clipboard are turned off in LuxAI settings	Snímky obrazovky a schránka sú v nastaveniach LuxAI vypnuté
+Screenshots taken by the agent	Snímky zhotovené agentom
+Send message	Odoslať správu
+Send message with	Odosielať správu klávesom
+Sends what is on your screen or in the clipboard to the model.	Odošle modelu obsah obrazovky alebo schránky.
+Settings file	Súbor nastavení
+Settings…	Nastavenia…
+Shell commands are checked for blocked folders in their paths, but a command cannot be fully confined. Set Run commands to Never for strict folder limits.	Pri príkazoch shellu sa kontrolujú cesty do zakázaných priečinkov, ale príkaz nemožno úplne uzavrieť. Na striktné obmedzenie priečinkov nastavte Spúšťať príkazy na Nikdy.
+Short	Krátka
+Sign in with your LuxAI account to chat.	Na chat sa prihláste účtom LuxAI.
+Sign out	Odhlásiť sa
+Sign out of LuxAI?	Odhlásiť sa z LuxAI?
+Sign out…	Odhlásiť sa…
+Signing out failed. Try again in the LuxAI account app.	Odhlásenie sa nepodarilo. Skúste to znova v aplikácii Účet LuxAI.
+Start	Spustenie
+Stop the answer or command	Zastaviť odpoveď alebo príkaz
+Technical	Technický
+The agent never reads or changes anything in these folders.	Agent v týchto priečinkoch nikdy nič nečíta ani nemení.
+The folder is blocked in LuxAI settings	Priečinok je v nastaveniach LuxAI zakázaný
+The path is outside the folders allowed in LuxAI settings	Cesta je mimo priečinkov povolených v nastaveniach LuxAI
+Theme	Motív
+Used for new conversations. You can switch it any time in the toolbar.	Použije sa pre nové konverzácie. Kedykoľvek ho môžete prepnúť na paneli nástrojov.
+Uses the network	Používa sieť
+What Agent mode may do	Čo smie režim Agent robiť
+What should LuxAI know about you or how should it answer? E.g. "Call me Tom. Prefer metric units and short answers."	Čo by o vás mal LuxAI vedieť a ako má odpovedať? Napr. „Volaj ma Tomáš. Uprednostňujem metrické jednotky a krátke odpovede.“
+When off, new conversations are not saved on this computer and disappear when you close them.	Keď je vypnuté, nové konverzácie sa v počítači neukladajú a po zatvorení zmiznú.
+With "risky only", read-only commands such as ls, df or git status run without asking.	Pri voľbe „len pri rizikových“ sa príkazy, ktoré len čítajú (napr. ls, df alebo git status), spustia bez opýtania.
+Write and delete files	Zapisovať a mazať súbory
+You will be signed out of your LuxAI account in all LuxOS apps on this computer. Your conversations stay on this computer.	Budete odhlásení z účtu LuxAI vo všetkých aplikáciách LuxOS v tomto počítači. Vaše konverzácie v počítači zostanú.
+Your messages are sent to the LuxAI service (lux-ai.cz) to generate answers and titles. The agent runs tools only on this computer.	Vaše správy sa odosielajú službe LuxAI (lux-ai.cz) na generovanie odpovedí a názvov. Nástroje agenta bežia len v tomto počítači.
+{0} can see images	{0} vidí obrázky
+{0} conversations saved	Uložené konverzácie: {0}
+{0} screenshots	Snímky obrazovky: {0}
+(preview not available)	(náhľad nie je k dispozícii)
+Bug report	Hlásenie chyby
+Contact e-mail for a reply: {0}	Kontaktný e-mail pre odpoveď: {0}
+Don't send	Neodosielať
+Idea	Nápad
+LuxOS could not reach the server. Check the internet connection.	LuxOS sa nemohol spojiť so serverom. Skontrolujte pripojenie k internetu.
+No graphical session; the report is sent without a screenshot.	Grafická relácia nie je k dispozícii; hlásenie sa odošle bez snímky obrazovky.
+No screenshot will be attached.	Snímka obrazovky sa nepriloží.
+No system information will be attached.	Systémové údaje sa nepriložia.
+Report sent. Report ID: {0}	Hlásenie odoslané. ID hlásenia: {0}
+Report text:	Text hlásenia:
+Report to LuxOS	Nahlásiť do LuxOS
+Search LuxOS docs	Hľadanie v príručke LuxOS
+Read LuxOS docs	Čítanie príručky LuxOS
+Save and send later	Uložiť a odoslať neskôr
+Saved. The Feedback app will send the report when you are online.	Uložené. Aplikácia Spätná väzba hlásenie odošle, keď budete online.
+Screenshot that will be attached ({0} kB)	Snímka obrazovky, ktorá sa priloží ({0} kB)
+Screenshots are turned off in LuxAI settings; the report is sent without one.	Snímky obrazovky sú v nastaveniach LuxAI vypnuté; hlásenie sa odošle bez snímky.
+Send report	Odoslať hlásenie
+Send this report to the author of LuxOS?	Odoslať toto hlásenie autorovi LuxOS?
+Sending failed ({0}).	Odoslanie zlyhalo ({0}).
+Sends the report and attachments shown in this card to the author of LuxOS	Odošle autorovi LuxOS hlásenie a prílohy zobrazené v tejto karte
+Sent anonymously (you are not signed in).	Odošle sa anonymne (nie ste prihlásení).
+Sent with your LuxAI account.	Odošle sa s vaším účtom LuxAI.
+Something else	Niečo iné
+System information that will be attached (anonymised)	Systémové údaje, ktoré sa priložia (anonymizované)
+The e-mail address does not look valid.	E-mailová adresa nevyzerá platne.
+The message must have 10 to 8000 characters.	Správa musí mať 10 až 8000 znakov.
+The report could not be prepared.	Hlásenie sa nepodarilo pripraviť.
+The report could not be saved: {0}	Hlásenie sa nepodarilo uložiť: {0}
+The report is too large. Try it without the screenshot.	Hlásenie je príliš veľké. Skúste ho odoslať bez snímky obrazovky.
+The screenshot could not be accepted. Try it without the screenshot.	Snímka obrazovky nebola prijatá. Skúste hlásenie odoslať bez nej.
+The screenshot could not be taken ({0}); the report is sent without one.	Snímku obrazovky sa nepodarilo vytvoriť ({0}); hlásenie sa odošle bez nej.
+The screenshot is too large; the report is sent without one.	Snímka obrazovky je príliš veľká; hlásenie sa odošle bez nej.
+Type:	Typ:
+You can save the report; the Feedback app will send it automatically later.	Hlásenie môžete uložiť; aplikácia Spätná väzba ho neskôr odošle automaticky.
+You have sent many reports in a short time. Please try again later.	Za krátky čas ste odoslali veľa hlásení. Skúste to prosím neskôr.
+At most {0} attachments can be added to one message.	K správe možno priložiť najviac {0} príloh.
+At most {0} images can be added to one message.	K správe možno priložiť najviac {0} obrázky.
+Attach	Priložiť
+Attach images or files	Priložiť obrázky alebo súbory
+Feeds a password to sudo or su (use pkexec instead)	Odovzdáva heslo programu sudo alebo su (použite pkexec)
+Pasted image	Vložený obrázok
+Remove attachment	Odstrániť prílohu
+The current model cannot see images. They stay in the conversation and are sent when you switch to a model that can see images.	Aktuálny model nevidí obrázky. Zostanú v konverzácii a odošlú sa, keď prepnete na model, ktorý obrázky vidí.
+{0} cannot be attached: only images and text files are supported.	{0} nemožno priložiť: podporované sú len obrázky a textové súbory.
+{0} cannot be read as an image.	{0} nemožno načítať ako obrázok.
+{0} cannot be read: {1}	{0} nemožno prečítať: {1}
+{0} is long; only its beginning is attached.	{0} je dlhý; priloží sa len jeho začiatok.
+{0} is too large to attach.	{0} je príliš veľký na priloženie.
+Administrator commands	Príkazy správcu
+Administrator mode was not turned on	Režim správcu sa nezapol
+Ask for the password every time	Zakaždým pýtať heslo
+Password once for 5 minutes, approve each command	Heslo raz na 5 minút, každý príkaz schváliť
+Password once for 5 minutes, without asking	Heslo raz na 5 minút, bez pýtania
+Commands the agent runs as administrator (root). Administrator mode: you enter the administrator password once and for about 5 minutes LuxAI runs administrator commands without asking for it again; only this LuxAI window gets it, other programs still need the password. Requests sent to LuxAI by other programs always need your approval. Only with the Flash model; Lite always asks for the password. Destructive commands (deleting the system or home folder, formatting disks, removing the bootloader, changing accounts, sudo or polkit) are always refused. Every command is logged in ~/.local/state/luxai/root-commands.log.	Príkazy, ktoré agent spúšťa ako správca (root). Režim správcu: heslo správcu zadáte raz a asi 5 minút potom LuxAI spúšťa príkazy správcu bez toho, aby sa naň znova pýtala; platí len pre toto okno LuxAI, iné programy heslo naďalej potrebujú. Požiadavky, ktoré LuxAI pošlú iné programy, vždy vyžadujú vaše schválenie. Len s modelom Flash; Lite vždy chce heslo. Ničivé príkazy (zmazanie systému alebo domovského priečinka, formátovanie diskov, odstránenie zavádzača, zmeny účtov, sudo alebo polkit) sa vždy odmietnu. Každý príkaz sa zapíše do ~/.local/state/luxai/root-commands.log.
+The request came from another program, not from the LuxAI window	Požiadavku poslal iný program, nie okno LuxAI
+Changes LuxAI administrator mode, settings or account	Mení režim správcu, nastavenia alebo účet LuxAI
+Changes owner or permissions of the whole system or a system folder	Mení vlastníka alebo oprávnenia celého systému či systémového priečinka
+Changes sudo, polkit or PAM configuration	Mení nastavenie sudo, polkit alebo PAM
+Crashes or instantly reboots the kernel	Zhodí alebo okamžite reštartuje jadro
+Deletes the whole system, a system folder or a home folder	Zmaže celý systém, systémový alebo domovský priečinok
+Disables package signature checks	Vypína kontrolu podpisov balíkov
+Formats, wipes or writes directly to a disk	Formátuje, maže alebo zapisuje priamo na disk
+LuxAI administrator mode is not installed (update LuxAI)	Režim správcu LuxAI nie je nainštalovaný (aktualizujte LuxAI)
+Removes the bootloader, the EFI partition, kernels or core system packages	Odstráni zavádzač, oddiel EFI, jadrá alebo základné balíky systému
+Runs a script downloaded from the internet as administrator	Spúšťa skript stiahnutý z internetu ako správca
+Runs as administrator (root)	Beží ako správca (root)
+Runs generated or hidden code as administrator, which cannot be checked	Spúšťa ako správca generovaný alebo skrytý kód, ktorý nemožno skontrolovať
+The administrator password was not entered	Heslo správcu nebolo zadané
+The target of a destructive command cannot be verified (variable, substitution or unknown folder)	Cieľ deštruktívneho príkazu nemožno overiť (premenná, substitúcia alebo neznámy priečinok)
+Installs community (AUR) code, which is not checked by LuxOS	Inštaluje kód komunity (AUR), ktorý LuxOS nekontroluje
+Copy code	Kopírovať kód
+Copy the whole answer	Kopírovať celú odpoveď
+Read web page	Čítanie webovej stránky
+Search the web	Hľadanie na webe
+Web content is in this conversation and may contain hidden instructions	V konverzácii je obsah z webu, ktorý môže obsahovať skryté pokyny
+Web content is in this conversation: check this command carefully	V konverzácii je obsah z webu: tento príkaz starostlivo skontrolujte
+{0} characters of text	{0} znakov textu
+LuxAI wants to open this web address:	LuxAI chce otvoriť túto webovú adresu:
+This address was not given by you or found by web search; it could send data from this conversation to that website	Túto adresu ste nezadali vy ani ju nenašlo hľadanie na webe; mohla by odoslať údaje z tejto konverzácie na daný web
+Address of a point	Adresa bodu
+Arrivals	Príchody
+By bike	Na bicykli
+By car	Autom
+Connections found: {0}	Nájdené spoje: {0}
+Current location	Aktuálna poloha
+Departures	Odchody
+Find on map	Hľadanie na mape
+Location is not allowed. Open Maps and click the location button once to allow it.	Poloha nie je povolená. Otvorte Mapy a raz kliknite na tlačidlo polohy.
+LuxOS Maps is not installed (lux install luxos-maps).	Mapy LuxOS nie sú nainštalované (lux install luxos-maps).
+Map data © OpenStreetMap contributors	Mapové údaje © prispievatelia OpenStreetMap
+No connection found	Žiadne spojenie sa nenašlo
+On foot	Pešo
+Open in Maps	Otvoriť v Mapách
+Places found: {0}	Nájdené miesta: {0}
+Places nearby	Miesta v okolí
+Public transport	MHD
+Public transport route	Trasa MHD
+Route	Trasa
+Show in Maps	Ukázať v Mapách
+Shown in Maps	Zobrazené v Mapách
+The map service is busy. Try again later.	Mapová služba je preťažená. Skúste to neskôr.
+Timetable	Cestovný poriadok
+Walk {0} m	Pešo {0} m
+cancelled	zrušené
+direct	priamy spoj
+platform {0}	nástupište {0}
+{0} transfers	prestupy: {0}
+The request is too large – the image or the conversation is too big. Start a new conversation or continue without the image.	Požiadavka je príliš veľká – obrázok alebo konverzácia je priveľká. Začnite novú konverzáciu alebo pokračujte bez obrázka.
+This action requires confirmation on the computer	Táto akcia vyžaduje potvrdenie na počítači
+The request was stopped.	Požiadavka bola zastavená.
+Another request is still running. Wait for it to finish or cancel it.	Ešte beží iná požiadavka. Počkajte na jej dokončenie alebo ju zrušte.
+You are not signed in to LuxAI. Sign in in the LuxAI app on the computer.	Nie ste prihlásení do LuxAI. Prihláste sa v aplikácii LuxAI na počítači.
+Calendar events	Udalosti v kalendári
+New calendar event	Nová udalosť v kalendári
+Change calendar event	Zmena udalosti v kalendári
+Delete calendar event	Odstránenie udalosti z kalendára
+Adds an event to your LuxOS Calendar	Pridá udalosť do vášho Kalendára LuxOS
+Changes an event in your LuxOS Calendar	Zmení udalosť vo vašom Kalendári LuxOS
+Deletes an event from your LuxOS Calendar	Odstráni udalosť z vášho Kalendára LuxOS
+Monday	pondelok
+Tuesday	utorok
+Wednesday	streda
+Thursday	štvrtok
+Friday	piatok
+Saturday	sobota
+Sunday	nedeľa
+all day	celý deň
+Location: {0}	Miesto: {0}
+Reminder: {0} min before	Pripomenutie: {0} min vopred
+Calendar: {0}	Kalendár: {0}
+Events: {0}	Udalosti: {0}
+No events in this period.	V tomto období nie sú žiadne udalosti.
+… and {0} more	… a ďalších {0}
+Before:	Predtým:
+After:	Potom:
+Repeating event – the change applies to all its occurrences.	Opakovaná udalosť – zmena platí pre všetky jej výskyty.
+Added to the calendar.	Pridané do kalendára.
+Changed in the calendar.	Zmenené v kalendári.
+Deleted from the calendar.	Odstránené z kalendára.
+Done.	Hotovo.
+Denied on the phone.	Zamietnuté v telefóne.
+Not approved on the phone in time.	V telefóne nebolo včas schválené.
+Blocked by LuxAI safety rules.	Zablokované bezpečnostnými pravidlami LuxAI.
+This model is not available in LuxAI.	Tento model nie je v LuxAI k dispozícii.
+Our projects	Naše projekty
+Open	Otvoriť
+Web portals, Android apps, desktop tools and a YouTube channel	Webové portály, aplikácie pre Android, nástroje pre počítač a kanál YouTube

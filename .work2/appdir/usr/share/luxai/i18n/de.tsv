@@ -1,0 +1,460 @@
+# LuxAI - deutsche Uebersetzung (englischer Text<TAB>deutscher Text); {0}, {1}, {2} muessen erhalten bleiben
+(empty file)	(leere Datei)
+(empty)	(leer)
+(no output)	(keine Ausgabe)
+AI assistant that can work with your computer	KI-Assistent, der mit Ihrem Computer arbeiten kann · Von BELGESELSEMO mit Hilfe von Z.AI aus der ursprünglichen LuxOS-Distribution erstellt und als Linux-/Windows-Pakete gebaut · https://belgeselsemo.com.tr
+About LuxAI	Über LuxAI
+Accesses private keys or passwords	Greift auf private Schlüssel oder Passwörter zu
+Accesses the LuxAI account token	Greift auf das Token des LuxAI-Accounts zu
+Agent	Agent
+Agent actions run without asking. Dangerous actions still need two confirmations. Resets when LuxAI restarts.	Agent-Aktionen werden ohne Nachfrage ausgeführt. Gefährliche Aktionen erfordern weiterhin zwei Bestätigungen. Wird beim Neustart von LuxAI zurückgesetzt.
+Agent mode · Auto-approve is ON: actions run without asking (dangerous ones still ask twice).	Agent-Modus · Automatische Freigabe ist AN: Aktionen werden ohne Nachfrage ausgeführt (gefährliche fragen weiterhin zweimal).
+Agent mode · LuxAI can work with your computer. You approve every action that changes something.	Agent-Modus · LuxAI kann mit Ihrem Computer arbeiten. Sie geben jede Aktion frei, die etwas ändert.
+Agent mode: I can run commands, manage files, open apps and control the mouse and keyboard – always with your approval.	Agent-Modus: Ich kann Befehle ausführen, Dateien verwalten, Apps öffnen sowie Maus und Tastatur steuern – immer mit Ihrer Zustimmung.
+Allow LuxAI to do this?	LuxAI diese Aktion erlauben?
+Allow once	Einmal erlauben
+Allow once…	Einmal erlauben …
+Always for this session	Immer in dieser Sitzung
+Another conversation is already running on this account. Try again in a moment.	Auf diesem Account läuft bereits eine andere Unterhaltung. Versuchen Sie es gleich noch einmal.
+Are you sure? This can cause damage that cannot be undone.	Sind Sie sicher? Dies kann Schäden verursachen, die sich nicht rückgängig machen lassen.
+Arguments	Argumente
+Ask LuxAI to do something on your computer…	Bitten Sie LuxAI, etwas auf Ihrem Computer zu erledigen …
+Ask anything. Switch to Agent mode when you want me to do things on your computer.	Fragen Sie alles. Wechseln Sie in den Agent-Modus, wenn ich etwas auf Ihrem Computer erledigen soll.
+Attach screenshots for the current model. Turn on only if the model supports images; uses more tokens.	Bildschirmfotos für das aktuelle Modell anhängen. Nur einschalten, wenn das Modell Bilder unterstützt; verbraucht mehr Tokens.
+Auto-approve actions	Aktionen automatisch freigeben
+Blocked by safety rules	Durch Sicherheitsregeln blockiert
+Brainstorm	Ideen sammeln
+CONVERSATIONS	UNTERHALTUNGEN
+Cancel	Abbrechen
+Changes immutable file attributes	Ändert unveränderliche Dateiattribute
+Changes permissions of the whole home folder or system	Ändert Berechtigungen des gesamten Benutzerordners oder Systems
+Changes user accounts or passwords	Ändert Benutzeraccounts oder Passwörter
+Chat	Chat
+Chat with AI or let it work with your computer. Sign in with your LuxAI account – one account for all LuxOS apps.	Chatten Sie mit KI oder lassen Sie sie mit Ihrem Computer arbeiten. Melden Sie sich mit Ihrem LuxAI-Account an – ein Account für alle LuxOS-Apps.
+Click	Klicken
+Close window	Fenster schließen
+Command timeout (seconds)	Zeitlimit für Befehle (Sekunden)
+Copied	Kopiert
+Copy	Kopieren
+Create a free account	Kostenlosen Account erstellen
+Create folder	Ordner erstellen
+Delete	Löschen
+Delete conversation	Unterhaltung löschen
+Delete this conversation?	Diese Unterhaltung löschen?
+Deletes all scheduled tasks	Löscht alle geplanten Aufgaben
+Deletes all untracked files in the repository	Löscht alle nicht verfolgten Dateien im Repository
+Deletes files across the whole home folder or system	Löscht Dateien im gesamten Benutzerordner oder System
+Deletes the whole home folder or system	Löscht den gesamten Benutzerordner oder das System
+Denied	Abgelehnt
+Deny	Ablehnen
+Details	Details
+Done	Fertig
+Edit file	Datei bearbeiten
+Ends your desktop session	Beendet Ihre Schreibtischsitzung
+Explain how HTTPS keeps my connection private, in simple terms.	Erkläre einfach, wie HTTPS meine Verbindung privat hält.
+Explain something	Etwas erklären
+Failed	Fehlgeschlagen
+Find files	Dateien suchen
+Finish signing in in the LuxAI account window…	Schließen Sie die Anmeldung im Fenster des LuxAI-Accounts ab …
+Flash – smarter	Flash – intelligenter
+Focus window	Fenster aktivieren
+Force-pushes and may overwrite remote history	Erzwungener Push kann den entfernten Verlauf überschreiben
+Fork bomb	Fork-Bombe
+Formats or wipes a disk	Formatiert oder löscht eine Festplatte
+Free disk space	Freier Speicherplatz
+Give me 5 ideas for a weekend trip in the Czech Republic.	Gib mir 5 Ideen für einen Wochenendausflug in Deutschland.
+Help with code	Hilfe beim Programmieren
+How can I help you today?	Wie kann ich Ihnen heute helfen?
+How do I read a JSON file in Python? Show a short example.	Wie lese ich eine JSON-Datei in Python ein? Zeig ein kurzes Beispiel.
+It will be permanently removed from this computer.	Sie wird dauerhaft von diesem Computer entfernt.
+Kills all processes or the desktop session	Beendet alle Prozesse oder die Schreibtischsitzung
+List apps	Apps auflisten
+List folder	Ordnerinhalt
+List the files in my Downloads folder grouped by type and suggest what to clean up.	Liste die Dateien in meinem Ordner „Downloads“ nach Typ gruppiert auf und schlage vor, was ich aufräumen kann.
+List windows	Fenster auflisten
+Lite – faster, larger limit	Lite – schneller, höheres Limit
+Look at my screen	Schau auf meinen Bildschirm
+LuxAI account credentials are never read or changed by the agent	Die Anmeldedaten des LuxAI-Accounts werden vom Agent nie gelesen oder geändert
+LuxAI account…	LuxAI-Account …
+LuxAI can make mistakes. Check important information.	LuxAI kann Fehler machen. Überprüfen Sie wichtige Informationen.
+LuxAI can work with your computer using tools, with your approval	LuxAI kann mit Ihrer Zustimmung über Werkzeuge mit Ihrem Computer arbeiten
+Message LuxAI…	Nachricht an LuxAI …
+Model	Modell
+Model can see images	Modell kann Bilder sehen
+Move	Bewegen
+Move mouse	Maus bewegen
+Moves the whole home folder or system	Verschiebt den gesamten Benutzerordner oder das System
+Network error: {0}	Netzwerkfehler: {0}
+New chat	Neuer Chat
+New conversation	Neue Unterhaltung
+No conversations yet	Noch keine Unterhaltungen
+No result	Kein Ergebnis
+No windows	Keine Fenster
+Not signed in	Nicht angemeldet
+Not signed in.	Nicht angemeldet.
+Nothing found	Nichts gefunden
+Notification	Mitteilung
+Offline – usage not available	Offline – Nutzung nicht verfügbar
+Open a website	Website öffnen
+Open app	App öffnen
+Open link	Link öffnen
+Open lux-ai.cz in the web browser.	Öffne lux-ai.cz im Webbrowser.
+Overwrites system files	Überschreibt Systemdateien
+Plain conversation, no access to your computer	Einfache Unterhaltung ohne Zugriff auf Ihren Computer
+Please sign in again to continue. Your conversations are kept on this computer.	Bitte melden Sie sich erneut an, um fortzufahren. Ihre Unterhaltungen bleiben auf diesem Computer gespeichert.
+Potentially dangerous action	Möglicherweise gefährliche Aktion
+Press keys	Tasten drücken
+Read clipboard	Zwischenablage lesen
+Read file	Datei lesen
+Recursively deletes a main personal folder	Löscht rekursiv einen persönlichen Hauptordner
+Recursively deletes files outside your home folder	Löscht rekursiv Dateien außerhalb Ihres Benutzerordners
+Refusing to modify the root or home directory itself	Das Root- oder Benutzerverzeichnis selbst wird nicht geändert
+Removes firewall rules	Entfernt Firewall-Regeln
+Removes installed system packages	Entfernt installierte Systempakete
+Result	Ergebnis
+Run command	Befehl ausführen
+Running…	Läuft …
+Runs a script downloaded from the internet	Führt ein aus dem Internet geladenes Skript aus
+Runs with administrator privileges	Läuft mit Administratorrechten
+Screenshot	Bildschirmfoto
+Scroll	Scrollen
+Search conversations	Unterhaltungen durchsuchen
+Search text	Text suchen
+Searches the whole system	Durchsucht das gesamte System
+Send (Enter)	Senden (Enter)
+Session expired	Sitzung abgelaufen
+Settings	Einstellungen
+Show or hide the sidebar	Seitenleiste ein- oder ausblenden
+Shuts down or restarts the computer	Schaltet den Computer aus oder startet ihn neu
+Sign in	Anmelden
+Sign in again	Erneut anmelden
+Sign in to continue this conversation.	Melden Sie sich an, um diese Unterhaltung fortzusetzen.
+Sign in with LuxAI account	Mit LuxAI-Account anmelden
+Stop	Stoppen
+Stop the answer and any running command (Esc)	Antwort und laufenden Befehl stoppen (Esc)
+Stopped	Gestoppt
+Stopped after too many steps. Send a message to continue.	Nach zu vielen Schritten gestoppt. Senden Sie eine Nachricht, um fortzufahren.
+Stopped.	Gestoppt.
+Stopping…	Wird gestoppt …
+System info	Systeminfo
+Take a screenshot and tell me which windows are open.	Mach ein Bildschirmfoto und sag mir, welche Fenster geöffnet sind.
+The LuxAI API endpoint was not found on the server.	Der LuxAI-API-Endpunkt wurde auf dem Server nicht gefunden.
+The LuxAI service is not available right now.	Der LuxAI-Dienst ist gerade nicht verfügbar.
+The LuxOS account tool (luxos-account) is not installed.	Das LuxOS-Account-Werkzeug (luxos-account) ist nicht installiert.
+The answer was cut off (length limit).	Die Antwort wurde abgeschnitten (Längenlimit).
+The file is run automatically at login	Die Datei wird bei der Anmeldung automatisch ausgeführt
+The key combination may end your session	Die Tastenkombination kann Ihre Sitzung beenden
+The model failed: {0}	Das Modell ist fehlgeschlagen: {0}
+The monthly Flash limit is used up. Switch to Lite or wait for the next month.	Das monatliche Flash-Limit ist aufgebraucht. Wechseln Sie zu Lite oder warten Sie bis zum nächsten Monat.
+The monthly Lite limit is used up.	Das monatliche Lite-Limit ist aufgebraucht.
+The path is outside your home folder (system files)	Der Pfad liegt außerhalb Ihres Benutzerordners (Systemdateien)
+The path may contain passwords or keys	Der Pfad kann Passwörter oder Schlüssel enthalten
+The server did not respond in time.	Der Server hat nicht rechtzeitig geantwortet.
+The server rejected the request (invalid chat).	Der Server hat die Anfrage abgelehnt (ungültiger Chat).
+The server returned a web page instead of an API response (HTTP {0}).	Der Server hat statt einer API-Antwort eine Webseite zurückgegeben (HTTP {0}).
+The server returned an invalid response (HTTP {0}).	Der Server hat eine ungültige Antwort zurückgegeben (HTTP {0}).
+The server's web protection blocked the request (HTTP {0}).	Der Webschutz des Servers hat die Anfrage blockiert (HTTP {0}).
+Thinking…	Denke nach …
+This may access private data	Dies kann auf private Daten zugreifen
+Tidy up Downloads	Downloads aufräumen
+Too many requests. Please wait a moment.	Zu viele Anfragen. Bitte warten Sie einen Moment.
+Type text	Text eingeben
+Types a dangerous command	Tippt einen gefährlichen Befehl
+Unsupported URL type	Nicht unterstützter URL-Typ
+Waiting for your approval	Wartet auf Ihre Freigabe
+Welcome to LuxAI	Willkommen bei LuxAI
+What is using the most disk space in my home folder?	Was belegt in meinem Benutzerordner den meisten Speicherplatz?
+Working folder	Arbeitsordner
+Write a short, friendly email inviting my team to a Friday lunch.	Schreib eine kurze, freundliche E-Mail, in der ich mein Team zum Mittagessen am Freitag einlade.
+Write a text	Einen Text schreiben
+Write file	Datei schreiben
+Writes directly to a disk device	Schreibt direkt auf ein Festplattengerät
+Yes, run it	Ja, ausführen
+Your LuxAI session has expired or is not valid. Please sign in again.	Ihre LuxAI-Sitzung ist abgelaufen oder ungültig. Bitte melden Sie sich erneut an.
+Your session has expired	Ihre Sitzung ist abgelaufen
+code	Code
+folder	Ordner
+no images	keine Bilder
+sees images	sieht Bilder
+{0} open windows	Geöffnete Fenster: {0}
+{0}: {1} / {2} tokens this month	{0}: {1} / {2} Tokens in diesem Monat
+{0}: {1} tokens this month	{0}: {1} Tokens in diesem Monat
+{0}: {1} tokens this month · unlimited	{0}: {1} Tokens in diesem Monat · unbegrenzt
+You denied this action.	Sie haben diese Aktion abgelehnt.
+Stopped before running.	Vor der Ausführung gestoppt.
+# Nastaveni, profil, nazvy konverzaci
+AI behaviour	KI-Verhalten
+Accesses LuxAI settings (including agent permissions)	Greift auf LuxAI-Einstellungen zu (einschließlich Agent-Berechtigungen)
+Account and settings	Account und Einstellungen
+Add	Hinzufügen
+Add folder…	Ordner hinzufügen …
+Added to every conversation. They cannot give the agent more permissions than set in Agent permissions.	Werden jeder Unterhaltung hinzugefügt. Sie können dem Agent keine weiteren Berechtigungen geben, als unter „Agent-Berechtigungen“ festgelegt sind.
+After the first answer the fast Lite model suggests a short title. You can rename a conversation any time (right-click it in the sidebar).	Nach der ersten Antwort schlägt das schnelle Modell Lite einen kurzen Titel vor. Sie können eine Unterhaltung jederzeit umbenennen (Rechtsklick in der Seitenleiste).
+Agent permissions	Agent-Berechtigungen
+All saved conversations will be permanently removed from this computer.	Alle gesicherten Unterhaltungen werden dauerhaft von diesem Computer entfernt.
+Allow	Erlauben
+Allow without asking	Ohne Nachfrage erlauben
+Allowed folders	Erlaubte Ordner
+Always ask	Immer fragen
+Answer length	Antwortlänge
+Answers	Antworten
+Appearance	Erscheinungsbild
+Application	App
+Ask only for risky commands	Nur bei riskanten Befehlen fragen
+Attach screenshots in Agent mode. Turn on only if the model supports images.	Im Agent-Modus Bildschirmfotos anhängen. Nur einschalten, wenn das Modell Bilder unterstützt.
+Balanced	Ausgewogen
+Blocked folders	Gesperrte Ordner
+Changing files is turned off in LuxAI settings	Das Ändern von Dateien ist in den LuxAI-Einstellungen deaktiviert
+Clear all history…	Gesamten Verlauf löschen …
+Clicking, typing, pressing keys and closing windows.	Klicken, Tippen, Tasten drücken und Fenster schließen.
+Commands	Befehle
+Concise	Knapp
+Control mouse and keyboard	Maus und Tastatur steuern
+Conversation	Unterhaltung
+Conversations	Unterhaltungen
+Creating, editing, moving and deleting files and folders.	Dateien und Ordner erstellen, bearbeiten, verschieben und löschen.
+Creativity (temperature)	Kreativität (Temperatur)
+Ctrl+Enter (Enter for a new line)	Ctrl+Enter (Enter für neue Zeile)
+Custom instructions	Eigene Anweisungen
+Dangerous actions (deleting your home folder, formatting disks, shutting down …) always need two confirmations, and LuxAI never touches its account and settings files. "Always ask" still offers "Always for this session" on the approval card.	Gefährliche Aktionen (Löschen Ihres Benutzerordners, Formatieren von Festplatten, Ausschalten …) erfordern immer zwei Bestätigungen, und LuxAI rührt seine Account- und Einstellungsdateien nie an. „Immer fragen“ bietet auf der Freigabekarte weiterhin „Immer in dieser Sitzung“ an.
+Dark	Dunkel
+Data on this computer	Daten auf diesem Computer
+Default model	Standardmodell
+Delete all	Alle löschen
+Delete all conversations?	Alle Unterhaltungen löschen?
+Delete screenshots	Bildschirmfotos löschen
+Detailed	Ausführlich
+Enter (Shift+Enter for a new line)	Enter (Shift+Enter für neue Zeile)
+Folders	Ordner
+Friendly	Freundlich
+General	Allgemein
+History	Verlauf
+History is turned off	Verlauf ist deaktiviert
+If you add folders here, the agent can work with files only inside them. Empty = anywhere (system files need extra confirmation).	Wenn Sie hier Ordner hinzufügen, darf der Agent nur mit Dateien darin arbeiten. Leer = überall (Systemdateien erfordern eine zusätzliche Bestätigung).
+Keep conversation history	Verlauf der Unterhaltungen behalten
+Keyboard shortcuts	Tastaturkurzbefehle
+Language	Sprache
+Light	Hell
+Limits from Settings › Agent permissions apply.	Es gelten die Einschränkungen aus Einstellungen › Agent-Berechtigungen.
+Long	Lang
+Long-running commands are stopped after this time.	Lang laufende Befehle werden nach dieser Zeit gestoppt.
+LuxAI also remembers the mode you used last.	LuxAI merkt sich außerdem den zuletzt verwendeten Modus.
+LuxAI answered	LuxAI hat geantwortet
+LuxAI needs your approval	LuxAI benötigt Ihre Freigabe
+Manage account	Account verwalten
+Maximum length of one answer. Agent mode always keeps enough room for its tools.	Maximale Länge einer Antwort. Der Agent-Modus lässt immer genug Platz für seine Werkzeuge.
+Messages	Nachrichten
+Mode for new conversations	Modus für neue Unterhaltungen
+Mouse and keyboard control is turned off in LuxAI settings	Die Steuerung von Maus und Tastatur ist in den LuxAI-Einstellungen deaktiviert
+Name	Name
+Name conversations automatically	Unterhaltungen automatisch benennen
+Network access	Netzwerkzugriff
+Network access is turned off in LuxAI settings	Netzwerkzugriff ist in den LuxAI-Einstellungen deaktiviert
+Never	Nie
+New line	Neue Zeile
+No folders	Keine Ordner
+Normal	Normal
+Notifications	Mitteilungen
+Notify me when LuxAI finishes an answer or needs my approval while the window is in the background.	Benachrichtigen, wenn LuxAI eine Antwort fertigstellt oder meine Freigabe benötigt, während das Fenster im Hintergrund ist.
+Off = the model's default. Lower is more precise, higher more creative. Applied only if the model supports it.	Aus = Standardwert des Modells. Niedriger ist präziser, höher kreativer. Wird nur angewendet, wenn das Modell es unterstützt.
+Open apps and links	Apps und Links öffnen
+Opening apps and links is turned off in LuxAI settings	Das Öffnen von Apps und Links ist in den LuxAI-Einstellungen deaktiviert
+Opening web links, downloads and network tools (curl, git clone, package installs). Detected from the command – for strict isolation also set Run commands to Never.	Öffnen von Weblinks, Downloads und Netzwerkwerkzeuge (curl, git clone, Paketinstallationen). Wird am Befehl erkannt – für strikte Isolation zusätzlich „Befehle ausführen“ auf „Nie“ setzen.
+Privacy & history	Datenschutz & Verlauf
+Private files (keys, passwords, .env) always need your confirmation.	Private Dateien (Schlüssel, Passwörter, .env) erfordern immer Ihre Bestätigung.
+Quit	Beenden
+Read files	Dateien lesen
+Reading files is turned off in LuxAI settings	Das Lesen von Dateien ist in den LuxAI-Einstellungen deaktiviert
+Relative paths and commands start here.	Relative Pfade und Befehle beginnen hier.
+Remove	Entfernen
+Rename	Umbenennen
+Rename conversation	Unterhaltung umbenennen
+Rename…	Umbenennen …
+Response style	Antwortstil
+Run commands	Befehle ausführen
+Running commands is turned off in LuxAI settings	Das Ausführen von Befehlen ist in den LuxAI-Einstellungen deaktiviert
+Same as my message	Wie meine Nachricht
+Same as system	Wie System
+Saved conversations	Gesicherte Unterhaltungen
+Screenshots	Bildschirmfotos
+Screenshots and clipboard	Bildschirmfotos und Zwischenablage
+Screenshots and clipboard are turned off in LuxAI settings	Bildschirmfotos und Zwischenablage sind in den LuxAI-Einstellungen deaktiviert
+Screenshots taken by the agent	Vom Agent aufgenommene Bildschirmfotos
+Send message	Nachricht senden
+Send message with	Nachricht senden mit
+Sends what is on your screen or in the clipboard to the model.	Sendet den Inhalt Ihres Bildschirms oder der Zwischenablage an das Modell.
+Settings file	Einstellungsdatei
+Settings…	Einstellungen …
+Shell commands are checked for blocked folders in their paths, but a command cannot be fully confined. Set Run commands to Never for strict folder limits.	Shell-Befehle werden auf gesperrte Ordner in ihren Pfaden geprüft, aber ein Befehl lässt sich nicht vollständig eingrenzen. Setzen Sie „Befehle ausführen“ auf „Nie“ für strikte Ordnergrenzen.
+Short	Kurz
+Sign in with your LuxAI account to chat.	Melden Sie sich mit Ihrem LuxAI-Account an, um zu chatten.
+Sign out	Abmelden
+Sign out of LuxAI?	Von LuxAI abmelden?
+Sign out…	Abmelden …
+Signing out failed. Try again in the LuxAI account app.	Abmelden fehlgeschlagen. Versuchen Sie es erneut in der App „LuxAI-Account“.
+Start	Start
+Stop the answer or command	Antwort oder Befehl stoppen
+Technical	Technisch
+The agent never reads or changes anything in these folders.	Der Agent liest oder ändert in diesen Ordnern nie etwas.
+The folder is blocked in LuxAI settings	Der Ordner ist in den LuxAI-Einstellungen gesperrt
+The path is outside the folders allowed in LuxAI settings	Der Pfad liegt außerhalb der in den LuxAI-Einstellungen erlaubten Ordner
+Theme	Design
+Used for new conversations. You can switch it any time in the toolbar.	Wird für neue Unterhaltungen verwendet. Sie können es jederzeit in der Symbolleiste wechseln.
+Uses the network	Verwendet das Netzwerk
+What Agent mode may do	Was der Agent-Modus darf
+What should LuxAI know about you or how should it answer? E.g. "Call me Tom. Prefer metric units and short answers."	Was sollte LuxAI über Sie wissen oder wie soll es antworten? Z. B. „Nenn mich Tom. Ich bevorzuge metrische Einheiten und kurze Antworten.“
+When off, new conversations are not saved on this computer and disappear when you close them.	Wenn aus, werden neue Unterhaltungen nicht auf diesem Computer gesichert und verschwinden beim Schließen.
+With "risky only", read-only commands such as ls, df or git status run without asking.	Mit „Nur bei riskanten“ werden rein lesende Befehle wie ls, df oder git status ohne Nachfrage ausgeführt.
+Write and delete files	Dateien schreiben und löschen
+You will be signed out of your LuxAI account in all LuxOS apps on this computer. Your conversations stay on this computer.	Sie werden in allen LuxOS-Apps auf diesem Computer von Ihrem LuxAI-Account abgemeldet. Ihre Unterhaltungen bleiben auf diesem Computer.
+Your messages are sent to the LuxAI service (lux-ai.cz) to generate answers and titles. The agent runs tools only on this computer.	Ihre Nachrichten werden an den LuxAI-Dienst (lux-ai.cz) gesendet, um Antworten und Titel zu erzeugen. Der Agent führt Werkzeuge nur auf diesem Computer aus.
+{0} can see images	{0} kann Bilder sehen
+{0} conversations saved	Gesicherte Unterhaltungen: {0}
+{0} screenshots	Bildschirmfotos: {0}
+# Hlaseni autorovi LuxOS (send_feedback)
+(preview not available)	(Vorschau nicht verfügbar)
+Bug report	Fehlermeldung
+Contact e-mail for a reply: {0}	Kontakt-E-Mail für eine Antwort: {0}
+Don't send	Nicht senden
+Idea	Idee
+LuxOS could not reach the server. Check the internet connection.	LuxOS konnte den Server nicht erreichen. Prüfen Sie die Internetverbindung.
+No graphical session; the report is sent without a screenshot.	Keine grafische Sitzung; die Meldung wird ohne Bildschirmfoto gesendet.
+No screenshot will be attached.	Es wird kein Bildschirmfoto angehängt.
+No system information will be attached.	Es werden keine Systeminformationen angehängt.
+Report sent. Report ID: {0}	Meldung gesendet. Meldungs-ID: {0}
+Report text:	Text der Meldung:
+Report to LuxOS	An LuxOS melden
+Search LuxOS docs	LuxOS-Handbuch durchsuchen
+Read LuxOS docs	LuxOS-Handbuch lesen
+Save and send later	Speichern und später senden
+Saved. The Feedback app will send the report when you are online.	Gespeichert. Die App Feedback sendet die Meldung, sobald Sie online sind.
+Screenshot that will be attached ({0} kB)	Bildschirmfoto, das angehängt wird ({0} kB)
+Screenshots are turned off in LuxAI settings; the report is sent without one.	Bildschirmfotos sind in den LuxAI-Einstellungen ausgeschaltet; die Meldung wird ohne gesendet.
+Send report	Meldung senden
+Send this report to the author of LuxOS?	Diese Meldung an den Autor von LuxOS senden?
+Sending failed ({0}).	Senden fehlgeschlagen ({0}).
+Sends the report and attachments shown in this card to the author of LuxOS	Sendet die in dieser Karte gezeigte Meldung samt Anhängen an den Autor von LuxOS
+Sent anonymously (you are not signed in).	Wird anonym gesendet (Sie sind nicht angemeldet).
+Sent with your LuxAI account.	Wird mit Ihrem LuxAI-Konto gesendet.
+Something else	Etwas anderes
+System information that will be attached (anonymised)	Systeminformationen, die angehängt werden (anonymisiert)
+The e-mail address does not look valid.	Die E-Mail-Adresse scheint ungültig zu sein.
+The message must have 10 to 8000 characters.	Die Nachricht muss 10 bis 8000 Zeichen lang sein.
+The report could not be prepared.	Die Meldung konnte nicht vorbereitet werden.
+The report could not be saved: {0}	Die Meldung konnte nicht gespeichert werden: {0}
+The report is too large. Try it without the screenshot.	Die Meldung ist zu groß. Versuchen Sie es ohne Bildschirmfoto.
+The screenshot could not be accepted. Try it without the screenshot.	Das Bildschirmfoto wurde nicht angenommen. Versuchen Sie es ohne Bildschirmfoto.
+The screenshot could not be taken ({0}); the report is sent without one.	Das Bildschirmfoto konnte nicht aufgenommen werden ({0}); die Meldung wird ohne gesendet.
+The screenshot is too large; the report is sent without one.	Das Bildschirmfoto ist zu groß; die Meldung wird ohne gesendet.
+Type:	Art:
+You can save the report; the Feedback app will send it automatically later.	Sie können die Meldung speichern; die App Feedback sendet sie später automatisch.
+You have sent many reports in a short time. Please try again later.	Sie haben in kurzer Zeit viele Meldungen gesendet. Bitte versuchen Sie es später erneut.
+At most {0} attachments can be added to one message.	An eine Nachricht können höchstens {0} Anhänge angehängt werden.
+At most {0} images can be added to one message.	An eine Nachricht können höchstens {0} Bilder angehängt werden.
+Attach	Anhängen
+Attach images or files	Bilder oder Dateien anhängen
+Feeds a password to sudo or su (use pkexec instead)	Übergibt ein Passwort an sudo oder su (verwenden Sie pkexec)
+Pasted image	Eingefügtes Bild
+Remove attachment	Anhang entfernen
+The current model cannot see images. They stay in the conversation and are sent when you switch to a model that can see images.	Das aktuelle Modell kann keine Bilder sehen. Sie bleiben in der Unterhaltung und werden gesendet, wenn Sie zu einem Modell wechseln, das Bilder sieht.
+{0} cannot be attached: only images and text files are supported.	{0} kann nicht angehängt werden: Nur Bilder und Textdateien werden unterstützt.
+{0} cannot be read as an image.	{0} kann nicht als Bild gelesen werden.
+{0} cannot be read: {1}	{0} kann nicht gelesen werden: {1}
+{0} is long; only its beginning is attached.	{0} ist lang; nur der Anfang wird angehängt.
+{0} is too large to attach.	{0} ist zu groß zum Anhängen.
+Administrator commands	Administratorbefehle
+Administrator mode was not turned on	Der Administratormodus wurde nicht eingeschaltet
+Ask for the password every time	Jedes Mal nach dem Passwort fragen
+Password once for 5 minutes, approve each command	Passwort einmal für 5 Minuten, jeden Befehl bestätigen
+Password once for 5 minutes, without asking	Passwort einmal für 5 Minuten, ohne Nachfrage
+Commands the agent runs as administrator (root). Administrator mode: you enter the administrator password once and for about 5 minutes LuxAI runs administrator commands without asking for it again; only this LuxAI window gets it, other programs still need the password. Requests sent to LuxAI by other programs always need your approval. Only with the Flash model; Lite always asks for the password. Destructive commands (deleting the system or home folder, formatting disks, removing the bootloader, changing accounts, sudo or polkit) are always refused. Every command is logged in ~/.local/state/luxai/root-commands.log.	Befehle, die der Agent als Administrator (root) ausführt. Administratormodus: Sie geben das Administratorpasswort einmal ein, danach führt LuxAI etwa 5 Minuten lang Administratorbefehle aus, ohne erneut danach zu fragen; das gilt nur für dieses LuxAI-Fenster, andere Programme brauchen weiterhin das Passwort. Anfragen, die andere Programme an LuxAI senden, brauchen immer Ihre Bestätigung. Nur mit dem Modell Flash; Lite fragt immer nach dem Passwort. Zerstörerische Befehle (Löschen des Systems oder des Home-Ordners, Formatieren von Datenträgern, Entfernen des Bootloaders, Änderungen an Konten, sudo oder polkit) werden immer abgelehnt. Jeder Befehl wird in ~/.local/state/luxai/root-commands.log protokolliert.
+The request came from another program, not from the LuxAI window	Die Anfrage kam von einem anderen Programm, nicht aus dem LuxAI-Fenster
+Changes LuxAI administrator mode, settings or account	Ändert den LuxAI-Administratormodus, die Einstellungen oder das Konto
+Changes owner or permissions of the whole system or a system folder	Ändert Eigentümer oder Rechte des ganzen Systems oder eines Systemordners
+Changes sudo, polkit or PAM configuration	Ändert die Konfiguration von sudo, polkit oder PAM
+Crashes or instantly reboots the kernel	Bringt den Kernel zum Absturz oder startet ihn sofort neu
+Deletes the whole system, a system folder or a home folder	Löscht das ganze System, einen Systemordner oder einen Benutzerordner
+Disables package signature checks	Schaltet die Prüfung von Paketsignaturen ab
+Formats, wipes or writes directly to a disk	Formatiert, löscht oder schreibt direkt auf einen Datenträger
+LuxAI administrator mode is not installed (update LuxAI)	Der LuxAI-Administratormodus ist nicht installiert (LuxAI aktualisieren)
+Removes the bootloader, the EFI partition, kernels or core system packages	Entfernt den Bootloader, die EFI-Partition, Kernel oder grundlegende Systempakete
+Runs a script downloaded from the internet as administrator	Führt ein aus dem Internet geladenes Skript als Administrator aus
+Runs as administrator (root)	Wird als Administrator (root) ausgeführt
+Runs generated or hidden code as administrator, which cannot be checked	Führt erzeugten oder versteckten Code als Administrator aus, der nicht geprüft werden kann
+The administrator password was not entered	Das Administratorpasswort wurde nicht eingegeben
+The target of a destructive command cannot be verified (variable, substitution or unknown folder)	Das Ziel eines zerstörerischen Befehls lässt sich nicht prüfen (Variable, Ersetzung oder unbekannter Ordner)
+Installs community (AUR) code, which is not checked by LuxOS	Installiert Community-Code (AUR), den LuxOS nicht prüft
+Copy code	Code kopieren
+Copy the whole answer	Gesamte Antwort kopieren
+Read web page	Webseite lesen
+Search the web	Im Web suchen
+Web content is in this conversation and may contain hidden instructions	Diese Unterhaltung enthält Webinhalte, die versteckte Anweisungen enthalten können
+Web content is in this conversation: check this command carefully	Die Unterhaltung enthält Webinhalte: Prüfen Sie diesen Befehl sorgfältig
+{0} characters of text	{0} Zeichen Text
+LuxAI wants to open this web address:	LuxAI möchte diese Webadresse öffnen:
+This address was not given by you or found by web search; it could send data from this conversation to that website	Diese Adresse stammt weder von Ihnen noch aus der Websuche; sie könnte Daten aus dieser Unterhaltung an die Website senden
+Address of a point	Adresse eines Punkts
+Arrivals	Ankünfte
+By bike	Mit dem Fahrrad
+By car	Mit dem Auto
+Connections found: {0}	Gefundene Verbindungen: {0}
+Current location	Aktueller Standort
+Departures	Abfahrten
+Find on map	Auf der Karte suchen
+Location is not allowed. Open Maps and click the location button once to allow it.	Der Standort ist nicht erlaubt. Öffnen Sie Karten und klicken Sie einmal auf die Standort-Taste.
+LuxOS Maps is not installed (lux install luxos-maps).	LuxOS Karten ist nicht installiert (lux install luxos-maps).
+Map data © OpenStreetMap contributors	Kartendaten © OpenStreetMap-Mitwirkende
+No connection found	Keine Verbindung gefunden
+On foot	Zu Fuß
+Open in Maps	In Karten öffnen
+Places found: {0}	Gefundene Orte: {0}
+Places nearby	Orte in der Nähe
+Public transport	Öffentlicher Verkehr
+Public transport route	ÖPNV-Route
+Route	Route
+Show in Maps	In Karten zeigen
+Shown in Maps	In Karten gezeigt
+The map service is busy. Try again later.	Der Kartendienst ist überlastet. Versuchen Sie es später.
+Timetable	Fahrplan
+Walk {0} m	Fußweg {0} m
+cancelled	ausgefallen
+direct	direkt
+platform {0}	Gleis {0}
+{0} transfers	Umstiege: {0}
+The request is too large – the image or the conversation is too big. Start a new conversation or continue without the image.	Die Anfrage ist zu groß – das Bild oder die Unterhaltung ist zu umfangreich. Beginnen Sie eine neue Unterhaltung oder fahren Sie ohne das Bild fort.
+This action requires confirmation on the computer	Diese Aktion muss am Computer bestätigt werden
+The request was stopped.	Die Anfrage wurde gestoppt.
+Another request is still running. Wait for it to finish or cancel it.	Eine andere Anfrage läuft noch. Warten Sie, bis sie fertig ist, oder brechen Sie sie ab.
+You are not signed in to LuxAI. Sign in in the LuxAI app on the computer.	Sie sind nicht bei LuxAI angemeldet. Melden Sie sich in der LuxAI-App auf dem Computer an.
+Calendar events	Kalendertermine
+New calendar event	Neuer Kalendertermin
+Change calendar event	Kalendertermin ändern
+Delete calendar event	Kalendertermin löschen
+Adds an event to your LuxOS Calendar	Fügt Ihrem LuxOS-Kalender einen Termin hinzu
+Changes an event in your LuxOS Calendar	Ändert einen Termin in Ihrem LuxOS-Kalender
+Deletes an event from your LuxOS Calendar	Löscht einen Termin aus Ihrem LuxOS-Kalender
+Monday	Montag
+Tuesday	Dienstag
+Wednesday	Mittwoch
+Thursday	Donnerstag
+Friday	Freitag
+Saturday	Samstag
+Sunday	Sonntag
+all day	ganztägig
+Location: {0}	Ort: {0}
+Reminder: {0} min before	Erinnerung: {0} Min. vorher
+Calendar: {0}	Kalender: {0}
+Events: {0}	Termine: {0}
+No events in this period.	In diesem Zeitraum gibt es keine Termine.
+… and {0} more	… und {0} weitere
+Before:	Vorher:
+After:	Nachher:
+Repeating event – the change applies to all its occurrences.	Wiederkehrender Termin – die Änderung gilt für alle Vorkommen.
+Added to the calendar.	Zum Kalender hinzugefügt.
+Changed in the calendar.	Im Kalender geändert.
+Deleted from the calendar.	Aus dem Kalender gelöscht.
+Done.	Fertig.
+Denied on the phone.	Auf dem Telefon abgelehnt.
+Not approved on the phone in time.	Nicht rechtzeitig auf dem Telefon bestätigt.
+Blocked by LuxAI safety rules.	Von den LuxAI-Sicherheitsregeln blockiert.
+This model is not available in LuxAI.	Dieses Modell ist in LuxAI nicht verfügbar.

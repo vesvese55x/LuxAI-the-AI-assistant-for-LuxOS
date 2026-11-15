@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "command": "tools/test-lsl.sh",
+  "tests": 110,
+  "compiler": "0.10.8",
+  "verified_at": "2026-11-05T19:55:42.902378+00:00",
+  "source_sha256": "ab3b4080ce38961184a13c8bbc85226dc94bc10583261f9eddc02fb4a73c23a7"
+}

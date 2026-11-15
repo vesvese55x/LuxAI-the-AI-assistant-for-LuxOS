@@ -1,0 +1,461 @@
+# LuxAI hesap penceresi cevirileri (hu) - BELGESELSEMO
+(empty file)	(üres fájl)
+(empty)	(üres)
+(no output)	(nincs kimenet)
+AI assistant that can work with your computer	AI-asszisztens, amely tud dolgozni a számítógépeden · A BELGESELSEMO készítette az eredeti LuxOS disztribúcióból a Z.AI segítségével, Linux és Windows csomagként · https://belgeselsemo.com.tr
+About LuxAI	A LuxAI névjegye
+Accesses private keys or passwords	Privát kulcsokhoz vagy jelszavakhoz fér hozzá
+Accesses the LuxAI account token	A LuxAI-fiók tokenjéhez fér hozzá
+Agent	Ügynök
+Agent actions run without asking. Dangerous actions still need two confirmations. Resets when LuxAI restarts.	Az ügynök műveletei kérdés nélkül futnak. A veszélyes műveletekhez továbbra is két megerősítés kell. A LuxAI újraindításakor kikapcsol.
+Agent mode · Auto-approve is ON: actions run without asking (dangerous ones still ask twice).	Ügynök mód · Az automatikus jóváhagyás BE van kapcsolva: a műveletek kérdés nélkül futnak (a veszélyesek továbbra is kétszer kérdeznek).
+Agent mode · LuxAI can work with your computer. You approve every action that changes something.	Ügynök mód · A LuxAI tud dolgozni a számítógépeden. Minden olyan műveletet te hagysz jóvá, amely valamit módosít.
+Agent mode: I can run commands, manage files, open apps and control the mouse and keyboard – always with your approval.	Ügynök mód: tudok parancsokat futtatni, fájlokat kezelni, appokat megnyitni, valamint vezérelni az egeret és a billentyűzetet – mindig a jóváhagyásoddal.
+Allow LuxAI to do this?	Engedélyezed ezt a LuxAI-nak?
+Allow once	Engedélyezés egyszer
+Allow once…	Engedélyezés egyszer…
+Always for this session	Mindig ebben a munkamenetben
+Another conversation is already running on this account. Try again in a moment.	Ezen a fiókon már fut egy másik beszélgetés. Próbáld újra egy kicsit később.
+Are you sure? This can cause damage that cannot be undone.	Biztos vagy benne? Ez visszafordíthatatlan kárt okozhat.
+Arguments	Argumentumok
+Ask LuxAI to do something on your computer…	Kérd meg a LuxAI-t, hogy tegyen valamit a számítógépeden…
+Ask anything. Switch to Agent mode when you want me to do things on your computer.	Kérdezz bármit. Ha azt szeretnéd, hogy tegyek valamit a számítógépeden, válts Ügynök módra.
+Attach screenshots for the current model. Turn on only if the model supports images; uses more tokens.	Képernyőképek csatolása az aktuális modellhez. Csak akkor kapcsold be, ha a modell támogatja a képeket; több tokent használ.
+Auto-approve actions	Műveletek automatikus jóváhagyása
+Blocked by safety rules	A biztonsági szabályok letiltották
+Brainstorm	Ötletelés
+CONVERSATIONS	BESZÉLGETÉSEK
+Cancel	Mégse
+Changes immutable file attributes	Módosítja a fájlok nem módosítható attribútumait
+Changes permissions of the whole home folder or system	Módosítja a teljes saját mappa vagy a rendszer jogosultságait
+Changes user accounts or passwords	Felhasználói fiókokat vagy jelszavakat módosít
+Chat	Csevegés
+Chat with AI or let it work with your computer. Sign in with your LuxAI account – one account for all LuxOS apps.	Csevegj az AI-jal, vagy hagyd, hogy dolgozzon a számítógépeden. Jelentkezz be a LuxAI-fiókoddal – egy fiók az összes LuxOS apphoz.
+Click	Kattintás
+Close window	Ablak bezárása
+Command timeout (seconds)	Parancs időkorlátja (másodperc)
+Copied	Másolva
+Copy	Másolás
+Create a free account	Ingyenes fiók létrehozása
+Create folder	Mappa létrehozása
+Delete	Törlés
+Delete conversation	Beszélgetés törlése
+Delete this conversation?	Törlöd ezt a beszélgetést?
+Deletes all scheduled tasks	Törli az összes ütemezett feladatot
+Deletes all untracked files in the repository	Törli a tároló összes nem követett fájlját
+Deletes files across the whole home folder or system	Fájlokat töröl a teljes saját mappában vagy a rendszerben
+Deletes the whole home folder or system	Törli a teljes saját mappát vagy a rendszert
+Denied	Elutasítva
+Deny	Elutasítás
+Details	Részletek
+Done	Kész
+Edit file	Fájl szerkesztése
+Ends your desktop session	Befejezi az asztali munkamenetedet
+Explain how HTTPS keeps my connection private, in simple terms.	Magyarázd el egyszerűen, hogyan védi a HTTPS a kapcsolatom adatait.
+Explain something	Magyarázz el valamit
+Failed	Sikertelen
+Find files	Fájlok keresése
+Finish signing in in the LuxAI account window…	Fejezd be a bejelentkezést a LuxAI-fiók ablakában…
+Flash – smarter	Flash – okosabb
+Focus window	Ablak előtérbe hozása
+Force-pushes and may overwrite remote history	Kényszerített push, felülírhatja a távoli előzményeket
+Fork bomb	Fork-bomba
+Formats or wipes a disk	Lemezt formáz vagy töröl
+Free disk space	Szabad lemezterület
+Give me 5 ideas for a weekend trip in the Czech Republic.	Adj 5 ötletet egy hétvégi kirándulásra Magyarországon.
+Help with code	Segítség kóddal
+How can I help you today?	Miben segíthetek ma?
+How do I read a JSON file in Python? Show a short example.	Hogyan olvasok be egy JSON-fájlt Pythonban? Mutass egy rövid példát.
+It will be permanently removed from this computer.	Véglegesen törlődik erről a számítógépről.
+Kills all processes or the desktop session	Leállítja az összes folyamatot vagy az asztali munkamenetet
+List apps	Appok listázása
+List folder	Mappa tartalma
+List the files in my Downloads folder grouped by type and suggest what to clean up.	Listázd a Letöltések mappámban lévő fájlokat típus szerint csoportosítva, és javasold, mit takarítsak ki.
+List windows	Ablakok listázása
+Lite – faster, larger limit	Lite – gyorsabb, nagyobb keret
+Look at my screen	Nézd meg a képernyőmet
+LuxAI account credentials are never read or changed by the agent	Az ügynök soha nem olvassa és nem módosítja a LuxAI-fiók hitelesítő adatait
+LuxAI account…	LuxAI-fiók…
+LuxAI can make mistakes. Check important information.	A LuxAI tévedhet. Ellenőrizd a fontos információkat.
+LuxAI can work with your computer using tools, with your approval	A LuxAI a jóváhagyásoddal eszközök segítségével dolgozhat a számítógépeden
+Message LuxAI…	Üzenet a LuxAI-nak…
+Model	Modell
+Model can see images	A modell látja a képeket
+Move	Áthelyezés
+Move mouse	Egér mozgatása
+Moves the whole home folder or system	Áthelyezi a teljes saját mappát vagy a rendszert
+Network error: {0}	Hálózati hiba: {0}
+New chat	Új csevegés
+New conversation	Új beszélgetés
+No conversations yet	Még nincsenek beszélgetések
+No result	Nincs eredmény
+No windows	Nincsenek ablakok
+Not signed in	Nincs bejelentkezve
+Not signed in.	Nincs bejelentkezve.
+Nothing found	Nincs találat
+Notification	Értesítés
+Offline – usage not available	Offline – a használati adatok nem érhetők el
+Open a website	Weboldal megnyitása
+Open app	App megnyitása
+Open link	Hivatkozás megnyitása
+Open lux-ai.cz in the web browser.	Nyisd meg a lux-ai.cz oldalt a webböngészőben.
+Overwrites system files	Rendszerfájlokat ír felül
+Plain conversation, no access to your computer	Egyszerű beszélgetés, a számítógépedhez való hozzáférés nélkül
+Please sign in again to continue. Your conversations are kept on this computer.	A folytatáshoz jelentkezz be újra. A beszélgetéseid ezen a számítógépen maradnak.
+Potentially dangerous action	Potenciálisan veszélyes művelet
+Press keys	Billentyűk lenyomása
+Read clipboard	Vágólap olvasása
+Read file	Fájl olvasása
+Recursively deletes a main personal folder	Rekurzívan töröl egy fő személyes mappát
+Recursively deletes files outside your home folder	Rekurzívan töröl fájlokat a saját mappádon kívül
+Refusing to modify the root or home directory itself	Magát a gyökér- vagy saját könyvtárat nem lehet módosítani
+Removes firewall rules	Tűzfalszabályokat távolít el
+Removes installed system packages	Telepített rendszercsomagokat távolít el
+Result	Eredmény
+Run command	Parancs futtatása
+Running…	Folyamatban…
+Runs a script downloaded from the internet	Az internetről letöltött szkriptet futtat
+Runs with administrator privileges	Rendszergazdai jogosultságokkal fut
+Screenshot	Képernyőkép
+Scroll	Görgetés
+Search conversations	Keresés a beszélgetésekben
+Search text	Szöveg keresése
+Searches the whole system	A teljes rendszerben keres
+Send (Enter)	Küldés (Enter)
+Session expired	A munkamenet lejárt
+Settings	Beállítások
+Show or hide the sidebar	Oldalsáv megjelenítése vagy elrejtése
+Shuts down or restarts the computer	Leállítja vagy újraindítja a számítógépet
+Sign in	Bejelentkezés
+Sign in again	Bejelentkezés újra
+Sign in to continue this conversation.	A beszélgetés folytatásához jelentkezz be.
+Sign in with LuxAI account	Bejelentkezés LuxAI-fiókkal
+Stop	Leállítás
+Stop the answer and any running command (Esc)	A válasz és a futó parancs leállítása (Esc)
+Stopped	Leállítva
+Stopped after too many steps. Send a message to continue.	Túl sok lépés után leállt. A folytatáshoz küldj egy üzenetet.
+Stopped.	Leállítva.
+Stopping…	Leállítás…
+System info	Rendszerinformáció
+Take a screenshot and tell me which windows are open.	Készíts egy képernyőképet, és mondd meg, mely ablakok vannak megnyitva.
+The LuxAI API endpoint was not found on the server.	A LuxAI API végpontja nem található a szerveren.
+The LuxAI service is not available right now.	A LuxAI szolgáltatás most nem érhető el.
+The LuxOS account tool (luxos-account) is not installed.	A LuxOS fiókkezelő eszköze (luxos-account) nincs telepítve.
+The answer was cut off (length limit).	A válasz csonka lett (hosszkorlát).
+The file is run automatically at login	A fájl bejelentkezéskor automatikusan lefut
+The key combination may end your session	A billentyűkombináció befejezheti a munkamenetedet
+The model failed: {0}	A modell hibát adott: {0}
+The monthly Flash limit is used up. Switch to Lite or wait for the next month.	A havi Flash-keret elfogyott. Válts Lite-ra, vagy várj a következő hónapig.
+The monthly Lite limit is used up.	A havi Lite-keret elfogyott.
+The path is outside your home folder (system files)	Az elérési út a saját mappádon kívül van (rendszerfájlok)
+The path may contain passwords or keys	Az elérési út jelszavakat vagy kulcsokat tartalmazhat
+The server did not respond in time.	A szerver nem válaszolt időben.
+The server rejected the request (invalid chat).	A szerver elutasította a kérést (érvénytelen csevegés).
+The server returned a web page instead of an API response (HTTP {0}).	A szerver API-válasz helyett weboldalt küldött vissza (HTTP {0}).
+The server returned an invalid response (HTTP {0}).	A szerver érvénytelen választ küldött (HTTP {0}).
+The server's web protection blocked the request (HTTP {0}).	A szerver webes védelme letiltotta a kérést (HTTP {0}).
+Thinking…	Gondolkodás…
+This may access private data	Ez privát adatokhoz férhet hozzá
+Tidy up Downloads	A Letöltések rendbetétele
+Too many requests. Please wait a moment.	Túl sok kérés. Várj egy kicsit.
+Type text	Szöveg begépelése
+Types a dangerous command	Veszélyes parancsot gépel be
+Unsupported URL type	Nem támogatott URL-típus
+Waiting for your approval	Jóváhagyásodra vár
+Welcome to LuxAI	Üdv a LuxAI-ban!
+What is using the most disk space in my home folder?	Mi foglalja a legtöbb helyet a saját mappámban?
+Working folder	Munkamappa
+Write a short, friendly email inviting my team to a Friday lunch.	Írj egy rövid, barátságos e-mailt, amelyben meghívom a csapatomat egy pénteki ebédre.
+Write a text	Írj egy szöveget
+Write file	Fájl írása
+Writes directly to a disk device	Közvetlenül lemezeszközre ír
+Yes, run it	Igen, futtasd
+Your LuxAI session has expired or is not valid. Please sign in again.	A LuxAI-munkameneted lejárt vagy érvénytelen. Jelentkezz be újra.
+Your session has expired	A munkameneted lejárt
+code	kód
+folder	mappa
+no images	nincsenek képek
+sees images	látja a képeket
+{0} open windows	Megnyitott ablakok: {0}
+{0}: {1} / {2} tokens this month	{0}: {1} / {2} token ebben a hónapban
+{0}: {1} tokens this month	{0}: {1} token ebben a hónapban
+{0}: {1} tokens this month · unlimited	{0}: {1} token ebben a hónapban · korlátlan
+You denied this action.	Elutasítottad ezt a műveletet.
+Stopped before running.	Leállítva a futtatás előtt.
+AI behaviour	AI viselkedése
+Accesses LuxAI settings (including agent permissions)	A LuxAI beállításaihoz fér hozzá (az ügynök jogosultságait is beleértve)
+Account and settings	Fiók és beállítások
+Add	Hozzáadás
+Add folder…	Mappa hozzáadása…
+Added to every conversation. They cannot give the agent more permissions than set in Agent permissions.	Minden beszélgetéshez hozzáadódnak. Nem adhatnak az ügynöknek több jogosultságot, mint amennyi az Ügynök jogosultságai alatt be van állítva.
+After the first answer the fast Lite model suggests a short title. You can rename a conversation any time (right-click it in the sidebar).	Az első válasz után a gyors Lite modell rövid címet javasol. A beszélgetéseket bármikor átnevezheted (kattints rájuk jobb gombbal az oldalsávban).
+Agent permissions	Ügynök jogosultságai
+All saved conversations will be permanently removed from this computer.	Az összes mentett beszélgetés véglegesen törlődik erről a számítógépről.
+Allow	Engedélyezés
+Allow without asking	Engedélyezés kérdés nélkül
+Allowed folders	Engedélyezett mappák
+Always ask	Mindig kérdezzen
+Answer length	Válasz hossza
+Answers	Válaszok
+Appearance	Megjelenés
+Application	Alkalmazás
+Ask only for risky commands	Csak kockázatos parancsoknál kérdezzen
+Attach screenshots in Agent mode. Turn on only if the model supports images.	Képernyőképek csatolása Ügynök módban. Csak akkor kapcsold be, ha a modell támogatja a képeket.
+Balanced	Kiegyensúlyozott
+Blocked folders	Tiltott mappák
+Changing files is turned off in LuxAI settings	A fájlok módosítása ki van kapcsolva a LuxAI beállításaiban
+Clear all history…	Teljes előzmények törlése…
+Clicking, typing, pressing keys and closing windows.	Kattintás, gépelés, billentyűk lenyomása és ablakok bezárása.
+Commands	Parancsok
+Concise	Tömör
+Control mouse and keyboard	Egér és billentyűzet vezérlése
+Conversation	Beszélgetés
+Conversations	Beszélgetések
+Creating, editing, moving and deleting files and folders.	Fájlok és mappák létrehozása, szerkesztése, áthelyezése és törlése.
+Creativity (temperature)	Kreativitás (hőmérséklet)
+Ctrl+Enter (Enter for a new line)	Ctrl+Enter (Enter: új sor)
+Custom instructions	Egyéni utasítások
+Dangerous actions (deleting your home folder, formatting disks, shutting down …) always need two confirmations, and LuxAI never touches its account and settings files. "Always ask" still offers "Always for this session" on the approval card.	A veszélyes műveletekhez (a saját mappa törlése, lemezek formázása, leállítás …) mindig két megerősítés kell, és a LuxAI soha nem nyúl a saját fiók- és beállításfájljaihoz. A „Mindig kérdezzen” esetén a jóváhagyási kártya továbbra is felkínálja a „Mindig ebben a munkamenetben” lehetőséget.
+Dark	Sötét
+Data on this computer	Adatok ezen a számítógépen
+Default model	Alapértelmezett modell
+Delete all	Összes törlése
+Delete all conversations?	Törlöd az összes beszélgetést?
+Delete screenshots	Képernyőképek törlése
+Detailed	Részletes
+Enter (Shift+Enter for a new line)	Enter (Shift+Enter: új sor)
+Folders	Mappák
+Friendly	Barátságos
+General	Általános
+History	Előzmények
+History is turned off	Az előzmények ki vannak kapcsolva
+If you add folders here, the agent can work with files only inside them. Empty = anywhere (system files need extra confirmation).	Ha itt mappákat adsz hozzá, az ügynök csak a bennük lévő fájlokkal dolgozhat. Üres = bárhol (a rendszerfájlokhoz további megerősítés kell).
+Keep conversation history	Beszélgetési előzmények megőrzése
+Keyboard shortcuts	Billentyűparancsok
+Language	Nyelv
+Light	Világos
+Limits from Settings › Agent permissions apply.	A Beállítások › Ügynök jogosultságai alatti korlátozások érvényesek.
+Long	Hosszú
+Long-running commands are stopped after this time.	A sokáig futó parancsok ennyi idő után leállnak.
+LuxAI also remembers the mode you used last.	A LuxAI a legutóbb használt módot is megjegyzi.
+LuxAI answered	A LuxAI válaszolt
+LuxAI needs your approval	A LuxAI a jóváhagyásodra vár
+Manage account	Fiók kezelése
+Maximum length of one answer. Agent mode always keeps enough room for its tools.	Egy válasz maximális hossza. Ügynök módban mindig marad elég hely az eszközök számára.
+Messages	Üzenetek
+Mode for new conversations	Új beszélgetések módja
+Mouse and keyboard control is turned off in LuxAI settings	Az egér és a billentyűzet vezérlése ki van kapcsolva a LuxAI beállításaiban
+Name	Név
+Name conversations automatically	Beszélgetések automatikus elnevezése
+Network access	Hálózati hozzáférés
+Network access is turned off in LuxAI settings	A hálózati hozzáférés ki van kapcsolva a LuxAI beállításaiban
+Never	Soha
+New line	Új sor
+No folders	Nincsenek mappák
+Normal	Normál
+Notifications	Értesítések
+Notify me when LuxAI finishes an answer or needs my approval while the window is in the background.	Értesítés, ha a LuxAI befejez egy választ vagy jóváhagyásra vár, miközben az ablak a háttérben van.
+Off = the model's default. Lower is more precise, higher more creative. Applied only if the model supports it.	Ki = a modell alapértéke. Alacsonyabb érték pontosabb, magasabb kreatívabb. Csak akkor érvényes, ha a modell támogatja.
+Open apps and links	Appok és hivatkozások megnyitása
+Opening apps and links is turned off in LuxAI settings	Az appok és hivatkozások megnyitása ki van kapcsolva a LuxAI beállításaiban
+Opening web links, downloads and network tools (curl, git clone, package installs). Detected from the command – for strict isolation also set Run commands to Never.	Webes hivatkozások megnyitása, letöltések és hálózati eszközök (curl, git clone, csomagtelepítés). A parancsból ismeri fel – szigorú elszigeteléshez a Parancsok futtatása beállítást is állítsd Soha értékre.
+Privacy & history	Adatvédelem és előzmények
+Private files (keys, passwords, .env) always need your confirmation.	A privát fájlokhoz (kulcsok, jelszavak, .env) mindig a megerősítésed kell.
+Quit	Kilépés
+Read files	Fájlok olvasása
+Reading files is turned off in LuxAI settings	A fájlok olvasása ki van kapcsolva a LuxAI beállításaiban
+Relative paths and commands start here.	A relatív elérési utak és a parancsok innen indulnak.
+Remove	Eltávolítás
+Rename	Átnevezés
+Rename conversation	Beszélgetés átnevezése
+Rename…	Átnevezés…
+Response style	Válaszstílus
+Run commands	Parancsok futtatása
+Running commands is turned off in LuxAI settings	A parancsok futtatása ki van kapcsolva a LuxAI beállításaiban
+Same as my message	Ugyanaz, mint az üzenetemé
+Same as system	A rendszer szerint
+Saved conversations	Mentett beszélgetések
+Screenshots	Képernyőképek
+Screenshots and clipboard	Képernyőképek és vágólap
+Screenshots and clipboard are turned off in LuxAI settings	A képernyőképek és a vágólap ki vannak kapcsolva a LuxAI beállításaiban
+Screenshots taken by the agent	Az ügynök által készített képernyőképek
+Send message	Üzenet küldése
+Send message with	Üzenet küldése ezzel:
+Sends what is on your screen or in the clipboard to the model.	A képernyő vagy a vágólap tartalmát elküldi a modellnek.
+Settings file	Beállításfájl
+Settings…	Beállítások…
+Shell commands are checked for blocked folders in their paths, but a command cannot be fully confined. Set Run commands to Never for strict folder limits.	A shellparancsok elérési útjait a rendszer ellenőrzi a tiltott mappák szempontjából, de egy parancs nem korlátozható teljesen. Szigorú mappakorlátozáshoz állítsd a Parancsok futtatása beállítást Soha értékre.
+Short	Rövid
+Sign in with your LuxAI account to chat.	A csevegéshez jelentkezz be a LuxAI-fiókoddal.
+Sign out	Kijelentkezés
+Sign out of LuxAI?	Kijelentkezel a LuxAI-ból?
+Sign out…	Kijelentkezés…
+Signing out failed. Try again in the LuxAI account app.	A kijelentkezés nem sikerült. Próbáld újra a LuxAI-fiók appban.
+Start	Indítás
+Stop the answer or command	A válasz vagy a parancs leállítása
+Technical	Technikai
+The agent never reads or changes anything in these folders.	Az ügynök ezekben a mappákban soha nem olvas és nem módosít semmit.
+The folder is blocked in LuxAI settings	A mappa tiltva van a LuxAI beállításaiban
+The path is outside the folders allowed in LuxAI settings	Az elérési út kívül esik a LuxAI beállításaiban engedélyezett mappákon
+Theme	Téma
+Used for new conversations. You can switch it any time in the toolbar.	Az új beszélgetésekhez használatos. Az eszköztáron bármikor átválthatod.
+Uses the network	Hálózatot használ
+What Agent mode may do	Mit tehet az Ügynök mód
+What should LuxAI know about you or how should it answer? E.g. "Call me Tom. Prefer metric units and short answers."	Mit tudjon rólad a LuxAI, és hogyan válaszoljon? Pl. „Szólíts Tominak. A metrikus mértékegységeket és a rövid válaszokat szeretem.”
+When off, new conversations are not saved on this computer and disappear when you close them.	Kikapcsolt állapotban az új beszélgetések nem mentődnek erre a számítógépre, és bezáráskor eltűnnek.
+With "risky only", read-only commands such as ls, df or git status run without asking.	„Csak kockázatos parancsoknál” beállítás esetén a csak olvasó parancsok, például az ls, a df vagy a git status, kérdés nélkül futnak.
+Write and delete files	Fájlok írása és törlése
+You will be signed out of your LuxAI account in all LuxOS apps on this computer. Your conversations stay on this computer.	Ki leszel jelentkeztetve a LuxAI-fiókodból a számítógép összes LuxOS appjában. A beszélgetéseid ezen a számítógépen maradnak.
+Your messages are sent to the LuxAI service (lux-ai.cz) to generate answers and titles. The agent runs tools only on this computer.	Az üzeneteid a válaszok és címek előállításához a LuxAI szolgáltatáshoz (lux-ai.cz) kerülnek. Az ügynök eszközei csak ezen a számítógépen futnak.
+{0} can see images	A(z) {0} látja a képeket
+{0} conversations saved	Mentett beszélgetések: {0}
+{0} screenshots	Képernyőképek: {0}
+(preview not available)	(előnézet nem érhető el)
+Bug report	Hibabejelentés
+Contact e-mail for a reply: {0}	Kapcsolattartási e-mail a válaszhoz: {0}
+Don't send	Ne küldje el
+Idea	Ötlet
+LuxOS could not reach the server. Check the internet connection.	A LuxOS nem érte el a szervert. Ellenőrizd az internetkapcsolatot.
+No graphical session; the report is sent without a screenshot.	Nincs grafikus munkamenet; a bejelentés képernyőkép nélkül lesz elküldve.
+No screenshot will be attached.	Nem lesz képernyőkép csatolva.
+No system information will be attached.	Nem lesznek rendszeradatok csatolva.
+Report sent. Report ID: {0}	Bejelentés elküldve. Bejelentés azonosítója: {0}
+Report text:	A bejelentés szövege:
+Report to LuxOS	Bejelentés a LuxOS-nek
+Search LuxOS docs	Keresés a LuxOS dokumentációban
+Read LuxOS docs	LuxOS dokumentáció olvasása
+Save and send later	Mentés és küldés később
+Saved. The Feedback app will send the report when you are online.	Mentve. A Visszajelzés alkalmazás elküldi a bejelentést, amikor online leszel.
+Screenshot that will be attached ({0} kB)	Csatolandó képernyőkép ({0} kB)
+Screenshots are turned off in LuxAI settings; the report is sent without one.	A képernyőképek ki vannak kapcsolva a LuxAI beállításaiban; a bejelentés nélküle lesz elküldve.
+Send report	Bejelentés küldése
+Send this report to the author of LuxOS?	Elküldöd ezt a bejelentést a LuxOS szerzőjének?
+Sending failed ({0}).	A küldés sikertelen ({0}).
+Sends the report and attachments shown in this card to the author of LuxOS	Elküldi a LuxOS szerzőjének az ezen a kártyán látható bejelentést és mellékleteket
+Sent anonymously (you are not signed in).	Névtelenül lesz elküldve (nem vagy bejelentkezve).
+Sent with your LuxAI account.	A LuxAI-fiókoddal lesz elküldve.
+Something else	Egyéb
+System information that will be attached (anonymised)	Csatolandó rendszeradatok (anonimizálva)
+The e-mail address does not look valid.	Az e-mail-cím nem tűnik érvényesnek.
+The message must have 10 to 8000 characters.	Az üzenet 10–8000 karakter hosszú lehet.
+The report could not be prepared.	A bejelentést nem sikerült előkészíteni.
+The report could not be saved: {0}	A bejelentést nem sikerült menteni: {0}
+The report is too large. Try it without the screenshot.	A bejelentés túl nagy. Próbáld képernyőkép nélkül.
+The screenshot could not be accepted. Try it without the screenshot.	A képernyőkép nem fogadható el. Próbáld nélküle.
+The screenshot could not be taken ({0}); the report is sent without one.	Nem sikerült képernyőképet készíteni ({0}); a bejelentés nélküle lesz elküldve.
+The screenshot is too large; the report is sent without one.	A képernyőkép túl nagy; a bejelentés nélküle lesz elküldve.
+Type:	Típus:
+You can save the report; the Feedback app will send it automatically later.	Elmentheted a bejelentést; a Visszajelzés alkalmazás később automatikusan elküldi.
+You have sent many reports in a short time. Please try again later.	Rövid idő alatt sok bejelentést küldtél. Próbáld újra később.
+At most {0} attachments can be added to one message.	Egy üzenethez legfeljebb {0} melléklet csatolható.
+At most {0} images can be added to one message.	Egy üzenethez legfeljebb {0} kép csatolható.
+Attach	Csatolás
+Attach images or files	Képek vagy fájlok csatolása
+Feeds a password to sudo or su (use pkexec instead)	Jelszót ad át a sudo vagy su parancsnak (használja a pkexec-et)
+Pasted image	Beillesztett kép
+Remove attachment	Melléklet eltávolítása
+The current model cannot see images. They stay in the conversation and are sent when you switch to a model that can see images.	A jelenlegi modell nem látja a képeket. A beszélgetésben maradnak, és elküldjük őket, ha képeket látó modellre vált.
+{0} cannot be attached: only images and text files are supported.	{0} nem csatolható: csak képek és szöveges fájlok támogatottak.
+{0} cannot be read as an image.	{0} nem olvasható be képként.
+{0} cannot be read: {1}	{0} nem olvasható: {1}
+{0} is long; only its beginning is attached.	{0} hosszú; csak az eleje lesz csatolva.
+{0} is too large to attach.	{0} túl nagy a csatoláshoz.
+Administrator commands	Rendszergazdai parancsok
+Administrator mode was not turned on	A rendszergazdai mód nem kapcsolódott be
+Ask for the password every time	Minden alkalommal kérje a jelszót
+Password once for 5 minutes, approve each command	Jelszó egyszer 5 percre, minden parancs jóváhagyása
+Password once for 5 minutes, without asking	Jelszó egyszer 5 percre, kérdezés nélkül
+Commands the agent runs as administrator (root). Administrator mode: you enter the administrator password once and for about 5 minutes LuxAI runs administrator commands without asking for it again; only this LuxAI window gets it, other programs still need the password. Requests sent to LuxAI by other programs always need your approval. Only with the Flash model; Lite always asks for the password. Destructive commands (deleting the system or home folder, formatting disks, removing the bootloader, changing accounts, sudo or polkit) are always refused. Every command is logged in ~/.local/state/luxai/root-commands.log.	Parancsok, amelyeket az ügynök rendszergazdaként (root) futtat. Rendszergazda mód: a rendszergazdai jelszót egyszer adja meg, és utána körülbelül 5 percig a LuxAI újbóli kérés nélkül futtatja a rendszergazdai parancsokat; ez csak erre a LuxAI-ablakra érvényes, más programoknak továbbra is kell a jelszó. A más programok által a LuxAI-nak küldött kérésekhez mindig az Ön jóváhagyása kell. Csak a Flash modellel; a Lite mindig kéri a jelszót. A romboló parancsokat (a rendszer vagy a saját mappa törlése, lemezek formázása, a rendszerbetöltő eltávolítása, fiókok módosítása, sudo vagy polkit) mindig elutasítja. Minden parancs bekerül ide: ~/.local/state/luxai/root-commands.log.
+The request came from another program, not from the LuxAI window	A kérést egy másik program küldte, nem a LuxAI ablaka
+Changes LuxAI administrator mode, settings or account	Módosítja a LuxAI rendszergazdai módját, beállításait vagy fiókját
+Changes owner or permissions of the whole system or a system folder	Az egész rendszer vagy egy rendszermappa tulajdonosát vagy jogosultságait módosítja
+Changes sudo, polkit or PAM configuration	Módosítja a sudo, a polkit vagy a PAM beállításait
+Crashes or instantly reboots the kernel	Összeomlasztja vagy azonnal újraindítja a kernelt
+Deletes the whole system, a system folder or a home folder	Törli az egész rendszert, egy rendszermappát vagy egy saját mappát
+Disables package signature checks	Kikapcsolja a csomagaláírások ellenőrzését
+Formats, wipes or writes directly to a disk	Formáz, töröl vagy közvetlenül lemezre ír
+LuxAI administrator mode is not installed (update LuxAI)	A LuxAI rendszergazdai módja nincs telepítve (frissítse a LuxAI-t)
+Removes the bootloader, the EFI partition, kernels or core system packages	Eltávolítja a rendszerbetöltőt, az EFI-partíciót, a kerneleket vagy alapvető rendszercsomagokat
+Runs a script downloaded from the internet as administrator	Az internetről letöltött szkriptet futtat rendszergazdaként
+Runs as administrator (root)	Rendszergazdaként (root) fut
+Runs generated or hidden code as administrator, which cannot be checked	Rendszergazdaként futtat generált vagy rejtett kódot, amely nem ellenőrizhető
+The administrator password was not entered	A rendszergazdai jelszót nem adta meg
+The target of a destructive command cannot be verified (variable, substitution or unknown folder)	Egy romboló parancs célja nem ellenőrizhető (változó, behelyettesítés vagy ismeretlen mappa)
+Installs community (AUR) code, which is not checked by LuxOS	Közösségi (AUR) kódot telepít, amelyet a LuxOS nem ellenőriz
+Copy code	Kód másolása
+Copy the whole answer	A teljes válasz másolása
+Read web page	Weboldal olvasása
+Search the web	Keresés a weben
+Web content is in this conversation and may contain hidden instructions	A beszélgetésben webes tartalom van, amely rejtett utasításokat tartalmazhat
+Web content is in this conversation: check this command carefully	A beszélgetésben webes tartalom van: gondosan ellenőrizze ezt a parancsot
+{0} characters of text	{0} karakternyi szöveg
+LuxAI wants to open this web address:	A LuxAI meg szeretné nyitni ezt a webcímet:
+This address was not given by you or found by web search; it could send data from this conversation to that website	Ezt a címet nem Ön adta meg, és nem a webes keresés találta; adatokat küldhet ebből a beszélgetésből arra a webhelyre
+Address of a point	Pont címe
+Arrivals	Érkezések
+By bike	Kerékpárral
+By car	Autóval
+Connections found: {0}	Talált járatok: {0}
+Current location	Jelenlegi hely
+Departures	Indulások
+Find on map	Keresés a térképen
+Location is not allowed. Open Maps and click the location button once to allow it.	A helymeghatározás nincs engedélyezve. Nyissa meg a Térképet, és kattintson egyszer a hely gombra.
+LuxOS Maps is not installed (lux install luxos-maps).	A LuxOS Térkép nincs telepítve (lux install luxos-maps).
+Map data © OpenStreetMap contributors	Térképadatok © OpenStreetMap közreműködők
+No connection found	Nem található járat
+On foot	Gyalog
+Open in Maps	Megnyitás a Térképben
+Places found: {0}	Talált helyek: {0}
+Places nearby	Közeli helyek
+Public transport	Tömegközlekedés
+Public transport route	Tömegközlekedési útvonal
+Route	Útvonal
+Show in Maps	Megjelenítés a Térképben
+Shown in Maps	Megjelenítve a Térképben
+The map service is busy. Try again later.	A térképszolgáltatás túlterhelt. Próbálja később.
+Timetable	Menetrend
+Walk {0} m	Gyalog {0} m
+cancelled	törölve
+direct	közvetlen
+platform {0}	{0}. peron
+{0} transfers	átszállások: {0}
+The request is too large – the image or the conversation is too big. Start a new conversation or continue without the image.	A kérés túl nagy – a kép vagy a beszélgetés túl nagy. Kezdjen új beszélgetést, vagy folytassa a kép nélkül.
+This action requires confirmation on the computer	Ezt a műveletet a számítógépen kell megerősíteni
+The request was stopped.	A kérés leállt.
+Another request is still running. Wait for it to finish or cancel it.	Egy másik kérés még fut. Várja meg, amíg befejeződik, vagy szakítsa meg.
+You are not signed in to LuxAI. Sign in in the LuxAI app on the computer.	Nincs bejelentkezve a LuxAI-ba. Jelentkezzen be a számítógépen a LuxAI alkalmazásban.
+Calendar events	Naptáresemények
+New calendar event	Új naptáresemény
+Change calendar event	Naptáresemény módosítása
+Delete calendar event	Naptáresemény törlése
+Adds an event to your LuxOS Calendar	Eseményt ad hozzá a LuxOS Naptárhoz
+Changes an event in your LuxOS Calendar	Módosít egy eseményt a LuxOS Naptárban
+Deletes an event from your LuxOS Calendar	Töröl egy eseményt a LuxOS Naptárból
+Monday	hétfő
+Tuesday	kedd
+Wednesday	szerda
+Thursday	csütörtök
+Friday	péntek
+Saturday	szombat
+Sunday	vasárnap
+all day	egész nap
+Location: {0}	Helyszín: {0}
+Reminder: {0} min before	Emlékeztető: {0} perccel előtte
+Calendar: {0}	Naptár: {0}
+Events: {0}	Események: {0}
+No events in this period.	Ebben az időszakban nincs esemény.
+… and {0} more	… és még {0}
+Before:	Előtte:
+After:	Utána:
+Repeating event – the change applies to all its occurrences.	Ismétlődő esemény – a módosítás minden előfordulására vonatkozik.
+Added to the calendar.	Hozzáadva a naptárhoz.
+Changed in the calendar.	Módosítva a naptárban.
+Deleted from the calendar.	Törölve a naptárból.
+Done.	Kész.
+Denied on the phone.	A telefonon elutasítva.
+Not approved on the phone in time.	Nem lett időben jóváhagyva a telefonon.
+Blocked by LuxAI safety rules.	A LuxAI biztonsági szabályai letiltották.
+This model is not available in LuxAI.	Ez a modell nem érhető el a LuxAI-ban.
+Our projects	Projektjeink
+Open	Megnyitás
+Web portals, Android apps, desktop tools and a YouTube channel	Webportálok, Android-alkalmazások, asztali eszközök és egy YouTube-csatorna

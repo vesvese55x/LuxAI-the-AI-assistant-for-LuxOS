@@ -1,0 +1,14 @@
+#!/bin/sh
+# LuxAI baslatici — kenar cubugundaki "Oturumu kapat" duzeltmesini yukler.
+# (LuxOS 2.0.2 hatasi: onay penceresinin govdesi bos; luxfix.so bu isi yapar.)
+FIX=""
+for c in /usr/lib/luxai/luxfix.so "$(dirname "$0")/../lib/luxai/luxfix.so"; do
+    [ -r "$c" ] && FIX="$c" && break
+done
+BIN=""
+for c in /usr/lib/luxai/luxai-bin "$(dirname "$0")/../lib/luxai/luxai-bin"; do
+    [ -x "$c" ] && BIN="$c" && break
+done
+[ -n "$BIN" ] || { echo "luxai: /usr/lib/luxai/luxai-bin bulunamadi" >&2; exit 127; }
+[ -n "$FIX" ] && LD_PRELOAD="$FIX${LD_PRELOAD:+:$LD_PRELOAD}" && export LD_PRELOAD
+exec "$BIN" "$@"

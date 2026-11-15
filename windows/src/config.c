@@ -224,3 +224,123 @@ void msglist_clear(MsgList *l)
     free(l->v);
     l->v = NULL; l->n = l->cap = 0;
 }
+
+/* ================= OpenAI uyumlu ozel saglayicilar ================= */
+Provider g_prov[MAX_PROV];
+int g_nprov;
+int g_prov_sel = -1;
+
+static void prov_file(wchar_t *p, int cch)
+{
+    path_appdata(p, cch, L"providers.ini");
+}
+
+void prov_load(void)
+{
+    g_nprov = 0;
+    g_prov_sel = -1;
+    wchar_t p[MAX_PATH];
+    prov_file(p, MAX_PATH);
+    char *d = file_read_utf8(p);
+    if (!d) return;
+    char *line = d, *nl;
+    int sel = -1;
+    while (line && *line) {
+        nl = strchr(line, '\n');
+        if (nl) *nl = 0;
+        size_t ln = strlen(line);
+        if (ln && line[ln - 1] == '\r') line[ln - 1] = 0;
+        if (!strncmp(line, "sel=", 4)) {
+            sel = atoi(line + 4);
+        } else if (!strncmp(line, "p=", 2) && g_nprov < MAX_PROV) {
+            /* p=ad|endpoint|key|model|agent */
+            char *f = line + 2, *bar;
+            Provider *pv = &g_prov[g_nprov];
+            ZeroMemory(pv, sizeof *pv);
+            for (int i = 0; i < 5; i++) {
+                bar = strchr(f, '|');
+                if (bar) *bar = 0;
+                char *dst = i == 0 ? pv->name : i == 1 ? pv->endpoint
+                           : i == 2 ? pv->key : i == 3 ? pv->model : NULL;
+                if (dst) {
+                    size_t cap = i == 0 ? sizeof pv->name : i == 1 ? sizeof pv->endpoint
+                                 : i == 2 ? sizeof pv->key : sizeof pv->model;
+                    strncpy(dst, f, cap - 1);
+                } else {
+                    pv->agent = atoi(f);
+                }
+                if (!bar) break;
+                f = bar + 1;
+            }
+            if (pv->name[0] && pv->endpoint[0]) g_nprov++;
+        }
+        line = nl ? nl + 1 : NULL;
+    }
+    free(d);
+    if (sel >= 0 && sel < g_nprov) {
+        g_prov_sel = sel;
+        prov_apply(sel);
+    }
+}
+
+void prov_save(void)
+{
+    wchar_t p[MAX_PATH];
+    prov_file(p, MAX_PATH);
+    Buf b;
+    buf_init(&b);
+    char head[32];
+    _snprintf(head, sizeof head, "sel=%d\n", g_prov_sel);
+    buf_adds(&b, head);
+    for (int i = 0; i < g_nprov; i++) {
+        Provider *pv = &g_prov[i];
+        buf_adds(&b, "p=");
+        buf_adds(&b, pv->name);
+        buf_addc(&b, '|');
+        buf_adds(&b, pv->endpoint);
+        buf_addc(&b, '|');
+        buf_adds(&b, pv->key);
+        buf_addc(&b, '|');
+        buf_adds(&b, pv->model);
+        buf_addc(&b, '|');
+        buf_addc(&b, pv->agent ? '1' : '0');
+        buf_addc(&b, '\n');
+    }
+    file_write_utf8(p, b.p ? b.p : "", b.n);
+    buf_free(&b);
+}
+
+void prov_apply(int idx)
+{
+    if (idx < 0 || idx >= g_nprov) {
+        g_prov_sel = -1;
+        g_cfg.use_openai = 0;
+        g_cfg.api_key[0] = 0;
+        g_cfg.model_name[0] = 0;
+        strcpy(g_cfg.endpoint, "https://lux-ai.cz/api/ide/chat/completions");
+        cfg_save();
+        return;
+    }
+    Provider *pv = &g_prov[idx];
+    g_prov_sel = idx;
+    g_cfg.use_openai = 1;
+    strncpy(g_cfg.endpoint, pv->endpoint, sizeof g_cfg.endpoint - 1);
+    g_cfg.endpoint[sizeof g_cfg.endpoint - 1] = 0;
+    strncpy(g_cfg.api_key, pv->key, sizeof g_cfg.api_key - 1);
+    g_cfg.api_key[sizeof g_cfg.api_key - 1] = 0;
+    strncpy(g_cfg.model_name, pv->model, sizeof g_cfg.model_name - 1);
+    g_cfg.model_name[sizeof g_cfg.model_name - 1] = 0;
+    cfg_save();
+    prov_save();
+}
+
+const wchar_t *prov_label(int idx, wchar_t *b, size_t cch)
+{
+    b[0] = 0;
+    if (idx < 0 || idx >= g_nprov) return b;
+    wchar_t *n = u16(g_prov[idx].name);
+    wcsncpy(b, n ? n : L"", cch - 1);
+    b[cch - 1] = 0;
+    free(n);
+    return b;
+}

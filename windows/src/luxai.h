@@ -84,8 +84,28 @@ typedef struct {
     int  use_openai;         /* 1 = OpenAI uyumlu uç nokta + api key */
     char endpoint[512];      /* tam URL */
     char api_key[256];
+    char model_name[128];    /* ozel saglayicida kullanilacak model adi */
     wchar_t workdir[MAX_PATH];
 } Config;
+
+/* ---- OpenAI uyumlu ozel saglayicilar (birden fazla) ---- */
+#define MAX_PROV 8
+typedef struct {
+    char name[64];        /* kullanicinin verdigi ad */
+    char endpoint[512];   /* tam URL: .../v1/chat/completions */
+    char key[256];
+    char model[128];      /* bos ise sunucu varsayilani */
+    int  agent;           /* 1 = ajan (arac cagrilari) de kullanilabilir */
+} Provider;
+
+extern Provider g_prov[MAX_PROV];
+extern int g_nprov;      /* kayitli saglayici sayisi */
+extern int g_prov_sel;   /* -1 = LuxAI native, aksi halde 0..g_nprov-1 */
+
+void prov_load(void);
+void prov_save(void);
+void prov_apply(int idx);      /* idx < 0 -> LuxAI native */
+const wchar_t *prov_label(int idx, wchar_t *b, size_t cch);
 
 extern Config g_cfg;
 extern wchar_t g_token[1024];

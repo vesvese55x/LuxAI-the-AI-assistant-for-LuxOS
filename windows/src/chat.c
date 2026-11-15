@@ -80,7 +80,10 @@ static char *build_request(MsgList *conv, int mode)
 {
     Buf b; buf_init(&b);
     buf_adds(&b, "{\"model\":");
-    json_write_str(&b, g_cfg.model ? "lite" : "flash");
+    /* ozel saglayicida kullanicinin girdigi model adi, LuxAI native'de flash/lite */
+    json_write_str(&b, (g_cfg.use_openai && g_cfg.model_name[0])
+                          ? g_cfg.model_name
+                          : (g_cfg.model ? "lite" : "flash"));
     buf_adds(&b, ",\"stream\":true,\"max_tokens\":");
     {
         char tmp[32];

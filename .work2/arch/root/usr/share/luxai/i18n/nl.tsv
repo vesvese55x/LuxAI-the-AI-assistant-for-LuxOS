@@ -1,0 +1,460 @@
+# LuxAI - Nederlandse vertaling (Engelse tekst<TAB>Nederlandse tekst); {0}, {1}, {2} moeten behouden blijven
+(empty file)	(leeg bestand)
+(empty)	(leeg)
+(no output)	(geen uitvoer)
+AI assistant that can work with your computer	AI-assistent die met je computer kan werken · Gemaakt door BELGESELSEMO uit de originele LuxOS-distributie met hulp van Z.AI, verpakt voor Linux en Windows · https://belgeselsemo.com.tr
+About LuxAI	Over LuxAI
+Accesses private keys or passwords	Opent privésleutels of wachtwoorden
+Accesses the LuxAI account token	Opent het token van het LuxAI-account
+Agent	Agent
+Agent actions run without asking. Dangerous actions still need two confirmations. Resets when LuxAI restarts.	Acties van de agent worden uitgevoerd zonder te vragen. Gevaarlijke acties vereisen nog steeds twee bevestigingen. Wordt teruggezet als LuxAI opnieuw start.
+Agent mode · Auto-approve is ON: actions run without asking (dangerous ones still ask twice).	Agentmodus · Automatisch goedkeuren is AAN: acties worden uitgevoerd zonder te vragen (gevaarlijke acties vragen nog steeds twee keer).
+Agent mode · LuxAI can work with your computer. You approve every action that changes something.	Agentmodus · LuxAI kan met je computer werken. Je keurt elke actie goed die iets wijzigt.
+Agent mode: I can run commands, manage files, open apps and control the mouse and keyboard – always with your approval.	Agentmodus: ik kan opdrachten uitvoeren, bestanden beheren, apps openen en de muis en het toetsenbord bedienen – altijd met je toestemming.
+Allow LuxAI to do this?	LuxAI toestaan dit te doen?
+Allow once	Sta één keer toe
+Allow once…	Sta één keer toe…
+Always for this session	Altijd voor deze sessie
+Another conversation is already running on this account. Try again in a moment.	Er loopt al een ander gesprek op dit account. Probeer het zo meteen opnieuw.
+Are you sure? This can cause damage that cannot be undone.	Weet je het zeker? Dit kan schade veroorzaken die niet ongedaan kan worden gemaakt.
+Arguments	Argumenten
+Ask LuxAI to do something on your computer…	Vraag LuxAI iets te doen op je computer…
+Ask anything. Switch to Agent mode when you want me to do things on your computer.	Vraag maar raak. Schakel over naar de agentmodus als je wilt dat ik iets op je computer doe.
+Attach screenshots for the current model. Turn on only if the model supports images; uses more tokens.	Voeg schermafbeeldingen toe voor het huidige model. Schakel dit alleen in als het model afbeeldingen ondersteunt; gebruikt meer tokens.
+Auto-approve actions	Keur acties automatisch goed
+Blocked by safety rules	Geblokkeerd door veiligheidsregels
+Brainstorm	Brainstormen
+CONVERSATIONS	GESPREKKEN
+Cancel	Annuleer
+Changes immutable file attributes	Wijzigt onveranderbare bestandskenmerken
+Changes permissions of the whole home folder or system	Wijzigt de rechten van de hele thuismap of het systeem
+Changes user accounts or passwords	Wijzigt gebruikersaccounts of wachtwoorden
+Chat	Chat
+Chat with AI or let it work with your computer. Sign in with your LuxAI account – one account for all LuxOS apps.	Chat met AI of laat het met je computer werken. Log in met je LuxAI-account – één account voor alle LuxOS-apps.
+Click	Klik
+Close window	Sluit venster
+Command timeout (seconds)	Time-out voor opdrachten (seconden)
+Copied	Gekopieerd
+Copy	Kopieer
+Create a free account	Maak een gratis account aan
+Create folder	Maak map aan
+Delete	Verwijder
+Delete conversation	Verwijder gesprek
+Delete this conversation?	Dit gesprek verwijderen?
+Deletes all scheduled tasks	Verwijdert alle geplande taken
+Deletes all untracked files in the repository	Verwijdert alle niet-gevolgde bestanden in de repository
+Deletes files across the whole home folder or system	Verwijdert bestanden in de hele thuismap of het hele systeem
+Deletes the whole home folder or system	Verwijdert de hele thuismap of het hele systeem
+Denied	Geweigerd
+Deny	Weiger
+Details	Details
+Done	Klaar
+Edit file	Wijzig bestand
+Ends your desktop session	Beëindigt je bureaubladsessie
+Explain how HTTPS keeps my connection private, in simple terms.	Leg in eenvoudige woorden uit hoe HTTPS mijn verbinding privé houdt.
+Explain something	Leg iets uit
+Failed	Mislukt
+Find files	Zoek bestanden
+Finish signing in in the LuxAI account window…	Rond het inloggen af in het venster van het LuxAI-account…
+Flash – smarter	Flash – slimmer
+Focus window	Activeer venster
+Force-pushes and may overwrite remote history	Voert een force-push uit en kan de externe geschiedenis overschrijven
+Fork bomb	Forkbom
+Formats or wipes a disk	Formatteert of wist een schijf
+Free disk space	Vrije schijfruimte
+Give me 5 ideas for a weekend trip in the Czech Republic.	Geef me 5 ideeën voor een weekendje weg in Nederland.
+Help with code	Hulp bij code
+How can I help you today?	Waarmee kan ik je vandaag helpen?
+How do I read a JSON file in Python? Show a short example.	Hoe lees ik een JSON-bestand in Python? Toon een kort voorbeeld.
+It will be permanently removed from this computer.	Het wordt definitief van deze computer verwijderd.
+Kills all processes or the desktop session	Beëindigt alle processen of de bureaubladsessie
+List apps	Toon apps
+List folder	Toon inhoud van map
+List the files in my Downloads folder grouped by type and suggest what to clean up.	Toon de bestanden in mijn map Downloads gegroepeerd per type en stel voor wat ik kan opruimen.
+List windows	Toon vensters
+Lite – faster, larger limit	Lite – sneller, hogere limiet
+Look at my screen	Bekijk mijn scherm
+LuxAI account credentials are never read or changed by the agent	Inloggegevens van het LuxAI-account worden nooit door de agent gelezen of gewijzigd
+LuxAI account…	LuxAI-account…
+LuxAI can make mistakes. Check important information.	LuxAI kan fouten maken. Controleer belangrijke informatie.
+LuxAI can work with your computer using tools, with your approval	LuxAI kan met je computer werken via hulpmiddelen, met je toestemming
+Message LuxAI…	Bericht aan LuxAI…
+Model	Model
+Model can see images	Model kan afbeeldingen zien
+Move	Verplaats
+Move mouse	Beweeg muis
+Moves the whole home folder or system	Verplaatst de hele thuismap of het hele systeem
+Network error: {0}	Netwerkfout: {0}
+New chat	Nieuwe chat
+New conversation	Nieuw gesprek
+No conversations yet	Nog geen gesprekken
+No result	Geen resultaat
+No windows	Geen vensters
+Not signed in	Niet ingelogd
+Not signed in.	Niet ingelogd.
+Nothing found	Niets gevonden
+Notification	Melding
+Offline – usage not available	Offline – gebruik niet beschikbaar
+Open a website	Open een website
+Open app	Open app
+Open link	Open link
+Open lux-ai.cz in the web browser.	Open lux-ai.cz in de webbrowser.
+Overwrites system files	Overschrijft systeembestanden
+Plain conversation, no access to your computer	Gewoon gesprek, geen toegang tot je computer
+Please sign in again to continue. Your conversations are kept on this computer.	Log opnieuw in om door te gaan. Je gesprekken blijven bewaard op deze computer.
+Potentially dangerous action	Mogelijk gevaarlijke actie
+Press keys	Druk op toetsen
+Read clipboard	Lees klembord
+Read file	Lees bestand
+Recursively deletes a main personal folder	Verwijdert recursief een persoonlijke hoofdmap
+Recursively deletes files outside your home folder	Verwijdert recursief bestanden buiten je thuismap
+Refusing to modify the root or home directory itself	Weigert de root- of thuismap zelf te wijzigen
+Removes firewall rules	Verwijdert firewallregels
+Removes installed system packages	Verwijdert geïnstalleerde systeempakketten
+Result	Resultaat
+Run command	Voer opdracht uit
+Running…	Bezig…
+Runs a script downloaded from the internet	Voert een script uit dat van internet is gedownload
+Runs with administrator privileges	Wordt uitgevoerd met beheerdersrechten
+Screenshot	Schermafbeelding
+Scroll	Scrol
+Search conversations	Zoek in gesprekken
+Search text	Zoek tekst
+Searches the whole system	Doorzoekt het hele systeem
+Send (Enter)	Verstuur (Enter)
+Session expired	Sessie verlopen
+Settings	Instellingen
+Show or hide the sidebar	Toon of verberg de navigatiekolom
+Shuts down or restarts the computer	Zet de computer uit of start hem opnieuw op
+Sign in	Log in
+Sign in again	Log opnieuw in
+Sign in to continue this conversation.	Log in om dit gesprek voort te zetten.
+Sign in with LuxAI account	Log in met LuxAI-account
+Stop	Stop
+Stop the answer and any running command (Esc)	Stop het antwoord en elke actieve opdracht (Esc)
+Stopped	Gestopt
+Stopped after too many steps. Send a message to continue.	Gestopt na te veel stappen. Stuur een bericht om door te gaan.
+Stopped.	Gestopt.
+Stopping…	Stoppen…
+System info	Systeeminfo
+Take a screenshot and tell me which windows are open.	Maak een schermafbeelding en vertel me welke vensters open zijn.
+The LuxAI API endpoint was not found on the server.	Het LuxAI-API-eindpunt is niet gevonden op de server.
+The LuxAI service is not available right now.	De LuxAI-dienst is momenteel niet beschikbaar.
+The LuxOS account tool (luxos-account) is not installed.	Het LuxOS-accounthulpmiddel (luxos-account) is niet geïnstalleerd.
+The answer was cut off (length limit).	Het antwoord is afgekapt (lengtelimiet).
+The file is run automatically at login	Het bestand wordt automatisch uitgevoerd bij het inloggen
+The key combination may end your session	De toetscombinatie kan je sessie beëindigen
+The model failed: {0}	Het model is mislukt: {0}
+The monthly Flash limit is used up. Switch to Lite or wait for the next month.	De maandlimiet voor Flash is bereikt. Schakel over naar Lite of wacht tot volgende maand.
+The monthly Lite limit is used up.	De maandlimiet voor Lite is bereikt.
+The path is outside your home folder (system files)	Het pad ligt buiten je thuismap (systeembestanden)
+The path may contain passwords or keys	Het pad kan wachtwoorden of sleutels bevatten
+The server did not respond in time.	De server heeft niet op tijd gereageerd.
+The server rejected the request (invalid chat).	De server heeft het verzoek geweigerd (ongeldige chat).
+The server returned a web page instead of an API response (HTTP {0}).	De server gaf een webpagina terug in plaats van een API-antwoord (HTTP {0}).
+The server returned an invalid response (HTTP {0}).	De server gaf een ongeldig antwoord (HTTP {0}).
+The server's web protection blocked the request (HTTP {0}).	De webbeveiliging van de server heeft het verzoek geblokkeerd (HTTP {0}).
+Thinking…	Denkt na…
+This may access private data	Dit kan toegang geven tot privégegevens
+Tidy up Downloads	Ruim Downloads op
+Too many requests. Please wait a moment.	Te veel verzoeken. Wacht even.
+Type text	Typ tekst
+Types a dangerous command	Typt een gevaarlijke opdracht
+Unsupported URL type	Niet-ondersteund URL-type
+Waiting for your approval	Wacht op je toestemming
+Welcome to LuxAI	Welkom bij LuxAI
+What is using the most disk space in my home folder?	Wat neemt de meeste schijfruimte in beslag in mijn thuismap?
+Working folder	Werkmap
+Write a short, friendly email inviting my team to a Friday lunch.	Schrijf een korte, vriendelijke e-mail waarin ik mijn team uitnodig voor een lunch op vrijdag.
+Write a text	Schrijf een tekst
+Write file	Schrijf bestand
+Writes directly to a disk device	Schrijft rechtstreeks naar een schijfapparaat
+Yes, run it	Ja, voer uit
+Your LuxAI session has expired or is not valid. Please sign in again.	Je LuxAI-sessie is verlopen of ongeldig. Log opnieuw in.
+Your session has expired	Je sessie is verlopen
+code	code
+folder	map
+no images	geen afbeeldingen
+sees images	ziet afbeeldingen
+{0} open windows	{0} open vensters
+{0}: {1} / {2} tokens this month	{0}: {1} / {2} tokens deze maand
+{0}: {1} tokens this month	{0}: {1} tokens deze maand
+{0}: {1} tokens this month · unlimited	{0}: {1} tokens deze maand · onbeperkt
+You denied this action.	Je hebt deze actie geweigerd.
+Stopped before running.	Gestopt voordat het werd uitgevoerd.
+# Instellingen, profiel, namen van gesprekken
+AI behaviour	AI-gedrag
+Accesses LuxAI settings (including agent permissions)	Opent LuxAI-instellingen (inclusief agentrechten)
+Account and settings	Account en instellingen
+Add	Voeg toe
+Add folder…	Voeg map toe…
+Added to every conversation. They cannot give the agent more permissions than set in Agent permissions.	Wordt aan elk gesprek toegevoegd. Ze kunnen de agent geen ruimere rechten geven dan ingesteld in Agentrechten.
+After the first answer the fast Lite model suggests a short title. You can rename a conversation any time (right-click it in the sidebar).	Na het eerste antwoord stelt het snelle Lite-model een korte titel voor. Je kunt een gesprek altijd een andere naam geven (klik er met de rechtermuisknop op in de navigatiekolom).
+Agent permissions	Agentrechten
+All saved conversations will be permanently removed from this computer.	Alle bewaarde gesprekken worden definitief van deze computer verwijderd.
+Allow	Sta toe
+Allow without asking	Sta toe zonder te vragen
+Allowed folders	Toegestane mappen
+Always ask	Vraag altijd
+Answer length	Lengte van antwoord
+Answers	Antwoorden
+Appearance	Weergave
+Application	Applicatie
+Ask only for risky commands	Vraag alleen bij riskante opdrachten
+Attach screenshots in Agent mode. Turn on only if the model supports images.	Voeg schermafbeeldingen toe in de agentmodus. Schakel dit alleen in als het model afbeeldingen ondersteunt.
+Balanced	Gebalanceerd
+Blocked folders	Geblokkeerde mappen
+Changing files is turned off in LuxAI settings	Bestanden wijzigen is uitgeschakeld in de LuxAI-instellingen
+Clear all history…	Wis hele geschiedenis…
+Clicking, typing, pressing keys and closing windows.	Klikken, typen, toetsen indrukken en vensters sluiten.
+Commands	Opdrachten
+Concise	Beknopt
+Control mouse and keyboard	Bedien muis en toetsenbord
+Conversation	Gesprek
+Conversations	Gesprekken
+Creating, editing, moving and deleting files and folders.	Bestanden en mappen aanmaken, wijzigen, verplaatsen en verwijderen.
+Creativity (temperature)	Creativiteit (temperatuur)
+Ctrl+Enter (Enter for a new line)	Ctrl+Enter (Enter voor een nieuwe regel)
+Custom instructions	Aangepaste instructies
+Dangerous actions (deleting your home folder, formatting disks, shutting down …) always need two confirmations, and LuxAI never touches its account and settings files. "Always ask" still offers "Always for this session" on the approval card.	Gevaarlijke acties (je thuismap verwijderen, schijven formatteren, de computer uitzetten …) vereisen altijd twee bevestigingen, en LuxAI raakt nooit zijn account- en instellingenbestanden aan. ‘Vraag altijd’ biedt op de goedkeuringskaart nog steeds ‘Altijd voor deze sessie’.
+Dark	Donker
+Data on this computer	Gegevens op deze computer
+Default model	Standaardmodel
+Delete all	Verwijder alles
+Delete all conversations?	Alle gesprekken verwijderen?
+Delete screenshots	Verwijder schermafbeeldingen
+Detailed	Uitgebreid
+Enter (Shift+Enter for a new line)	Enter (Shift+Enter voor een nieuwe regel)
+Folders	Mappen
+Friendly	Vriendelijk
+General	Algemeen
+History	Geschiedenis
+History is turned off	Geschiedenis is uitgeschakeld
+If you add folders here, the agent can work with files only inside them. Empty = anywhere (system files need extra confirmation).	Als je hier mappen toevoegt, kan de agent alleen met bestanden binnen die mappen werken. Leeg = overal (systeembestanden vereisen extra bevestiging).
+Keep conversation history	Bewaar gespreksgeschiedenis
+Keyboard shortcuts	Toetscombinaties
+Language	Taal
+Light	Licht
+Limits from Settings › Agent permissions apply.	De limieten uit Instellingen › Agentrechten zijn van toepassing.
+Long	Lang
+Long-running commands are stopped after this time.	Langlopende opdrachten worden na deze tijd gestopt.
+LuxAI also remembers the mode you used last.	LuxAI onthoudt ook de modus die je het laatst hebt gebruikt.
+LuxAI answered	LuxAI heeft geantwoord
+LuxAI needs your approval	LuxAI heeft je toestemming nodig
+Manage account	Beheer account
+Maximum length of one answer. Agent mode always keeps enough room for its tools.	Maximale lengte van één antwoord. De agentmodus houdt altijd genoeg ruimte over voor zijn hulpmiddelen.
+Messages	Berichten
+Mode for new conversations	Modus voor nieuwe gesprekken
+Mouse and keyboard control is turned off in LuxAI settings	Bediening van muis en toetsenbord is uitgeschakeld in de LuxAI-instellingen
+Name	Naam
+Name conversations automatically	Geef gesprekken automatisch een naam
+Network access	Netwerktoegang
+Network access is turned off in LuxAI settings	Netwerktoegang is uitgeschakeld in de LuxAI-instellingen
+Never	Nooit
+New line	Nieuwe regel
+No folders	Geen mappen
+Normal	Normaal
+Notifications	Meldingen
+Notify me when LuxAI finishes an answer or needs my approval while the window is in the background.	Geef een melding als LuxAI een antwoord heeft afgerond of mijn toestemming nodig heeft terwijl het venster op de achtergrond staat.
+Off = the model's default. Lower is more precise, higher more creative. Applied only if the model supports it.	Uit = standaardwaarde van het model. Lager is nauwkeuriger, hoger creatiever. Wordt alleen toegepast als het model het ondersteunt.
+Open apps and links	Open apps en links
+Opening apps and links is turned off in LuxAI settings	Apps en links openen is uitgeschakeld in de LuxAI-instellingen
+Opening web links, downloads and network tools (curl, git clone, package installs). Detected from the command – for strict isolation also set Run commands to Never.	Weblinks openen, downloads en netwerkhulpmiddelen (curl, git clone, pakketinstallaties). Wordt herkend aan de opdracht – stel voor strikte isolatie ook Voer opdrachten uit in op Nooit.
+Privacy & history	Privacy en geschiedenis
+Private files (keys, passwords, .env) always need your confirmation.	Privébestanden (sleutels, wachtwoorden, .env) vereisen altijd je bevestiging.
+Quit	Stop
+Read files	Lees bestanden
+Reading files is turned off in LuxAI settings	Bestanden lezen is uitgeschakeld in de LuxAI-instellingen
+Relative paths and commands start here.	Relatieve paden en opdrachten beginnen hier.
+Remove	Verwijder
+Rename	Wijzig naam
+Rename conversation	Wijzig naam van gesprek
+Rename…	Wijzig naam…
+Response style	Antwoordstijl
+Run commands	Voer opdrachten uit
+Running commands is turned off in LuxAI settings	Opdrachten uitvoeren is uitgeschakeld in de LuxAI-instellingen
+Same as my message	Zelfde als mijn bericht
+Same as system	Zelfde als systeem
+Saved conversations	Bewaarde gesprekken
+Screenshots	Schermafbeeldingen
+Screenshots and clipboard	Schermafbeeldingen en klembord
+Screenshots and clipboard are turned off in LuxAI settings	Schermafbeeldingen en klembord zijn uitgeschakeld in de LuxAI-instellingen
+Screenshots taken by the agent	Schermafbeeldingen gemaakt door de agent
+Send message	Verstuur bericht
+Send message with	Verstuur bericht met
+Sends what is on your screen or in the clipboard to the model.	Stuurt wat er op je scherm of in het klembord staat naar het model.
+Settings file	Instellingenbestand
+Settings…	Instellingen…
+Shell commands are checked for blocked folders in their paths, but a command cannot be fully confined. Set Run commands to Never for strict folder limits.	Shellopdrachten worden gecontroleerd op geblokkeerde mappen in hun paden, maar een opdracht kan niet volledig worden ingeperkt. Stel Voer opdrachten uit in op Nooit voor strikte mapbeperkingen.
+Short	Kort
+Sign in with your LuxAI account to chat.	Log in met je LuxAI-account om te chatten.
+Sign out	Log uit
+Sign out of LuxAI?	Uitloggen bij LuxAI?
+Sign out…	Log uit…
+Signing out failed. Try again in the LuxAI account app.	Uitloggen is mislukt. Probeer het opnieuw in de app LuxAI-account.
+Start	Start
+Stop the answer or command	Stop het antwoord of de opdracht
+Technical	Technisch
+The agent never reads or changes anything in these folders.	De agent leest of wijzigt nooit iets in deze mappen.
+The folder is blocked in LuxAI settings	De map is geblokkeerd in de LuxAI-instellingen
+The path is outside the folders allowed in LuxAI settings	Het pad ligt buiten de mappen die zijn toegestaan in de LuxAI-instellingen
+Theme	Thema
+Used for new conversations. You can switch it any time in the toolbar.	Wordt gebruikt voor nieuwe gesprekken. Je kunt het altijd wijzigen in de knoppenbalk.
+Uses the network	Gebruikt het netwerk
+What Agent mode may do	Wat de agentmodus mag doen
+What should LuxAI know about you or how should it answer? E.g. "Call me Tom. Prefer metric units and short answers."	Wat moet LuxAI over je weten of hoe moet het antwoorden? Bijv. ‘Noem me Tom. Gebruik het metrieke stelsel en geef korte antwoorden.’
+When off, new conversations are not saved on this computer and disappear when you close them.	Als dit uit staat, worden nieuwe gesprekken niet op deze computer bewaard en verdwijnen ze als je ze sluit.
+With "risky only", read-only commands such as ls, df or git status run without asking.	Met ‘alleen riskante’ worden alleen-lezen opdrachten zoals ls, df of git status uitgevoerd zonder te vragen.
+Write and delete files	Schrijf en verwijder bestanden
+You will be signed out of your LuxAI account in all LuxOS apps on this computer. Your conversations stay on this computer.	Je wordt in alle LuxOS-apps op deze computer uitgelogd bij je LuxAI-account. Je gesprekken blijven op deze computer.
+Your messages are sent to the LuxAI service (lux-ai.cz) to generate answers and titles. The agent runs tools only on this computer.	Je berichten worden naar de LuxAI-dienst (lux-ai.cz) gestuurd om antwoorden en titels te genereren. De agent voert hulpmiddelen alleen op deze computer uit.
+{0} can see images	{0} kan afbeeldingen zien
+{0} conversations saved	{0} gesprekken bewaard
+{0} screenshots	{0} schermafbeeldingen
+# Hlaseni autorovi LuxOS (send_feedback)
+(preview not available)	(voorbeeld niet beschikbaar)
+Bug report	Foutmelding
+Contact e-mail for a reply: {0}	Contact-e-mail voor een antwoord: {0}
+Don't send	Niet verzenden
+Idea	Idee
+LuxOS could not reach the server. Check the internet connection.	LuxOS kon de server niet bereiken. Controleer de internetverbinding.
+No graphical session; the report is sent without a screenshot.	Geen grafische sessie; de melding wordt zonder schermafbeelding verzonden.
+No screenshot will be attached.	Er wordt geen schermafbeelding bijgevoegd.
+No system information will be attached.	Er wordt geen systeeminformatie bijgevoegd.
+Report sent. Report ID: {0}	Melding verzonden. Meldings-ID: {0}
+Report text:	Tekst van de melding:
+Report to LuxOS	Melden aan LuxOS
+Search LuxOS docs	Zoeken in LuxOS-documentatie
+Read LuxOS docs	LuxOS-documentatie lezen
+Save and send later	Opslaan en later verzenden
+Saved. The Feedback app will send the report when you are online.	Opgeslagen. De app Feedback verzendt de melding zodra je online bent.
+Screenshot that will be attached ({0} kB)	Schermafbeelding die wordt bijgevoegd ({0} kB)
+Screenshots are turned off in LuxAI settings; the report is sent without one.	Schermafbeeldingen staan uit in de instellingen van LuxAI; de melding wordt zonder verzonden.
+Send report	Melding verzenden
+Send this report to the author of LuxOS?	Deze melding naar de auteur van LuxOS sturen?
+Sending failed ({0}).	Verzenden mislukt ({0}).
+Sends the report and attachments shown in this card to the author of LuxOS	Stuurt de melding en bijlagen uit deze kaart naar de auteur van LuxOS
+Sent anonymously (you are not signed in).	Wordt anoniem verzonden (je bent niet aangemeld).
+Sent with your LuxAI account.	Wordt verzonden met je LuxAI-account.
+Something else	Iets anders
+System information that will be attached (anonymised)	Systeeminformatie die wordt bijgevoegd (geanonimiseerd)
+The e-mail address does not look valid.	Het e-mailadres lijkt ongeldig.
+The message must have 10 to 8000 characters.	Het bericht moet 10 tot 8000 tekens bevatten.
+The report could not be prepared.	De melding kon niet worden voorbereid.
+The report could not be saved: {0}	De melding kon niet worden opgeslagen: {0}
+The report is too large. Try it without the screenshot.	De melding is te groot. Probeer het zonder schermafbeelding.
+The screenshot could not be accepted. Try it without the screenshot.	De schermafbeelding is niet geaccepteerd. Probeer het zonder.
+The screenshot could not be taken ({0}); the report is sent without one.	De schermafbeelding kon niet worden gemaakt ({0}); de melding wordt zonder verzonden.
+The screenshot is too large; the report is sent without one.	De schermafbeelding is te groot; de melding wordt zonder verzonden.
+Type:	Type:
+You can save the report; the Feedback app will send it automatically later.	Je kunt de melding opslaan; de app Feedback verzendt die later automatisch.
+You have sent many reports in a short time. Please try again later.	Je hebt in korte tijd veel meldingen verzonden. Probeer het later opnieuw.
+At most {0} attachments can be added to one message.	Aan een bericht kunnen maximaal {0} bijlagen worden toegevoegd.
+At most {0} images can be added to one message.	Aan een bericht kunnen maximaal {0} afbeeldingen worden toegevoegd.
+Attach	Bijvoegen
+Attach images or files	Afbeeldingen of bestanden bijvoegen
+Feeds a password to sudo or su (use pkexec instead)	Geeft een wachtwoord door aan sudo of su (gebruik pkexec)
+Pasted image	Geplakte afbeelding
+Remove attachment	Bijlage verwijderen
+The current model cannot see images. They stay in the conversation and are sent when you switch to a model that can see images.	Het huidige model kan geen afbeeldingen zien. Ze blijven in het gesprek en worden verzonden wanneer je overschakelt naar een model dat afbeeldingen ziet.
+{0} cannot be attached: only images and text files are supported.	{0} kan niet worden bijgevoegd: alleen afbeeldingen en tekstbestanden worden ondersteund.
+{0} cannot be read as an image.	{0} kan niet als afbeelding worden gelezen.
+{0} cannot be read: {1}	{0} kan niet worden gelezen: {1}
+{0} is long; only its beginning is attached.	{0} is lang; alleen het begin wordt bijgevoegd.
+{0} is too large to attach.	{0} is te groot om bij te voegen.
+Administrator commands	Beheerdersopdrachten
+Administrator mode was not turned on	De beheerdersmodus is niet ingeschakeld
+Ask for the password every time	Elke keer om het wachtwoord vragen
+Password once for 5 minutes, approve each command	Wachtwoord één keer voor 5 minuten, elke opdracht goedkeuren
+Password once for 5 minutes, without asking	Wachtwoord één keer voor 5 minuten, zonder te vragen
+Commands the agent runs as administrator (root). Administrator mode: you enter the administrator password once and for about 5 minutes LuxAI runs administrator commands without asking for it again; only this LuxAI window gets it, other programs still need the password. Requests sent to LuxAI by other programs always need your approval. Only with the Flash model; Lite always asks for the password. Destructive commands (deleting the system or home folder, formatting disks, removing the bootloader, changing accounts, sudo or polkit) are always refused. Every command is logged in ~/.local/state/luxai/root-commands.log.	Opdrachten die de agent als beheerder (root) uitvoert. Beheerdersmodus: u voert het beheerderswachtwoord één keer in en daarna voert LuxAI ongeveer 5 minuten beheerdersopdrachten uit zonder er opnieuw om te vragen; dit geldt alleen voor dit LuxAI-venster, andere programma’s hebben het wachtwoord nog steeds nodig. Verzoeken die andere programma’s naar LuxAI sturen, hebben altijd uw goedkeuring nodig. Alleen met het model Flash; Lite vraagt altijd om het wachtwoord. Destructieve opdrachten (het systeem of de thuismap wissen, schijven formatteren, de bootloader verwijderen, accounts wijzigen, sudo of polkit) worden altijd geweigerd. Elke opdracht wordt vastgelegd in ~/.local/state/luxai/root-commands.log.
+The request came from another program, not from the LuxAI window	Het verzoek kwam van een ander programma, niet uit het LuxAI-venster
+Changes LuxAI administrator mode, settings or account	Wijzigt de beheerdersmodus, instellingen of het account van LuxAI
+Changes owner or permissions of the whole system or a system folder	Wijzigt eigenaar of rechten van het hele systeem of een systeemmap
+Changes sudo, polkit or PAM configuration	Wijzigt de configuratie van sudo, polkit of PAM
+Crashes or instantly reboots the kernel	Laat de kernel crashen of herstart hem direct
+Deletes the whole system, a system folder or a home folder	Verwijdert het hele systeem, een systeemmap of een thuismap
+Disables package signature checks	Schakelt de controle van pakkethandtekeningen uit
+Formats, wipes or writes directly to a disk	Formatteert, wist of schrijft direct naar een schijf
+LuxAI administrator mode is not installed (update LuxAI)	De beheerdersmodus van LuxAI is niet geïnstalleerd (werk LuxAI bij)
+Removes the bootloader, the EFI partition, kernels or core system packages	Verwijdert de bootloader, de EFI-partitie, kernels of essentiële systeempakketten
+Runs a script downloaded from the internet as administrator	Voert een van internet gedownload script uit als beheerder
+Runs as administrator (root)	Wordt uitgevoerd als beheerder (root)
+Runs generated or hidden code as administrator, which cannot be checked	Voert als beheerder gegenereerde of verborgen code uit die niet te controleren is
+The administrator password was not entered	Het beheerderswachtwoord is niet ingevoerd
+The target of a destructive command cannot be verified (variable, substitution or unknown folder)	Het doel van een destructieve opdracht is niet te controleren (variabele, substitutie of onbekende map)
+Installs community (AUR) code, which is not checked by LuxOS	Installeert communitycode (AUR) die LuxOS niet controleert
+Copy code	Code kopiëren
+Copy the whole answer	Hele antwoord kopiëren
+Read web page	Webpagina lezen
+Search the web	Zoeken op het web
+Web content is in this conversation and may contain hidden instructions	Dit gesprek bevat webinhoud die verborgen instructies kan bevatten
+Web content is in this conversation: check this command carefully	Dit gesprek bevat webinhoud: controleer deze opdracht zorgvuldig
+{0} characters of text	{0} tekens tekst
+LuxAI wants to open this web address:	LuxAI wil dit webadres openen:
+This address was not given by you or found by web search; it could send data from this conversation to that website	Dit adres komt niet van u of uit een zoekopdracht; het kan gegevens uit dit gesprek naar die website sturen
+Address of a point	Adres van een punt
+Arrivals	Aankomsten
+By bike	Met de fiets
+By car	Met de auto
+Connections found: {0}	Gevonden verbindingen: {0}
+Current location	Huidige locatie
+Departures	Vertrekken
+Find on map	Zoeken op de kaart
+Location is not allowed. Open Maps and click the location button once to allow it.	Locatie is niet toegestaan. Open Kaarten en klik één keer op de locatieknop.
+LuxOS Maps is not installed (lux install luxos-maps).	LuxOS Kaarten is niet geïnstalleerd (lux install luxos-maps).
+Map data © OpenStreetMap contributors	Kaartgegevens © OpenStreetMap-bijdragers
+No connection found	Geen verbinding gevonden
+On foot	Te voet
+Open in Maps	Openen in Kaarten
+Places found: {0}	Gevonden plaatsen: {0}
+Places nearby	Plaatsen in de buurt
+Public transport	Openbaar vervoer
+Public transport route	Route met openbaar vervoer
+Route	Route
+Show in Maps	Tonen in Kaarten
+Shown in Maps	Getoond in Kaarten
+The map service is busy. Try again later.	De kaartdienst is overbelast. Probeer het later opnieuw.
+Timetable	Dienstregeling
+Walk {0} m	Lopen {0} m
+cancelled	geannuleerd
+direct	direct
+platform {0}	spoor {0}
+{0} transfers	overstappen: {0}
+The request is too large – the image or the conversation is too big. Start a new conversation or continue without the image.	Het verzoek is te groot – de afbeelding of het gesprek is te groot. Begin een nieuw gesprek of ga verder zonder de afbeelding.
+This action requires confirmation on the computer	Deze actie moet op de computer worden bevestigd
+The request was stopped.	Het verzoek is gestopt.
+Another request is still running. Wait for it to finish or cancel it.	Er loopt nog een ander verzoek. Wacht tot het klaar is of annuleer het.
+You are not signed in to LuxAI. Sign in in the LuxAI app on the computer.	Je bent niet aangemeld bij LuxAI. Meld je aan in de LuxAI-app op de computer.
+Calendar events	Agenda-afspraken
+New calendar event	Nieuwe agenda-afspraak
+Change calendar event	Agenda-afspraak wijzigen
+Delete calendar event	Agenda-afspraak verwijderen
+Adds an event to your LuxOS Calendar	Voegt een afspraak toe aan je LuxOS-agenda
+Changes an event in your LuxOS Calendar	Wijzigt een afspraak in je LuxOS-agenda
+Deletes an event from your LuxOS Calendar	Verwijdert een afspraak uit je LuxOS-agenda
+Monday	maandag
+Tuesday	dinsdag
+Wednesday	woensdag
+Thursday	donderdag
+Friday	vrijdag
+Saturday	zaterdag
+Sunday	zondag
+all day	hele dag
+Location: {0}	Locatie: {0}
+Reminder: {0} min before	Herinnering: {0} min van tevoren
+Calendar: {0}	Agenda: {0}
+Events: {0}	Afspraken: {0}
+No events in this period.	Geen afspraken in deze periode.
+… and {0} more	… en nog {0}
+Before:	Voor:
+After:	Na:
+Repeating event – the change applies to all its occurrences.	Herhalende afspraak – de wijziging geldt voor alle herhalingen.
+Added to the calendar.	Toegevoegd aan de agenda.
+Changed in the calendar.	Gewijzigd in de agenda.
+Deleted from the calendar.	Verwijderd uit de agenda.
+Done.	Klaar.
+Denied on the phone.	Geweigerd op de telefoon.
+Not approved on the phone in time.	Niet op tijd goedgekeurd op de telefoon.
+Blocked by LuxAI safety rules.	Geblokkeerd door de veiligheidsregels van LuxAI.
+This model is not available in LuxAI.	Dit model is niet beschikbaar in LuxAI.

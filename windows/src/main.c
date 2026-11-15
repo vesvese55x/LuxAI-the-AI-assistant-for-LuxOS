@@ -63,6 +63,7 @@ int WINAPI wWinMain(HINSTANCE hInst, HINSTANCE hPrev, PWSTR cmd, int show)
     mkdir_p(dir);
 
     cfg_load();
+    prov_load();
     account_load();
     parse_cli();
     ui_run();

@@ -27,6 +27,7 @@ static int  modal_msg(HWND h, UINT m, WPARAM w, LPARAM l);
 static int  modal_active(void);
 static int  confirm_ui(const wchar_t *title, const wchar_t *body, int danger);
 static void account_open(void);
+static void prov_edit_open(int idx);
 
 /* ---------------- genel ---------------- */
 HWND g_hMain;
@@ -67,6 +68,7 @@ static HGDIOBJ g_mold;
 
 /* metin kutulari */
 static HWND g_edComposer, g_edSearch, g_edMail, g_edPass, g_edName,
+            g_edPName, g_edPEnd, g_edPKey, g_edPModel,
             g_edWork, g_edEnd, g_edKey, g_edTok;
 static HFONT g_fEdit, g_fEditMono;
 static HBRUSH g_brInput, g_brField, g_brCode;
@@ -1068,6 +1070,8 @@ static void compute_layout(double w, double h, int painting)
 }
 
 /* ---- yerlesim sonrasi metin kutularini yerlestir ---- */
+static void place_prov_edits(void);
+
 static void place_edits(void)
 {
     double s = sk_scale();
@@ -1090,6 +1094,7 @@ static void place_edits(void)
     MV(g_edPass, R(g_lr_pass.x + 12, g_lr_pass.y + 8, g_lr_pass.w - 24, g_lr_pass.h - 14), lg);
     MV(g_edName, R(g_lr_name.x + 12, g_lr_name.y + 8, g_lr_name.w - 24, g_lr_name.h - 14),
        lg && g_login_tab == 2);
+    place_prov_edits();
     int st = (g_page == 1 && !g_login_open && !modal_active());
     MV(g_edWork, R(g_sval[SR_WORK].x, g_sval[SR_WORK].y, g_sval[SR_WORK].w - 84,
                    g_sval[SR_WORK].h), st);
@@ -1130,7 +1135,16 @@ static void draw_header(double w, double h)
     /* model secici */
     sk_round(L.combo.x, L.combo.y, L.combo.w, L.combo.h, 8,
              g_hover_kind == H_COMBO ? SK.hbtn_hi : SK.hbtn);
-    T(g_cfg.model ? S_MODEL_LITE : S_MODEL_FLASH, b, 128);
+    if (g_prov_sel >= 0 && g_prov_sel < g_nprov) {
+        wchar_t pn[96];
+        prov_label(g_prov_sel, pn, 96);
+        _snwprintf(b, 128, g_prov[g_prov_sel].model[0] ? L"%s \u00B7 %s" : L"%s", pn,
+                   g_prov[g_prov_sel].model);
+        if (!g_prov[g_prov_sel].model[0]) _snwprintf(b, 128, L"%s", pn);
+        b[127] = 0;
+    } else {
+        T(g_cfg.model ? S_MODEL_LITE : S_MODEL_FLASH, b, 128);
+    }
     sk_text_box(L.combo.x + 14, L.combo.y, L.combo.w - 46, L.combo.h, b, 14, 400, 0,
                 SK.fg, 0);
     sk_icon(SKI_CHEV_D, L.combo.x + L.combo.w - 18, L.combo.y + L.combo.h / 2, 14,
@@ -1947,11 +1961,20 @@ static void on_hit(Hit hit)
     case H_SEG_CHAT: g_cfg.mode = 0; cfg_save(); InvalidateRect(g_hMain, NULL, FALSE); break;
     case H_SEG_AGENT: g_cfg.mode = 1; cfg_save(); InvalidateRect(g_hMain, NULL, FALSE); break;
     case H_COMBO: {
-        static const wchar_t *it[2];
-        wchar_t a[128], c[128];
-        it[0] = _wcsdup(T(S_MODEL_FLASH, a, 128));
-        it[1] = _wcsdup(T(S_MODEL_LITE, c, 128));
-        popup_open(P_MODEL, L.combo, it, 2, g_cfg.model);
+        static const wchar_t *it[2 + MAX_PROV + 1];
+        wchar_t a[160];
+        int n = 0;
+        it[n++] = _wcsdup(T(S_MODEL_FLASH, a, 160));
+        it[n++] = _wcsdup(T(S_MODEL_LITE, a, 160));
+        for (int i = 0; i < g_nprov; i++) {
+            wchar_t pn[96], line[192];
+            prov_label(i, pn, 96);
+            _snwprintf(line, 192, L"\u25C6 %s", pn);
+            it[n++] = _wcsdup(line);
+        }
+        it[n++] = _wcsdup(T(g_prov_sel >= 0 ? S_EDIT : S_ADD_PROVIDER, a, 160));
+        int sel = (g_prov_sel >= 0) ? (g_prov_sel + 2) : g_cfg.model;
+        popup_open(P_MODEL, L.combo, it, n, sel);
         break;
     }
     case H_MENU: {
@@ -2437,7 +2460,18 @@ static void on_paint(HWND hwnd)
 static int apply_popup(int id, int idx)
 {
     switch (id) {
-    case P_MODEL: g_cfg.model = idx ? 1 : 0; cfg_save(); break;
+    case P_MODEL:
+        if (idx >= 0 && idx < 2) {                 /* LuxAI native */
+            g_cfg.model = idx;
+            if (g_prov_sel >= 0) prov_apply(-1);
+            cfg_save();
+        } else if (idx >= 2 && idx - 2 < g_nprov) { /* ozel saglayici */
+            prov_apply(idx - 2);
+            ui_set_status(t(S_READY));
+        } else {                                    /* + Saglayici ekle */
+            prov_edit_open(g_prov_sel);
+        }
+        break;
     case P_MODE: g_cfg.mode = idx ? 1 : 0; cfg_save(); break;
     case P_LANG: if (idx >= 0 && idx < LUX_NLANG) g_cfg.lang = idx; cfg_save(); break;
     case P_THEME: g_cfg.theme = idx; cfg_save(); theme_apply(); break;
@@ -2712,7 +2746,7 @@ void ui_post_report(const char *utf8) { ui_set_status(utf8); }
  * karartilmis arka plan, yuvarlatilmis kart, accent birincil dugme.
  * MessageBox (klasik Win32) kullanilmaz.
  */
-enum { DM_NONE = 0, DM_CONFIRM, DM_ALERT, DM_ACCOUNT };
+enum { DM_NONE = 0, DM_CONFIRM, DM_ALERT, DM_ACCOUNT, DM_PROV };
 
 static void draw_modal(double w, double h);
 static int  modal_msg(HWND h, UINT m, WPARAM w, LPARAM l);
@@ -2725,7 +2759,9 @@ typedef struct {
     wchar_t btn[3][80];
     int  primary[3];
     Rect card, rb[3], rclose, rrow[8];
-    int  nrow;
+    Rect pf[4];              /* saglayici editoru alanlari */
+    int  nrow, pfhov;
+    int  edit_idx;           /* duzenlenen saglayici (-1 = yeni) */
 } Modal;
 static Modal D;
 
@@ -2798,11 +2834,13 @@ static void modal_buttons(const wchar_t *b1, const wchar_t *b2, const wchar_t *b
 /* kart olcusu: icerigi olcup kart yuksekligini belirler */
 static void modal_layout(double w, double h)
 {
-    double cw = (D.mode == DM_ACCOUNT) ? 560 : 470;
+    double cw = (D.mode == DM_ACCOUNT || D.mode == DM_PROV) ? 560 : 470;
     if (cw > w - 60) cw = w - 60;
     double cx = (w - cw) / 2, cy;
     double y = 0;
-    if (D.mode == DM_ACCOUNT) {
+    if (D.mode == DM_PROV) {
+        y = 404;
+    } else if (D.mode == DM_ACCOUNT) {
         y = 178 + D.nrow * 46 + 10;
     } else {
         y = 54;                                   /* ikon + baslik */
@@ -2823,6 +2861,12 @@ static void modal_layout(double w, double h)
         if (bw < 72) bw = 72;
         D.rb[i] = R(bx - bw, by, bw, 36);
         bx -= bw + 8;
+    }
+    /* saglayici editoru alanlari */
+    if (D.mode == DM_PROV) {
+        static const double offs[4] = { 92, 156, 220, 284 };
+        for (int i = 0; i < 4; i++)
+            D.pf[i] = R(cx + 22, cy + offs[i], cw - 44, 36);
     }
     /* hesap satirlari */
     double ry = cy + 178;
@@ -2900,7 +2944,33 @@ static void draw_modal(double w, double h)
     sk_round(c.x + 2, c.y + 8, c.w, c.h, 18, 0x40000000);
     sk_round(c.x, c.y, c.w, c.h, 16, SK.card);
     sk_rline(c.x, c.y, c.w, c.h, 16, SK.border, 1);
-    if (D.mode == DM_ACCOUNT) {
+    if (D.mode == DM_PROV) {
+        wchar_t h[256], b2[256];
+        sk_grad(c.x + 22, c.y + 14, 30, 30, 9, 0xFF3D6BFF, 0xFF8A4DFF, 1);
+        sk_text(c.x + 30, c.y + 20, 22, L"+", 15, 800, 0, 0xFFFFFFFF, 1);
+        sk_text(c.x + 62, c.y + 20, c.w - 120, T(S_PROVIDERS, h, 256), 16, 700, 0, SK.fg, 0);
+        sk_icon(SKI_CLOSE, D.rclose.x + 14, D.rclose.y + 14, 13, SK.dim, 1.5);
+        static const int lbl[4] = { S_PROVIDER_NAME, S_ENDPOINT, S_APIKEY, S_MODEL };
+        for (int i = 0; i < 4; i++) {
+            sk_text(c.x + 24, D.pf[i].y - 22, 300, T(lbl[i], b2, 256), 12, 600, 0, SK.dim, 0);
+            sk_round(D.pf[i].x, D.pf[i].y, D.pf[i].w, D.pf[i].h, 9, SK.card);
+            sk_rline(D.pf[i].x, D.pf[i].y, D.pf[i].w, D.pf[i].h, 9,
+                     D.pfhov == i ? SK.accent : SK.border, 1);
+        }
+        sk_text(c.x + 24, c.y + 330, c.w - 48,
+                T(S_CUSTOM, b2, 256), 11, 400, 0, SK.dim, 0);
+        for (int i = 0; i < D.nbtn; i++) {
+            Rect r = D.rb[i];
+            int hov = (D.hov == i);
+            int del = (i == 1 && D.edit_idx >= 0);
+            DWORD bg = i == 0 ? (hov ? 0xFF5B8CFF : SK.accent)
+                              : del ? (hov ? 0xFFE5484D : (SK.danger & 0x00FFFFFF) | 0x22000000)
+                                    : ((SK.fg & 0x00FFFFFF) | (hov ? 0x1F000000 : 0x0F000000));
+            sk_round(r.x, r.y, r.w, r.h, 18, bg);
+            sk_text_box(r.x, r.y, r.w, r.h, D.btn[i], 13, 700, 0,
+                        i == 0 ? 0xFFFFFFFF : (del ? SK.danger : SK.fg), 1);
+        }
+    } else if (D.mode == DM_ACCOUNT) {
         draw_account_body();
     } else {
         wchar_t b[256];
@@ -2921,7 +2991,7 @@ static void draw_modal(double w, double h)
         }
     }
     /* kapat (X) */
-    if (D.mode == DM_ACCOUNT) {
+    if (D.mode == DM_ACCOUNT || D.mode == DM_PROV) {
         Rect r = D.rclose;
         if (D.hov == 99) sk_round(r.x, r.y, r.w, r.h, 8, (SK.fg & 0x00FFFFFF) | 0x12000000);
         sk_icon(SKI_CLOSE, r.x + r.w / 2, r.y + r.h / 2, 13, SK.dim, 1.6);
@@ -2933,6 +3003,22 @@ static void account_export(void);
 
 static void modal_click(double x, double y)
 {
+    if (D.mode == DM_PROV) {
+        if (in_rect(D.rclose, x, y)) { D.result = 0; D.running = 0; return; }
+        for (int i = 0; i < 4; i++)
+            if (in_rect(D.pf[i], x, y)) {
+                HWND ph[4] = { g_edPName, g_edPEnd, g_edPKey, g_edPModel };
+                SetFocus(ph[i]);
+                return;
+            }
+        for (int i = 0; i < D.nbtn; i++)
+            if (in_rect(D.rb[i], x, y)) {
+                D.result = (i == 0) ? 1 : (i == 1) ? 2 : 0;
+                D.running = 0;
+                return;
+            }
+        return;
+    }
     if (D.mode == DM_ACCOUNT) {
         if (in_rect(D.rclose, x, y)) { D.result = 0; D.running = 0; return; }
         for (int i = 0; i < D.nrow && i < 5; i++) {
@@ -2983,7 +3069,8 @@ static void modal_key(int vk)
 {
     if (vk == VK_ESCAPE) { D.result = 0; D.running = 0; return; }
     if (vk == VK_RETURN) {
-        if (D.mode == DM_ACCOUNT) { D.result = 0; D.running = 0; }
+        if (D.mode == DM_PROV) { D.result = 1; D.running = 0; }
+        else if (D.mode == DM_ACCOUNT) { D.result = 0; D.running = 0; }
         else { D.result = (D.nbtn > 0 && D.primary[0]) ? 1 : 0; D.running = 0; }
         return;
     }
@@ -3000,7 +3087,13 @@ static int modal_msg(HWND h, UINT m, WPARAM w, LPARAM l)
     switch (m) {
     case WM_MOUSEMOVE: {
         int hov = -1;
-        if (D.mode == DM_ACCOUNT) {
+        if (D.mode == DM_PROV) {
+            if (in_rect(D.rclose, x, y)) hov = 99;
+            for (int i = 0; i < D.nbtn; i++) if (in_rect(D.rb[i], x, y)) hov = i;
+            int ph = -1;
+            for (int i = 0; i < 4; i++) if (in_rect(D.pf[i], x, y)) ph = i;
+            if (ph != D.pfhov) { D.pfhov = ph; InvalidateRect(h, NULL, FALSE); }
+        } else if (D.mode == DM_ACCOUNT) {
             if (in_rect(D.rclose, x, y)) hov = 99;
             for (int i = 0; i < D.nrow && i < 5; i++)
                 if (in_rect(D.rrow[i], x, y)) hov = 100 + i;
@@ -3075,6 +3168,93 @@ static void alert_ui(const wchar_t *title, const wchar_t *body)
     D.danger = 0;
     modal_buttons(b1, NULL, NULL);
     modal_pump();
+}
+
+/* ---------- saglayici editoru ---------- */
+static void place_prov_edits(void)
+{
+    double sc = sk_scale();
+    HWND ph[4] = { g_edPName, g_edPEnd, g_edPKey, g_edPModel };
+    int pv = (D.mode == DM_PROV);
+    for (int i = 0; i < 4; i++) {
+        if (!ph[i]) continue;
+        Rect r = D.pf[i];
+        MoveWindow(ph[i], (int)((r.x + 12) * sc), (int)((r.y + 8) * sc),
+                   (int)((r.w - 24) * sc), (int)((r.h - 14) * sc), TRUE);
+        ShowWindow(ph[i], pv ? SW_SHOWNA : SW_HIDE);
+    }
+}
+
+static void prov_edit_open(int idx)
+{
+    wchar_t b1[80], b2[80], b3[80];
+    T(S_SAVE, b1, 80);
+    T(S_DELETE, b2, 80);
+    T(S_CANCEL, b3, 80);
+    D.edit_idx = (idx >= 0 && idx < g_nprov) ? idx : -1;
+    SetWindowTextW(g_edPName, L"");
+    SetWindowTextW(g_edPEnd, L"");
+    SetWindowTextW(g_edPKey, L"");
+    SetWindowTextW(g_edPModel, L"");
+    if (D.edit_idx >= 0) {
+        Provider *pv = &g_prov[D.edit_idx];
+        wchar_t *w;
+        w = u16(pv->name);     if (w) { SetWindowTextW(g_edPName, w);  free(w); }
+        w = u16(pv->endpoint); if (w) { SetWindowTextW(g_edPEnd, w);   free(w); }
+        w = u16(pv->key);      if (w) { SetWindowTextW(g_edPKey, w);   free(w); }
+        w = u16(pv->model);    if (w) { SetWindowTextW(g_edPModel, w); free(w); }
+    }
+    D.mode = DM_PROV;
+    D.danger = 0;
+    D.pfhov = -1;
+    D.title[0] = 0;
+    D.body[0] = 0;
+    /* 3 dugme: Kaydet / Sil / Iptal (Sil yalnizca duzenlemede etkin) */
+    D.nbtn = 0;
+    wcsncpy(D.btn[0], b1, 79); D.primary[0] = 1; D.btn[0][79] = 0; D.nbtn = 1;
+    if (D.edit_idx >= 0) { wcsncpy(D.btn[1], b2, 79); D.primary[1] = 0; D.btn[1][79] = 0; D.nbtn = 2; }
+    wcsncpy(D.btn[D.nbtn], b3, 79); D.primary[D.nbtn] = 0; D.btn[D.nbtn][79] = 0; D.nbtn++;
+    D.hov = -1;
+    layout_soft();
+    InvalidateRect(g_hMain, NULL, TRUE);
+    UpdateWindow(g_hMain);
+    int r = modal_pump();
+    if (r == 0) return;
+    if (r == 2 && D.edit_idx >= 0) {           /* sil */
+        for (int i = D.edit_idx; i < g_nprov - 1; i++) g_prov[i] = g_prov[i + 1];
+        g_nprov--;
+        if (g_prov_sel == D.edit_idx) prov_apply(-1);
+        else if (g_prov_sel > D.edit_idx) g_prov_sel--;
+        prov_save();
+        prov_save();
+        InvalidateRect(g_hMain, NULL, FALSE);
+        return;
+    }
+    /* kaydet */
+    wchar_t *nm = get_text(g_edPName), *ep = get_text(g_edPEnd);
+    wchar_t *ky = get_text(g_edPKey), *md = get_text(g_edPModel);
+    if (!nm || !*nm || !ep || !*ep) {
+        free(nm); free(ep); free(ky); free(md);
+        alert_ui(tw(S_PROVIDER), tw(S_CUSTOM));
+        return;
+    }
+    Provider *pv;
+    if (D.edit_idx < 0) {
+        if (g_nprov >= MAX_PROV) { free(nm); free(ep); free(ky); free(md); return; }
+        pv = &g_prov[g_nprov++];
+        D.edit_idx = g_nprov - 1;
+    } else {
+        pv = &g_prov[D.edit_idx];
+    }
+    ZeroMemory(pv, sizeof *pv);
+    { char *x = u8(nm); if (x) { strncpy(pv->name, x, sizeof pv->name - 1); free(x); } }
+    { char *x = u8(ep); if (x) { strncpy(pv->endpoint, x, sizeof pv->endpoint - 1); free(x); } }
+    { char *x = u8(ky); if (x) { strncpy(pv->key, x, sizeof pv->key - 1); free(x); } }
+    { char *x = u8(md); if (x) { strncpy(pv->model, x, sizeof pv->model - 1); free(x); } }
+    free(nm); free(ep); free(ky); free(md);
+    prov_apply(D.edit_idx);
+    ui_set_status(t(S_READY));
+    InvalidateRect(g_hMain, NULL, FALSE);
 }
 
 /* ---------- hesap penceresi ---------- */
@@ -3281,6 +3461,10 @@ void ui_run(void)
     g_edMail     = mk_edit(g_hMain, 102, 0);
     g_edPass     = mk_edit(g_hMain, 103, 0);
     g_edName     = mk_edit(g_hMain, 108, 0);
+    g_edPName    = mk_edit(g_hMain, 110, 0);
+    g_edPEnd     = mk_edit(g_hMain, 111, 0);
+    g_edPKey     = mk_edit(g_hMain, 112, 0);
+    g_edPModel   = mk_edit(g_hMain, 113, 0);
     g_edWork     = mk_edit(g_hMain, 104, 0);
     g_edEnd      = mk_edit(g_hMain, 105, 0);
     g_edKey      = mk_edit(g_hMain, 106, 0);

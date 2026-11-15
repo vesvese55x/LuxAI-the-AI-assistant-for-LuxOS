@@ -1,0 +1,461 @@
+# LuxAI hesap penceresi cevirileri (uk) - BELGESELSEMO
+(empty file)	(порожній файл)
+(empty)	(порожньо)
+(no output)	(немає виводу)
+AI assistant that can work with your computer	ШІ-асистент, який уміє працювати з вашим комп’ютером · Створено BELGESELSEMO на основі оригінального дистрибутива LuxOS за допомогою Z.AI та зібрано в пакети для Linux і Windows · https://belgeselsemo.com.tr
+About LuxAI	Про LuxAI
+Accesses private keys or passwords	Отримує доступ до приватних ключів або паролів
+Accesses the LuxAI account token	Отримує доступ до токена облікового запису LuxAI
+Agent	Агент
+Agent actions run without asking. Dangerous actions still need two confirmations. Resets when LuxAI restarts.	Дії агента виконуються без запиту. Небезпечні дії все одно потребують двох підтверджень. Вимикається після перезапуску LuxAI.
+Agent mode · Auto-approve is ON: actions run without asking (dangerous ones still ask twice).	Режим «Агент» · Автосхвалення УВІМКНЕНО: дії виконуються без запиту (небезпечні все одно запитують двічі).
+Agent mode · LuxAI can work with your computer. You approve every action that changes something.	Режим «Агент» · LuxAI може працювати з вашим комп’ютером. Кожну дію, яка щось змінює, схвалюєте ви.
+Agent mode: I can run commands, manage files, open apps and control the mouse and keyboard – always with your approval.	Режим «Агент»: я можу виконувати команди, керувати файлами, відкривати програми й керувати мишею та клавіатурою – завжди з вашого дозволу.
+Allow LuxAI to do this?	Дозволити LuxAI виконати цю дію?
+Allow once	Дозволити один раз
+Allow once…	Дозволити один раз…
+Always for this session	Завжди в цьому сеансі
+Another conversation is already running on this account. Try again in a moment.	У цьому обліковому записі вже триває інша розмова. Спробуйте за мить.
+Are you sure? This can cause damage that cannot be undone.	Ви впевнені? Це може завдати шкоди, яку неможливо скасувати.
+Arguments	Аргументи
+Ask LuxAI to do something on your computer…	Попросіть LuxAI зробити щось на вашому комп’ютері…
+Ask anything. Switch to Agent mode when you want me to do things on your computer.	Запитуйте що завгодно. Коли захочете, щоб я щось зробив на вашому комп’ютері, перейдіть у режим «Агент».
+Attach screenshots for the current model. Turn on only if the model supports images; uses more tokens.	Додавати знімки екрана для поточної моделі. Вмикайте, лише якщо модель підтримує зображення; витрачає більше токенів.
+Auto-approve actions	Автоматично схвалювати дії
+Blocked by safety rules	Заблоковано правилами безпеки
+Brainstorm	Ідеї
+CONVERSATIONS	РОЗМОВИ
+Cancel	Скасувати
+Changes immutable file attributes	Змінює незмінні атрибути файлів
+Changes permissions of the whole home folder or system	Змінює дозволи всієї домашньої папки або системи
+Changes user accounts or passwords	Змінює облікові записи користувачів або паролі
+Chat	Чат
+Chat with AI or let it work with your computer. Sign in with your LuxAI account – one account for all LuxOS apps.	Спілкуйтеся зі ШІ або дозвольте йому працювати з комп’ютером. Увійдіть з обліковим записом LuxAI – один обліковий запис для всіх програм LuxOS.
+Click	Клацання
+Close window	Закрити вікно
+Command timeout (seconds)	Час очікування команди (секунди)
+Copied	Скопійовано
+Copy	Копіювати
+Create a free account	Створити безкоштовний обліковий запис
+Create folder	Створити папку
+Delete	Видалити
+Delete conversation	Видалити розмову
+Delete this conversation?	Видалити цю розмову?
+Deletes all scheduled tasks	Видаляє всі заплановані завдання
+Deletes all untracked files in the repository	Видаляє всі невідстежувані файли в репозиторії
+Deletes files across the whole home folder or system	Видаляє файли в усій домашній папці або системі
+Deletes the whole home folder or system	Видаляє всю домашню папку або систему
+Denied	Відхилено
+Deny	Відхилити
+Details	Подробиці
+Done	Готово
+Edit file	Редагування файлу
+Ends your desktop session	Завершує ваш сеанс робочого столу
+Explain how HTTPS keeps my connection private, in simple terms.	Поясни простими словами, як HTTPS захищає приватність мого з’єднання.
+Explain something	Поясни щось
+Failed	Не вдалося
+Find files	Знайти файли
+Finish signing in in the LuxAI account window…	Завершіть вхід у вікні облікового запису LuxAI…
+Flash – smarter	Flash – розумніша
+Focus window	Активувати вікно
+Force-pushes and may overwrite remote history	Примусовий push може перезаписати віддалену історію
+Fork bomb	Fork-бомба
+Formats or wipes a disk	Форматує або стирає диск
+Free disk space	Вільне місце на диску
+Give me 5 ideas for a weekend trip in the Czech Republic.	Дай мені 5 ідей для поїздки на вихідні Україною.
+Help with code	Допомога з кодом
+How can I help you today?	Чим я можу вам сьогодні допомогти?
+How do I read a JSON file in Python? Show a short example.	Як прочитати файл JSON у Python? Покажи короткий приклад.
+It will be permanently removed from this computer.	Її буде остаточно видалено з цього комп’ютера.
+Kills all processes or the desktop session	Завершує всі процеси або сеанс робочого столу
+List apps	Список програм
+List folder	Вміст папки
+List the files in my Downloads folder grouped by type and suggest what to clean up.	Покажи файли в папці «Завантаження», згруповані за типом, і запропонуй, що прибрати.
+List windows	Список вікон
+Lite – faster, larger limit	Lite – швидша, більший ліміт
+Look at my screen	Подивися на мій екран
+LuxAI account credentials are never read or changed by the agent	Агент ніколи не читає й не змінює облікові дані LuxAI
+LuxAI account…	Обліковий запис LuxAI…
+LuxAI can make mistakes. Check important information.	LuxAI може помилятися. Перевіряйте важливу інформацію.
+LuxAI can work with your computer using tools, with your approval	LuxAI може працювати з вашим комп’ютером за допомогою інструментів, з вашого дозволу
+Message LuxAI…	Напишіть LuxAI…
+Model	Модель
+Model can see images	Модель бачить зображення
+Move	Переміщення
+Move mouse	Рух миші
+Moves the whole home folder or system	Переміщує всю домашню папку або систему
+Network error: {0}	Помилка мережі: {0}
+New chat	Новий чат
+New conversation	Нова розмова
+No conversations yet	Ще немає розмов
+No result	Немає результату
+No windows	Немає вікон
+Not signed in	Вхід не виконано
+Not signed in.	Вхід не виконано.
+Nothing found	Нічого не знайдено
+Notification	Сповіщення
+Offline – usage not available	Не в мережі – дані про використання недоступні
+Open a website	Відкрий вебсайт
+Open app	Відкрити програму
+Open link	Відкрити посилання
+Open lux-ai.cz in the web browser.	Відкрий lux-ai.cz у веббраузері.
+Overwrites system files	Перезаписує системні файли
+Plain conversation, no access to your computer	Звичайна розмова без доступу до вашого комп’ютера
+Please sign in again to continue. Your conversations are kept on this computer.	Щоб продовжити, увійдіть ще раз. Ваші розмови зберігаються на цьому комп’ютері.
+Potentially dangerous action	Потенційно небезпечна дія
+Press keys	Натискання клавіш
+Read clipboard	Читання буфера обміну
+Read file	Читання файлу
+Recursively deletes a main personal folder	Рекурсивно видаляє основну особисту папку
+Recursively deletes files outside your home folder	Рекурсивно видаляє файли поза вашою домашньою папкою
+Refusing to modify the root or home directory itself	Змінювати сам кореневий або домашній каталог заборонено
+Removes firewall rules	Вилучає правила брандмауера
+Removes installed system packages	Вилучає інстальовані системні пакети
+Result	Результат
+Run command	Виконання команди
+Running…	Виконується…
+Runs a script downloaded from the internet	Запускає скрипт, завантажений з інтернету
+Runs with administrator privileges	Виконується з правами адміністратора
+Screenshot	Знімок екрана
+Scroll	Прокручування
+Search conversations	Шукати в розмовах
+Search text	Шукати текст
+Searches the whole system	Шукає по всій системі
+Send (Enter)	Надіслати (Enter)
+Session expired	Сеанс завершився
+Settings	Параметри
+Show or hide the sidebar	Показати або сховати бічну панель
+Shuts down or restarts the computer	Вимикає або перезавантажує комп’ютер
+Sign in	Увійти
+Sign in again	Увійти знову
+Sign in to continue this conversation.	Увійдіть, щоб продовжити цю розмову.
+Sign in with LuxAI account	Увійти з обліковим записом LuxAI
+Stop	Зупинити
+Stop the answer and any running command (Esc)	Зупинити відповідь і будь-яку запущену команду (Esc)
+Stopped	Зупинено
+Stopped after too many steps. Send a message to continue.	Зупинено після забагатьох кроків. Надішліть повідомлення, щоб продовжити.
+Stopped.	Зупинено.
+Stopping…	Зупинення…
+System info	Інформація про систему
+Take a screenshot and tell me which windows are open.	Зроби знімок екрана й скажи, які вікна відкрито.
+The LuxAI API endpoint was not found on the server.	На сервері не знайдено кінцеву точку LuxAI API.
+The LuxAI service is not available right now.	Служба LuxAI зараз недоступна.
+The LuxOS account tool (luxos-account) is not installed.	Інструмент облікового запису LuxOS (luxos-account) не інстальовано.
+The answer was cut off (length limit).	Відповідь обірвано (обмеження довжини).
+The file is run automatically at login	Файл запускається автоматично під час входу
+The key combination may end your session	Ця комбінація клавіш може завершити ваш сеанс
+The model failed: {0}	Помилка моделі: {0}
+The monthly Flash limit is used up. Switch to Lite or wait for the next month.	Місячний ліміт Flash вичерпано. Перейдіть на Lite або зачекайте до наступного місяця.
+The monthly Lite limit is used up.	Місячний ліміт Lite вичерпано.
+The path is outside your home folder (system files)	Шлях розташований поза вашою домашньою папкою (системні файли)
+The path may contain passwords or keys	Шлях може містити паролі або ключі
+The server did not respond in time.	Сервер не відповів вчасно.
+The server rejected the request (invalid chat).	Сервер відхилив запит (недійсний чат).
+The server returned a web page instead of an API response (HTTP {0}).	Сервер повернув вебсторінку замість відповіді API (HTTP {0}).
+The server returned an invalid response (HTTP {0}).	Сервер повернув недійсну відповідь (HTTP {0}).
+The server's web protection blocked the request (HTTP {0}).	Вебзахист сервера заблокував запит (HTTP {0}).
+Thinking…	Думаю…
+This may access private data	Це може надати доступ до приватних даних
+Tidy up Downloads	Прибрати в Завантаженнях
+Too many requests. Please wait a moment.	Забагато запитів. Зачекайте трохи.
+Type text	Введення тексту
+Types a dangerous command	Вводить небезпечну команду
+Unsupported URL type	Непідтримуваний тип URL-адреси
+Waiting for your approval	Очікує на ваше схвалення
+Welcome to LuxAI	Вітаємо в LuxAI
+What is using the most disk space in my home folder?	Що займає найбільше місця в моїй домашній папці?
+Working folder	Робоча папка
+Write a short, friendly email inviting my team to a Friday lunch.	Напиши короткий дружній лист, у якому я запрошую свою команду на обід у п’ятницю.
+Write a text	Напиши текст
+Write file	Запис файлу
+Writes directly to a disk device	Записує безпосередньо на дисковий пристрій
+Yes, run it	Так, виконати
+Your LuxAI session has expired or is not valid. Please sign in again.	Ваш сеанс LuxAI завершився або недійсний. Увійдіть ще раз.
+Your session has expired	Ваш сеанс завершився
+code	код
+folder	папка
+no images	без зображень
+sees images	бачить зображення
+{0} open windows	Відкритих вікон: {0}
+{0}: {1} / {2} tokens this month	{0}: {1} / {2} токенів цього місяця
+{0}: {1} tokens this month	{0}: {1} токенів цього місяця
+{0}: {1} tokens this month · unlimited	{0}: {1} токенів цього місяця · без обмежень
+You denied this action.	Ви відхилили цю дію.
+Stopped before running.	Зупинено перед виконанням.
+AI behaviour	Поведінка ШІ
+Accesses LuxAI settings (including agent permissions)	Отримує доступ до параметрів LuxAI (включно з дозволами агента)
+Account and settings	Обліковий запис і параметри
+Add	Додати
+Add folder…	Додати папку…
+Added to every conversation. They cannot give the agent more permissions than set in Agent permissions.	Додаються до кожної розмови. Вони не можуть надати агенту більше дозволів, ніж задано в розділі «Дозволи агента».
+After the first answer the fast Lite model suggests a short title. You can rename a conversation any time (right-click it in the sidebar).	Після першої відповіді швидка модель Lite пропонує коротку назву. Розмову можна будь-коли перейменувати (клацніть її правою кнопкою на бічній панелі).
+Agent permissions	Дозволи агента
+All saved conversations will be permanently removed from this computer.	Усі збережені розмови буде остаточно видалено з цього комп’ютера.
+Allow	Дозволити
+Allow without asking	Дозволяти без запиту
+Allowed folders	Дозволені папки
+Always ask	Завжди запитувати
+Answer length	Довжина відповіді
+Answers	Відповіді
+Appearance	Вигляд
+Application	Програма
+Ask only for risky commands	Запитувати лише щодо ризикованих команд
+Attach screenshots in Agent mode. Turn on only if the model supports images.	Додавати знімки екрана в режимі «Агент». Вмикайте, лише якщо модель підтримує зображення.
+Balanced	Збалансований
+Blocked folders	Заблоковані папки
+Changing files is turned off in LuxAI settings	Зміну файлів вимкнено в параметрах LuxAI
+Clear all history…	Очистити всю історію…
+Clicking, typing, pressing keys and closing windows.	Клацання, введення тексту, натискання клавіш і закриття вікон.
+Commands	Команди
+Concise	Стислий
+Control mouse and keyboard	Керувати мишею й клавіатурою
+Conversation	Розмова
+Conversations	Розмови
+Creating, editing, moving and deleting files and folders.	Створення, редагування, переміщення й видалення файлів і папок.
+Creativity (temperature)	Креативність (температура)
+Ctrl+Enter (Enter for a new line)	Ctrl+Enter (Enter – новий рядок)
+Custom instructions	Власні інструкції
+Dangerous actions (deleting your home folder, formatting disks, shutting down …) always need two confirmations, and LuxAI never touches its account and settings files. "Always ask" still offers "Always for this session" on the approval card.	Небезпечні дії (видалення домашньої папки, форматування дисків, вимкнення …) завжди потребують двох підтверджень, і LuxAI ніколи не торкається файлів свого облікового запису й параметрів. «Завжди запитувати» все одно пропонує «Завжди в цьому сеансі» на картці схвалення.
+Dark	Темний
+Data on this computer	Дані на цьому комп’ютері
+Default model	Стандартна модель
+Delete all	Видалити все
+Delete all conversations?	Видалити всі розмови?
+Delete screenshots	Видалити знімки екрана
+Detailed	Детальний
+Enter (Shift+Enter for a new line)	Enter (Shift+Enter – новий рядок)
+Folders	Папки
+Friendly	Дружній
+General	Загальні
+History	Історія
+History is turned off	Історію вимкнено
+If you add folders here, the agent can work with files only inside them. Empty = anywhere (system files need extra confirmation).	Якщо ви додасте сюди папки, агент зможе працювати з файлами лише в них. Порожньо = будь-де (системні файли потребують додаткового підтвердження).
+Keep conversation history	Зберігати історію розмов
+Keyboard shortcuts	Клавіатурні скорочення
+Language	Мова
+Light	Світлий
+Limits from Settings › Agent permissions apply.	Діють обмеження з розділу Параметри › Дозволи агента.
+Long	Довга
+Long-running commands are stopped after this time.	Довготривалі команди зупиняються після цього часу.
+LuxAI also remembers the mode you used last.	LuxAI також запам’ятовує останній використаний режим.
+LuxAI answered	LuxAI відповів
+LuxAI needs your approval	LuxAI потребує вашого схвалення
+Manage account	Керувати обліковим записом
+Maximum length of one answer. Agent mode always keeps enough room for its tools.	Максимальна довжина однієї відповіді. Режим «Агент» завжди залишає достатньо місця для своїх інструментів.
+Messages	Повідомлення
+Mode for new conversations	Режим для нових розмов
+Mouse and keyboard control is turned off in LuxAI settings	Керування мишею й клавіатурою вимкнено в параметрах LuxAI
+Name	Назва
+Name conversations automatically	Автоматично називати розмови
+Network access	Доступ до мережі
+Network access is turned off in LuxAI settings	Доступ до мережі вимкнено в параметрах LuxAI
+Never	Ніколи
+New line	Новий рядок
+No folders	Немає папок
+Normal	Звичайна
+Notifications	Сповіщення
+Notify me when LuxAI finishes an answer or needs my approval while the window is in the background.	Сповіщати, коли LuxAI завершує відповідь або потребує мого схвалення, а вікно у фоні.
+Off = the model's default. Lower is more precise, higher more creative. Applied only if the model supports it.	Вимкнено = стандартне значення моделі. Нижче – точніше, вище – креативніше. Застосовується, лише якщо модель це підтримує.
+Open apps and links	Відкривати програми й посилання
+Opening apps and links is turned off in LuxAI settings	Відкриття програм і посилань вимкнено в параметрах LuxAI
+Opening web links, downloads and network tools (curl, git clone, package installs). Detected from the command – for strict isolation also set Run commands to Never.	Відкриття вебпосилань, завантаження й мережеві інструменти (curl, git clone, інсталяція пакетів). Визначається з команди – для суворої ізоляції також установіть «Виконувати команди» на «Ніколи».
+Privacy & history	Конфіденційність та історія
+Private files (keys, passwords, .env) always need your confirmation.	Приватні файли (ключі, паролі, .env) завжди потребують вашого підтвердження.
+Quit	Вийти
+Read files	Читати файли
+Reading files is turned off in LuxAI settings	Читання файлів вимкнено в параметрах LuxAI
+Relative paths and commands start here.	Відносні шляхи й команди починаються звідси.
+Remove	Вилучити
+Rename	Перейменувати
+Rename conversation	Перейменувати розмову
+Rename…	Перейменувати…
+Response style	Стиль відповідей
+Run commands	Виконувати команди
+Running commands is turned off in LuxAI settings	Виконання команд вимкнено в параметрах LuxAI
+Same as my message	Як у моєму повідомленні
+Same as system	Як у системі
+Saved conversations	Збережені розмови
+Screenshots	Знімки екрана
+Screenshots and clipboard	Знімки екрана й буфер обміну
+Screenshots and clipboard are turned off in LuxAI settings	Знімки екрана й буфер обміну вимкнено в параметрах LuxAI
+Screenshots taken by the agent	Знімки екрана, зроблені агентом
+Send message	Надіслати повідомлення
+Send message with	Надсилати повідомлення клавішами
+Sends what is on your screen or in the clipboard to the model.	Надсилає моделі вміст екрана або буфера обміну.
+Settings file	Файл параметрів
+Settings…	Параметри…
+Shell commands are checked for blocked folders in their paths, but a command cannot be fully confined. Set Run commands to Never for strict folder limits.	Команди оболонки перевіряються на шляхи до заблокованих папок, але повністю обмежити команду неможливо. Для суворих обмежень папок установіть «Виконувати команди» на «Ніколи».
+Short	Коротка
+Sign in with your LuxAI account to chat.	Щоб почати чат, увійдіть з обліковим записом LuxAI.
+Sign out	Вийти
+Sign out of LuxAI?	Вийти з LuxAI?
+Sign out…	Вийти…
+Signing out failed. Try again in the LuxAI account app.	Не вдалося вийти. Спробуйте ще раз у програмі «Обліковий запис LuxAI».
+Start	Запуск
+Stop the answer or command	Зупинити відповідь або команду
+Technical	Технічний
+The agent never reads or changes anything in these folders.	Агент ніколи нічого не читає й не змінює в цих папках.
+The folder is blocked in LuxAI settings	Папку заблоковано в параметрах LuxAI
+The path is outside the folders allowed in LuxAI settings	Шлях розташований поза папками, дозволеними в параметрах LuxAI
+Theme	Тема
+Used for new conversations. You can switch it any time in the toolbar.	Використовується для нових розмов. Її можна будь-коли змінити на панелі інструментів.
+Uses the network	Використовує мережу
+What Agent mode may do	Що може робити режим «Агент»
+What should LuxAI know about you or how should it answer? E.g. "Call me Tom. Prefer metric units and short answers."	Що LuxAI має знати про вас і як відповідати? Напр.: «Називай мене Тарасом. Віддаю перевагу метричним одиницям і коротким відповідям.»
+When off, new conversations are not saved on this computer and disappear when you close them.	Якщо вимкнено, нові розмови не зберігаються на цьому комп’ютері й зникають після закриття.
+With "risky only", read-only commands such as ls, df or git status run without asking.	У режимі «лише ризиковані» команди, що лише читають (як-от ls, df або git status), виконуються без запиту.
+Write and delete files	Записувати й видаляти файли
+You will be signed out of your LuxAI account in all LuxOS apps on this computer. Your conversations stay on this computer.	Ви вийдете з облікового запису LuxAI в усіх програмах LuxOS на цьому комп’ютері. Ваші розмови залишаться на цьому комп’ютері.
+Your messages are sent to the LuxAI service (lux-ai.cz) to generate answers and titles. The agent runs tools only on this computer.	Ваші повідомлення надсилаються до служби LuxAI (lux-ai.cz) для створення відповідей і назв. Агент запускає інструменти лише на цьому комп’ютері.
+{0} can see images	{0} бачить зображення
+{0} conversations saved	Збережено розмов: {0}
+{0} screenshots	Знімків екрана: {0}
+(preview not available)	(попередній перегляд недоступний)
+Bug report	Повідомлення про помилку
+Contact e-mail for a reply: {0}	Контактний e-mail для відповіді: {0}
+Don't send	Не надсилати
+Idea	Ідея
+LuxOS could not reach the server. Check the internet connection.	LuxOS не вдалося з’єднатися із сервером. Перевірте з’єднання з інтернетом.
+No graphical session; the report is sent without a screenshot.	Немає графічного сеансу; повідомлення буде надіслано без знімка екрана.
+No screenshot will be attached.	Знімок екрана не буде додано.
+No system information will be attached.	Відомості про систему не буде додано.
+Report sent. Report ID: {0}	Повідомлення надіслано. ID повідомлення: {0}
+Report text:	Текст повідомлення:
+Report to LuxOS	Повідомити LuxOS
+Search LuxOS docs	Пошук у довідці LuxOS
+Read LuxOS docs	Читання довідки LuxOS
+Save and send later	Зберегти й надіслати пізніше
+Saved. The Feedback app will send the report when you are online.	Збережено. Застосунок «Відгук» надішле повідомлення, коли ви будете онлайн.
+Screenshot that will be attached ({0} kB)	Знімок екрана, який буде додано ({0} кБ)
+Screenshots are turned off in LuxAI settings; the report is sent without one.	Знімки екрана вимкнено в налаштуваннях LuxAI; повідомлення буде надіслано без знімка.
+Send report	Надіслати повідомлення
+Send this report to the author of LuxOS?	Надіслати це повідомлення авторові LuxOS?
+Sending failed ({0}).	Не вдалося надіслати ({0}).
+Sends the report and attachments shown in this card to the author of LuxOS	Надсилає авторові LuxOS повідомлення та вкладення, показані в цій картці
+Sent anonymously (you are not signed in).	Надсилається анонімно (ви не ввійшли).
+Sent with your LuxAI account.	Надсилається з вашим обліковим записом LuxAI.
+Something else	Інше
+System information that will be attached (anonymised)	Відомості про систему, які буде додано (анонімізовані)
+The e-mail address does not look valid.	Адреса e-mail виглядає недійсною.
+The message must have 10 to 8000 characters.	Повідомлення має містити від 10 до 8000 символів.
+The report could not be prepared.	Не вдалося підготувати повідомлення.
+The report could not be saved: {0}	Не вдалося зберегти повідомлення: {0}
+The report is too large. Try it without the screenshot.	Повідомлення завелике. Спробуйте надіслати його без знімка екрана.
+The screenshot could not be accepted. Try it without the screenshot.	Знімок екрана не прийнято. Спробуйте надіслати повідомлення без нього.
+The screenshot could not be taken ({0}); the report is sent without one.	Не вдалося зробити знімок екрана ({0}); повідомлення буде надіслано без нього.
+The screenshot is too large; the report is sent without one.	Знімок екрана завеликий; повідомлення буде надіслано без нього.
+Type:	Тип:
+You can save the report; the Feedback app will send it automatically later.	Повідомлення можна зберегти; застосунок «Відгук» пізніше надішле його автоматично.
+You have sent many reports in a short time. Please try again later.	Ви надіслали багато повідомлень за короткий час. Спробуйте пізніше.
+At most {0} attachments can be added to one message.	До повідомлення можна додати не більше {0} вкладень.
+At most {0} images can be added to one message.	До повідомлення можна додати не більше {0} зображень.
+Attach	Додати
+Attach images or files	Додати зображення або файли
+Feeds a password to sudo or su (use pkexec instead)	Передає пароль програмі sudo або su (використовуйте pkexec)
+Pasted image	Вставлене зображення
+Remove attachment	Вилучити вкладення
+The current model cannot see images. They stay in the conversation and are sent when you switch to a model that can see images.	Поточна модель не бачить зображень. Вони залишаться в розмові й будуть надіслані, коли ви перемкнетеся на модель, що бачить зображення.
+{0} cannot be attached: only images and text files are supported.	{0} не можна додати: підтримуються лише зображення та текстові файли.
+{0} cannot be read as an image.	{0} не вдається прочитати як зображення.
+{0} cannot be read: {1}	{0} не вдається прочитати: {1}
+{0} is long; only its beginning is attached.	{0} задовгий; буде додано лише його початок.
+{0} is too large to attach.	{0} завеликий, щоб його додати.
+Administrator commands	Команди адміністратора
+Administrator mode was not turned on	Режим адміністратора не ввімкнено
+Ask for the password every time	Щоразу запитувати пароль
+Password once for 5 minutes, approve each command	Пароль один раз на 5 хвилин, схвалювати кожну команду
+Password once for 5 minutes, without asking	Пароль один раз на 5 хвилин, без запитань
+Commands the agent runs as administrator (root). Administrator mode: you enter the administrator password once and for about 5 minutes LuxAI runs administrator commands without asking for it again; only this LuxAI window gets it, other programs still need the password. Requests sent to LuxAI by other programs always need your approval. Only with the Flash model; Lite always asks for the password. Destructive commands (deleting the system or home folder, formatting disks, removing the bootloader, changing accounts, sudo or polkit) are always refused. Every command is logged in ~/.local/state/luxai/root-commands.log.	Команди, які агент виконує як адміністратор (root). Режим адміністратора: ви вводите пароль адміністратора один раз, і приблизно 5 хвилин LuxAI виконує команди адміністратора, не питаючи його знову; це діє лише для цього вікна LuxAI, іншим програмам пароль і далі потрібен. Запити, які до LuxAI надсилають інші програми, завжди потребують вашого схвалення. Лише з моделлю Flash; Lite завжди просить пароль. Руйнівні команди (видалення системи чи домашньої теки, форматування дисків, видалення завантажувача, зміни облікових записів, sudo або polkit) завжди відхиляються. Кожна команда записується до ~/.local/state/luxai/root-commands.log.
+The request came from another program, not from the LuxAI window	Запит надіслала інша програма, а не вікно LuxAI
+Changes LuxAI administrator mode, settings or account	Змінює режим адміністратора, налаштування або обліковий запис LuxAI
+Changes owner or permissions of the whole system or a system folder	Змінює власника або права всієї системи чи системної теки
+Changes sudo, polkit or PAM configuration	Змінює налаштування sudo, polkit або PAM
+Crashes or instantly reboots the kernel	Аварійно зупиняє або миттєво перезавантажує ядро
+Deletes the whole system, a system folder or a home folder	Видаляє всю систему, системну або домашню теку
+Disables package signature checks	Вимикає перевірку підписів пакунків
+Formats, wipes or writes directly to a disk	Форматує, стирає або записує безпосередньо на диск
+LuxAI administrator mode is not installed (update LuxAI)	Режим адміністратора LuxAI не встановлено (оновіть LuxAI)
+Removes the bootloader, the EFI partition, kernels or core system packages	Видаляє завантажувач, розділ EFI, ядра або базові пакунки системи
+Runs a script downloaded from the internet as administrator	Запускає завантажений з інтернету скрипт як адміністратор
+Runs as administrator (root)	Виконується як адміністратор (root)
+Runs generated or hidden code as administrator, which cannot be checked	Виконує як адміністратор згенерований або прихований код, який неможливо перевірити
+The administrator password was not entered	Пароль адміністратора не введено
+The target of a destructive command cannot be verified (variable, substitution or unknown folder)	Неможливо перевірити ціль руйнівної команди (змінна, підстановка або невідома тека)
+Installs community (AUR) code, which is not checked by LuxOS	Встановлює код спільноти (AUR), який LuxOS не перевіряє
+Copy code	Копіювати код
+Copy the whole answer	Копіювати всю відповідь
+Read web page	Читання вебсторінки
+Search the web	Пошук в інтернеті
+Web content is in this conversation and may contain hidden instructions	У розмові є вміст з інтернету, який може містити приховані інструкції
+Web content is in this conversation: check this command carefully	У розмові є вміст з інтернету: уважно перевірте цю команду
+{0} characters of text	{0} символів тексту
+LuxAI wants to open this web address:	LuxAI хоче відкрити цю вебадресу:
+This address was not given by you or found by web search; it could send data from this conversation to that website	Цю адресу не вказали ви і не знайшов пошук; вона може надіслати дані з цієї розмови на той сайт
+Address of a point	Адреса точки
+Arrivals	Прибуття
+By bike	Велосипедом
+By car	Автомобілем
+Connections found: {0}	Знайдено сполучень: {0}
+Current location	Поточне місцезнаходження
+Departures	Відправлення
+Find on map	Пошук на мапі
+Location is not allowed. Open Maps and click the location button once to allow it.	Місцезнаходження не дозволено. Відкрийте Мапи й один раз натисніть кнопку місцезнаходження.
+LuxOS Maps is not installed (lux install luxos-maps).	Мапи LuxOS не встановлено (lux install luxos-maps).
+Map data © OpenStreetMap contributors	Дані мапи © учасники OpenStreetMap
+No connection found	Сполучення не знайдено
+On foot	Пішки
+Open in Maps	Відкрити в Мапах
+Places found: {0}	Знайдено місць: {0}
+Places nearby	Місця поблизу
+Public transport	Громадський транспорт
+Public transport route	Маршрут громадським транспортом
+Route	Маршрут
+Show in Maps	Показати в Мапах
+Shown in Maps	Показано в Мапах
+The map service is busy. Try again later.	Сервіс мап перевантажений. Спробуйте пізніше.
+Timetable	Розклад
+Walk {0} m	Пішки {0} м
+cancelled	скасовано
+direct	без пересадок
+platform {0}	платформа {0}
+{0} transfers	пересадки: {0}
+The request is too large – the image or the conversation is too big. Start a new conversation or continue without the image.	Запит завеликий – зображення або розмова надто великі. Почніть нову розмову або продовжуйте без зображення.
+This action requires confirmation on the computer	Ця дія потребує підтвердження на комп’ютері
+The request was stopped.	Запит зупинено.
+Another request is still running. Wait for it to finish or cancel it.	Інший запит ще виконується. Зачекайте, доки він завершиться, або скасуйте його.
+You are not signed in to LuxAI. Sign in in the LuxAI app on the computer.	Ви не ввійшли в LuxAI. Увійдіть у застосунку LuxAI на комп’ютері.
+Calendar events	Події календаря
+New calendar event	Нова подія календаря
+Change calendar event	Зміна події календаря
+Delete calendar event	Видалення події з календаря
+Adds an event to your LuxOS Calendar	Додає подію до вашого Календаря LuxOS
+Changes an event in your LuxOS Calendar	Змінює подію у вашому Календарі LuxOS
+Deletes an event from your LuxOS Calendar	Видаляє подію з вашого Календаря LuxOS
+Monday	понеділок
+Tuesday	вівторок
+Wednesday	середа
+Thursday	четвер
+Friday	пʼятниця
+Saturday	субота
+Sunday	неділя
+all day	увесь день
+Location: {0}	Місце: {0}
+Reminder: {0} min before	Нагадування: за {0} хв
+Calendar: {0}	Календар: {0}
+Events: {0}	Події: {0}
+No events in this period.	У цей період немає подій.
+… and {0} more	… і ще {0}
+Before:	До:
+After:	Після:
+Repeating event – the change applies to all its occurrences.	Повторювана подія – зміна стосується всіх її повторень.
+Added to the calendar.	Додано до календаря.
+Changed in the calendar.	Змінено в календарі.
+Deleted from the calendar.	Видалено з календаря.
+Done.	Готово.
+Denied on the phone.	Відхилено на телефоні.
+Not approved on the phone in time.	Не схвалено на телефоні вчасно.
+Blocked by LuxAI safety rules.	Заблоковано правилами безпеки LuxAI.
+This model is not available in LuxAI.	Ця модель недоступна в LuxAI.
+Our projects	Наші проєкти
+Open	Відкрити
+Web portals, Android apps, desktop tools and a YouTube channel	Вебпортали, застосунки Android, настільні інструменти та канал YouTube

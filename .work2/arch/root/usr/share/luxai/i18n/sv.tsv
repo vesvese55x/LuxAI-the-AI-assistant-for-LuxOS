@@ -1,0 +1,460 @@
+# LuxAI - svensk översättning (engelsk text<TAB>svensk text); {0}, {1}, {2} måste behållas
+(empty file)	(tom fil)
+(empty)	(tomt)
+(no output)	(ingen utdata)
+AI assistant that can work with your computer	AI-assistent som kan arbeta med din dator · Skapat av BELGESELSEMO från den ursprungliga LuxOS-distributionen med hjälp av Z.AI och paketerat för Linux och Windows · https://belgeselsemo.com.tr
+About LuxAI	Om LuxAI
+Accesses private keys or passwords	Kommer åt privata nycklar eller lösenord
+Accesses the LuxAI account token	Kommer åt LuxAI-kontots token
+Agent	Agent
+Agent actions run without asking. Dangerous actions still need two confirmations. Resets when LuxAI restarts.	Agentens åtgärder körs utan att fråga. Farliga åtgärder kräver fortfarande två bekräftelser. Återställs när LuxAI startas om.
+Agent mode · Auto-approve is ON: actions run without asking (dangerous ones still ask twice).	Agentläge · Godkänn automatiskt är PÅ: åtgärder körs utan att fråga (farliga frågar fortfarande två gånger).
+Agent mode · LuxAI can work with your computer. You approve every action that changes something.	Agentläge · LuxAI kan arbeta med din dator. Du godkänner varje åtgärd som ändrar något.
+Agent mode: I can run commands, manage files, open apps and control the mouse and keyboard – always with your approval.	Agentläge: jag kan köra kommandon, hantera filer, öppna appar och styra musen och tangentbordet – alltid med ditt godkännande.
+Allow LuxAI to do this?	Vill du tillåta LuxAI att göra detta?
+Allow once	Tillåt en gång
+Allow once…	Tillåt en gång…
+Always for this session	Alltid under den här sessionen
+Another conversation is already running on this account. Try again in a moment.	En annan konversation pågår redan på det här kontot. Försök igen om en stund.
+Are you sure? This can cause damage that cannot be undone.	Är du säker? Detta kan orsaka skador som inte går att ångra.
+Arguments	Argument
+Ask LuxAI to do something on your computer…	Be LuxAI att göra något på din dator…
+Ask anything. Switch to Agent mode when you want me to do things on your computer.	Fråga vad som helst. Byt till Agentläge när du vill att jag ska göra saker på din dator.
+Attach screenshots for the current model. Turn on only if the model supports images; uses more tokens.	Bifoga skärmavbilder för den aktuella modellen. Slå bara på om modellen stöder bilder; använder fler tokens.
+Auto-approve actions	Godkänn åtgärder automatiskt
+Blocked by safety rules	Blockerad av säkerhetsregler
+Brainstorm	Idéer
+CONVERSATIONS	KONVERSATIONER
+Cancel	Avbryt
+Changes immutable file attributes	Ändrar oföränderliga filattribut
+Changes permissions of the whole home folder or system	Ändrar behörigheter för hela hemmappen eller systemet
+Changes user accounts or passwords	Ändrar användarkonton eller lösenord
+Chat	Chatt
+Chat with AI or let it work with your computer. Sign in with your LuxAI account – one account for all LuxOS apps.	Chatta med AI eller låt den arbeta med din dator. Logga in med ditt LuxAI-konto – ett konto för alla LuxOS-appar.
+Click	Klicka
+Close window	Stäng fönster
+Command timeout (seconds)	Tidsgräns för kommandon (sekunder)
+Copied	Kopierat
+Copy	Kopiera
+Create a free account	Skapa ett kostnadsfritt konto
+Create folder	Skapa mapp
+Delete	Radera
+Delete conversation	Radera konversation
+Delete this conversation?	Vill du radera den här konversationen?
+Deletes all scheduled tasks	Raderar alla schemalagda uppgifter
+Deletes all untracked files in the repository	Raderar alla ospårade filer i förrådet
+Deletes files across the whole home folder or system	Raderar filer i hela hemmappen eller systemet
+Deletes the whole home folder or system	Raderar hela hemmappen eller systemet
+Denied	Nekad
+Deny	Neka
+Details	Detaljer
+Done	Klart
+Edit file	Redigera fil
+Ends your desktop session	Avslutar din skrivbordssession
+Explain how HTTPS keeps my connection private, in simple terms.	Förklara med enkla ord hur HTTPS håller min anslutning privat.
+Explain something	Förklara något
+Failed	Misslyckades
+Find files	Hitta filer
+Finish signing in in the LuxAI account window…	Slutför inloggningen i fönstret för LuxAI-kontot…
+Flash – smarter	Flash – smartare
+Focus window	Fokusera fönster
+Force-pushes and may overwrite remote history	Tvångspushar och kan skriva över fjärrhistorik
+Fork bomb	Gaffelbomb
+Formats or wipes a disk	Formaterar eller raderar en disk
+Free disk space	Ledigt diskutrymme
+Give me 5 ideas for a weekend trip in the Czech Republic.	Ge mig 5 idéer för en weekendresa i Tjeckien.
+Help with code	Hjälp med kod
+How can I help you today?	Hur kan jag hjälpa dig i dag?
+How do I read a JSON file in Python? Show a short example.	Hur läser jag en JSON-fil i Python? Visa ett kort exempel.
+It will be permanently removed from this computer.	Den tas bort permanent från den här datorn.
+Kills all processes or the desktop session	Avslutar alla processer eller skrivbordssessionen
+List apps	Lista appar
+List folder	Lista mapp
+List the files in my Downloads folder grouped by type and suggest what to clean up.	Lista filerna i min Hämtade filer-mapp grupperade efter typ och föreslå vad jag kan rensa.
+List windows	Lista fönster
+Lite – faster, larger limit	Lite – snabbare, högre gräns
+Look at my screen	Titta på min skärm
+LuxAI account credentials are never read or changed by the agent	Agenten läser eller ändrar aldrig inloggningsuppgifterna för LuxAI-kontot
+LuxAI account…	LuxAI-konto…
+LuxAI can make mistakes. Check important information.	LuxAI kan göra misstag. Kontrollera viktig information.
+LuxAI can work with your computer using tools, with your approval	LuxAI kan arbeta med din dator med hjälp av verktyg, med ditt godkännande
+Message LuxAI…	Skriv till LuxAI…
+Model	Modell
+Model can see images	Modellen kan se bilder
+Move	Flytta
+Move mouse	Flytta musen
+Moves the whole home folder or system	Flyttar hela hemmappen eller systemet
+Network error: {0}	Nätverksfel: {0}
+New chat	Ny chatt
+New conversation	Ny konversation
+No conversations yet	Inga konversationer ännu
+No result	Inget resultat
+No windows	Inga fönster
+Not signed in	Inte inloggad
+Not signed in.	Inte inloggad.
+Nothing found	Inget hittades
+Notification	Avisering
+Offline – usage not available	Offline – användning är inte tillgänglig
+Open a website	Öppna en webbplats
+Open app	Öppna app
+Open link	Öppna länk
+Open lux-ai.cz in the web browser.	Öppna lux-ai.cz i webbläsaren.
+Overwrites system files	Skriver över systemfiler
+Plain conversation, no access to your computer	Vanlig konversation, ingen åtkomst till din dator
+Please sign in again to continue. Your conversations are kept on this computer.	Logga in igen för att fortsätta. Dina konversationer finns kvar på den här datorn.
+Potentially dangerous action	Potentiellt farlig åtgärd
+Press keys	Tryck på tangenter
+Read clipboard	Läs urklipp
+Read file	Läs fil
+Recursively deletes a main personal folder	Raderar rekursivt en viktig personlig mapp
+Recursively deletes files outside your home folder	Raderar rekursivt filer utanför din hemmapp
+Refusing to modify the root or home directory itself	Vägrar att ändra själva rot- eller hemkatalogen
+Removes firewall rules	Tar bort brandväggsregler
+Removes installed system packages	Tar bort installerade systempaket
+Result	Resultat
+Run command	Kör kommando
+Running…	Körs…
+Runs a script downloaded from the internet	Kör ett skript som hämtats från internet
+Runs with administrator privileges	Körs med administratörsbehörighet
+Screenshot	Skärmavbild
+Scroll	Rulla
+Search conversations	Sök i konversationer
+Search text	Sök text
+Searches the whole system	Söker igenom hela systemet
+Send (Enter)	Skicka (Enter)
+Session expired	Sessionen har gått ut
+Settings	Inställningar
+Show or hide the sidebar	Visa eller göm sidofältet
+Shuts down or restarts the computer	Stänger av eller startar om datorn
+Sign in	Logga in
+Sign in again	Logga in igen
+Sign in to continue this conversation.	Logga in för att fortsätta den här konversationen.
+Sign in with LuxAI account	Logga in med LuxAI-konto
+Stop	Stoppa
+Stop the answer and any running command (Esc)	Stoppa svaret och alla kommandon som körs (Esc)
+Stopped	Stoppad
+Stopped after too many steps. Send a message to continue.	Stoppades efter för många steg. Skicka ett meddelande för att fortsätta.
+Stopped.	Stoppad.
+Stopping…	Stoppar…
+System info	Systeminformation
+Take a screenshot and tell me which windows are open.	Ta en skärmavbild och berätta vilka fönster som är öppna.
+The LuxAI API endpoint was not found on the server.	LuxAI:s API-slutpunkt hittades inte på servern.
+The LuxAI service is not available right now.	LuxAI-tjänsten är inte tillgänglig just nu.
+The LuxOS account tool (luxos-account) is not installed.	Kontoverktyget för LuxOS (luxos-account) är inte installerat.
+The answer was cut off (length limit).	Svaret avbröts (längdgräns).
+The file is run automatically at login	Filen körs automatiskt vid inloggning
+The key combination may end your session	Tangentkombinationen kan avsluta din session
+The model failed: {0}	Modellen misslyckades: {0}
+The monthly Flash limit is used up. Switch to Lite or wait for the next month.	Månadsgränsen för Flash är förbrukad. Byt till Lite eller vänta till nästa månad.
+The monthly Lite limit is used up.	Månadsgränsen för Lite är förbrukad.
+The path is outside your home folder (system files)	Sökvägen ligger utanför din hemmapp (systemfiler)
+The path may contain passwords or keys	Sökvägen kan innehålla lösenord eller nycklar
+The server did not respond in time.	Servern svarade inte i tid.
+The server rejected the request (invalid chat).	Servern avvisade förfrågan (ogiltig chatt).
+The server returned a web page instead of an API response (HTTP {0}).	Servern returnerade en webbsida i stället för ett API-svar (HTTP {0}).
+The server returned an invalid response (HTTP {0}).	Servern returnerade ett ogiltigt svar (HTTP {0}).
+The server's web protection blocked the request (HTTP {0}).	Serverns webbskydd blockerade förfrågan (HTTP {0}).
+Thinking…	Tänker…
+This may access private data	Detta kan komma åt privata data
+Tidy up Downloads	Städa upp Hämtade filer
+Too many requests. Please wait a moment.	För många förfrågningar. Vänta en stund.
+Type text	Skriv text
+Types a dangerous command	Skriver ett farligt kommando
+Unsupported URL type	URL-typen stöds inte
+Waiting for your approval	Väntar på ditt godkännande
+Welcome to LuxAI	Välkommen till LuxAI
+What is using the most disk space in my home folder?	Vad tar mest diskutrymme i min hemmapp?
+Working folder	Arbetsmapp
+Write a short, friendly email inviting my team to a Friday lunch.	Skriv ett kort, vänligt mejl som bjuder in mitt team till lunch på fredag.
+Write a text	Skriv en text
+Write file	Skriv fil
+Writes directly to a disk device	Skriver direkt till en diskenhet
+Yes, run it	Ja, kör det
+Your LuxAI session has expired or is not valid. Please sign in again.	Din LuxAI-session har gått ut eller är ogiltig. Logga in igen.
+Your session has expired	Din session har gått ut
+code	kod
+folder	mapp
+no images	inga bilder
+sees images	ser bilder
+{0} open windows	{0} öppna fönster
+{0}: {1} / {2} tokens this month	{0}: {1} / {2} tokens den här månaden
+{0}: {1} tokens this month	{0}: {1} tokens den här månaden
+{0}: {1} tokens this month · unlimited	{0}: {1} tokens den här månaden · obegränsat
+You denied this action.	Du nekade den här åtgärden.
+Stopped before running.	Stoppades innan den kördes.
+# Nastaveni, profil, nazvy konverzaci
+AI behaviour	AI-beteende
+Accesses LuxAI settings (including agent permissions)	Kommer åt LuxAI-inställningar (inklusive agentens behörigheter)
+Account and settings	Konto och inställningar
+Add	Lägg till
+Add folder…	Lägg till mapp…
+Added to every conversation. They cannot give the agent more permissions than set in Agent permissions.	Läggs till i varje konversation. De kan inte ge agenten fler behörigheter än vad som anges i Agentens behörigheter.
+After the first answer the fast Lite model suggests a short title. You can rename a conversation any time (right-click it in the sidebar).	Efter det första svaret föreslår den snabba Lite-modellen en kort titel. Du kan byta namn på en konversation när som helst (högerklicka på den i sidofältet).
+Agent permissions	Agentens behörigheter
+All saved conversations will be permanently removed from this computer.	Alla sparade konversationer tas bort permanent från den här datorn.
+Allow	Tillåt
+Allow without asking	Tillåt utan att fråga
+Allowed folders	Tillåtna mappar
+Always ask	Fråga alltid
+Answer length	Svarslängd
+Answers	Svar
+Appearance	Utseende
+Application	Program
+Ask only for risky commands	Fråga bara vid riskabla kommandon
+Attach screenshots in Agent mode. Turn on only if the model supports images.	Bifoga skärmavbilder i Agentläge. Slå bara på om modellen stöder bilder.
+Balanced	Balanserad
+Blocked folders	Blockerade mappar
+Changing files is turned off in LuxAI settings	Ändring av filer är avstängd i LuxAI-inställningarna
+Clear all history…	Rensa all historik…
+Clicking, typing, pressing keys and closing windows.	Klicka, skriva, trycka på tangenter och stänga fönster.
+Commands	Kommandon
+Concise	Koncis
+Control mouse and keyboard	Styra musen och tangentbordet
+Conversation	Konversation
+Conversations	Konversationer
+Creating, editing, moving and deleting files and folders.	Skapa, redigera, flytta och radera filer och mappar.
+Creativity (temperature)	Kreativitet (temperatur)
+Ctrl+Enter (Enter for a new line)	Ctrl+Enter (Enter för ny rad)
+Custom instructions	Anpassade instruktioner
+Dangerous actions (deleting your home folder, formatting disks, shutting down …) always need two confirmations, and LuxAI never touches its account and settings files. "Always ask" still offers "Always for this session" on the approval card.	Farliga åtgärder (radera din hemmapp, formatera diskar, stänga av …) kräver alltid två bekräftelser, och LuxAI rör aldrig sina konto- och inställningsfiler. ”Fråga alltid” erbjuder ändå ”Alltid under den här sessionen” på godkännandekortet.
+Dark	Mörkt
+Data on this computer	Data på den här datorn
+Default model	Standardmodell
+Delete all	Radera alla
+Delete all conversations?	Vill du radera alla konversationer?
+Delete screenshots	Radera skärmavbilder
+Detailed	Detaljerad
+Enter (Shift+Enter for a new line)	Enter (Skift+Enter för ny rad)
+Folders	Mappar
+Friendly	Vänlig
+General	Allmänt
+History	Historik
+History is turned off	Historiken är avstängd
+If you add folders here, the agent can work with files only inside them. Empty = anywhere (system files need extra confirmation).	Om du lägger till mappar här kan agenten bara arbeta med filer inuti dem. Tomt = var som helst (systemfiler kräver extra bekräftelse).
+Keep conversation history	Spara konversationshistorik
+Keyboard shortcuts	Kortkommandon
+Language	Språk
+Light	Ljust
+Limits from Settings › Agent permissions apply.	Gränserna från Inställningar › Agentens behörigheter gäller.
+Long	Lång
+Long-running commands are stopped after this time.	Kommandon som körs länge stoppas efter denna tid.
+LuxAI also remembers the mode you used last.	LuxAI kommer också ihåg det läge du använde senast.
+LuxAI answered	LuxAI har svarat
+LuxAI needs your approval	LuxAI behöver ditt godkännande
+Manage account	Hantera konto
+Maximum length of one answer. Agent mode always keeps enough room for its tools.	Maximal längd på ett svar. Agentläget lämnar alltid tillräckligt med utrymme för sina verktyg.
+Messages	Meddelanden
+Mode for new conversations	Läge för nya konversationer
+Mouse and keyboard control is turned off in LuxAI settings	Styrning av mus och tangentbord är avstängd i LuxAI-inställningarna
+Name	Namn
+Name conversations automatically	Namnge konversationer automatiskt
+Network access	Nätverksåtkomst
+Network access is turned off in LuxAI settings	Nätverksåtkomst är avstängd i LuxAI-inställningarna
+Never	Aldrig
+New line	Ny rad
+No folders	Inga mappar
+Normal	Normal
+Notifications	Aviseringar
+Notify me when LuxAI finishes an answer or needs my approval while the window is in the background.	Meddela mig när LuxAI har svarat färdigt eller behöver mitt godkännande medan fönstret ligger i bakgrunden.
+Off = the model's default. Lower is more precise, higher more creative. Applied only if the model supports it.	Av = modellens standard. Lägre är mer exakt, högre mer kreativt. Används bara om modellen stöder det.
+Open apps and links	Öppna appar och länkar
+Opening apps and links is turned off in LuxAI settings	Öppning av appar och länkar är avstängd i LuxAI-inställningarna
+Opening web links, downloads and network tools (curl, git clone, package installs). Detected from the command – for strict isolation also set Run commands to Never.	Öppna webblänkar, hämtningar och nätverksverktyg (curl, git clone, paketinstallationer). Identifieras utifrån kommandot – för strikt isolering ställer du även in Kör kommandon på Aldrig.
+Privacy & history	Integritet och historik
+Private files (keys, passwords, .env) always need your confirmation.	Privata filer (nycklar, lösenord, .env) kräver alltid din bekräftelse.
+Quit	Avsluta
+Read files	Läsa filer
+Reading files is turned off in LuxAI settings	Läsning av filer är avstängd i LuxAI-inställningarna
+Relative paths and commands start here.	Relativa sökvägar och kommandon utgår härifrån.
+Remove	Ta bort
+Rename	Byt namn
+Rename conversation	Byt namn på konversation
+Rename…	Byt namn…
+Response style	Svarsstil
+Run commands	Köra kommandon
+Running commands is turned off in LuxAI settings	Körning av kommandon är avstängd i LuxAI-inställningarna
+Same as my message	Samma som mitt meddelande
+Same as system	Samma som systemet
+Saved conversations	Sparade konversationer
+Screenshots	Skärmavbilder
+Screenshots and clipboard	Skärmavbilder och urklipp
+Screenshots and clipboard are turned off in LuxAI settings	Skärmavbilder och urklipp är avstängda i LuxAI-inställningarna
+Screenshots taken by the agent	Skärmavbilder som tagits av agenten
+Send message	Skicka meddelande
+Send message with	Skicka meddelande med
+Sends what is on your screen or in the clipboard to the model.	Skickar det som visas på skärmen eller finns i urklippet till modellen.
+Settings file	Inställningsfil
+Settings…	Inställningar…
+Shell commands are checked for blocked folders in their paths, but a command cannot be fully confined. Set Run commands to Never for strict folder limits.	Skalkommandon kontrolleras efter blockerade mappar i sökvägarna, men ett kommando kan inte begränsas helt. Ställ in Kör kommandon på Aldrig för strikta mappgränser.
+Short	Kort
+Sign in with your LuxAI account to chat.	Logga in med ditt LuxAI-konto för att chatta.
+Sign out	Logga ut
+Sign out of LuxAI?	Vill du logga ut från LuxAI?
+Sign out…	Logga ut…
+Signing out failed. Try again in the LuxAI account app.	Utloggningen misslyckades. Försök igen i appen LuxAI-konto.
+Start	Start
+Stop the answer or command	Stoppa svaret eller kommandot
+Technical	Teknisk
+The agent never reads or changes anything in these folders.	Agenten läser eller ändrar aldrig något i dessa mappar.
+The folder is blocked in LuxAI settings	Mappen är blockerad i LuxAI-inställningarna
+The path is outside the folders allowed in LuxAI settings	Sökvägen ligger utanför de mappar som tillåts i LuxAI-inställningarna
+Theme	Tema
+Used for new conversations. You can switch it any time in the toolbar.	Används för nya konversationer. Du kan byta när som helst i verktygsfältet.
+Uses the network	Använder nätverket
+What Agent mode may do	Vad Agentläge får göra
+What should LuxAI know about you or how should it answer? E.g. "Call me Tom. Prefer metric units and short answers."	Vad ska LuxAI veta om dig, eller hur ska den svara? T.ex. ”Kalla mig Tom. Föredra metriska enheter och korta svar.”
+When off, new conversations are not saved on this computer and disappear when you close them.	När detta är av sparas inte nya konversationer på den här datorn och de försvinner när du stänger dem.
+With "risky only", read-only commands such as ls, df or git status run without asking.	Med ”endast riskabla” körs skrivskyddade kommandon som ls, df eller git status utan att fråga.
+Write and delete files	Skriva och radera filer
+You will be signed out of your LuxAI account in all LuxOS apps on this computer. Your conversations stay on this computer.	Du loggas ut från ditt LuxAI-konto i alla LuxOS-appar på den här datorn. Dina konversationer finns kvar på den här datorn.
+Your messages are sent to the LuxAI service (lux-ai.cz) to generate answers and titles. The agent runs tools only on this computer.	Dina meddelanden skickas till LuxAI-tjänsten (lux-ai.cz) för att generera svar och titlar. Agenten kör verktyg endast på den här datorn.
+{0} can see images	{0} kan se bilder
+{0} conversations saved	{0} konversationer sparade
+{0} screenshots	{0} skärmavbilder
+# Hlaseni autorovi LuxOS (send_feedback)
+(preview not available)	(förhandsvisning inte tillgänglig)
+Bug report	Felrapport
+Contact e-mail for a reply: {0}	Kontakt-e-post för svar: {0}
+Don't send	Skicka inte
+Idea	Idé
+LuxOS could not reach the server. Check the internet connection.	LuxOS kunde inte nå servern. Kontrollera internetanslutningen.
+No graphical session; the report is sent without a screenshot.	Ingen grafisk session; rapporten skickas utan skärmbild.
+No screenshot will be attached.	Ingen skärmbild bifogas.
+No system information will be attached.	Ingen systeminformation bifogas.
+Report sent. Report ID: {0}	Rapporten har skickats. Rapport-ID: {0}
+Report text:	Rapportens text:
+Report to LuxOS	Rapportera till LuxOS
+Search LuxOS docs	Sök i LuxOS-dokumentationen
+Read LuxOS docs	Läs LuxOS-dokumentationen
+Save and send later	Spara och skicka senare
+Saved. The Feedback app will send the report when you are online.	Sparad. Appen Feedback skickar rapporten när du är online.
+Screenshot that will be attached ({0} kB)	Skärmbild som bifogas ({0} kB)
+Screenshots are turned off in LuxAI settings; the report is sent without one.	Skärmbilder är avstängda i LuxAI-inställningarna; rapporten skickas utan.
+Send report	Skicka rapport
+Send this report to the author of LuxOS?	Skicka den här rapporten till LuxOS-författaren?
+Sending failed ({0}).	Det gick inte att skicka ({0}).
+Sends the report and attachments shown in this card to the author of LuxOS	Skickar rapporten och bilagorna som visas i det här kortet till LuxOS-författaren
+Sent anonymously (you are not signed in).	Skickas anonymt (du är inte inloggad).
+Sent with your LuxAI account.	Skickas med ditt LuxAI-konto.
+Something else	Något annat
+System information that will be attached (anonymised)	Systeminformation som bifogas (anonymiserad)
+The e-mail address does not look valid.	E-postadressen verkar inte vara giltig.
+The message must have 10 to 8000 characters.	Meddelandet måste ha 10 till 8000 tecken.
+The report could not be prepared.	Rapporten kunde inte förberedas.
+The report could not be saved: {0}	Rapporten kunde inte sparas: {0}
+The report is too large. Try it without the screenshot.	Rapporten är för stor. Försök utan skärmbild.
+The screenshot could not be accepted. Try it without the screenshot.	Skärmbilden godtogs inte. Försök utan den.
+The screenshot could not be taken ({0}); the report is sent without one.	Det gick inte att ta en skärmbild ({0}); rapporten skickas utan.
+The screenshot is too large; the report is sent without one.	Skärmbilden är för stor; rapporten skickas utan.
+Type:	Typ:
+You can save the report; the Feedback app will send it automatically later.	Du kan spara rapporten; appen Feedback skickar den automatiskt senare.
+You have sent many reports in a short time. Please try again later.	Du har skickat många rapporter på kort tid. Försök igen senare.
+At most {0} attachments can be added to one message.	Högst {0} bilagor kan bifogas till ett meddelande.
+At most {0} images can be added to one message.	Högst {0} bilder kan bifogas till ett meddelande.
+Attach	Bifoga
+Attach images or files	Bifoga bilder eller filer
+Feeds a password to sudo or su (use pkexec instead)	Skickar ett lösenord till sudo eller su (använd pkexec)
+Pasted image	Inklistrad bild
+Remove attachment	Ta bort bilaga
+The current model cannot see images. They stay in the conversation and are sent when you switch to a model that can see images.	Den aktuella modellen kan inte se bilder. De finns kvar i konversationen och skickas när du byter till en modell som ser bilder.
+{0} cannot be attached: only images and text files are supported.	{0} kan inte bifogas: endast bilder och textfiler stöds.
+{0} cannot be read as an image.	{0} kan inte läsas som en bild.
+{0} cannot be read: {1}	{0} kan inte läsas: {1}
+{0} is long; only its beginning is attached.	{0} är lång; bara början bifogas.
+{0} is too large to attach.	{0} är för stor för att bifogas.
+Administrator commands	Administratörskommandon
+Administrator mode was not turned on	Administratörsläget slogs inte på
+Ask for the password every time	Fråga efter lösenordet varje gång
+Password once for 5 minutes, approve each command	Lösenord en gång för 5 minuter, godkänn varje kommando
+Password once for 5 minutes, without asking	Lösenord en gång för 5 minuter, utan att fråga
+Commands the agent runs as administrator (root). Administrator mode: you enter the administrator password once and for about 5 minutes LuxAI runs administrator commands without asking for it again; only this LuxAI window gets it, other programs still need the password. Requests sent to LuxAI by other programs always need your approval. Only with the Flash model; Lite always asks for the password. Destructive commands (deleting the system or home folder, formatting disks, removing the bootloader, changing accounts, sudo or polkit) are always refused. Every command is logged in ~/.local/state/luxai/root-commands.log.	Kommandon som agenten kör som administratör (root). Administratörsläge: du anger administratörslösenordet en gång och i ungefär 5 minuter kör LuxAI administratörskommandon utan att fråga efter det igen; det gäller bara detta LuxAI-fönster, andra program behöver fortfarande lösenordet. Förfrågningar som andra program skickar till LuxAI kräver alltid ditt godkännande. Bara med modellen Flash; Lite frågar alltid efter lösenordet. Destruktiva kommandon (radera systemet eller hemmappen, formatera diskar, ta bort startladdaren, ändra konton, sudo eller polkit) nekas alltid. Varje kommando loggas i ~/.local/state/luxai/root-commands.log.
+The request came from another program, not from the LuxAI window	Förfrågan kom från ett annat program, inte från LuxAI-fönstret
+Changes LuxAI administrator mode, settings or account	Ändrar LuxAI:s administratörsläge, inställningar eller konto
+Changes owner or permissions of the whole system or a system folder	Ändrar ägare eller behörigheter för hela systemet eller en systemmapp
+Changes sudo, polkit or PAM configuration	Ändrar konfigurationen för sudo, polkit eller PAM
+Crashes or instantly reboots the kernel	Kraschar eller startar om kärnan direkt
+Deletes the whole system, a system folder or a home folder	Raderar hela systemet, en systemmapp eller en hemmapp
+Disables package signature checks	Stänger av kontrollen av paketsignaturer
+Formats, wipes or writes directly to a disk	Formaterar, raderar eller skriver direkt till en disk
+LuxAI administrator mode is not installed (update LuxAI)	LuxAI:s administratörsläge är inte installerat (uppdatera LuxAI)
+Removes the bootloader, the EFI partition, kernels or core system packages	Tar bort startprogrammet, EFI-partitionen, kärnor eller grundläggande systempaket
+Runs a script downloaded from the internet as administrator	Kör ett skript som hämtats från internet som administratör
+Runs as administrator (root)	Körs som administratör (root)
+Runs generated or hidden code as administrator, which cannot be checked	Kör genererad eller dold kod som administratör som inte kan kontrolleras
+The administrator password was not entered	Administratörslösenordet angavs inte
+The target of a destructive command cannot be verified (variable, substitution or unknown folder)	Målet för ett destruktivt kommando kan inte kontrolleras (variabel, substitution eller okänd mapp)
+Installs community (AUR) code, which is not checked by LuxOS	Installerar gemenskapskod (AUR) som LuxOS inte kontrollerar
+Copy code	Kopiera kod
+Copy the whole answer	Kopiera hela svaret
+Read web page	Läs webbsida
+Search the web	Sök på webben
+Web content is in this conversation and may contain hidden instructions	Konversationen innehåller webbinnehåll som kan dölja instruktioner
+Web content is in this conversation: check this command carefully	Konversationen innehåller webbinnehåll: kontrollera kommandot noga
+{0} characters of text	{0} tecken text
+LuxAI wants to open this web address:	LuxAI vill öppna den här webbadressen:
+This address was not given by you or found by web search; it could send data from this conversation to that website	Adressen kommer inte från dig eller från en webbsökning; den kan skicka data från konversationen till webbplatsen
+Address of a point	Adress för en punkt
+Arrivals	Ankomster
+By bike	Med cykel
+By car	Med bil
+Connections found: {0}	Hittade förbindelser: {0}
+Current location	Aktuell plats
+Departures	Avgångar
+Find on map	Sök på kartan
+Location is not allowed. Open Maps and click the location button once to allow it.	Platsen är inte tillåten. Öppna Kartor och klicka en gång på platsknappen.
+LuxOS Maps is not installed (lux install luxos-maps).	LuxOS Kartor är inte installerat (lux install luxos-maps).
+Map data © OpenStreetMap contributors	Kartdata © OpenStreetMap-bidragsgivare
+No connection found	Ingen förbindelse hittades
+On foot	Till fots
+Open in Maps	Öppna i Kartor
+Places found: {0}	Hittade platser: {0}
+Places nearby	Platser i närheten
+Public transport	Kollektivtrafik
+Public transport route	Resa med kollektivtrafik
+Route	Rutt
+Show in Maps	Visa i Kartor
+Shown in Maps	Visas i Kartor
+The map service is busy. Try again later.	Karttjänsten är överbelastad. Försök igen senare.
+Timetable	Tidtabell
+Walk {0} m	Gå {0} m
+cancelled	inställd
+direct	direkt
+platform {0}	spår {0}
+{0} transfers	byten: {0}
+The request is too large – the image or the conversation is too big. Start a new conversation or continue without the image.	Begäran är för stor – bilden eller konversationen är för stor. Starta en ny konversation eller fortsätt utan bilden.
+This action requires confirmation on the computer	Den här åtgärden måste bekräftas på datorn
+The request was stopped.	Begäran stoppades.
+Another request is still running. Wait for it to finish or cancel it.	En annan begäran körs fortfarande. Vänta tills den är klar eller avbryt den.
+You are not signed in to LuxAI. Sign in in the LuxAI app on the computer.	Du är inte inloggad i LuxAI. Logga in i LuxAI-appen på datorn.
+Calendar events	Kalenderhändelser
+New calendar event	Ny kalenderhändelse
+Change calendar event	Ändra kalenderhändelse
+Delete calendar event	Ta bort kalenderhändelse
+Adds an event to your LuxOS Calendar	Lägger till en händelse i din LuxOS-kalender
+Changes an event in your LuxOS Calendar	Ändrar en händelse i din LuxOS-kalender
+Deletes an event from your LuxOS Calendar	Tar bort en händelse från din LuxOS-kalender
+Monday	måndag
+Tuesday	tisdag
+Wednesday	onsdag
+Thursday	torsdag
+Friday	fredag
+Saturday	lördag
+Sunday	söndag
+all day	heldag
+Location: {0}	Plats: {0}
+Reminder: {0} min before	Påminnelse: {0} min innan
+Calendar: {0}	Kalender: {0}
+Events: {0}	Händelser: {0}
+No events in this period.	Inga händelser under den här perioden.
+… and {0} more	… och {0} till
+Before:	Före:
+After:	Efter:
+Repeating event – the change applies to all its occurrences.	Återkommande händelse – ändringen gäller alla förekomster.
+Added to the calendar.	Tillagd i kalendern.
+Changed in the calendar.	Ändrad i kalendern.
+Deleted from the calendar.	Borttagen från kalendern.
+Done.	Klart.
+Denied on the phone.	Nekades på telefonen.
+Not approved on the phone in time.	Godkändes inte i tid på telefonen.
+Blocked by LuxAI safety rules.	Blockerades av LuxAI:s säkerhetsregler.
+This model is not available in LuxAI.	Den här modellen är inte tillgänglig i LuxAI.

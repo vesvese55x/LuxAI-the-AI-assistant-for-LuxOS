@@ -1,0 +1,17 @@
+Package: luxai
+Version: 3.1.0
+Section: utils
+Priority: optional
+Architecture: amd64
+Maintainer: BELGESELSEMO <belgeselsemo@belgeselsemo.com.tr>
+Installed-Size: 4734
+Depends: libgtk-3-0 (>= 3.24) | libgtk-3-0t64 (>= 3.24), python3 (>= 3.10), python3-gi, gir1.2-gtk-3.0, libcurl4 | libcurl4t64, libglib2.0-0 | libglib2.0-0t64, shared-mime-info
+Homepage: http://belgeselsemo.com.tr
+Description: LuxAI – the AI assistant for LuxOS (unofficial build)
+ Chat with AI or let the agent work with your computer: run commands,
+ manage files, open apps, take screenshots – always with your approval.
+ .
+ Unofficial multi-distro build by BELGESELSEMO, compiled from the original
+ LuxOS distribution with Z.AI assistance. 17 fully translated languages
+ (tr, ru, zh, ja, hi, de, fr, ...), dynamic system-language detection with
+ English fallback, modern window buttons, account panel included.
