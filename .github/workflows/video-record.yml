@@ -73,7 +73,7 @@ jobs:
           xdotool search --name ".*" getwindowname %@ 2>/dev/null | head -30 || true
           /usr/bin/luxos-account > /tmp/acct.log 2>&1 &
           sleep 8
-          AWID=$(xdotool search --regexp --name "Account|Hesab|Sign in|LuxAI" | tail -1 || true)
+          AWID=$( (xdotool search --name "^LuxAI Account$" || true) | head -1); echo "acct exact WID=$AWID"
           echo "acct WID=$AWID"
           if [ -n "$AWID" ]; then
             wmctrl -i -r "$AWID" -e 0,340,25,920,950 || true
