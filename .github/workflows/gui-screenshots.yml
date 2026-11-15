@@ -35,7 +35,7 @@ jobs:
       - name: Bagimliliklar (mingw, wine, Xvfb, ImageMagick)
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y -qq gcc-mingw-w64-x86-64 binutils-mingw-w64-x86-64 \
+          sudo apt-get install -y -qq gcc-mingw-w64-x86-64 g++-mingw-w64-x86-64 binutils-mingw-w64-x86-64 \
             wine64 xvfb x11-apps imagemagick xdotool python3 >/dev/null
           if command -v wine64 >/dev/null 2>&1; then
             echo "WINE_BIN=wine64" >> "$GITHUB_ENV"

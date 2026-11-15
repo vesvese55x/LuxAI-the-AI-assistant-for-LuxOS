@@ -48,8 +48,18 @@
     X(S_THINKING,     "LuxAI yanıtlıyor…",                  "LuxAI is answering…") \
     X(S_READY,        "Hazır",                              "Ready") \
     X(S_EMPTY_TITLE,  "LuxAI",                              "LuxAI") \
-    X(S_EMPTY_TEXT,   "Bir şey sorun ya da Ajan moduna geçip bilgisayarınızda iş yaptırın.", \
-                       "Ask something, or switch to Agent mode to get work done on your PC.") \
+    X(S_EMPTY_TEXT,   "Yapay zekayla sohbet edin veya bilgisayarınızda çalışmasına izin verin. LuxAI hesabınızla oturum açın – tüm LuxOS uygulamaları için tek hesap.", \
+                       "Chat with AI or let it work with your computer. Sign in with your LuxAI account – one account for all LuxOS apps.") \
+    X(S_WELCOME,      "LuxAI'ye hoş geldiniz",               "Welcome to LuxAI") \
+    X(S_SIGNIN_PILL,  "LuxAI hesabıyla oturum aç",           "Sign in with LuxAI account") \
+    X(S_SIGNUP_LINK,  "Ücretsiz hesap oluştur",              "Create a free account") \
+    X(S_SIGNED_OUT,   "Oturum açılmadı",                     "Not signed in") \
+    X(S_SEARCH_PH,    "Sohbetlerde ara",                     "Search conversations") \
+    X(S_NO_CONVS,     "Henüz sohbet yok",                    "No conversations yet") \
+    X(S_MODEL_FLASH,  "Flash – daha akıllı",                 "Flash – smarter") \
+    X(S_MODEL_LITE,   "Lite – daha hızlı",                   "Lite – faster") \
+    X(S_MSG_HINT,     "Bir mesaj yazın…",                    "Type a message…") \
+    X(S_CONNECTION,   "Bağlantı",                            "Connection") \
     X(S_CONFIRM,      "Ajan izni",                          "Agent permission") \
     X(S_ALLOW,        "Bu aracı çalıştırmak istiyor:",       "LuxAI wants to run this tool:") \
     X(S_BLOCKED,      "Bu eylem güvenlik kuralları nedeniyle reddedildi.", \
