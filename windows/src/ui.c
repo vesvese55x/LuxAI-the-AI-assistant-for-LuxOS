@@ -981,7 +981,7 @@ static void compute_layout(double w, double h, int painting)
     /* ---- giris karti ---- */
     L.lcard = L.lgo = L.lweb = L.lcancel = L.lclose = R(0, 0, 0, 0);
     if (g_login_open) {
-        double cw = 464, ch = 404;
+        double cw = 464, ch = 424;
         double cx = (w - cw) / 2, cy = (h - ch) / 2;
         if (cx < 10) cx = 10;
         if (cy < HS + 10) cy = HS + 10;
@@ -1009,12 +1009,13 @@ static void compute_layout(double w, double h, int painting)
     for (int i = 0; i < 12; i++) L.proj[i] = R(0, 0, 0, 0);
     if (g_page == 2 && !g_login_open) {
         double x = L.main.x + PAD + 4, y = HS + 12 + 44 + 56;
-        double gw = L.main.w - PAD * 2 - 40;
-        if (gw > 900) gw = 900;
+        double gw = (L.main.x + L.main.w - PAD - 4) - x;
+        if (gw > 860) gw = 860;
+        if (gw < 320) gw = L.main.w - PAD * 2 - 40;
         double cwid = (gw - 12) / 2;
         for (int i = 0; i < NPROJ && i < 12; i++) {
             int col = i % 2, row = i / 2;
-            L.proj[i] = R(x + col * (cwid + 12), y + row * 84, cwid, 76);
+            L.proj[i] = R(x + col * (cwid + 12), y + row * 90, cwid, 82);
             hit_add(H_PROJ, i, L.proj[i]);
         }
     }
@@ -1434,7 +1435,7 @@ static void draw_login(double w, double h)
     if (g_status[0] && g_login_open) {
         wchar_t *ws = u16(g_status);
         if (ws) {
-            sk_text_box(c.x + 24, c.y + c.h - 92, c.w - 48, 22, ws, 12, 400, 0,
+            sk_text_box(c.x + 24, c.y + c.h - 80, c.w - 48, 22, ws, 12, 400, 0,
                         SK.danger, 0);
             free(ws);
         }
@@ -1484,10 +1485,10 @@ static void draw_projects(void)
     double x = L.main.x + PAD + 4, y = HS + 12;
     sk_icon(SKI_BACK, L.back.x + 15, L.back.y + 14, 16, SK.fg, 1.8);
     sk_text(x + 42, y + 1, 420, T(S_PROJECTS_T, b, 512), 20, 700, 0, SK.fg, 0);
-    double gw = L.main.w - PAD * 2 - 40;
-    if (gw > 900) gw = 900;
-    wrap_text(T(S_PROJECTS_H, b, 512), x + 42, y + 30, gw - 42, 12, 400, SK.dim, 1);
-    /* ince ayrac */
+    double gw = (L.main.x + L.main.w - PAD - 4) - x;
+    if (gw > 860) gw = 860;
+    if (gw < 320) gw = L.main.w - PAD * 2 - 40;
+    wrap_text(T(S_PROJECTS_H, b, 512), x + 42, y + 32, gw - 42, 12, 400, SK.dim, 1);
     sk_line(x, HS + 12 + 44 + 44, x + gw, HS + 12 + 44 + 44, SK.border, 1);
     for (int i = 0; i < NPROJ && i < 12; i++) {
         Rect r = L.proj[i];
@@ -1495,28 +1496,70 @@ static void draw_projects(void)
         int hov = (g_hover_kind == H_PROJ && g_hover_idx == i);
         sk_round(r.x, r.y, r.w, r.h, 12, SK.card);
         sk_rline(r.x, r.y, r.w, r.h, 12, hov ? SK.accent : SK.border, 1);
-        /* rozet */
         DWORD col = g_projs[i].col;
-        sk_round(r.x + 12, r.y + 14, 44, 44, 12, (col & 0x00FFFFFF) | 0x33000000);
-        sk_text_box(r.x + 12, r.y + 14, 44, 44, g_projs[i].badge, 13, 800, 0, col, 1);
-        /* baslik */
-        sk_text(r.x + 66, r.y + 15, r.w - 66 - 96, g_projs[i].title, 13, 600, 0, SK.fg, 0);
-        /* kategori rozeti */
+        sk_round(r.x + 12, r.y + 19, 44, 44, 12, (col & 0x00FFFFFF) | 0x33000000);
+        sk_text_box(r.x + 12, r.y + 19, 44, 44, g_projs[i].badge, 13, 800, 0, col, 1);
+        /* baslik: en fazla iki satir, tasarsa uc nokta */
+        double tw = r.w - 86;
+        const wchar_t *t = g_projs[i].title;
+        wchar_t l1[256] = L"", l2[256] = L"";
+        int n = (int)wcslen(t), cut = n;
+        for (int k = 1; k <= n; k++) {
+            if (t[k] == L' ' || t[k] == 0) {
+                wchar_t tmp[256];
+                int len = k < 255 ? k : 255;
+                wcsncpy(tmp, t, len);
+                tmp[len] = 0;
+                if (sk_tw_s(tmp, 12, 600, 0) > tw && k > 1) { cut = k; break; }
+                if (t[k] == 0) { cut = n; break; }
+            }
+        }
+        if (cut >= n) {
+            wcsncpy(l1, t, 255); l1[255] = 0;
+        } else {
+            int len = cut < 255 ? cut : 255;
+            wcsncpy(l1, t, len); l1[len] = 0;
+            const wchar_t *rest = t + cut;
+            while (*rest == L' ') rest++;
+            if (sk_tw_s(rest, 11, 500, 0) > tw) {
+                int m = (int)wcslen(rest), best = 0;
+                for (int k = 1; k <= m; k++)
+                    if (rest[k] == L' ' || rest[k] == 0) {
+                        wchar_t tmp[256];
+                        int ln = k < 255 ? k : 255;
+                        wcsncpy(tmp, rest, ln); tmp[ln] = 0;
+                        if (sk_tw_s(tmp, 11, 500, 0) > tw - 10) break;
+                        best = k;
+                        if (rest[k] == 0) break;
+                    }
+                int ln = best < 252 ? best : 252;
+                wcsncpy(l2, rest, ln);
+                l2[ln] = L'\u2026';
+                l2[ln + 1] = 0;
+            } else {
+                wcsncpy(l2, rest, 255); l2[255] = 0;
+            }
+        }
+        sk_text(r.x + 66, r.y + 13, tw, l1, 12, 600, 0, SK.fg, 0);
+        if (l2[0]) sk_text(r.x + 66, r.y + 29, tw, l2, 11, 500, 0, SK.dim, 0);
+        /* kategori rozeti + adres */
         const wchar_t *cat = g_projs[i].cat == 1 ? L"Android"
                             : g_projs[i].cat == 2 ? L"Desktop"
                             : g_projs[i].cat == 3 ? T(S_SOON, b, 512) : L"Web";
         double cw2 = sk_tw_s(cat, 10, 700, 0) + 16;
-        sk_round(r.x + 66, r.y + 40, cw2, 18, 9, (col & 0x00FFFFFF) | 0x26000000);
-        sk_text_box(r.x + 66, r.y + 40, cw2, 18, cat, 10, 700, 0, col, 1);
-        /* url */
-        sk_text(r.x + 66 + cw2 + 10, r.y + 40, r.w - 66 - cw2 - 60,
-                g_projs[i].url, 10, 400, 0, SK.dim, 0);
-        sk_icon(SKI_CHEV_D, r.x + r.w - 20, r.y + r.h / 2 + 2, 12,
+        sk_round(r.x + 66, r.y + 52, cw2, 18, 9, (col & 0x00FFFFFF) | 0x26000000);
+        sk_text_box(r.x + 66, r.y + 52, cw2, 18, cat, 10, 700, 0, col, 1);
+        double ax = r.x + 66 + cw2 + 10;
+        double aw = r.x + r.w - 26 - ax;
+        if (aw > 30) {
+            sk_clip(ax, r.y + 52, aw, 18);
+            sk_text(ax, r.y + 54, aw, g_projs[i].url, 9, 400, 0, SK.dim, 0);
+            sk_unclip();
+        }
+        sk_icon(SKI_CHEV_D, r.x + r.w - 18, r.y + r.h / 2 + 2, 12,
                 hov ? SK.accent : SK.dim, 1.5);
     }
 }
-
-static void draw_projects(void);
 
 static void draw_settings(void)
 {
