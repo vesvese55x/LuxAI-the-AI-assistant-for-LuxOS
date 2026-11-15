@@ -62,9 +62,22 @@
   <img src="promo/assets/screens/runner/luxai-en.png" alt="LuxAI — English interface (real runner screenshot)" width="88%">
 </p>
 
-## 14 arayüz dili · 17 %100 çeviri dosyası
 
-<p align="justify">Dil listesi binary içinden dıştan yüklenen <code>i18n/*.tsv</code> dosyalarıyla çalışır; kaynak dosyasındaki sabit boyutlu liste güvenle <strong>14 dile</strong> genişletildi. Türkçe, Rusça, Çince, Japonca ve Hintçe için 457 anahtarın tamamı eksiksiz çevrilidir; diğer dillerin çeviri dosyaları da tamdır ve hepsine BELGESELSEMO imzası eklenmiştir. GUI, sistem dilini dinamik algılar (<code>LC_ALL → LC_MESSAGES → LANG</code>); desteklenmeyen dillerde İngilizce gösterilir. Aşağıdaki ekran görüntüsü <strong>gerçek</strong> bir GitHub Actions runner'ında kurulan LuxAI'den alınmıştır — Hintçe arayüz.</p>
+## v3.1.0 — bu sürümde yeniler
+
+<p align="justify"><strong>Windows kurulumu artık <code>%ProgramFiles%\LuxAI</code>'ye yapılır.</strong> Kurucu yönetici hakkı ister (UAC), reddedilirse sessizce bu kullanıcı için <code>%LOCALAPPDATA%\Programs\LuxAI</code>'ye kurar; kaldırma kaydı HKLM'ye (makine geneli) yazılır ve <code>luxai-kaldir.bat</code> gerekirse kendini yükseltir. <code>luxai-kur.bat</code> aynı davranışı cmd'den sağlar.</p>
+
+<p align="justify"><strong>Giriş ekranı Linux sürümüyle birebir aynı üç sekmeye ayrıldı:</strong> <em>Parola</em>, <em>E-posta ile kod</em> ve <em>Yeni hesap</em>. Parola sekmesi <code>/api/auth/password/login</code>, kod sekmesi <code>/api/auth/code/request</code> + <code>/api/auth/code/verify</code>, yeni hesap sekmesi <code>/api/auth/register/start</code> uçlarını kullanır; hesap, e-postaya gelen 6 haneli kod doğrulanınca oluşur. Tüm alanlar gerçek Windows metin kutularıdır (IME, pano, Tab/Enter gezinmesi dâhil).</p>
+
+<p align="justify"><strong>Bütün pencereler ana pencerenin içinde modal olarak açılır</strong> — ayrı HWND, ayrı <code>MessageBox</code> yok; <code>LuxPopup</code> sınıfı tamamen kaldırıldı. Açık/koyu tema, DPI ölçekleme ve 18 dil aynı çizim katmanından geçer.</p>
+
+<p align="justify"><strong>Sohbet alanına atıf notu eklendi:</strong> "LuxAI'ye Hoş Geldiniz" başlığının altında <em>BELGESELSEMO tarafından Z.AI sayesinde orijinal LuxOS dağıtımından elde edilerek Linux/Windows paketleri olarak derlenmiştir</em> notu ve tıklanabilir <a href="https://belgeselsemo.com.tr">belgeselsemo.com.tr</a> bağlantısı yer alır — 18 dilde.</p>
+
+<p align="justify"><strong>Hamburger menüye "Projelerimiz" girdisi eklendi</strong> (Ayarlar ile LuxAI Hesabı arasında). Açılan katalog, BELGESELSEMO ekosisteminin 11 projesini kategori rozetleriyle (Web / Android / Desktop / Yakında) listeler ve her kart ilgili adresi tarayıcıda açar: belgeselsemo.com.tr, YouTube kanalı, MATPAY, BELGESELSEMOFLIX, EPG, Android uygulamaları, TRIVIA ve yakında çıkacak RETRO EMULATOR / ECONOMY.</p>
+
+## 18 arayüz dili · eksiksiz çeviri tablosu
+
+<p align="justify">Dil listesi binary içinden dıştan yüklenen <code>i18n/*.tsv</code> dosyalarıyla çalışır; kaynak dosyasındaki sabit boyutlu liste güvenle <strong>18 dile</strong> genişletildi: Türkçe, İngilizce, Rusça, Ukraynaca, Çince, Japonca, Hintçe, Almanca, Fransızca, İspanyolca, İtalyanca, Hollandaca, Lehçe, Portekizce, Slovakça, Çekçe, İsveççe ve Macarca. Windows istemcisinde 109 arayüz anahtarının tamamı bu 18 dilde çevrilidir (<code>windows/src/i18n_ids.h</code> + <code>i18n_extra.py</code> → <code>gen_i18n.py</code> ile üretilen <code>i18n_data.c</code>); yeni sekmeli giriş ekranı, Projelerimiz kataloğu ve atıf notu da dâhil hiçbir metin İngilizceye düşmez. Arayüz metinleri mümkün olduğunca iki yana yaslı (justify) ve doğal kelime aralıklı çizilir. GUI, sistem dilini dinamik algılar (<code>LC_ALL → LC_MESSAGES → LANG</code>); desteklenmeyen dillerde İngilizce gösterilir. Aşağıdaki ekran görüntüsü <strong>gerçek</strong> bir GitHub Actions runner'ında kurulan LuxAI'den alınmıştır — Hintçe arayüz.</p>
 
 <p align="center">
   <img src="promo/assets/screens/runner/luxai-hi.png" alt="LuxAI — हिन्दी इंटरफ़ेस (real runner screenshot)" width="88%">
@@ -172,7 +185,7 @@
   </tr>
   <tr>
     <td>⌨️ <strong>cmd / .bat</strong></td>
-    <td><strong>Windows'ta cmd ile kurulum</strong> — tek satır: indirir, <code>%LOCALAPPDATA%\Programs\LuxAI</code> altına kurar, Başlat menüsü + masaüstü kısayolu ve <em>Ayarlar › Uygulamalar</em> kaldırma kaydı oluşturur. Node/Python/WSL gerekmez.</td>
+    <td><strong>Windows'ta cmd ile kurulum</strong> — tek satır: indirir, <code>%ProgramFiles%\LuxAI</code> altına kurar (UAC yükseltmesi istenir; reddedilirse <code>%LOCALAPPDATA%\Programs\LuxAI</code>), Başlat menüsü + masaüstü kısayolu ve <em>Ayarlar › Uygulamalar</em> kaldırma kaydı (HKLM/HKCU) oluşturur. Node/Python/WSL gerekmez.</td>
     <td><code>curl -L -o luxai-kur.bat https://raw.githubusercontent.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/main/windows/cmd/luxai-kur.bat &amp;&amp; luxai-kur.bat</code></td>
     <td align="center"><a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest/download/luxai-kur.bat" target="_blank" rel="noreferrer"><img src="https://img.shields.io/badge/%C4%B0ND%C4%B0R-0ea5e9?style=for-the-badge&amp;logo=windows&amp;logoColor=white" alt="İNDİR — luxai-kur.bat"></a></td>
   </tr>

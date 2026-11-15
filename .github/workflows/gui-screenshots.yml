@@ -212,20 +212,23 @@ jobs:
             Write-Warning "kurucu /S desteklemiyor gibi gorunuyor (eski asset) - kapatiliyor"
             $p.Kill()
             # yedek: tasinabilir exe'yi dogrudan kurulum klasorune kopyala
-            $dst = "$env:LOCALAPPDATA\LuxAI"
+            $dst = "$env:LOCALAPPDATA\Programs\LuxAI"
             New-Item -ItemType Directory -Force -Path $dst | Out-Null
             Copy-Item "dl/native/LuxAI.exe" "$dst\LuxAI.exe" -Force
             Write-Warning "yedek kurulum yapildi (takas: tasinabilir exe)"
           } else {
             Write-Host "kurucu cikis kodu: $($p.ExitCode)"
           }
-          $exe = "$env:LOCALAPPDATA\LuxAI\LuxAI.exe"
-          if (!(Test-Path $exe)) { throw "LuxAI.exe kurulmadi" }
-          Get-ChildItem "$env:LOCALAPPDATA\LuxAI" | Select-Object Name, Length
+          $exe = "$env:ProgramFiles\LuxAI\LuxAI.exe"
+          if (!(Test-Path $exe)) { $exe = "$env:LOCALAPPDATA\Programs\LuxAI\LuxAI.exe" }
+          if (!(Test-Path $exe)) { throw "LuxAI.exe kurulmadi (Program Files ve LOCALAPPDATA denendi)" }
+          "LUXAI_EXE=$exe" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+          Get-ChildItem (Split-Path $exe) | Select-Object Name, Length
           $lnk = "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\LuxAI.lnk"
           Write-Host "Baslat menusu kisayolu: $(Test-Path $lnk)"
-          $u = Get-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\Uninstall\LuxAI" -ErrorAction Stop
-          Write-Host "kaldirma kaydi: $($u.DisplayName) / $($u.DisplayVersion)"
+          $u = Get-ItemProperty "HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\LuxAI" -ErrorAction SilentlyContinue
+          if (-not $u) { $u = Get-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\Uninstall\LuxAI" -ErrorAction Stop }
+          Write-Host "kaldirma kaydi: $($u.DisplayName) / $($u.DisplayVersion) / $($u.InstallLocation)"
 
       - name: Sahte sunucu + test ayarlari
         shell: pwsh
@@ -246,7 +249,7 @@ jobs:
       - name: Kurulu uygulamayi calistir + ekran goruntusu (acik tema, ajan)
         shell: pwsh
         run: |
-          $exe = "$env:LOCALAPPDATA\LuxAI\LuxAI.exe"
+          $exe = $env:LUXAI_EXE
           Start-Process $exe -ArgumentList '--theme 1 --mode 1 --lang 0 --ask "Sistem bilgini göster ve disk kullanımını özetle"'
           Start-Sleep -Seconds 22
           & powershell -NoProfile -ExecutionPolicy Bypass -File windows/tests/screenshot.ps1 `
@@ -258,7 +261,7 @@ jobs:
         run: |
           Get-Process LuxAI -ErrorAction SilentlyContinue | Stop-Process -Force
           Start-Sleep -Seconds 2
-          $exe = "$env:LOCALAPPDATA\LuxAI\LuxAI.exe"
+          $exe = $env:LUXAI_EXE
           Start-Process $exe -ArgumentList '--theme 2 --mode 1 --lang 1 --ask "Show my system information and summarise the disk usage"'
           Start-Sleep -Seconds 22
           & powershell -NoProfile -ExecutionPolicy Bypass -File windows/tests/screenshot.ps1 `
@@ -274,7 +277,7 @@ jobs:
             "endpoint=https://lux-ai.cz/api/ide/chat/completions","max_tokens=4096","stream=1",
             "workdir=$env:USERPROFILE") | Set-Content -Encoding ASCII "$dir\settings.ini"
           Remove-Item "$dir\account.json" -ErrorAction SilentlyContinue
-          $exe = "$env:LOCALAPPDATA\LuxAI\LuxAI.exe"
+          $exe = $env:LUXAI_EXE
           Start-Process $exe -ArgumentList '--theme 1 --lang 0'
           Start-Sleep -Seconds 14
           & powershell -NoProfile -ExecutionPolicy Bypass -File windows/tests/screenshot.ps1 `
@@ -292,7 +295,7 @@ jobs:
             "workdir=$env:USERPROFILE") | Set-Content -Encoding ASCII "$dir\settings.ini"
           '{"version":1,"origin":"https://lux-ai.cz","sessionToken":"demo-token","user":{"email":"tus@lux-ai.cz","username":"tus","displayName":"Tus"},"client":"luxai-win"}' |
             Set-Content -Encoding UTF8 "$dir\account.json"
-          Start-Process "$env:LOCALAPPDATA\LuxAI\LuxAI.exe" -ArgumentList '--theme 1 --lang 0 --account'
+          Start-Process $env:LUXAI_EXE -ArgumentList '--theme 1 --lang 0 --account'
           Start-Sleep -Seconds 14
           & powershell -NoProfile -ExecutionPolicy Bypass -File windows/tests/screenshot.ps1 `
               -Out ci-shots/windows/04-hesap.png
@@ -312,7 +315,7 @@ jobs:
             "max_tokens=4096","stream=1","use_openai=1",
             "endpoint=http://127.0.0.1:8777/v1/chat/completions","api_key=ci",
             "workdir=$env:USERPROFILE") | Set-Content -Encoding ASCII "$dir\settings.ini"
-          Start-Process "$env:LOCALAPPDATA\LuxAI\LuxAI.exe" -ArgumentList '--theme 1 --mode 1 --lang 0 --ask "Bir komut calistir"'
+          Start-Process $env:LUXAI_EXE -ArgumentList '--theme 1 --mode 1 --lang 0 --ask "Bir komut calistir"'
           Start-Sleep -Seconds 18
           & powershell -NoProfile -ExecutionPolicy Bypass -File windows/tests/screenshot.ps1 `
               -Out ci-shots/windows/05-izin.png
@@ -326,10 +329,60 @@ jobs:
           @("model=0","mode=0","lang=5","theme=1","use_openai=0",
             "endpoint=https://lux-ai.cz/api/ide/chat/completions","max_tokens=4096","stream=1",
             "workdir=$env:USERPROFILE") | Set-Content -Encoding ASCII "$dir\settings.ini"
-          Start-Process "$env:LOCALAPPDATA\LuxAI\LuxAI.exe" -ArgumentList '--theme 1 --lang 5'
+          Start-Process $env:LUXAI_EXE -ArgumentList '--theme 1 --lang 5'
           Start-Sleep -Seconds 14
           & powershell -NoProfile -ExecutionPolicy Bypass -File windows/tests/screenshot.ps1 `
               -Out ci-shots/windows/06-hintce.png
+
+
+      - name: Sekmeli giris - E-posta ile kod sekmesi
+        shell: pwsh
+        run: |
+          Get-Process LuxAI -ErrorAction SilentlyContinue | Stop-Process -Force
+          Start-Sleep -Seconds 2
+          $dir = "$env:APPDATA\LuxAI"
+          @("model=0","mode=0","lang=0","theme=1","use_openai=0",
+            "endpoint=https://lux-ai.cz/api/ide/chat/completions","max_tokens=4096","stream=1",
+            "workdir=$env:USERPROFILE") | Set-Content -Encoding ASCII "$dir\settings.ini"
+          Remove-Item "$dir\account.json" -ErrorAction SilentlyContinue
+          Start-Process $env:LUXAI_EXE -ArgumentList '--theme 1 --lang 0 --tab 1'
+          Start-Sleep -Seconds 12
+          & powershell -NoProfile -ExecutionPolicy Bypass -File windows/tests/screenshot.ps1 `
+              -Out ci-shots/windows/03b-giris-kod.png -FullScreen
+
+      - name: Sekmeli giris - Yeni hesap sekmesi (Ingilizce)
+        shell: pwsh
+        run: |
+          Get-Process LuxAI -ErrorAction SilentlyContinue | Stop-Process -Force
+          Start-Sleep -Seconds 2
+          Start-Process $env:LUXAI_EXE -ArgumentList '--theme 1 --lang 1 --tab 2'
+          Start-Sleep -Seconds 12
+          & powershell -NoProfile -ExecutionPolicy Bypass -File windows/tests/screenshot.ps1 `
+              -Out ci-shots/windows/03c-giris-kayit.png -FullScreen
+
+      - name: Projelerimiz sayfasi (hamburger menusu)
+        shell: pwsh
+        run: |
+          Get-Process LuxAI -ErrorAction SilentlyContinue | Stop-Process -Force
+          Start-Sleep -Seconds 2
+          Start-Process $env:LUXAI_EXE -ArgumentList '--theme 1 --lang 0 --projects'
+          Start-Sleep -Seconds 13
+          & powershell -NoProfile -ExecutionPolicy Bypass -File windows/tests/screenshot.ps1 `
+              -Out ci-shots/windows/07-projelerimiz.png -FullScreen
+
+      - name: Hos geldin ekrani + atif notu (belgeselsemo.com.tr)
+        shell: pwsh
+        run: |
+          Get-Process LuxAI -ErrorAction SilentlyContinue | Stop-Process -Force
+          Start-Sleep -Seconds 2
+          $dir = "$env:APPDATA\LuxAI"
+          @("model=0","mode=0","lang=0","theme=1","use_openai=1",
+            "endpoint=http://127.0.0.1:8777/v1/chat/completions","api_key=ci","max_tokens=4096",
+            "stream=1","workdir=$env:USERPROFILE") | Set-Content -Encoding ASCII "$dir\settings.ini"
+          Start-Process $env:LUXAI_EXE -ArgumentList '--theme 1 --lang 0'
+          Start-Sleep -Seconds 13
+          & powershell -NoProfile -ExecutionPolicy Bypass -File windows/tests/screenshot.ps1 `
+              -Out ci-shots/windows/08-hosgeldin-atif.png
 
       - name: Tanilama ciktilari
         if: always()

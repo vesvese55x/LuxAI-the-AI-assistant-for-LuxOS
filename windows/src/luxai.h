@@ -90,6 +90,7 @@ typedef struct {
 extern Config g_cfg;
 extern wchar_t g_token[1024];
 extern int g_startup_account;
+extern int g_startup_tab;
 extern wchar_t g_email[256];
 extern wchar_t g_username[128];
 

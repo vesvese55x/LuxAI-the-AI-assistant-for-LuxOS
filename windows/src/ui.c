@@ -3302,8 +3302,15 @@ void ui_run(void)
     UpdateWindow(g_hMain);
     layout_soft();
 
-    if (!g_startup_ask[0] && !g_cfg.use_openai && !g_token[0]) {
+    if (g_startup_tab == 90) {
+        g_page = 2;                          /* Projelerimiz */
+    } else if (g_startup_tab >= 0 && g_startup_tab < 3) {
         g_login_open = 1;
+        g_login_tab = g_startup_tab;
+    } else if (!g_startup_ask[0] && !g_cfg.use_openai && !g_token[0]) {
+        g_login_open = 1;
+    }
+    if (g_login_open || g_page == 2) {
         layout_soft();
         InvalidateRect(g_hMain, NULL, FALSE);
     }

@@ -8,11 +8,14 @@
 
 wchar_t g_startup_ask[2048];
 int g_startup_account;   /* --account : acilista LuxAI Hesabi penceresi */
+int g_startup_tab = -1;  /* --tab 0|1|2 : giris penceresi sekmesi (parola/kod/kayit) */
 
 /* --ask "metin"  : acilista mesaji otomatik gonderir (CI/otomasyon testi)
  * --theme 0|1|2  : tema gecersiz kilma        --mode 0|1 : sohbet/ajan
  * --lang 0..17   : arayuz dili (18 dil)       --version   : surum yazdir
  * --account      : acilista LuxAI Hesabi penceresini acar (test/ekran goruntusu)
+ * --tab 0|1|2    : giris penceresini Parola / E-posta kodu / Yeni hesap sekmesinde acar
+ * --projects     : Projelerimiz sayfasini acar (test/ekran goruntusu)
  */
 static void parse_cli(void)
 {
@@ -31,6 +34,10 @@ static void parse_cli(void)
             g_cfg.lang = _wtoi(argv[++i]);
         } else if (!wcscmp(argv[i], L"--account")) {
             g_startup_account = 1;
+        } else if (!wcscmp(argv[i], L"--tab") && i + 1 < argc) {
+            g_startup_tab = _wtoi(argv[++i]);
+        } else if (!wcscmp(argv[i], L"--projects")) {
+            g_startup_tab = 90;              /* 90 = Projelerimiz sayfasi */
         } else if (!wcscmp(argv[i], L"--version")) {
             MessageBoxW(NULL, L"LuxAI " APP_VERSION L"\nWindows native (Win32, WSL'siz)", L"LuxAI",
                         MB_OK | MB_ICONINFORMATION);
