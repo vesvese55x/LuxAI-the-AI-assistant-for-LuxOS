@@ -25,8 +25,7 @@ rem --- yonetici hakki (Program Files icin) -----------------------------------
 net session >nul 2>&1
 if errorlevel 1 (
   echo  i  Program Files'a kurmak icin yonetici hakki gerekiyor - yukseltme istenecek...
-  powershell -NoProfile -ExecutionPolicy Bypass -Command ^
-    "Start-Process -Verb RunAs -FilePath '%~f0' -ArgumentList '/elevated'"
+  powershell -NoProfile -ExecutionPolicy Bypass -Command "Start-Process -Verb RunAs -FilePath '%~f0' -ArgumentList '/elevated'"
   if errorlevel 1 goto :usermode
   exit /b 0
 )
@@ -68,8 +67,7 @@ if errorlevel 1 goto :ps_download
 goto :unzip
 
 :ps_download
-powershell -NoProfile -ExecutionPolicy Bypass -Command ^
-  "$ProgressPreference='SilentlyContinue'; [Net.ServicePointManager]::SecurityProtocol=[Net.SecurityProtocolType]::Tls12; Invoke-WebRequest -Uri '%URL%' -OutFile '%TMP%\%ZIP%'"
+powershell -NoProfile -ExecutionPolicy Bypass -Command "$ProgressPreference='SilentlyContinue'; [Net.ServicePointManager]::SecurityProtocol=[Net.SecurityProtocolType]::Tls12; Invoke-WebRequest -Uri '%URL%' -OutFile '%TMP%\%ZIP%'"
 if errorlevel 1 (
   echo  [X] Indirme basarisiz. Internet baglantisini denetleyin.
   echo      Adres: %URL%
@@ -93,8 +91,7 @@ if not exist "%DEST%" (
   mkdir "%DEST%" >nul 2>&1
 )
 taskkill /im LuxAI.exe /f >nul 2>&1
-powershell -NoProfile -ExecutionPolicy Bypass -Command ^
-  "$ErrorActionPreference='Stop'; Expand-Archive -LiteralPath '%TMP%\%ZIP%' -DestinationPath '%DEST%' -Force"
+powershell -NoProfile -ExecutionPolicy Bypass -Command "$ErrorActionPreference='Stop'; Expand-Archive -LiteralPath '%TMP%\%ZIP%' -DestinationPath '%DEST%' -Force"
 if errorlevel 1 (
   echo  [X] Arsiv acilamadi.
   goto :fail
@@ -117,13 +114,7 @@ if not exist "%EXE%" (
 
 rem --- kisayollar -----------------------------------------------------------
 echo  [3/4] Kisayollar olusturuluyor (Baslat menusu + masaustu)
-powershell -NoProfile -ExecutionPolicy Bypass -Command ^
-  "$s=(New-Object -ComObject WScript.Shell);" ^
-  "$lnk=$s.CreateShortcut([Environment]::GetFolderPath('Programs')+'\LuxAI.lnk');" ^
-  "$lnk.TargetPath='%EXE%'; $lnk.WorkingDirectory='%DEST%'; $lnk.IconLocation='%EXE%,0';" ^
-  "$lnk.Description='LuxAI - the AI assistant for LuxOS (native Windows)'; $lnk.Save();" ^
-  "$d=[Environment]::GetFolderPath('Desktop');" ^
-  "if($d){$l2=$s.CreateShortcut($d+'\LuxAI.lnk'); $l2.TargetPath='%EXE%'; $l2.WorkingDirectory='%DEST%'; $l2.IconLocation='%EXE%,0'; $l2.Save()}"
+powershell -NoProfile -ExecutionPolicy Bypass -Command "$s=(New-Object -ComObject WScript.Shell);" "$lnk=$s.CreateShortcut([Environment]::GetFolderPath('Programs')+'\LuxAI.lnk');" "$lnk.TargetPath='%EXE%'; $lnk.WorkingDirectory='%DEST%'; $lnk.IconLocation='%EXE%,0';" "$lnk.Description='LuxAI - the AI assistant for LuxOS (native Windows)'; $lnk.Save();" "$d=[Environment]::GetFolderPath('Desktop');" "if($d){$l2=$s.CreateShortcut($d+'\LuxAI.lnk'); $l2.TargetPath='%EXE%'; $l2.WorkingDirectory='%DEST%'; $l2.IconLocation='%EXE%,0'; $l2.Save()}"
 
 rem --- kaldirma bilgisi (Ayarlar > Uygulamalar) ------------------------------
 reg add "%HK%\Software\Microsoft\Windows\CurrentVersion\Uninstall\LuxAI" /v "DisplayName" /t REG_SZ /d "LuxAI %VER%" /f >nul 2>&1
