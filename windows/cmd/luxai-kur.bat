@@ -40,7 +40,7 @@ set "HK=HKCU"
 :arch
 rem --- mimari denetimi -------------------------------------------------------
 if /i not "%PROCESSOR_ARCHITECTURE%"=="AMD64" if /i not "%PROCESSOR_ARCHITEW6432%"=="AMD64" (
-  echo  [!] Bu yapi 64 bit (x64) Windows icin. 32 bit sistem desteklenmiyor.
+  echo  [!] Bu yapi 64 bit ^(x64^) Windows icin. 32 bit sistem desteklenmiyor.
   goto :fail
 )
 
