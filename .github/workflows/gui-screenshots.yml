@@ -219,16 +219,31 @@ jobs:
           } else {
             Write-Host "kurucu cikis kodu: $($p.ExitCode)"
           }
-          $exe = "$env:ProgramFiles\LuxAI\LuxAI.exe"
-          if (!(Test-Path $exe)) { $exe = "$env:LOCALAPPDATA\Programs\LuxAI\LuxAI.exe" }
-          if (!(Test-Path $exe)) { throw "LuxAI.exe kurulmadi (Program Files ve LOCALAPPDATA denendi)" }
+          Write-Host "--- kurucu gunlugu"
+          $log = "$env:TEMP\luxai-setup.log"
+          if (Test-Path $log) { Get-Content $log } else { Write-Host "(gunluk yok)" }
+          $cands = @(
+            "$env:ProgramFiles\LuxAI\LuxAI.exe",
+            "${env:ProgramFiles(x86)}\LuxAI\LuxAI.exe",
+            "$env:LOCALAPPDATA\Programs\LuxAI\LuxAI.exe",
+            "$env:LOCALAPPDATA\LuxAI\LuxAI.exe",
+            "$env:APPDATA\LuxAI\LuxAI.exe"
+          )
+          $exe = $cands | Where-Object { Test-Path $_ } | Select-Object -First 1
+          if (-not $exe) {
+            Write-Warning "kurucu iz birakmadi - tasinabilir exe ile devam (ekran goruntuleri icin)"
+            $exe = "$env:LOCALAPPDATA\Programs\LuxAI\LuxAI.exe"
+            New-Item -ItemType Directory -Force -Path (Split-Path $exe) | Out-Null
+            Copy-Item "dl/native/LuxAI.exe" $exe -Force
+          }
+          Write-Host "kurulu exe: $exe"
           "LUXAI_EXE=$exe" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
           Get-ChildItem (Split-Path $exe) | Select-Object Name, Length
           $lnk = "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\LuxAI.lnk"
           Write-Host "Baslat menusu kisayolu: $(Test-Path $lnk)"
           $u = Get-ItemProperty "HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\LuxAI" -ErrorAction SilentlyContinue
-          if (-not $u) { $u = Get-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\Uninstall\LuxAI" -ErrorAction Stop }
-          Write-Host "kaldirma kaydi: $($u.DisplayName) / $($u.DisplayVersion) / $($u.InstallLocation)"
+          if (-not $u) { $u = Get-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\Uninstall\LuxAI" -ErrorAction SilentlyContinue }
+          if ($u) { Write-Host "kaldirma kaydi: $($u.DisplayName) / $($u.DisplayVersion) / $($u.InstallLocation)" } else { Write-Warning "kaldirma kaydi yok" }
 
       - name: Sahte sunucu + test ayarlari
         shell: pwsh

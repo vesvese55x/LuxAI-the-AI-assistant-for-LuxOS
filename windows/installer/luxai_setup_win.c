@@ -10,11 +10,30 @@
 #include <shlwapi.h>
 #include <objidl.h>
 #include <stdio.h>
+#include <stdarg.h>
 
 #define IDR_EXE 201
 #define IDR_ICO 202
 
 static int g_tr;
+
+/* teshis gunlugu: %TEMP%\luxai-setup.log */
+static void setup_log(const wchar_t *fmt, ...)
+{
+    wchar_t path[MAX_PATH], line[1024];
+    DWORD n = GetTempPathW(MAX_PATH, path);
+    if (!n) return;
+    wcscat(path, L"luxai-setup.log");
+    va_list ap;
+    va_start(ap, fmt);
+    _vsnwprintf(line, 1023, fmt, ap);
+    va_end(ap);
+    line[1023] = 0;
+    FILE *f = _wfopen(path, L"a, ccs=UTF-8");
+    if (!f) return;
+    fwprintf(f, L"%s\n", line);
+    fclose(f);
+}
 
 /* yönetici (admin) mi? */
 static int is_admin(void)
@@ -164,6 +183,8 @@ int WINAPI wWinMain(HINSTANCE hInst, HINSTANCE hPrev, PWSTR cmd, int show)
         if (argv) LocalFree(argv);
     }
     (void)elevated; (void)forcemachine;
+    setup_log(L"--- LuxAI setup: silent=%d launch=%d elevated=%d admin=%d", silent, launch,
+              elevated, is_admin());
 
     /* 1) %ProgramFiles%\LuxAI  (tüm kullanicilar, yönetici hakki) */
     wchar_t pfiles[MAX_PATH] = L"";
@@ -202,6 +223,9 @@ int WINAPI wWinMain(HINSTANCE hInst, HINSTANCE hPrev, PWSTR cmd, int show)
         wcscpy(dir, user_dir);
     }
     int machine = (!wcsncmp(dir, machine_dir, wcslen(machine_dir)) && machine_dir[0]);
+    setup_log(L"machine_dir=%s", machine_dir);
+    setup_log(L"user_dir=%s", user_dir);
+    setup_log(L"secim=%s machine=%d", dir, machine);
     CreateDirectoryW(dir, NULL);
     _snwprintf(exe, MAX_PATH * 2, L"%s\\LuxAI.exe", dir);
     _snwprintf(ico, MAX_PATH * 2, L"%s\\luxai.ico", dir);
@@ -221,10 +245,13 @@ int WINAPI wWinMain(HINSTANCE hInst, HINSTANCE hPrev, PWSTR cmd, int show)
         return 0;
 
     if (!extract_res(IDR_EXE, exe)) {
+        setup_log(L"HATA: extract_res basarisiz: %s (mkdir=%d)", exe,
+                  (int)CreateDirectoryW(dir, NULL));
         MessageBoxW(NULL, T(L"LuxAI.exe cikarilamadi.", L"Cannot extract LuxAI.exe."),
                     L"LuxAI", MB_ICONERROR);
         return 1;
     }
+    setup_log(L"kuruldu: %s", exe);
     extract_res(IDR_ICO, ico);
 
     /* Surum guncellemesi icin eski calisan surec kapansin */
@@ -245,6 +272,7 @@ int WINAPI wWinMain(HINSTANCE hInst, HINSTANCE hPrev, PWSTR cmd, int show)
     write_uninstaller(dir, appdata);
     g_machine = machine;
     register_uninstall(dir, ico);
+    setup_log(L"kisayol=%d kayit=%s", ok, machine ? L"HKLM" : L"HKCU");
     CoUninitialize();
 
     if (!ok && !silent) {
