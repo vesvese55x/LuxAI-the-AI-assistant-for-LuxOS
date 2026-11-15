@@ -60,6 +60,7 @@ static HWND g_edComposer, g_edSearch, g_edMail, g_edPass,
             g_edWork, g_edEnd, g_edKey, g_edTok;
 static HFONT g_fEdit, g_fEditMono;
 static HBRUSH g_brInput, g_brField, g_brCode;
+static double g_wtxt;   /* balon metin genisligi (olcum = cizim) */
 
 /* ---------------- kucuk yardimcilar ---------------- */
 typedef struct { double x, y, w, h; } Rect;
@@ -708,7 +709,8 @@ static double bubble(const char *role, const wchar_t *text, const char *tool_cal
           if (bw < 60) bw = 60; }
         inner = bw - padx * 2;
         if (inner < 40) inner = 40;
-        bh = md_measure(text, inner, px, col, tool, NULL) + pady * 2;
+        g_wtxt = tool ? inner - 7 : inner;
+        bh = md_measure(text, g_wtxt, px, col, tool, NULL) + pady * 2 + 2;
     }
     double bx = user ? (x + area - bw) : x;
 
@@ -736,10 +738,10 @@ static double bubble(const char *role, const wchar_t *text, const char *tool_cal
                 sk_circle(bx + padx - 2, y + pady + 6, 3, SK.ok);
                 Rich r;
                 parse_inline(text, (int)wcslen(text), &r);
-                rich_draw(&r, bx + padx + 7, y + pady, inner - 7, px, col, 1, NULL);
+                rich_draw(&r, bx + padx + 7, y + pady, g_wtxt, px, col, 1, NULL);
                 rich_free(&r);
             } else {
-                md_draw(text, bx + padx, y + pady, inner, px, col, 1, NULL);
+                md_draw(text, bx + padx, y + pady, g_wtxt, px, col, 1, NULL);
             }
             sk_unclip();
         }
