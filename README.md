@@ -80,6 +80,29 @@
 
 <p align="justify"><strong>Çoklu sağlayıcı (Windows):</strong> Sohbet başlığındaki model seçicisi artık <em>LuxAI · Flash</em>, <em>LuxAI · Lite</em> ve kayıtlı tüm OpenAI uyumlu sağlayıcıları listeler. "Sağlayıcı ekle / Düzenle" ile ad, uç nokta, API anahtarı ve model girilir; seçim anında uygulanır ve <code>providers.ini</code> dosyasında saklanır (en fazla 8 sağlayıcı). Sağlayıcı seçiliyken istekler <code>/chat/completions</code> akışıyla doğrudan o sağlayıcıya gider; LuxAI native'e dönmek için ilk iki satırdan biri seçilir.</p>
 
+## Windows sürümü · gerçek kurulum ekran görüntüleri
+
+<p align="justify">Aşağıdaki görüntülerin tamamı GitHub Actions'ın <strong>Windows runner</strong>'ında, <code>LuxAI-3.1.0-Setup-native.exe</code> ile <code>%ProgramFiles%\LuxAI</code> hedefine kurulan uygulamadan alındı; kurulum sonrası <code>C:\Program Files\LuxAI\LuxAI.exe</code> dosyasının varlığı, Başlat menüsü kısayolu ve <code>HKLM</code> kaldırma kaydı CI günlüğünde ayrıca doğrulanır. Arayüz, Linux paketleriyle <strong>birebir aynıdır</strong>: aynı sekmeli giriş, aynı hesap penceresi, aynı Projelerimiz kataloğu, aynı atıf notu ve 18 dil.</p>
+
+<table>
+<tr>
+<td width="50%"><img src="promo/assets/screens/win/05-hosgeldin-atif.png" alt="Windows — karşılama ve atıf notu"><br><sub><strong>Karşılama + atıf notu</strong> — BELGESELSEMO · Z.AI · orijinal LuxOS notu ve tıklanabilir <code>belgeselsemo.com.tr</code></sub></td>
+<td width="50%"><img src="promo/assets/screens/win/04-projelerimiz.png" alt="Windows — Projelerimiz kataloğu"><br><sub><strong>Projelerimiz</strong> — Ayarlar ile LuxAI Hesabı arasında, 11 proje kategori rozetleriyle</sub></td>
+</tr>
+<tr>
+<td width="50%"><img src="promo/assets/screens/win/02-giris-yeni-hesap.png" alt="Windows — Yeni hesap sekmesi"><br><sub><strong>Giriş · Yeni hesap</strong> — ad, e-posta, en az 12 karakterlik parola</sub></td>
+<td width="50%"><img src="promo/assets/screens/win/03-giris-e-posta-kodu.png" alt="Windows — E-posta ile kod sekmesi"><br><sub><strong>Giriş · E-posta ile kod</strong> — kod iste/doğrula akışı</sub></td>
+</tr>
+<tr>
+<td width="50%"><img src="promo/assets/screens/win/07-hesap.png" alt="Windows — LuxAI Hesabı penceresi"><br><sub><strong>LuxAI Hesabı</strong> — modal pencere; kullanım, dışa aktarma, koşullar, çıkış</sub></td>
+<td width="50%"><img src="promo/assets/screens/win/08-izin.png" alt="Windows — izin penceresi"><br><sub><strong>İzin penceresi</strong> — ayrı <code>MessageBox</code> değil, ana pencerede modal</sub></td>
+</tr>
+<tr>
+<td width="50%"><img src="promo/assets/screens/win/01-kurulu-ajan-acik.png" alt="Windows — kurulu uygulama, Ajan modu"><br><sub><strong>Kurulu uygulama · Ajan modu</strong> — araç çağrısı akışı</sub></td>
+<td width="50%"><img src="promo/assets/screens/win/06-hintce.png" alt="Windows — Hintçe arayüz"><br><sub><strong>18 dil</strong> — örnek: Hintçe arayüz</sub></td>
+</tr>
+</table>
+
 ## 18 arayüz dili · eksiksiz çeviri tablosu
 
 <p align="justify">Dil listesi binary içinden dıştan yüklenen <code>i18n/*.tsv</code> dosyalarıyla çalışır; kaynak dosyasındaki sabit boyutlu liste güvenle <strong>18 dile</strong> genişletildi: Türkçe, İngilizce, Rusça, Ukraynaca, Çince, Japonca, Hintçe, Almanca, Fransızca, İspanyolca, İtalyanca, Hollandaca, Lehçe, Portekizce, Slovakça, Çekçe, İsveççe ve Macarca. Windows istemcisinde 109 arayüz anahtarının tamamı bu 18 dilde çevrilidir (<code>windows/src/i18n_ids.h</code> + <code>i18n_extra.py</code> → <code>gen_i18n.py</code> ile üretilen <code>i18n_data.c</code>); yeni sekmeli giriş ekranı, Projelerimiz kataloğu ve atıf notu da dâhil hiçbir metin İngilizceye düşmez. Arayüz metinleri mümkün olduğunca iki yana yaslı (justify) ve doğal kelime aralıklı çizilir. GUI, sistem dilini dinamik algılar (<code>LC_ALL → LC_MESSAGES → LANG</code>); desteklenmeyen dillerde İngilizce gösterilir. Aşağıdaki ekran görüntüsü <strong>gerçek</strong> bir GitHub Actions runner'ında kurulan LuxAI'den alınmıştır — Hintçe arayüz.</p>
