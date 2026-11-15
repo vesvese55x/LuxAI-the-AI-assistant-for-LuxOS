@@ -205,24 +205,36 @@ post_remove() {
 """
     open(f"{root}/.INSTALL", "w", encoding="utf-8").write(install)
     # .MTREE (gzip'li mtree; pacman dogrulama icin)
+    # .MTREE: DIZINLER de listelenmeli; aksi halde libalpm dizinleri "file not
+    # found in file list" diyerek atlar ve bos dizinler kurulmaz.
     lines = ["#mtree"]
-    for p in sorted(files):
-        rel = "./" + os.path.relpath(p, root)
-        st = os.stat(p)
-        data = open(p, "rb").read()
-        lines.append(f"{rel} time={st.st_mtime:.11f} mode={st.st_mode & 0o7777:o} "
-                     f"size={st.st_size} type=file "
-                     f"md5digest={hashlib.md5(data).hexdigest()} "
-                     f"sha256digest={hashlib.sha256(data).hexdigest()}")
+    entries = []
+    for dp, dns, fns in os.walk(root):
+        for d in dns:
+            p = os.path.join(dp, d)
+            rel = "./" + os.path.relpath(p, root)
+            st = os.stat(p)
+            entries.append((rel, f"{rel} time={st.st_mtime:.11f} "
+                                 f"mode={st.st_mode & 0o7777:o} type=dir"))
+        for f in fns:
+            p = os.path.join(dp, f)
+            rel = "./" + os.path.relpath(p, root)
+            st = os.stat(p)
+            data = open(p, "rb").read()
+            entries.append((rel, f"{rel} time={st.st_mtime:.11f} mode={st.st_mode & 0o7777:o} "
+                                 f"size={st.st_size} type=file "
+                                 f"md5digest={hashlib.md5(data).hexdigest()} "
+                                 f"sha256digest={hashlib.sha256(data).hexdigest()}"))
+    lines += [e[1] for e in sorted(entries)]
     mtree_txt = "\n".join(lines) + "\n"
     open(f"{root}/.MTREE", "wb").write(gzip.compress(mtree_txt.encode(), 9))
     tar_path = f"{W}/arch/pkg.tar"
     # ONEMLI: pacman .PKGINFO'yu arsiv KOKUNDE ve "./" oneki OLMADAN arar.
     # Bu yuzden dosyalari tek tek sayiyoruz (tar -C root . -> "./.PKGINFO" olur
     # ve pacman "eksik paket bilgisi" hatasi verir - kullanicinin gordugu hata).
-    entries = sorted(os.listdir(root))
+    tar_entries = sorted(os.listdir(root))
     subprocess.run(["tar", "--owner=0", "--group=0", "--numeric-owner",
-                    "-cf", tar_path, "-C", root] + entries, check=True)
+                    "-cf", tar_path, "-C", root] + tar_entries, check=True)
     out = f"{DIST}/luxai-{VERSION}-{RELEASE}-x86_64.pkg.tar.zst"
     subprocess.run([tool("zstd"), "-q", "--ultra", "-22", "-f", tar_path, "-o", out],
                    check=True, env=ENV)
