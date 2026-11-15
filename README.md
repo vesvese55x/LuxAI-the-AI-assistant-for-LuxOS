@@ -103,6 +103,17 @@
 </tr>
 </table>
 
+## Linux hesap penceresi · Projelerimiz ve Sağlayıcılar sekmeleri
+
+<p align="justify">Linux’ta ana pencere upstream ikilisi olduğu için menü değiştirilemiyor; bu yüzden <strong>Projelerimiz</strong> kataloğu ve yeni <strong>Sağlayıcılar</strong> yönetimi, kenar çubuğundaki kullanıcı kartından açılan LuxAI hesap penceresine sekme olarak eklendi: <em>Parola · E-posta kodu · Yeni hesap · Projelerimiz · Sağlayıcılar</em>. İki görüntü de yayınlanan <code>.deb</code> paketi kurulup gerçek Xvfb oturumunda çalıştırılarak alındı.</p>
+
+<table>
+<tr>
+<td width="50%"><img src="promo/assets/screens/linux/05-projelerimiz.png" alt="Linux — Projelerimiz sekmesi"><br><sub><strong>Projelerimiz</strong> — 11 BELGESELSEMO projesi, her satır adresi tarayıcıda açar</sub></td>
+<td width="50%"><img src="promo/assets/screens/linux/06-saglayicilar.png" alt="Linux — Sağlayıcılar sekmesi"><br><sub><strong>Sağlayıcılar</strong> — ekle / düzenle / sil / seç; <code>~/.config/luxai/providers.ini</code></sub></td>
+</tr>
+</table>
+
 ## 18 arayüz dili · eksiksiz çeviri tablosu
 
 <p align="justify">Dil listesi binary içinden dıştan yüklenen <code>i18n/*.tsv</code> dosyalarıyla çalışır; kaynak dosyasındaki sabit boyutlu liste güvenle <strong>18 dile</strong> genişletildi: Türkçe, İngilizce, Rusça, Ukraynaca, Çince, Japonca, Hintçe, Almanca, Fransızca, İspanyolca, İtalyanca, Hollandaca, Lehçe, Portekizce, Slovakça, Çekçe, İsveççe ve Macarca. Windows istemcisinde 109 arayüz anahtarının tamamı bu 18 dilde çevrilidir (<code>windows/src/i18n_ids.h</code> + <code>i18n_extra.py</code> → <code>gen_i18n.py</code> ile üretilen <code>i18n_data.c</code>); yeni sekmeli giriş ekranı, Projelerimiz kataloğu ve atıf notu da dâhil hiçbir metin İngilizceye düşmez. Arayüz metinleri mümkün olduğunca iki yana yaslı (justify) ve doğal kelime aralıklı çizilir. GUI, sistem dilini dinamik algılar (<code>LC_ALL → LC_MESSAGES → LANG</code>); desteklenmeyen dillerde İngilizce gösterilir. Aşağıdaki ekran görüntüsü <strong>gerçek</strong> bir GitHub Actions runner'ında kurulan LuxAI'den alınmıştır — Hintçe arayüz.</p>
