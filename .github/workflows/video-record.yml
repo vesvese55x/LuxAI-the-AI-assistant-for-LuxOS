@@ -2,6 +2,9 @@ name: video-record-live
 
 on:
   workflow_dispatch:
+  push:
+    branches: [video-live-record]
+    paths: ['.github/workflows/video-record.yml']
 
 permissions:
   contents: read
