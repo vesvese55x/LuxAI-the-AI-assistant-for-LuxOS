@@ -169,7 +169,7 @@ def build_zst():
 pkgname = luxai
 pkgbase = luxai
 pkgver = {VERSION}-{RELEASE}
-pkgdesc = LuxAI - the AI assistant for LuxOS (unofficial BELGESELSEMO build, 17 languages)
+pkgdesc = LuxAI - the AI assistant for LuxOS (unofficial BELGESELSEMO build, 18 languages)
 url = http://belgeselsemo.com.tr
 builddate = {int(time.time())}
 packager = BELGESELSEMO <belgeselsemo@belgeselsemo.com.tr>

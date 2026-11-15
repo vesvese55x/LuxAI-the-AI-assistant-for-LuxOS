@@ -2,9 +2,9 @@
 pkgname = luxai
 pkgbase = luxai
 pkgver = 3.1.0-1
-pkgdesc = LuxAI - the AI assistant for LuxOS (unofficial BELGESELSEMO build, 17 languages)
+pkgdesc = LuxAI - the AI assistant for LuxOS (unofficial BELGESELSEMO build, 18 languages)
 url = http://belgeselsemo.com.tr
-builddate = 1794750448
+builddate = 1794750543
 packager = BELGESELSEMO <belgeselsemo@belgeselsemo.com.tr>
 size = 4848032
 arch = x86_64
