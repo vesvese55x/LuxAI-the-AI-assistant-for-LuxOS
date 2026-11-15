@@ -68,30 +68,26 @@ esac
 # LUXAI_PKG=arch|deb|rpm|appimage ile paket türü zorlanabilir (test/gelişmiş)
 FORCE="${LUXAI_PKG:-}"
 
-if [ "$FORCE" = arch ] || { [ -z "$FORCE" ] && { [ "$FAM" = arch ] || { [ -z "$FAM" ] && command -v pacman >/dev/null 2>&1; }; }; }; then
+pick() {   # pick <aile> <komut> -> uygun mu?
+    if [ -n "$FORCE" ]; then [ "$FORCE" = "$1" ] && return 0; return 1; fi
+    if [ -n "$FAM" ]; then [ "$FAM" = "$1" ] || return 1; fi
+    command -v "$2" >/dev/null 2>&1
+}
+
+if pick arch pacman; then
     # Arch, Manjaro, EndeavourOS, CachyOS, Garuda, Arco, Artix, SteamOS...
     F="$ARCH_PKG"
     CMD="$SUDO pacman -U --noconfirm --needed ./$F"
     FAMILY="arch"
-elif [ "$FORCE" = deb ] || { [ -z "$FORCE" ] && { [ "$FAM" = deb ] || { [ -z "$FAM" ] && command -v apt-get >/dev/null 2>&1; }; }; }; then
+elif pick deb apt-get; then
     F="$DEB_PKG"
     CMD="$SUDO apt-get install -y ./$F"
     FAMILY="deb"
-elif [ "$FORCE" = rpm ] || { [ -z "$FORCE" ] && [ "$FAM" = rpm ]; }; then
-    if command -v dnf >/dev/null 2>&1; then
-        F="$RPM_PKG"
-        CMD="$SUDO dnf install -y ./$F"
-        FAMILY="rpm"
-    else
-        F="$RPM_PKG"
-        CMD="$SUDO zypper --non-interactive install ./$F"
-        FAMILY="rpm"
-    fi
-elif [ -z "$FORCE" ] && command -v dnf >/dev/null 2>&1; then
+elif pick rpm dnf; then
     F="$RPM_PKG"
     CMD="$SUDO dnf install -y ./$F"
     FAMILY="rpm"
-elif [ -z "$FORCE" ] && command -v zypper >/dev/null 2>&1; then
+elif pick rpm zypper; then
     F="$RPM_PKG"
     CMD="$SUDO zypper --non-interactive install ./$F"
     FAMILY="rpm"
