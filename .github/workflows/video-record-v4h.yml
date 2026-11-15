@@ -1,0 +1,60 @@
+name: video-record-v4h-linux-providers
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [video-live-record]
+    paths: ['.github/workflows/video-record-v4h.yml']
+
+permissions:
+  contents: read
+
+env:
+  REL: https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/download/v2.0.2
+
+jobs:
+  linux-v4h:
+    name: V4h Linux - Our projects + Providers sekmeleri
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - name: Masaustu + LuxAI
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq xvfb x11vnc ffmpeg xdotool openbox scrot xterm dbus-x11 python3-gi python3-cairo gir1.2-gtk-3.0 fonts-noto-core fonts-noto-color-emoji > /dev/null
+          curl -fsSL -o /tmp/l.deb "$REL/luxai_2.0.2_amd64.deb"
+          sudo apt-get install -y -qq /tmp/l.deb > /dev/null
+      - name: Kayit (terminalsiz, sadece hesap penceresi)
+        run: |
+          set +e
+          mkdir -p rec
+          Xvfb :99 -screen 0 1600x1000x24 & sleep 2
+          export DISPLAY=:99
+          openbox & sleep 2
+          eval "$(dbus-launch --sh-syntax)"; export DBUS_SESSION_BUS_ADDRESS DBUS_SESSION_PID
+          ffmpeg -y -v error -f x11grab -framerate 25 -video_size 1600x1000 -i :99 -t 130 -c:v libx264 -preset veryfast -pix_fmt yuv420p -movflags +faststart rec/linux_tabs_v4.mp4 &
+          REC=$!
+          sleep 3
+          (/usr/bin/luxai > /dev/null 2>&1 &)
+          sleep 12
+          (/usr/bin/python3 /usr/bin/luxos-account > /dev/null 2>&1 &)
+          sleep 8
+          AWID=$(xdotool search --name "^LuxAI Account$" | head -1)
+          [ -z "$AWID" ] && AWID=$(xdotool search --name "LuxAI Account" | head -1)
+          echo "AWID=$AWID"; xdotool getwindowgeometry $AWID
+          xdotool windowmove $AWID 340 25; xdotool windowsize $AWID 920 950; sleep 2
+          shot(){ scrot -a 340,25,920,950 "rec/$1"; }
+          shot p_providers.png
+          # Sekme satiri y=508 (1600x1000 ekran koordinati)
+          xdotool mousemove 815 390 click 1; sleep 6; shot p_providers2.png
+          xdotool mousemove 760 700; xdotool click --repeat 6 5; sleep 3; shot p_prov0.png
+          xdotool click --repeat 6 5; sleep 3; shot p_prov1.png
+          xdotool mousemove 815 390 click 1; sleep 6; shot p_prov3.png
+          xdotool mousemove 760 700; xdotool click --repeat 5 5; sleep 3; shot p_prov4.png
+          xdotool mousemove 412 390 click 1; sleep 5; shot p_password.png
+          wait $REC
+          ls -la rec
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: {name: v4h-linux-providers, path: rec/*, if-no-files-found: warn}
