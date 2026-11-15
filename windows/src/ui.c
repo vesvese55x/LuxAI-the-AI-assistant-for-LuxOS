@@ -789,6 +789,7 @@ enum {
 static Rect g_srow[SR_COUNT], g_sval[SR_COUNT];
 static double g_set_bottom;
 
+static int g_composer_on = 1;
 static int g_side_row0;      /* ilk gorunen sohbet satiri */
 static int g_side_rows;      /* ekrana sigan satir sayisi */
 
@@ -873,11 +874,17 @@ static void compute_layout(double w, double h, int painting)
 
     /* ---- ana alan ---- */
     L.main = R(sw, HS, w - sw, h - HS);
-    L.status = R(sw + PAD + 2, h - 24, w - sw - PAD * 2, 18);
-    L.composer = R(sw + PAD, h - 24 - 12 - 56, w - sw - PAD * 2, 56);
-    L.send = R(L.composer.x + L.composer.w - 46, L.composer.y + 11, 34, 34);
-    L.stop = R(L.send.x - 76, L.composer.y + 13, 70, 30);
-    L.msgs = R(sw, HS, w - sw, L.composer.y - HS - 8);
+    g_composer_on = (g_token[0] || g_cfg.use_openai || g_conv.n > 0 || g_stream != NULL);
+    if (g_composer_on) {
+        L.status = R(sw + PAD + 2, h - 24, w - sw - PAD * 2, 18);
+        L.composer = R(sw + PAD, h - 24 - 12 - 56, w - sw - PAD * 2, 56);
+        L.send = R(L.composer.x + L.composer.w - 46, L.composer.y + 11, 34, 34);
+        L.stop = R(L.send.x - 76, L.composer.y + 13, 70, 30);
+        L.msgs = R(sw, HS, w - sw, L.composer.y - HS - 8);
+    } else {
+        L.status = L.composer = L.send = L.stop = R(0, 0, 0, 0);
+        L.msgs = R(sw, HS, w - sw, h - HS);
+    }
 
     /* ---- bos durum ---- */
     L.logo = L.ebtn = L.elink = R(0, 0, 0, 0);
@@ -903,7 +910,7 @@ static void compute_layout(double w, double h, int painting)
     /* ---- giris karti ---- */
     L.lcard = L.lgo = L.lweb = L.lcancel = L.lclose = R(0, 0, 0, 0);
     if (g_login_open) {
-        double cw = 392, ch = 344;
+        double cw = 424, ch = 348;
         double cx = (w - cw) / 2, cy = (h - ch) / 2;
         if (cx < 10) cx = 10;
         if (cy < HS + 10) cy = HS + 10;
@@ -982,7 +989,7 @@ static void place_edits(void)
     } while (0)
     int chat = (g_page == 0 && !g_login_open);
     MV(g_edComposer, R(L.composer.x + 15, L.composer.y + 14,
-                       L.composer.w - 15 - 60, L.composer.h - 28), chat);
+                       L.composer.w - 15 - 60, L.composer.h - 28), chat && g_composer_on);
     MV(g_edSearch, R(L.search.x + 34, L.search.y + 6, L.search.w - 44,
                      L.search.h - 12), g_sidebar_open && !g_login_open && g_page == 0);
     int lg = g_login_open;
@@ -1375,7 +1382,7 @@ static void draw_all(double w, double h)
     } else {
         draw_messages();
     }
-    if (g_page == 0) draw_composer();
+    if (g_page == 0 && g_composer_on) draw_composer();
     if (g_login_open) draw_login(w, h);
     place_edits();
 }
