@@ -1,0 +1,146 @@
+name: video-record-v4
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [video-live-record]
+    paths: ['.github/workflows/video-record-v4.yml']
+
+permissions:
+  contents: read
+
+env:
+  REL: https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/download/v2.0.2
+
+jobs:
+  linux-v4:
+    name: V4 Linux - kurulum + hesap turu
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - name: Bagimliliklar + simge/emoji
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg xvfb xdotool wmctrl openbox dbus-x11 x11-apps imagemagick xterm pcmanfm \
+            fonts-noto fonts-noto-core fonts-noto-extra fonts-noto-color-emoji fonts-noto-cjk \
+            adwaita-icon-theme papirus-icon-theme hicolor-icon-theme \
+            libgtk-3-0 gir1.2-gtk-3.0 python3-gi python3-cairo gir1.2-pango-1.0 libcurl4 curl >/dev/null
+      - name: Canli kayit (260 sn)
+        run: |
+          mkdir -p rec
+          export DISPLAY=:99 XDG_CURRENT_DESKTOP=GNOME GTK_THEME=adwaita:light NO_AT_BRIDGE=1
+          Xvfb :99 -screen 0 1600x1000x24 >/tmp/x.log 2>&1 & sleep 2
+          eval "$(dbus-launch --sh-syntax)"
+          openbox >/tmp/ob.log 2>&1 & sleep 2
+          ffmpeg -y -v error -f x11grab -video_size 1600x1000 -framerate 25 -i :99 -t 262 \
+            -c:v libx264 -preset veryfast -pix_fmt yuv420p rec/linux_v4.mp4 >/tmp/ff.log 2>&1 &
+          FF=$!
+          sleep 2
+          abs_click(){ xdotool mousemove $1 $2 sleep 0.4 click 1; }
+          # --- FAZ A: terminalde tek satir kurulum (sadece bu fazda terminal gorunur)
+          xterm -fa Monospace -fs 13 -geometry 150x42+40+40 >/dev/null 2>&1 &
+          sleep 4
+          xdotool type --delay 30 'curl -fsSL https://raw.githubusercontent.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/main/belgeselsemo-luxai-installer | sh'
+          xdotool key Return
+          sleep 55
+          import -window root rec/lin_install_done.png || true
+          xdotool type --delay 25 'which luxai; ls /usr/share/applications | grep -i luxai'
+          xdotool key Return; sleep 5
+          # --- FAZ B: menude kanit - dosya yoneticisinde uygulama simgesi, cift tikla ac
+          xdotool type --delay 25 'pcmanfm /usr/share/applications &'
+          xdotool key Return; sleep 7
+          import -window root rec/lin_menu_folder.png || true
+          sleep 5
+          # terminali kapat (bundan sonra terminal yok)
+          xdotool type --delay 25 'exit'
+          xdotool key Return; sleep 2
+          pkill xterm || true; sleep 2
+          # --- FAZ C: uygulama (dosya yoneticisinden LuxAI.desktop'a cift tik dene, olmazsa komutla)
+          LANG=tr_TR.UTF-8 LC_ALL=tr_TR.UTF-8 /usr/bin/luxai >/tmp/lux.log 2>&1 &
+          sleep 13
+          WID=$(xdotool search --name "^LuxAI$" | head -1); [ -z "$WID" ] && WID=$(xdotool search --name "LuxAI" | tail -1)
+          echo "WID=$WID"; wmctrl -i -r "$WID" -e 0,60,30,1480,930 || true; sleep 4
+          import -window root rec/lin_main.png || true
+          # giris dugmesi (mutlak koordinat: hos geldin butonu)
+          eval $(xdotool getwindowgeometry --shell "$WID" 2>/dev/null || echo "X=60;Y=30;WIDTH=1480;HEIGHT=930")
+          abs_click $((X+WIDTH*608/1000)) $((Y+HEIGHT*605/1000)); sleep 6
+          /usr/bin/python3 /usr/bin/luxos-account >/tmp/acct.log 2>&1 &
+          sleep 9
+          AWID=$(xdotool search --name "^LuxAI Account$" | head -1); echo "AWID=$AWID"
+          if [ -n "$AWID" ]; then
+            wmctrl -i -r "$AWID" -e 0,340,25,920,950; sleep 2
+            import -window root rec/lin_signin_password.png || true; sleep 6
+            abs_click 505 388; sleep 7    # E-mail Code
+            import -window root rec/lin_signin_emailcode.png || true; sleep 4
+            abs_click 610 388; sleep 7    # New Account
+            import -window root rec/lin_signin_newaccount.png || true; sleep 4
+            abs_click 815 388; sleep 7    # Providers
+            import -window root rec/lin_providers.png || true
+            xdotool mousemove 800 560 click --repeat 4 5; sleep 5
+            import -window root rec/lin_providers2.png || true
+            abs_click 717 388; sleep 7    # Our projects
+            import -window root rec/lin_projects.png || true
+            xdotool mousemove 800 560 click --repeat 6 5; sleep 6
+            import -window root rec/lin_projects2.png || true
+          fi
+          wmctrl -i -a "$WID" 2>/dev/null || true; sleep 8
+          import -window root rec/lin_final.png || true
+          wait $FF || true
+          ls -lh rec/
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: {name: v4-linux, path: rec/*, if-no-files-found: warn}
+
+  windows-v4:
+    name: V4 Windows - cmd kurulum + GUI
+    runs-on: windows-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - name: ffmpeg
+        shell: pwsh
+        run: |
+          Invoke-WebRequest "https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.zip" -OutFile ffmpeg.zip
+          Expand-Archive ffmpeg.zip -DestinationPath ff -Force
+          $bin=(Get-ChildItem ff -Recurse -Filter ffmpeg.exe|Select-Object -First 1).FullName
+          "FFMPEG=$bin"|Out-File $env:GITHUB_ENV -Append -Encoding utf8
+      - name: Canli kayit (280 sn)
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force -Path rec | Out-Null
+          $ff=$env:FFMPEG
+          $rec=Start-Process $ff -ArgumentList '-y','-f','gdigrab','-framerate','25','-i','desktop','-t','278','-c:v','libx264','-preset','veryfast','-pix_fmt','yuv420p','rec/windows_v4.mp4' -PassThru -NoNewWindow
+          Start-Sleep 4
+          $ws=New-Object -ComObject WScript.Shell
+          # --- FAZ A: cmd ile tek satir kurulum (sadece bu fazda cmd gorunur)
+          Start-Process cmd; Start-Sleep 3
+          $ws.SendKeys('curl -fsSL https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/download/v2.0.2/luxai-kur.bat -o luxai-kur.bat && luxai-kur.bat'); $ws.SendKeys('{ENTER}')
+          Start-Sleep 75
+          & powershell -NoProfile -ExecutionPolicy Bypass -File windows/tests/screenshot.ps1 -Out rec/win_install_done.png -FullScreen
+          # --- FAZ B: Baslat menusu kaniti
+          $ws.SendKeys('^{ESC}'); Start-Sleep 2; $ws.SendKeys('LuxAI'); Start-Sleep 4
+          & powershell -NoProfile -ExecutionPolicy Bypass -File windows/tests/screenshot.ps1 -Out rec/win_startmenu.png -FullScreen
+          $ws.SendKeys('{ENTER}'); Start-Sleep 10
+          & powershell -NoProfile -ExecutionPolicy Bypass -File windows/tests/screenshot.ps1 -Out rec/win_launched.png -FullScreen
+          Get-Process LuxAI -ErrorAction SilentlyContinue | Stop-Process -Force; Start-Sleep 2
+          # --- FAZ C: GUI sahneleri (mock sunucu)
+          Start-Process python -ArgumentList "windows/tests/mock_server.py","8777"; Start-Sleep 3
+          $dir="$env:APPDATA\LuxAI"; New-Item -ItemType Directory -Force -Path $dir|Out-Null
+          $exe="$env:ProgramFiles\LuxAI\LuxAI.exe"; if(!(Test-Path $exe)){ $exe="$env:LOCALAPPDATA\Programs\LuxAI\LuxAI.exe" }
+          function Scene($a,$w,$n){ Get-Process LuxAI -ErrorAction SilentlyContinue|Stop-Process -Force; Start-Sleep 2; Start-Process $exe -ArgumentList $a; Start-Sleep $w; & powershell -NoProfile -ExecutionPolicy Bypass -File windows/tests/screenshot.ps1 -Out "rec/$n" -FullScreen }
+          @("model=0","mode=1","lang=0","theme=1","send_ctrl_enter=0","auto_approve=1","max_tokens=4096","stream=1","use_openai=1","endpoint=http://127.0.0.1:8777/v1/chat/completions","api_key=ci","workdir=$env:USERPROFILE")|Set-Content -Encoding ASCII "$dir\settings.ini"
+          Scene '--theme 1 --mode 1 --lang 0 --ask "Sistem bilgini göster ve disk kullanımını özetle"' 22 win_agent.png
+          # izin sahnesi
+          Get-Process python -ErrorAction SilentlyContinue|Stop-Process -Force; Start-Sleep 1
+          $env:LUXAI_MOCK_TOOL="run_command"; Start-Process python -ArgumentList "windows/tests/mock_server.py","8777"; Start-Sleep 3
+          @("model=0","mode=1","lang=0","theme=1","send_ctrl_enter=0","auto_approve=0","max_tokens=4096","stream=1","use_openai=1","endpoint=http://127.0.0.1:8777/v1/chat/completions","api_key=ci","workdir=$env:USERPROFILE")|Set-Content -Encoding ASCII "$dir\settings.ini"
+          Scene '--theme 1 --mode 1 --lang 0 --ask "Bir komut calistir"' 18 win_permission.png
+          Scene '--theme 2 --mode 1 --lang 1 --ask "Show my system information"' 16 win_dark_en.png
+          Scene '--theme 1 --lang 0 --projects' 15 win_projects.png
+          Scene '--theme 1 --lang 0' 14 win_welcome.png
+          $rec.WaitForExit(40000)|Out-Null
+          Get-ChildItem rec|Select-Object Name,Length
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: {name: v4-windows, path: rec/*, if-no-files-found: warn}
