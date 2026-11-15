@@ -141,64 +141,22 @@
 
 <table>
   <tr>
-    <td align="center" width="33%">
-      <a href="https://play.google.com/store/apps/details?id=com.belgeselsemo.tr" target="_blank" rel="noreferrer">
-        <img src="https://play-lh.googleusercontent.com/vlfs0KVW99715oyn6M4DrX4LBod8m2fjWe7TVG3_2dFfeHGegCSC-hNfDs8ZVlCYMlWe=s256" alt="BELGESELSEMO" width="72"><br>
-        <strong>BELGESELSEMO</strong><br><sub>HD Belgesel &amp; Araçlar Portalı</sub>
-      </a>
-    </td>
-    <td align="center" width="33%">
-      <a href="https://play.google.com/store/apps/details?id=com.belgeselsemo.trivia" target="_blank" rel="noreferrer">
-        <img src="https://play-lh.googleusercontent.com/N9SZMLxSJ8VFtIvJsy_-B6EbhiV6rTBEpyB5tXBJrnIHx3CWQyPKoOU8ScUaTgxsAH_Q7y4a0Frm1tzI_Y6D=s256" alt="BELGESELSEMO TRIVIA" width="72"><br>
-        <strong>BELGESELSEMO TRIVIA</strong><br><sub>Bilgi yarışması</sub>
-      </a>
-    </td>
-    <td align="center" width="33%">
-      <a href="https://play.google.com/store/apps/details?id=com.belgeselsemo.epgviewer" target="_blank" rel="noreferrer">
-        <img src="https://play-lh.googleusercontent.com/CLmBtb1IF14ygKG1a9-Is7BaFXKroQaMs6CDRVlQSHlzETHFQBEhGeekb47pmUrNWqbuG8emvOL5Y_wxvh1ueQ=s256" alt="BELGESELSEMO TV REHBERİ (EPG)" width="72"><br>
-        <strong>BELGESELSEMO TV REHBERİ (EPG)</strong><br><sub>Yayın akışı görüntüleyici</sub>
-      </a>
-    </td>
+    <td align="center" width="25%"><a href="https://belgeselsemo.com.tr"><img src="https://raw.githubusercontent.com/vesvese55x/idm-linux/main/src/idm_linux/assets/app_belgeselsemo.png" width="56" alt="BELGESELSEMO"><br><strong>BELGESELSEMO</strong></a><br><sub>Web Portalı (HD Belgesel &amp; Araçlar)</sub></td>
+    <td align="center" width="25%"><a href="https://www.youtube.com/@belgeselsemo55"><img src="https://raw.githubusercontent.com/vesvese55x/idm-linux/main/src/idm_linux/assets/proj_youtube.png" width="56" alt="YouTube"><br><strong>BELGESELSEMO Learn &amp; Explore</strong></a><br><sub>YouTube kanalı</sub></td>
+    <td align="center" width="25%"><a href="http://matpay.blogspot.com"><img src="https://raw.githubusercontent.com/vesvese55x/idm-linux/main/src/idm_linux/assets/proj_matpay.png" width="56" alt="MATPAY"><br><strong>MATPAY</strong></a><br><sub>Matematik Paylaşımları (Lisans Notları)</sub></td>
+    <td align="center" width="25%"><a href="https://github.com/vesvese55x/belgeselsemoflix"><img src="https://raw.githubusercontent.com/vesvese55x/idm-linux/main/src/idm_linux/assets/proj_belgeselsemoflix.png" width="56" alt="BELGESELSEMOFLIX"><br><strong>BELGESELSEMOFLIX</strong></a><br><sub>Masaüstü Medya &amp; Araç Üssü</sub></td>
   </tr>
   <tr>
-    <td align="center" width="33%">
-      <a href="https://play.google.com/store/apps/details?id=com.belgeselsemo.nb724" target="_blank" rel="noreferrer">
-        <img src="https://play-lh.googleusercontent.com/OMrderXOxOJvAWQj8X912y6tnICDUG1V4pOksxPUIRTWknkX0lfTajssPipGJX9ZssAXGczB1Pk2Ob_hHqNV=s256" alt="NÖBETÇİ ECZANELER 7/24 TR-KKTC" width="72"><br>
-        <strong>NÖBETÇİ ECZANELER 7/24 TR-KKTC</strong><br><sub>Nöbetçi eczane rehberi</sub>
-      </a>
-    </td>
-    <td align="center" width="33%">
-      <a href="https://play.google.com/store/apps/details?id=com.belgeselsemo.nutuk" target="_blank" rel="noreferrer">
-        <img src="https://play-lh.googleusercontent.com/07-bd0NNX6xQA3QtQtbWHrl6So_GlCjs1oHo87IImwhkdoimCM8485EYBu-fwAwqCpNbX64eeD8mX7eEsZOsjw=s256" alt="NUTUK 1919-1927" width="72"><br>
-        <strong>NUTUK 1919-1927</strong><br><sub>Sözlü &amp; sesli</sub>
-      </a>
-    </td>
-    <td align="center" width="33%">
-      <strong>BELGESELSEMO ECONOMY</strong><br><sub>Yakında</sub>
-    </td>
-  </tr>
-</table>
-
-<p align="center"><sub>Tüm projelerimiz — GUI'deki <strong>Projelerimiz</strong> kataloğuyla aynı liste (gerçek simgeler, IDM-Linux deposundan):</sub></p>
-
-<table>
-  <tr>
-    <td align="center" width="25%"><a href="https://belgeselsemo.com.tr"><img src="https://raw.githubusercontent.com/vesvese55x/idm-linux/main/src/idm_linux/assets/app_belgeselsemo.png" width="56" alt="BELGESELSEMO"><br><strong>BELGESELSEMO</strong><br><sub>Web Portalı (HD Belgesel &amp; Araçlar)</sub></a></td>
-    <td align="center" width="25%"><a href="https://www.youtube.com/@belgeselsemo55"><img src="https://raw.githubusercontent.com/vesvese55x/idm-linux/main/src/idm_linux/assets/proj_youtube.png" width="56" alt="YouTube"><br><strong>BELGESELSEMO Learn &amp; Explore</strong><br><sub>YouTube kanalı</sub></a></td>
-    <td align="center" width="25%"><a href="http://matpay.blogspot.com"><img src="https://raw.githubusercontent.com/vesvese55x/idm-linux/main/src/idm_linux/assets/proj_matpay.png" width="56" alt="MATPAY"><br><strong>MATPAY</strong><br><sub>Matematik Paylaşımları (Lisans Notları)</sub></a></td>
-    <td align="center" width="25%"><a href="https://github.com/vesvese55x/belgeselsemoflix"><img src="https://raw.githubusercontent.com/vesvese55x/idm-linux/main/src/idm_linux/assets/proj_belgeselsemoflix.png" width="56" alt="BELGESELSEMOFLIX"><br><strong>BELGESELSEMOFLIX</strong><br><sub>Masaüstü Medya &amp; Araç Üssü</sub></a></td>
+    <td align="center" width="25%"><a href="https://play.google.com/store/apps/details?id=com.belgeselsemo.epgviewer"><img src="https://raw.githubusercontent.com/vesvese55x/idm-linux/main/src/idm_linux/assets/app_epg.png" width="56" alt="EPG"><br><strong>BELGESELSEMO TV Rehberi (EPG)</strong></a><br><sub>Android</sub></td>
+    <td align="center" width="25%"><a href="https://play.google.com/store/apps/details?id=com.belgeselsemo.tr"><img src="https://raw.githubusercontent.com/vesvese55x/idm-linux/main/src/idm_linux/assets/app_belgeselsemo.png" width="56" alt="BELGESELSEMO Android"><br><strong>BELGESELSEMO</strong></a><br><sub>HD Belgesel &amp; 20+ Günlük Araç (Android)</sub></td>
+    <td align="center" width="25%"><a href="https://play.google.com/store/apps/details?id=com.belgeselsemo.nb724"><img src="https://raw.githubusercontent.com/vesvese55x/idm-linux/main/src/idm_linux/assets/app_nb724.png" width="56" alt="Nöbetçi Eczaneler"><br><strong>Nöbetçi Eczaneler 7/24</strong></a><br><sub>TR-KKTC (Android)</sub></td>
+    <td align="center" width="25%"><a href="https://play.google.com/store/apps/details?id=com.belgeselsemo.nutuk"><img src="https://raw.githubusercontent.com/vesvese55x/idm-linux/main/src/idm_linux/assets/app_nutuk.png" width="56" alt="NUTUK"><br><strong>NUTUK 1919-1927</strong></a><br><sub>Sesli Kitap, Sözlük &amp; Yarışma</sub></td>
   </tr>
   <tr>
-    <td align="center" width="25%"><a href="https://play.google.com/store/apps/details?id=com.belgeselsemo.epgviewer"><img src="https://raw.githubusercontent.com/vesvese55x/idm-linux/main/src/idm_linux/assets/app_epg.png" width="56" alt="EPG"><br><strong>BELGESELSEMO TV Rehberi (EPG)</strong><br><sub>Android</sub></a></td>
-    <td align="center" width="25%"><a href="https://play.google.com/store/apps/details?id=com.belgeselsemo.tr"><img src="https://raw.githubusercontent.com/vesvese55x/idm-linux/main/src/idm_linux/assets/app_belgeselsemo.png" width="56" alt="BELGESELSEMO Android"><br><strong>BELGESELSEMO</strong><br><sub>HD Belgesel &amp; 20+ Günlük Araç (Android)</sub></a></td>
-    <td align="center" width="25%"><a href="https://play.google.com/store/apps/details?id=com.belgeselsemo.nb724"><img src="https://raw.githubusercontent.com/vesvese55x/idm-linux/main/src/idm_linux/assets/app_nb724.png" width="56" alt="Nöbetçi Eczaneler"><br><strong>Nöbetçi Eczaneler 7/24</strong><br><sub>TR-KKTC (Android)</sub></a></td>
-    <td align="center" width="25%"><a href="https://play.google.com/store/apps/details?id=com.belgeselsemo.nutuk"><img src="https://raw.githubusercontent.com/vesvese55x/idm-linux/main/src/idm_linux/assets/app_nutuk.png" width="56" alt="NUTUK"><br><strong>NUTUK 1919-1927</strong><br><sub>Sesli Kitap, Sözlük &amp; Yarışma</sub></a></td>
-  </tr>
-  <tr>
-    <td align="center" width="25%"><a href="https://play.google.com/store/apps/details?id=com.belgeselsemo.trivia"><img src="https://raw.githubusercontent.com/vesvese55x/idm-linux/main/src/idm_linux/assets/app_trivia.png" width="56" alt="TRIVIA"><br><strong>BELGESELSEMO TRIVIA</strong><br><sub>Online Bilgi Yarışması</sub></a></td>
-    <td align="center" width="25%"><a href="https://belgeselsemo.com.tr"><img src="https://raw.githubusercontent.com/vesvese55x/idm-linux/main/src/idm_linux/assets/proj_retro_icon.png" width="56" alt="RETRO"><br><strong>BELGESELSEMO RETRO EMULATOR</strong><br><sub>Çapraz Platform · Yakında</sub></a></td>
-    <td align="center" width="25%"><a href="https://belgeselsemo.com.tr"><img src="https://raw.githubusercontent.com/vesvese55x/idm-linux/main/src/idm_linux/assets/proj_economy.png" width="56" alt="ECONOMY"><br><strong>BELGESELSEMO ECONOMY</strong><br><sub>Yakında</sub></a></td>
-    <td align="center" width="25%"><a href="https://github.com/vesvese55x/idm-linux"><img src="https://raw.githubusercontent.com/vesvese55x/idm-linux/main/src/idm_linux/assets/idm-linux-icon.png" width="56" alt="IDM-Linux"><br><strong>IDM-Linux</strong><br><sub>İnternet Download Manager (Linux)</sub></a></td>
+    <td align="center" width="25%"><a href="https://play.google.com/store/apps/details?id=com.belgeselsemo.trivia"><img src="https://raw.githubusercontent.com/vesvese55x/idm-linux/main/src/idm_linux/assets/app_trivia.png" width="56" alt="TRIVIA"><br><strong>BELGESELSEMO TRIVIA</strong></a><br><sub>Online Bilgi Yarışması</sub></td>
+    <td align="center" width="25%"><a href="https://belgeselsemo.com.tr"><img src="https://raw.githubusercontent.com/vesvese55x/idm-linux/main/src/idm_linux/assets/proj_retro_icon.png" width="56" alt="RETRO"><br><strong>BELGESELSEMO RETRO EMULATOR</strong></a><br><sub>Çapraz Platform · Yakında</sub></td>
+    <td align="center" width="25%"><a href="https://belgeselsemo.com.tr"><img src="https://raw.githubusercontent.com/vesvese55x/idm-linux/main/src/idm_linux/assets/proj_economy.png" width="56" alt="ECONOMY"><br><strong>BELGESELSEMO ECONOMY</strong></a><br><sub>Yakında</sub></td>
+    <td align="center" width="25%"><a href="https://github.com/vesvese55x/idm-linux"><img src="https://raw.githubusercontent.com/vesvese55x/idm-linux/main/src/idm_linux/assets/idm-linux-icon.png" width="56" alt="IDM-Linux"><br><strong>IDM-Linux</strong></a><br><sub>İnternet Download Manager (Linux)</sub></td>
   </tr>
 </table>
 
