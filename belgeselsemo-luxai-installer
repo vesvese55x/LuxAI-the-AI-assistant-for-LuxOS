@@ -30,9 +30,9 @@ fetch() {  # fetch URL OUT
 if [ "${1:-}" = "--uninstall" ]; then
     say "LuxAI kaldırılıyor"
     if command -v pacman >/dev/null 2>&1; then $SUDO pacman -R --noconfirm luxai
-    elif [ "$FORCE" = deb ] || { [ -z "$FORCE" ] && command -v apt-get >/dev/null 2>&1; }; then $SUDO apt-get remove -y luxai
-    elif { [ "$FORCE" = rpm ] || [ -z "$FORCE" ]; } && command -v dnf >/dev/null 2>&1; then $SUDO dnf remove -y luxai
-    elif { [ "$FORCE" = rpm ] || [ -z "$FORCE" ]; } && command -v zypper >/dev/null 2>&1; then $SUDO zypper --non-interactive remove luxai
+    elif command -v apt-get >/dev/null 2>&1; then $SUDO apt-get remove -y luxai
+    elif command -v dnf >/dev/null 2>&1; then $SUDO dnf remove -y luxai
+    elif command -v zypper >/dev/null 2>&1; then $SUDO zypper --non-interactive remove luxai
     else rm -f "$HOME/.local/bin/LuxAI.AppImage"; fi
     say "Kaldırıldı (sohbetleriniz ~/.config/luxai içinde kalır)"
     exit 0
@@ -47,28 +47,51 @@ DEB_PKG="luxai_${VER}_amd64.deb"
 RPM_PKG="luxai-${VER}-1.x86_64.rpm"
 APPIMAGE="LuxAI-${VER}-x86_64.AppImage"
 
+OSID=""; OSLIKE=""
 if [ -r /etc/os-release ]; then
     DISTRO="$(. /etc/os-release; echo "${PRETTY_NAME:-$ID}")"
+    OSID="$(. /etc/os-release; echo "${ID:-}")"
+    OSLIKE="$(. /etc/os-release; echo "${ID_LIKE:-}")"
 fi
-say "Dağıtım / distro: $DISTRO"
+say "Dağıtım / distro: ${DISTRO:-bilinmiyor}"
+
+# Dağıtım ailesi: komutun varlığı değil, /etc/os-release belirleyici
+# (Debian'da pacman de kurulu olabilir; yanlış paket seçilmesin).
+FAM=""
+case " $OSID $OSLIKE " in
+    *arch*|*manjaro*|*endeavouros*|*cachyos*|*garuda*|*artix*|*steamos*) FAM=arch ;;
+    *debian*|*ubuntu*|*linuxmint*|*pop*|*elementary*|*zorin*|*kali*)   FAM=deb ;;
+    *fedora*|*rhel*|*centos*|*rocky*|*alma*)                           FAM=rpm ;;
+    *suse*|*opensuse*)                                                 FAM=rpm ;;
+esac
 
 # LUXAI_PKG=arch|deb|rpm|appimage ile paket türü zorlanabilir (test/gelişmiş)
 FORCE="${LUXAI_PKG:-}"
 
-if [ "$FORCE" = arch ] || { [ -z "$FORCE" ] && command -v pacman >/dev/null 2>&1; }; then
+if [ "$FORCE" = arch ] || { [ -z "$FORCE" ] && { [ "$FAM" = arch ] || { [ -z "$FAM" ] && command -v pacman >/dev/null 2>&1; }; }; }; then
     # Arch, Manjaro, EndeavourOS, CachyOS, Garuda, Arco, Artix, SteamOS...
     F="$ARCH_PKG"
     CMD="$SUDO pacman -U --noconfirm --needed ./$F"
     FAMILY="arch"
-elif [ "$FORCE" = deb ] || { [ -z "$FORCE" ] && command -v apt-get >/dev/null 2>&1; }; then
+elif [ "$FORCE" = deb ] || { [ -z "$FORCE" ] && { [ "$FAM" = deb ] || { [ -z "$FAM" ] && command -v apt-get >/dev/null 2>&1; }; }; }; then
     F="$DEB_PKG"
     CMD="$SUDO apt-get install -y ./$F"
     FAMILY="deb"
-elif { [ "$FORCE" = rpm ] || [ -z "$FORCE" ]; } && command -v dnf >/dev/null 2>&1; then
+elif [ "$FORCE" = rpm ] || { [ -z "$FORCE" ] && [ "$FAM" = rpm ]; }; then
+    if command -v dnf >/dev/null 2>&1; then
+        F="$RPM_PKG"
+        CMD="$SUDO dnf install -y ./$F"
+        FAMILY="rpm"
+    else
+        F="$RPM_PKG"
+        CMD="$SUDO zypper --non-interactive install ./$F"
+        FAMILY="rpm"
+    fi
+elif [ -z "$FORCE" ] && command -v dnf >/dev/null 2>&1; then
     F="$RPM_PKG"
     CMD="$SUDO dnf install -y ./$F"
     FAMILY="rpm"
-elif { [ "$FORCE" = rpm ] || [ -z "$FORCE" ]; } && command -v zypper >/dev/null 2>&1; then
+elif [ -z "$FORCE" ] && command -v zypper >/dev/null 2>&1; then
     F="$RPM_PKG"
     CMD="$SUDO zypper --non-interactive install ./$F"
     FAMILY="rpm"
@@ -101,7 +124,10 @@ case "$FAMILY" in
     ;;
   arch)
     say "kuruluyor: pacman -U"
-    sh -c "$CMD"
+    if ! sh -c "$CMD"; then
+        warn "pacman çakışma bildirdi — --overwrite ile tekrar deneniyor"
+        $SUDO pacman -U --noconfirm --overwrite '*' "./$F"
+    fi
     ;;
   deb)
     say "kuruluyor: apt-get install ./$F"
