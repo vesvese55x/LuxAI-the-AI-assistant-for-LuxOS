@@ -1,0 +1,77 @@
+name: video-record-v4c-linux-gui
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [video-live-record]
+    paths: ['.github/workflows/video-record-v4c.yml']
+
+permissions:
+  contents: read
+
+env:
+  REL: https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/download/v2.0.2
+
+jobs:
+  linux-gui-v4c:
+    name: V4c Linux GUI turu (sekmeler)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Bagimliliklar
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg xvfb xdotool wmctrl openbox dbus-x11 x11-apps imagemagick \
+            fonts-noto fonts-noto-core fonts-noto-extra fonts-noto-color-emoji fonts-noto-cjk \
+            adwaita-icon-theme papirus-icon-theme hicolor-icon-theme \
+            libgtk-3-0 gir1.2-gtk-3.0 python3-gi python3-cairo gir1.2-pango-1.0 libcurl4 curl >/dev/null
+          curl -sL -o luxai.deb "$REL/luxai_2.0.2_amd64.deb"
+          sudo apt-get install -y ./luxai.deb >/dev/null 2>&1 || sudo dpkg -i luxai.deb || true
+          which luxai
+      - name: Canli kayit (170 sn, terminal yok)
+        run: |
+          mkdir -p rec
+          export DISPLAY=:99 XDG_CURRENT_DESKTOP=GNOME GTK_THEME=adwaita:light NO_AT_BRIDGE=1
+          Xvfb :99 -screen 0 1600x1000x24 >/tmp/x.log 2>&1 & sleep 2
+          eval "$(dbus-launch --sh-syntax)"
+          openbox >/tmp/ob.log 2>&1 & sleep 2
+          ffmpeg -y -v error -f x11grab -video_size 1600x1000 -framerate 25 -i :99 -t 172 \
+            -c:v libx264 -preset veryfast -pix_fmt yuv420p rec/linux_gui_v4.mp4 >/tmp/ff.log 2>&1 &
+          FF=$!; sleep 2
+          abs_click(){ xdotool mousemove $1 $2 sleep 0.4 click 1; }
+          LANG=tr_TR.UTF-8 LC_ALL=tr_TR.UTF-8 /usr/bin/luxai >/tmp/lux.log 2>&1 &
+          sleep 13
+          WID=$(xdotool search --name "^LuxAI$" | head -1); [ -z "$WID" ] && WID=$(xdotool search --name "LuxAI" | tail -1)
+          wmctrl -i -r "$WID" -e 0,60,30,1480,930 || true; sleep 5
+          import -window root rec/g_main.png || true
+          # giris butonu: ana pencere geometrisine gore
+          eval $(xdotool getwindowgeometry --shell "$WID" 2>/dev/null || echo "X=60;Y=30;WIDTH=1480;HEIGHT=930")
+          abs_click $((X+WIDTH*608/1000)) $((Y+HEIGHT*605/1000)); sleep 6
+          /usr/bin/python3 /usr/bin/luxos-account >/tmp/acct.log 2>&1 &
+          sleep 9
+          AWID=$(xdotool search --name "^LuxAI Account$" | head -1); echo "AWID=$AWID"
+          if [ -n "$AWID" ]; then
+            wmctrl -i -r "$AWID" -e 0,340,25,920,950; sleep 3
+            import -window root rec/g_signin_password.png || true; sleep 8
+            abs_click 505 535; sleep 8    # E-mail Code
+            import -window root rec/g_signin_emailcode.png || true; sleep 5
+            abs_click 610 535; sleep 8    # New Account
+            import -window root rec/g_signin_newaccount.png || true; sleep 5
+            abs_click 815 535; sleep 8    # Providers
+            import -window root rec/g_providers.png || true
+            xdotool mousemove 800 700 click --repeat 4 5; sleep 6
+            import -window root rec/g_providers2.png || true
+            abs_click 717 535; sleep 8    # Our projects
+            import -window root rec/g_projects.png || true
+            xdotool mousemove 800 700 click --repeat 6 5; sleep 7
+            import -window root rec/g_projects2.png || true
+            abs_click 412 535; sleep 6    # Password'a don
+            import -window root rec/g_signin_again.png || true
+          fi
+          sleep 6
+          wait $FF || true
+          ls -lh rec/
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: {name: v4c-linux-gui, path: rec/*, if-no-files-found: warn}
