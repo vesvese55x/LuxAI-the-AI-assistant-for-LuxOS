@@ -79,6 +79,10 @@ def minify(css):
     css = re.sub(r"([: ,\(])0\.([0-9])", r"\1.\2", css)
     css = re.sub(r"([: ,\(])0(px|em|rem|%)", r"\g<1>0", css)
     css = css.replace("rgba(255,255,255,", "alpha(#fff,")
+    # ek kucultme (GTK CSS'de esdeger): background-color -> background, white -> #fff
+    css = css.replace("background-color:", "background:")
+    css = css.replace(":white", ":#fff").replace(": white", ":#fff")
+    css = re.sub(r",\s*0\.", ",.", css)
     return css
 
 min_css = minify(new_css)
