@@ -85,7 +85,7 @@
 <table>
 <tr>
 <td width="50%"><img src="promo/assets/screens/win/05-hosgeldin-atif.png" alt="Windows — karşılama ve atıf notu"><br><sub><strong>Karşılama + atıf notu</strong> — BELGESELSEMO · Z.AI · orijinal LuxOS notu ve tıklanabilir <code>belgeselsemo.com.tr</code></sub></td>
-<td width="50%"><img src="promo/assets/screens/win/04-projelerimiz.png" alt="Windows — Projelerimiz kataloğu"><br><sub><strong>Projelerimiz</strong> — Ayarlar ile LuxAI Hesabı arasında, 11 proje kategori rozetleriyle</sub></td>
+<td width="50%"><img src="promo/assets/screens/win/04-projelerimiz.png" alt="Windows — Projelerimiz kataloğu"><br><sub><strong>Projelerimiz</strong> — Ayarlar ile LuxAI Hesabı arasında, 12 proje kategori rozetleriyle</sub></td>
 </tr>
 <tr>
 <td width="50%"><img src="promo/assets/screens/win/02-giris-yeni-hesap.png" alt="Windows — Yeni hesap sekmesi"><br><sub><strong>Giriş · Yeni hesap</strong> — ad, e-posta, en az 12 karakterlik parola</sub></td>
