@@ -29,6 +29,10 @@ Bu sürüm, orijinal LuxAI 2.0.2 üzerine BELGESELSEMO topluluk yamalarını ta�
 - **cmd ile kurulum**: `windows/cmd/luxai-kur.bat` tek satırla indirir, kurar,
   Başlat menüsü + masaüstü kısayolu ve *Ayarlar › Uygulamalar* kaldırma kaydı
   oluşturur (`luxai-kaldir.bat` ile kaldırılır).
+- **Kenar çubuğu “Oturumu kapat” düzeltmesi**: soldaki hesap popover'ındaki
+  çıkış artık çalışıyor — onaylandığında `POST /api/ide/logout` yapılır, yerel
+  token silinir ve arayüz "Oturum açılmadı" durumuna geçer
+  (ayrıntı: `docs/OTURUM-KAPATMA-DUZELTMESI.md`).
 - **Arch/Manjaro/EndeavourOS/CachyOS düzeltmesi**: `.pkg.tar.zst` artık pacman'in
   beklediği biçimde (`.PKGINFO` kökte) üretiliyor — "eksik paket bilgisi" hatası
   bitti, gerçek `pacman -U` ile doğrulandı.

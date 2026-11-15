@@ -29,7 +29,8 @@ jobs:
       - name: Install packaging tools
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y -qq rpm zstd binutils-mingw-w64-x86-64 gcc-mingw-w64-x86-64-posix g++-mingw-w64-x86-64-posix >/dev/null
+          sudo apt-get install -y -qq rpm zstd binutils-mingw-w64-x86-64 gcc-mingw-w64-x86-64-posix g++-mingw-w64-x86-64-posix \
+            gcc libgtk-3-dev pkg-config >/dev/null
 
       - name: Build packages
         run: bash packaging/build-all.sh "${{ github.ref_name }}"
@@ -73,6 +74,8 @@ jobs:
           cp windows/README-TR.md          dist-win/pkg/README-TR.md
           cp windows/cmd/luxai-kur.bat     dist-win/pkg/luxai-kur.bat
           cp windows/cmd/luxai-kaldir.bat  dist-win/pkg/luxai-kaldir.bat
+          cp windows/cmd/luxai-kur.bat     dist-win/luxai-kur.bat
+          cp windows/cmd/luxai-kaldir.bat  dist-win/luxai-kaldir.bat
           cp docs/ANALIZ-WINDOWS.md        dist-win/pkg/ANALIZ-WINDOWS.md
           mkdir -p dist-win/pkg/docs
           cp -r windows/docs/screens       dist-win/pkg/docs/
@@ -86,7 +89,8 @@ jobs:
           path: |
             dist-win/LuxAI-3.1.0-Windows-native-x64.zip
             dist-win/LuxAI-3.1.0-Setup-native.exe
-            windows/cmd/luxai-kur.bat
+            dist-win/luxai-kur.bat
+            dist-win/luxai-kaldir.bat
             windows/cmd/luxai-kaldir.bat
           if-no-files-found: error
 
@@ -153,7 +157,12 @@ jobs:
       - name: Generate checksums
         run: |
           cd dist
-          sha256sum *.deb *.rpm *.AppImage *.pkg.tar.zst *.exe *.zip *.bat > SHA256SUMS
+          shopt -s nullglob
+          files=(*.deb *.rpm *.AppImage *.pkg.tar.zst *.exe *.zip *.bat)
+          printf '%s\n' "${files[@]}"
+          [ ${#files[@]} -gt 0 ] || { echo "dist bos!"; exit 1; }
+          sha256sum "${files[@]}" > SHA256SUMS
+          cat SHA256SUMS
 
       - name: Determine release tag
         id: tag

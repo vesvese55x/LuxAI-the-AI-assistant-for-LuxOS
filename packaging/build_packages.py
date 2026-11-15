@@ -254,7 +254,11 @@ def build_appimage():
 SELF=$(readlink -f "${0}")
 HERE=${SELF%/*}
 export APPDIR="$HERE"
-exec "${APPDIR}/usr/bin/luxai" "$@"
+FIX="$APPDIR/usr/lib/luxai/luxfix.so"
+[ -r "$FIX" ] && LD_PRELOAD="$FIX${LD_PRELOAD:+:$LD_PRELOAD}" && export LD_PRELOAD
+BIN="$APPDIR/usr/lib/luxai/luxai-bin"
+[ -x "$BIN" ] || BIN="$APPDIR/usr/bin/luxai"
+exec "$BIN" "$@"
 """)
     os.chmod(apprun, 0o755)
     out = f"{DIST}/LuxAI-{VERSION}-x86_64.AppImage"

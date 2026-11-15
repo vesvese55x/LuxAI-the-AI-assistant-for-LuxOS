@@ -23,6 +23,33 @@ def cp(src, dst, exe=False):
 
 # 1. binary + root helpers
 cp(f"{W}/stage/usr/bin/luxai", f"{BLD}/usr/bin/luxai", exe=True)
+
+# 1b. KENAR CUBUGU "OTURUMU KAPAT" DUZELTMESI
+#     Upstream ikilide onay penceresinin govdesi bos (hicbir syscall yok).
+#     Gercek ikili /usr/lib/luxai/luxai-bin'e tasinir; /usr/bin/luxai ince bir
+#     baslatici olur ve luxfix.so'yu LD_PRELOAD ile yukler. luxfix.so onay
+#     penceresini yakalar -> `luxos-account logout` + uygulamayi yeniden baslatir.
+os.makedirs(f"{BLD}/usr/lib/luxai", exist_ok=True)
+os.replace(f"{BLD}/usr/bin/luxai", f"{BLD}/usr/lib/luxai/luxai-bin")
+cp(f"{REPO}/packaging/luxfix/luxai-wrapper", f"{BLD}/usr/bin/luxai", exe=True)
+import subprocess, shutil as _sh
+_gcc = _sh.which("gcc") or _sh.which("cc")
+_luxfix_src = f"{REPO}/packaging/luxfix/luxfix.c"
+if _gcc:
+    _cmd = [_gcc, "-shared", "-fPIC", "-O2", "-o", f"{BLD}/usr/lib/luxai/luxfix.so", _luxfix_src,
+            "-lgtk-3", "-lgdk-3", "-lglib-2.0", "-lgobject-2.0", "-ldl"]
+    _r = subprocess.run(_cmd, capture_output=True, text=True)
+    if _r.returncode != 0:   # pkg-config varsa onun bayraklariyla tekrar dene
+        _pc = subprocess.run(["pkg-config", "--cflags", "--libs", "gtk+-3.0"],
+                             capture_output=True, text=True)
+        if _pc.returncode == 0:
+            _r = subprocess.run([_gcc, "-shared", "-fPIC", "-O2", "-o",
+                                 f"{BLD}/usr/lib/luxai/luxfix.so", _luxfix_src,
+                                 "-ldl"] + _pc.stdout.split(), capture_output=True, text=True)
+    print("luxfix.so:", "OK" if os.path.isfile(f"{BLD}/usr/lib/luxai/luxfix.so") else "DERLENEMEDI",
+          _r.stderr[:300])
+    if not os.path.isfile(f"{BLD}/usr/lib/luxai/luxfix.so"):
+        print("  ! uyari: luxfix.so yok - kenar cubugu duzeltmesi devre disi")
 for f in ("luxai-root", "luxai-root-auto", "luxai-root-setup"):
     cp(f"{UP}/lib/luxai/{f}", f"{BLD}/usr/lib/luxai/{f}", exe=True)
 
