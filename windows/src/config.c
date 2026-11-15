@@ -4,35 +4,61 @@
 
 /* ---------------- i18n ---------------- */
 #include "i18n_ids.h"
-
-static const char *const TBL[2][S_COUNT] = {
-    {
-#define X(id, tr, en) tr,
-        STRS(X)
-#undef X
-    },
-    {
-#define X(id, tr, en) en,
-        STRS(X)
-#undef X
-    }
-};
+#include "i18n_data.h"
 
 const char *t(int id)
 {
-    int l = (g_cfg.lang == 1) ? 1 : 0;
+    int l = g_cfg.lang;
     if (id < 0 || id >= S_COUNT) return "";
-    return TBL[l][id];
+    if (l < 0 || l >= LUX_NLANG) l = 1;
+    return LUX_STR[id][l];
 }
 
+/* Windows arayuz dilinden LuxAI dil indeksi (18 dil) */
+int lang_from_windows(void)
+{
+    switch (PRIMARYLANGID(GetUserDefaultUILanguage())) {
+    case LANG_TURKISH:    return 0;
+    case LANG_ENGLISH:    return 1;
+    case LANG_RUSSIAN:    return 2;
+    case LANG_CHINESE:    return 3;
+    case LANG_JAPANESE:   return 4;
+    case LANG_HINDI:      return 5;
+    case LANG_GERMAN:     return 6;
+    case LANG_FRENCH:     return 7;
+    case LANG_SPANISH:    return 8;
+    case LANG_ITALIAN:    return 9;
+    case LANG_DUTCH:      return 10;
+    case LANG_POLISH:     return 11;
+    case LANG_PORTUGUESE: return 12;
+    case LANG_SLOVAK:     return 13;
+    case LANG_SWEDISH:    return 14;
+    case LANG_CZECH:      return 15;
+    case LANG_HUNGARIAN:  return 16;
+    case LANG_UKRAINIAN:  return 17;
+    default:              return 1;
+    }
+}
+
+const char *lang_name(int i)
+{
+    if (i < 0 || i >= LUX_NLANG) return "English";
+    return LUX_LANG_NAME[i];
+}
+
+/* Donen isaretci kisa omurlu: cagiran kod ayni ifadede birden fazla tw()
+ * kullanabildigi icin 8 tampon sirayla donuyor (onceden tek tampon vardi ve
+ * ornegin onay penceresinin basligi dugme metniyle eziliyordu). */
 const wchar_t *tw(int id)
 {
-    static wchar_t buf[512];
+    static wchar_t buf[8][512];
+    static int slot;
     wchar_t *w = u16(t(id));
-    wcsncpy(buf, w ? w : L"", 511);
-    buf[511] = 0;
+    wchar_t *b = buf[slot = (slot + 1) & 7];
+    wcsncpy(b, w ? w : L"", 511);
+    b[511] = 0;
     free(w);
-    return buf;
+    return b;
 }
 
 /* ---------------- ayarlar ---------------- */
@@ -47,7 +73,7 @@ void cfg_defaults(void)
     g_cfg.model = 0;
     g_cfg.mode = 0;
     g_cfg.theme = 0;
-    g_cfg.lang = (PRIMARYLANGID(GetUserDefaultUILanguage()) == LANG_TURKISH) ? 0 : 1;
+    g_cfg.lang = lang_from_windows();
     g_cfg.send_ctrl_enter = 0;
     g_cfg.auto_approve = 0;
     g_cfg.max_tokens = 4096;
@@ -79,7 +105,7 @@ void cfg_load(void)
             while (*v == ' ') v++;
             if (!strcmp(k, "model")) g_cfg.model = atoi(v);
             else if (!strcmp(k, "mode")) g_cfg.mode = atoi(v);
-            else if (!strcmp(k, "lang")) g_cfg.lang = atoi(v);
+            else if (!strcmp(k, "lang")) { g_cfg.lang = atoi(v); if (g_cfg.lang < 0 || g_cfg.lang >= LUX_NLANG) g_cfg.lang = 1; }
             else if (!strcmp(k, "theme")) g_cfg.theme = atoi(v);
             else if (!strcmp(k, "send_ctrl_enter")) g_cfg.send_ctrl_enter = atoi(v);
             else if (!strcmp(k, "auto_approve")) g_cfg.auto_approve = atoi(v);

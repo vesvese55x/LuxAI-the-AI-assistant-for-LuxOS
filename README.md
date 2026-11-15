@@ -12,9 +12,9 @@
 
 > [!NOTE]
 > <p><img align="right" src="promo/assets/luxai-icon.png" width="64" height="64" alt="LuxAI"><strong>✨ Resmî olmayan ama muhteşem bir AI asistanı</strong><br>
-> <img src="https://img.shields.io/badge/Linux_x86__64_%C2%B7_Windows_WSLg-f97316?style=flat-square&amp;logo=linux&amp;logoColor=white" alt="Linux x86_64 · Windows WSLg">
+> <img src="https://img.shields.io/badge/Linux_x86__64_%C2%B7_Windows_Native-f97316?style=flat-square&amp;logo=linux&amp;logoColor=white" alt="Linux x86_64 · Windows Native (WSL yok)">
 > <img src="https://img.shields.io/badge/GTK3-Chat_%C2%B7_Agent-4a7dff?style=flat-square&amp;logo=gtk&amp;logoColor=white" alt="GTK3 · Chat · Agent">
-> <img src="https://img.shields.io/badge/Aray%C3%BCz-14_Dil-35c47a?style=flat-square&amp;logo=googletranslate&amp;logoColor=white" alt="14 Dil"></p>
+> <img src="https://img.shields.io/badge/Aray%C3%BCz-18_Dil-35c47a?style=flat-square&amp;logo=googletranslate&amp;logoColor=white" alt="18 dil"></p>
 >
 > <p align="justify">LuxAI, LuxOS'un resmî yapay zeka asistanıdır: sohbet eder ve <strong>Agent</strong> modunda bilgisayarınızla gerçekten çalışır — komut çalıştırır, dosyaları yönetir, uygulama açar, ekran görüntüsü alır; her adım sizin onayınızla. Bu depo, LuxAI'nin LuxOS dışındaki dağıtımlarda da (Ubuntu, Debian, Fedora, Arch, openSUSE, Windows…) kullanılabilmesi için BELGESELSEMO tarafından, Z.AI desteğiyle, orijinal LuxOS 1.0.1 imajından alınan <strong>değiştirilmemiş LuxAI 2.0.2 dosyaları</strong> üzerine topluluk yamaları uygulanarak oluşturuldu. LuxOS projesiyle bağı yoktur.</p>
 >
@@ -161,37 +161,51 @@
   <tr>
     <td>🏔️ <strong>zst</strong></td>
     <td>Arch / Manjaro / Cachy OS ve türevleri</td>
-    <td><code>sudo pacman -U luxai-3.1.0-1-x86_64.pkg.tar.zst</code></td>
+    <td><code>sudo pacman -U luxai-3.1.0-1-x86_64.pkg.tar.zst</code><br><sub>Arch · Manjaro · EndeavourOS · CachyOS · Garuda · Artix — <code>.PKGINFO</code> kökte, doğrulandı</sub></td>
     <td align="center"><a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest/download/luxai-3.1.0-1-x86_64.pkg.tar.zst" target="_blank" rel="noreferrer"><img src="https://img.shields.io/badge/%C4%B0ND%C4%B0R-10b981?style=for-the-badge&amp;logo=github&amp;logoColor=white" alt="İNDİR — zst"></a></td>
   </tr>
   <tr>
-    <td>⊞ <strong>exe</strong></td>
-    <td>Windows 10/11 — WSLg ile gerçek LuxAI penceresi; Başlat menüsü kısayolu oluşturur</td>
-    <td><code>LuxAI-3.1.0-Setup.exe</code> (WSL kurulu olmalı) → Başlat › LuxAI</td>
-    <td align="center"><a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest/download/LuxAI-3.1.0-Setup.exe" target="_blank" rel="noreferrer"><img src="https://img.shields.io/badge/%C4%B0ND%C4%B0R-10b981?style=for-the-badge&amp;logo=github&amp;logoColor=white" alt="İNDİR — Windows exe"></a></td>
-  </tr>
-  <tr>
     <td>🪟 <strong>exe (native)</strong></td>
-    <td><strong>WSL GEREKMEZ</strong> — doğrudan Windows uygulaması, tek dosya, Windows 7 SP1+ / 10 / 11 (x64). GTK yok, sanal makine yok.</td>
+    <td><strong>WSL GEREKMEZ</strong> — doğrudan Windows uygulaması, tek dosya, Windows 7 SP1+ / 8 / 10 / 11 (x64). GTK yok, sanal makine yok.</td>
     <td><code>LuxAI-3.1.0-Setup-native.exe</code> → Başlat › LuxAI</td>
     <td align="center"><a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest/download/LuxAI-3.1.0-Setup-native.exe" target="_blank" rel="noreferrer"><img src="https://img.shields.io/badge/%C4%B0ND%C4%B0R-10b981?style=for-the-badge&amp;logo=github&amp;logoColor=white" alt="İNDİR — Windows native exe"></a></td>
   </tr>
+  <tr>
+    <td>⌨️ <strong>cmd / .bat</strong></td>
+    <td><strong>Windows'ta cmd ile kurulum</strong> — tek satır: indirir, <code>%LOCALAPPDATA%\Programs\LuxAI</code> altına kurar, Başlat menüsü + masaüstü kısayolu ve <em>Ayarlar › Uygulamalar</em> kaldırma kaydı oluşturur. Node/Python/WSL gerekmez.</td>
+    <td><code>curl -L -o luxai-kur.bat https://raw.githubusercontent.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/main/windows/cmd/luxai-kur.bat &amp;&amp; luxai-kur.bat</code></td>
+    <td align="center"><a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest/download/luxai-kur.bat" target="_blank" rel="noreferrer"><img src="https://img.shields.io/badge/%C4%B0ND%C4%B0R-0ea5e9?style=for-the-badge&amp;logo=windows&amp;logoColor=white" alt="İNDİR — luxai-kur.bat"></a></td>
+  </tr>
 </table>
+
+## 🪟 Windows: native sürüm (WSL yok)
+
+<p align="justify">Windows için ayrı bir <strong>native Win32 uygulaması</strong> yazıldı: aynı arayüz, aynı özellikler, aynı 18 dil — ama GTK, WSL, WSLg, sanal makine <em>yok</em>. Tek bir <code>LuxAI.exe</code> (≈ 470 KB), yalnızca Windows'un kendi DLL'lerine bağlıdır (user32, gdiplus, winhttp…) ve <strong>Windows 7 SP1'den 11'e</strong> kadar çalışır.</p>
+
+<table>
+  <tr><th>Yöntem</th><th>Komut</th></tr>
+  <tr><td>⌨️ <strong>cmd (tek satır)</strong></td><td><code>curl -L -o luxai-kur.bat https://raw.githubusercontent.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/main/windows/cmd/luxai-kur.bat &amp;&amp; luxai-kur.bat</code></td></tr>
+  <tr><td>📦 <strong>kurucu exe</strong></td><td><code>LuxAI-3.1.0-Setup-native.exe</code> çift tık → kur → Başlat › LuxAI</td></tr>
+  <tr><td>🗜️ <strong>taşınabilir zip</strong></td><td><code>LuxAI-3.1.0-Windows-native-x64.zip</code> → aç → <code>LuxAI.exe</code></td></tr>
+  <tr><td>🧹 <strong>kaldırma</strong></td><td><code>luxai-kaldir.bat</code> ya da <em>Ayarlar › Uygulamalar › LuxAI</em></td></tr>
+</table>
+
+**Windows'ta olan her şey:** CSD/GTK görünümlü headerbar · 260 px kenar çubuğu · gradyan kullanıcı balonu · Markdown + kod blokları · araç kartları · **çizilmiş onay/izin pencereleri** (klasik Win32 MessageBox yok) · **LuxAI Hesabı penceresi** (kullanım, hesabı yönet, verileri dışa aktar, koşullar, hesap silme talebi, oturumu kapat) · açık/koyu tema · **18 dil** · ayarlar sayfası · koyu tema · sistem tepsisi ikonu.
 
 <p align="center">
   <img src="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/actions/workflows/build.yml/badge.svg" alt="Derleme durumu">
   <img src="https://img.shields.io/badge/S%C3%BCr%C3%BCm-3.1.0-4a7dff?style=flat-square" alt="Sürüm 3.1.0">
-  <img src="https://img.shields.io/badge/Aray%C3%BCz-14%20dil-35c47a?style=flat-square" alt="14 arayüz dili">
+  <img src="https://img.shields.io/badge/Aray%C3%BCz-18%20dil-35c47a?style=flat-square" alt="18 arayüz dili">
   <img src="https://img.shields.io/badge/%C3%87eviri-17%20dosya%20%2F%20457%20anahtar-35c47a?style=flat-square" alt="17 tam çeviri dosyası">
   <img src="https://img.shields.io/github/downloads/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/total?label=%C4%B0ndirmeler&amp;logo=github&amp;logoColor=white&amp;color=10b981&amp;style=flat-square" alt="İndirmeler — toplam indirme sayacı">
-  <img src="https://img.shields.io/badge/Platform-Linux_x86__64_%7C_Windows_(WSLg)-f97316?style=flat-square" alt="Platform">
+  <img src="https://img.shields.io/badge/Platform-Linux_x86__64_%7C_Windows_native_(WSL_yok)-f97316?style=flat-square" alt="Platform">
   <img src="https://img.shields.io/badge/Paketler-AppImage_%C2%B7_deb_%C2%B7_rpm_%C2%B7_zst_%C2%B7_exe-00AEEF?style=flat-square" alt="Paketler">
   <img src="https://img.shields.io/badge/Lisans-MIT_%2B_LSL-informational?style=flat-square" alt="Lisans">
 </p>
 
 🌟 Tablodaki <strong>İNDİR</strong> butonları her zaman [GitHub Releases](https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest) sayfasındaki <em>en güncel</em> paketi indirir; tüm paketler aynı <strong>LuxAI 3.1.0</strong> sürümünü taşır.  
 🧰 Gereksinimler (Linux): `libgtk-3`, `python3-gi` (PyGObject), `libcurl` — dağıtımınız tarafından otomatik çözülür; LuxOS'a özgü bağımlılık yoktur.  
-🌐 Arayüz 14 dilde çalışır; sistem diliniz desteklenmiyorsa İngilizce görünür.  
+🌐 Arayüz **18 dilde** çalışır (tr · en · ru · zh · ja · hi · de · fr · es · it · nl · pl · pt · sk · sv · cs · hu · uk); Windows sürümü sistem dilinizi otomatik seçer, dil Ayarlar'dan değiştirilebilir.  
 🖼️ Tanıtım görselleri, GitHub Actions runner'ında derlenen paketin gerçekten kurulmasıyla alınan **gerçek** ekran görüntüleridir.
 
 ## 🆕 v3.1.0'da neler var?
@@ -209,7 +223,7 @@
 - ✅ Modern pencere düğmeleri + dropdown ilk-kare düzeltmesi.
 - ✅ Sohbet kutusunun üstünde, seçili dilde BELGESELSEMO imzası ve
   [belgeselsemo.com.tr](http://belgeselsemo.com.tr) bağlantısı.
-- ✅ Windows kurucusu (WSLg), GitHub Actions ile otomatik build + release.
+- ✅ Windows **native** kurucu (WSL/WSLg yok) + cmd `.bat` kurulumu, GitHub Actions ile otomatik build + release.
 - ✅ Arch paketi var olmayan `luxos-account` / `luxos-i18n` / `luxos-docs`
   bağımlılıkları istemez — gereken bileşenler paketle birlikte kurulur.
 
@@ -219,7 +233,7 @@
 git clone https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS.git
 cd LuxAI-the-AI-assistant-for-LuxOS
 bash packaging/build-all.sh     # deb + rpm + zst + AppImage → .work/dist
-bash packaging/build-exe.sh     # Windows kurucusu (mingw-w64 gerekir)
+bash windows/build-win.sh        # Windows native exe (mingw-w64 gerekir)
 python3 packaging/capture_gui.py <kurulum-kökü> /tmp/shots tr,en,hi   # gerçek ekran görüntüleri
 ```
 
@@ -265,7 +279,7 @@ tr, ru, zh, ja, hi) with 100% complete translation files, dynamic
 system-language detection with English fallback, modern window buttons, fixed
 dropdown rendering, BELGESELSEMO signature above the chat input in the
 selected language, installed hicolor icons (app-menu icon fix), real GUI
-screenshots captured on the CI runner, Windows setup via WSLg.
+screenshots captured on the CI runner; native Windows build (no WSL, no WSLg) shipped as exe + one-line cmd installer.
 
 <p align="justify"><strong>Install:</strong> see the download table above, or</p>
 
@@ -273,7 +287,7 @@ screenshots captured on the CI runner, Windows setup via WSLg.
 curl -fsSL https://raw.githubusercontent.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/main/belgeselsemo-luxai-installer | sh
 ```
 
-<p align="justify"><strong>Requirements (Linux):</strong> <code>libgtk-3</code>, <code>python3-gi</code> (PyGObject), <code>libcurl</code> — resolved automatically by your distro. No LuxOS-specific dependencies. <strong>Build from source:</strong> <code>bash packaging/build-all.sh</code> (Linux packages) and <code>bash packaging/build-exe.sh</code> (Windows installer, needs mingw-w64).</p>
+<p align="justify"><strong>Requirements (Linux):</strong> <code>libgtk-3</code>, <code>python3-gi</code> (PyGObject), <code>libcurl</code> — resolved automatically by your distro. No LuxOS-specific dependencies. <strong>Build from source:</strong> <code>bash packaging/build-all.sh</code> (Linux packages) and <code>bash windows/build-win.sh</code> (native Windows exe, needs mingw-w64).</p>
 
 </details>
 
@@ -290,7 +304,7 @@ curl -fsSL https://raw.githubusercontent.com/vesvese55x/LuxAI-the-AI-assistant-f
 **Highlights:** 14 Oberflächensprachen inkl. Deutsch und Hindi, dynamische
 Systemsprachenerkennung mit Englisch-Fallback, moderne Fensterschaltflächen,
 korrigierte Dropdown-Darstellung, installierte Hicolor-Icons, echte
-GUI-Screenshots vom CI-Runner, Windows-Installer über WSLg.
+GUI-Screenshots vom CI-Runner; nativer Windows-Build (ohne WSL/WSLg) als exe + Ein-Zeilen-cmd-Installer.
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/main/belgeselsemo-luxai-installer | sh
@@ -312,7 +326,7 @@ curl -fsSL https://raw.githubusercontent.com/vesvese55x/LuxAI-the-AI-assistant-f
 определение языка системы с откатом на английский, современные кнопки окна,
 исправленное отображение выпадающих списков, подпись BELGESELSEMO над полем
 ввода на выбранном языке, установленные иконки hicolor, реальные скриншоты
-GUI с CI-раннера, установщик Windows через WSLg.
+GUI с CI-раннера; нативная сборка для Windows (без WSL/WSLg) — exe и установщик одной командой в cmd.
 
 </details>
 
@@ -329,7 +343,7 @@ GUI с CI-раннера, установщик Windows через WSLg.
 **亮点：** 14 种界面语言（含中文和印地语），动态检测系统语言并回退到英语，
 现代化窗口按钮，修复下拉菜单渲染，聊天输入框上方以所选语言显示
 BELGESELSEMO 署名，已安装 hicolor 图标，CI 运行器采集的真实界面截图，
-通过 WSLg 的 Windows 安装程序。
+在 CI 运行器上截取的界面截图；原生 Windows 版本(无需 WSL/WSLg),提供 exe 与一行 cmd 安装命令。
 
 </details>
 
@@ -347,7 +361,7 @@ BELGESELSEMO 署名，已安装 hicolor 图标，CI 运行器采集的真实界�
 システム言語の動的検出と英語へのフォールバック、モダンなウィンドウボタン、
 ドロップダウン描画の修正、選択した言語で表示される BELGESELSEMO の署名、
 hicolor アイコンのインストール、CI ランナーで取得した実際の GUI スクリーン
-ショット、WSLg による Windows インストーラー。
+ショット。ネイティブ Windows 版(WSL/WSLg 不要)は exe と 1 行の cmd インストーラーで提供。
 
 </details>
 
@@ -364,7 +378,7 @@ hicolor アイコンのインストール、CI ランナーで取得した実際
 **मुख्य विशेषताएँ:** 14 इंटरफ़ेस भाषाएँ (हिन्दी सहित), सिस्टम भाषा की गतिशील
 पहचान और अंग्रेज़ी पर वापसी, आधुनिक विंडो बटन, ड्रॉपडाउन रेंडरिंग सुधार, चयनित
 भाषा में चैट इनपुट के ऊपर BELGESELSEMO हस्ताक्षर, hicolor आइकन, CI रनर पर लिए
-गए वास्तविक GUI स्क्रीनशॉट, WSLg के माध्यम से Windows इंस्टॉलर।
+गए वास्तविक GUI स्क्रीनशॉट; नेटिव Windows बिल्ड (WSL/WSLg के बिना) exe और एक-पंक्ति cmd इंस्टॉलर के रूप में।
 
 </details>
 

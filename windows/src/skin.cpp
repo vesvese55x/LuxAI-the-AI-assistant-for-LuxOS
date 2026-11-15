@@ -199,14 +199,20 @@ void sk_circle(double cx, double cy, double r, DWORD argb)
 }
 
 /* ---------------- yazi ---------------- */
-struct FEnt { int px; int weight; int mono; Gdiplus::Font *f; };
-static FEnt g_fonts[48];
+struct FEnt { int px; int weight; int mono; int script; Gdiplus::Font *f; };
+static FEnt g_fonts[96];
 static int  g_nfont;
 
 static int family_ok(const wchar_t *name)
 {
+    /* IsAvailable() bazi ortamlarda (Wine) yanlis 0 donuyor: aile adini
+     * dogrudan okuyup kontrol ediyoruz. */
     FontFamily ff(name);
-    return ff.GetLastStatus() == Ok && ff.IsAvailable();
+    if (ff.GetLastStatus() != Ok) return 0;
+    WCHAR got[LF_FACESIZE];
+    got[0] = 0;
+    ff.GetFamilyName(got);
+    return got[0] != 0;
 }
 
 static const wchar_t *pick_sans(void)
@@ -224,16 +230,54 @@ static const wchar_t *pick_mono(void)
     return L"Courier New";
 }
 
-static Gdiplus::Font *get_font(int px, int weight, int mono)
+/* ---- yazi tipi secimi (alfabe bazli) ----
+ * Segoe UI Latin/Kiril/Yunan kapsar; CJK ve Devanagari icin Windows'un kendi
+ * fontlari gerekir, yoksa kutular cizilir. */
+static int script_of(const wchar_t *s, int n)
+{
+    for (int i = 0; i < n; i++) {
+        unsigned c = (unsigned)s[i];
+        if (c >= 0x0900 && c <= 0x097F) return 1;          /* Devanagari */
+        if (c >= 0x0E00 && c <= 0x0E7F) return 1;          /* Thai (ayni yedek) */
+        if (c >= 0x3040 && c <= 0x30FF) return 3;          /* Hiragana/Katakana -> JA */
+        if (c >= 0x4E00 && c <= 0x9FFF) return 2;          /* CJK ideograflari */
+        if (c >= 0xAC00 && c <= 0xD7AF) return 4;          /* Hangul */
+        if (c >= 0x0590 && c <= 0x06FF) return 5;          /* Ibrani/Arapca */
+    }
+    return 0;
+}
+static const wchar_t *pick_script(int script)
+{
+    static const wchar_t *dev[] = { L"Nirmala UI", L"Mangal", L"Noto Sans Devanagari",
+                                    L"Noto Sans Devanagari Condensed", L"Lohit Devanagari",
+                                    L"Arial Unicode MS", L"Segoe UI", NULL };
+    static const wchar_t *hans[] = { L"Microsoft YaHei UI", L"Microsoft YaHei", L"SimSun",
+                                     L"Noto Sans CJK SC", L"Noto Sans SC",
+                                     L"Noto Sans CJK TC", NULL };
+    static const wchar_t *jpan[] = { L"Yu Gothic UI", L"Meiryo", L"MS Gothic",
+                                     L"Noto Sans CJK JP", L"Noto Sans JP", NULL };
+    static const wchar_t *hang[] = { L"Malgun Gothic", L"Gulim", L"Noto Sans CJK KR", NULL };
+    static const wchar_t *arab[] = { L"Segoe UI", L"Tahoma", L"Noto Naskh Arabic", NULL };
+    const wchar_t **list = script == 1 ? dev : script == 2 ? hans : script == 3 ? jpan
+                        : script == 4 ? hang : script == 5 ? arab : NULL;
+    if (!list) return NULL;
+    for (int i = 0; list[i]; i++) if (family_ok(list[i])) return list[i];
+    return NULL;
+}
+
+static Gdiplus::Font *get_font_s(int px, int weight, int mono, int script)
 {
     if (px < 6) px = 6;
     for (int i = 0; i < g_nfont; i++)
-        if (g_fonts[i].px == px && g_fonts[i].weight == weight && g_fonts[i].mono == mono)
+        if (g_fonts[i].px == px && g_fonts[i].weight == weight &&
+            g_fonts[i].mono == mono && g_fonts[i].script == script)
             return g_fonts[i].f;
     const wchar_t *fam;
     int style = FontStyleRegular;
     if (mono) {
         fam = pick_mono();
+    } else if (script && pick_script(script)) {
+        fam = pick_script(script);
     } else if (weight >= 600 && family_ok(L"Segoe UI Semibold")) {
         fam = L"Segoe UI Semibold";
     } else {
@@ -245,14 +289,20 @@ static Gdiplus::Font *get_font(int px, int weight, int mono)
         delete f;
         f = new Gdiplus::Font(pick_sans(), (REAL)px, style, UnitPixel);
     }
-    if (g_nfont < 48) {
+    if (g_nfont < 96) {
         g_fonts[g_nfont].px = px;
         g_fonts[g_nfont].weight = weight;
         g_fonts[g_nfont].mono = mono;
+        g_fonts[g_nfont].script = script;
         g_fonts[g_nfont].f = f;
         g_nfont++;
     }
     return f;
+}
+
+static Gdiplus::Font *get_font(int px, int weight, int mono)
+{
+    return get_font_s(px, weight, mono, 0);
 }
 
 static const StringFormat *typo(void)
@@ -271,7 +321,7 @@ double sk_seg(const wchar_t *s, int n, int px, int weight, int mono, DWORD argb,
               int draw, double x, double y)
 {
     if (!g_gfx || !s || n <= 0) return 0;
-    Gdiplus::Font *f = get_font(px, weight, mono);
+    Gdiplus::Font *f = get_font_s(px, weight, mono, mono ? 0 : script_of(s, n));
     RectF box;
     g_gfx->MeasureString(s, n, f, PointF(0, 0), typo(), &box);
     double w = box.Width;

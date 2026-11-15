@@ -4,6 +4,11 @@ import json, sys
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
 ROUND = {"n": 0}
+# LUXAI_MOCK_TOOL=run_command -> onay isteyen arac (arayuz onay karti testi)
+import os
+TOOL = os.environ.get("LUXAI_MOCK_TOOL", "system_info")
+TOOL_ARGS = ('{"command":"echo merhaba","root":false}' if TOOL == "run_command"
+             else '{"x":1}')
 
 
 class H(BaseHTTPRequestHandler):
@@ -31,8 +36,8 @@ class H(BaseHTTPRequestHandler):
             # 1. tur: arac cagrisi
             delta(role="assistant", content="")
             delta(tool_calls=[{"index": 0, "id": "call_test_1", "type": "function",
-                               "function": {"name": "system_info", "arguments": ""}}])
-            delta(tool_calls=[{"index": 0, "function": {"arguments": '{"x":1}'}}])
+                               "function": {"name": TOOL, "arguments": ""}}])
+            delta(tool_calls=[{"index": 0, "function": {"arguments": TOOL_ARGS}}])
             ev({"choices": [{"index": 0, "delta": {}, "finish_reason": "tool_calls"}]})
         else:
             text = ("## Test yanıtı\n\nBu bir **akış** testidir. `kod` satır içi ve liste:\n\n"

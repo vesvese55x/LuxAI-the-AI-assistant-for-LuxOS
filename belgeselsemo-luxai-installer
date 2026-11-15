@@ -1,50 +1,122 @@
 #!/bin/sh
 # BELGESELSEMO LuxAI installer — one-line install for Linux
-#   curl -fsSL https://raw.githubusercontent.com/vesvese55x/LuxAI-the-AI-assistant-for-LUXOS/main/belgeselsemo-luxai-installer | sh
+#   curl -fsSL https://raw.githubusercontent.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/main/belgeselsemo-luxai-installer | sh
+#   ... | sh -s -- --uninstall      (kaldirir)
 set -e
 
 REPO="vesvese55x/LuxAI-the-AI-assistant-for-LuxOS"
 VER="3.1.0"
-BASE="https://github.com/$REPO/releases/latest/download"
+BASE="https://github.com/$REPO/releases/download/v$VER"
 
-echo "==> LuxAI $VER kurulumu / install (BELGESELSEMO)"
+say()  { printf '==> %s\n' "$*"; }
+warn() { printf '    ! %s\n' "$*"; }
 
-# pick package by distro family
-if command -v apt-get >/dev/null 2>&1; then
-    F="luxai_${VER}_amd64.deb"
-    CMD="sudo apt-get install -y ./$F"
+# ---- root yetkisi ---------------------------------------------------------
+SUDO=""
+if [ "$(id -u)" -ne 0 ]; then
+    if command -v sudo >/dev/null 2>&1; then SUDO="sudo"
+    elif command -v doas >/dev/null 2>&1; then SUDO="doas"
+    else warn "sudo/doas yok — root olarak çalıştırın"; exit 1; fi
+fi
+
+# ---- indirme aracı --------------------------------------------------------
+fetch() {  # fetch URL OUT
+    if command -v curl >/dev/null 2>&1; then curl -fsSL --retry 3 -o "$2" "$1"
+    elif command -v wget >/dev/null 2>&1; then wget -q -O "$2" "$1"
+    else warn "curl veya wget gerekli"; exit 1; fi
+}
+
+# ---- kaldırma -------------------------------------------------------------
+if [ "${1:-}" = "--uninstall" ]; then
+    say "LuxAI kaldırılıyor"
+    if command -v pacman >/dev/null 2>&1; then $SUDO pacman -R --noconfirm luxai
+    elif command -v apt-get >/dev/null 2>&1; then $SUDO apt-get remove -y luxai
+    elif command -v dnf >/dev/null 2>&1; then $SUDO dnf remove -y luxai
+    elif command -v zypper >/dev/null 2>&1; then $SUDO zypper --non-interactive remove luxai
+    else rm -f "$HOME/.local/bin/LuxAI.AppImage"; fi
+    say "Kaldırıldı (sohbetleriniz ~/.config/luxai içinde kalır)"
+    exit 0
+fi
+
+say "LuxAI $VER kurulumu / install (BELGESELSEMO)"
+
+# ---- dağıtıma göre paket --------------------------------------------------
+DISTRO="bilinmiyor"
+ARCH_PKG="luxai-${VER}-1-x86_64.pkg.tar.zst"
+DEB_PKG="luxai_${VER}_amd64.deb"
+RPM_PKG="luxai-${VER}-1.x86_64.rpm"
+APPIMAGE="LuxAI-${VER}-x86_64.AppImage"
+
+if [ -r /etc/os-release ]; then
+    DISTRO="$(. /etc/os-release; echo "${PRETTY_NAME:-$ID}")"
+fi
+say "Dağıtım / distro: $DISTRO"
+
+if command -v pacman >/dev/null 2>&1; then
+    # Arch, Manjaro, EndeavourOS, CachyOS, Garuda, Arco, Artix, SteamOS...
+    F="$ARCH_PKG"
+    CMD="$SUDO pacman -U --noconfirm --needed ./$F"
+    FAMILY="arch"
+elif command -v apt-get >/dev/null 2>&1; then
+    F="$DEB_PKG"
+    CMD="$SUDO apt-get install -y ./$F"
+    FAMILY="deb"
 elif command -v dnf >/dev/null 2>&1; then
-    F="luxai-${VER}-1.x86_64.rpm"
-    CMD="sudo dnf install -y ./$F"
+    F="$RPM_PKG"
+    CMD="$SUDO dnf install -y ./$F"
+    FAMILY="rpm"
 elif command -v zypper >/dev/null 2>&1; then
-    F="luxai-${VER}-1.x86_64.rpm"
-    CMD="sudo zypper --non-interactive install ./$F"
-elif command -v pacman >/dev/null 2>&1; then
-    F="luxai-${VER}-1-x86_64.pkg.tar.zst"
-    CMD="sudo pacman -U --noconfirm ./$F"
+    F="$RPM_PKG"
+    CMD="$SUDO zypper --non-interactive install ./$F"
+    FAMILY="rpm"
 else
-    F="LuxAI-${VER}-x86_64.AppImage"
-    CMD="install -Dm755 ./$F \$HOME/.local/bin/LuxAI.AppImage"
+    F="$APPIMAGE"
+    FAMILY="appimage"
 fi
 
 TMP="$(mktemp -d)"
-echo "==> indiriliyor / downloading: $F"
-curl -fsSL -o "$TMP/$F" "$BASE/$F"
-echo "==> SHA256 doğrulanıyor..."
-curl -fsSL -o "$TMP/SHA256SUMS" "$BASE/SHA256SUMS" || echo "    (checksums skipped)"
-if [ -f "$TMP/SHA256SUMS" ]; then
-    (cd "$TMP" && grep " $F\$" SHA256SUMS | sha256sum -c -) && echo "    OK"
+trap 'rm -rf "$TMP"' EXIT INT TERM
+
+say "indiriliyor / downloading: $F"
+fetch "$BASE/$F" "$TMP/$F"
+
+# ---- sha256 ---------------------------------------------------------------
+say "SHA256 doğrulanıyor..."
+if fetch "$BASE/SHA256SUMS" "$TMP/SHA256SUMS" 2>/dev/null; then
+    ( cd "$TMP" && grep -F "  $F" SHA256SUMS > sum.txt && sha256sum -c sum.txt ) \
+        && say "    OK" || { warn "sağlama tutmadı — indirme bozuk olabilir"; exit 1; }
+else
+    warn "(SHA256SUMS indirilemedi, atlandı)"
 fi
 
+# ---- kurulum --------------------------------------------------------------
 cd "$TMP"
-echo "==> kuruluyor: $CMD"
-sh -c "$CMD"
+case "$FAMILY" in
+  appimage)
+    say "AppImage kuruluyor: \$HOME/.local/bin/LuxAI.AppImage"
+    install -Dm755 "$F" "$HOME/.local/bin/LuxAI.AppImage"
+    ;;
+  arch)
+    say "kuruluyor: pacman -U"
+    sh -c "$CMD"
+    ;;
+  deb)
+    say "kuruluyor: apt-get install ./$F"
+    sh -c "$CMD"
+    ;;
+  rpm)
+    say "kuruluyor: paket yöneticisi"
+    sh -c "$CMD"
+    ;;
+esac
 
-if [ "$F" = "LuxAI-${VER}-x86_64.AppImage" ]; then
-    echo "==> AppImage: \$HOME/.local/bin/LuxAI.AppImage"
-fi
+# ---- masaüstü önbelleği ---------------------------------------------------
+command -v update-desktop-database >/dev/null 2>&1 && update-desktop-database -q 2>/dev/null || true
+command -v gtk-update-icon-cache  >/dev/null 2>&1 && gtk-update-icon-cache -q -t -f /usr/share/icons/hicolor 2>/dev/null || true
 
 echo ""
-echo "✅ LuxAI kuruldu! / installed — Başlat menüsünden veya 'luxai' komutuyla çalıştırın."
-echo "   BELGESELSEMO · http://belgeselsemo.com.tr"
-rm -rf "$TMP"
+say "LuxAI $VER kuruldu — 'luxai' komutuyla veya uygulama menüsünden açın."
+echo "    Windows sürümü (native, WSL gerekmez):"
+echo "      curl -L -o luxai-kur.bat https://raw.githubusercontent.com/$REPO/main/windows/cmd/luxai-kur.bat && luxai-kur.bat"
+echo "    Kaldırma: ... | sh -s -- --uninstall"
+echo "    BELGESELSEMO · http://belgeselsemo.com.tr"

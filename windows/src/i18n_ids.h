@@ -1,4 +1,4 @@
-/* Ceviri anahtarlari (TR/EN). Metinler config.c icindeki tabloya yazilir. */
+/* Ceviri anahtarlari: TR + EN kaynak; diger 16 dil i18n_data.c (gen_i18n.py) */
 #ifndef LUXAI_I18N_IDS_H
 #define LUXAI_I18N_IDS_H
 
@@ -76,6 +76,27 @@
     X(S_TLS7,         "Not: Windows 7'de TLS 1.2 güncellemesi (KB3140245) gerekir.", \
                        "Note: Windows 7 needs the TLS 1.2 update (KB3140245).") \
     X(S_STREAMING,    "akış",                               "streaming") \
+    X(S_ALLOWBTN,     "İzin ver",                            "Allow") \
+    X(S_DENYBTN,      "Reddet",                              "Deny") \
+    X(S_DELETEBTN,    "Sil",                                 "Delete") \
+    X(S_CLOSEBTN,     "Kapat",                               "Close") \
+    X(S_LOGOUT_Q,     "LuxAI oturumunu kapatayım mı?",       "Sign out of LuxAI?") \
+    X(S_LOGOUT_BODY,  "Bu bilgisayardaki tüm LuxOS uygulamalarında LuxAI oturumu kapanır. Sohbetleriniz bu bilgisayarda kalır.", \
+                       "You will be signed out of your LuxAI account in all LuxOS apps on this computer. Your conversations stay on this computer.") \
+    X(S_MANAGE,       "Hesabı yönet",                        "Manage account") \
+    X(S_EXPORT,       "Verilerimi dışa aktar",               "Export Your Data") \
+    X(S_TERMS,        "Koşullar ve Gizlilik",                "Terms and Privacy") \
+    X(S_DELACC,       "Hesabı sil",                          "Delete Account") \
+    X(S_DELREQ,       "Hesap silme talebi",                  "Request Account Deletion") \
+    X(S_USAGE,        "Kullanım",                            "Usage") \
+    X(S_PROFILE,      "Profil",                              "Profile") \
+    X(S_PREFS,        "Tercihler",                           "Preferences") \
+    X(S_ACCT_TITLE,   "LuxAI Hesabı",                        "LuxAI Account") \
+    X(S_EXPORTED_TO,  "Dışa aktarıldı: %s",                  "Exported to %s") \
+    X(S_OFFLINE_INFO, "Sunucuya ulaşılamadı — çevrimdışı bilgiler gösteriliyor.", \
+                       "Cannot reach the server — showing offline information.") \
+    X(S_ATTACH,       "Dosya ekle",                          "Attach file") \
+    X(S_NOT_NOW,      "Şimdi değil",                         "Not now") \
     X(S_NOMODEL,      "Bu model yanıt vermedi.",             "The model returned no answer.")
 
 enum {

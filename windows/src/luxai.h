@@ -89,6 +89,7 @@ typedef struct {
 
 extern Config g_cfg;
 extern wchar_t g_token[1024];
+extern int g_startup_account;
 extern wchar_t g_email[256];
 extern wchar_t g_username[128];
 
@@ -103,6 +104,8 @@ void account_clear(void);
 #include "i18n_ids.h"
 const char *t(int id);
 const wchar_t *tw(int id);   /* statik donusum tamponu */
+int  lang_from_windows(void);
+const char *lang_name(int i);
 
 /* ---------- mesaj listesi ---------- */
 typedef struct {

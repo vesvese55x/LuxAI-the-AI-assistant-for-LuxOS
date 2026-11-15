@@ -104,6 +104,19 @@ jobs:
             wineserver -k 2>/dev/null || true'
           ls -l ci-shots/linux-wine
 
+      - name: Ekran goruntusu (Almanca arayuz - 18 dil destegi)
+        run: |
+          export WINEPREFIX="$HOME/.wine-luxai" WINEDEBUG=-all
+          APPDIR="${WINEPREFIX}/drive_c/users/${USER}/AppData/Roaming/LuxAI"
+          printf 'model=0\nmode=1\nlang=6\ntheme=1\nsend_ctrl_enter=0\nauto_approve=1\nmax_tokens=4096\nstream=1\nuse_openai=1\nendpoint=http://127.0.0.1:8777/v1/chat/completions\napi_key=ci\nworkdir=C:\\users\\%s\n' "$USER" > "$APPDIR/settings.ini"
+          python3 windows/tests/mock_server.py 8777 >/dev/null 2>&1 &
+          xvfb-run -a -s "-screen 0 1280x900x24" bash -c '
+            "$WINE_BIN" windows/build/LuxAI.exe --theme 1 --lang 6 --ask "Zeige die Systeminformationen" &
+            sleep 18
+            import -window root ci-shots/linux-wine/04-native-de.png
+            wineserver -k 2>/dev/null || true'
+          ls -l ci-shots/linux-wine
+
       - uses: actions/upload-artifact@v4
         with:
           name: gui-shots-linux-wine
@@ -266,6 +279,57 @@ jobs:
           Start-Sleep -Seconds 14
           & powershell -NoProfile -ExecutionPolicy Bypass -File windows/tests/screenshot.ps1 `
               -Out ci-shots/windows/03-giris.png -FullScreen
+
+      - name: LuxAI Hesabi penceresi
+        shell: pwsh
+        run: |
+          Get-Process LuxAI -ErrorAction SilentlyContinue | Stop-Process -Force
+          Start-Sleep -Seconds 2
+          $dir = "$env:APPDATA\LuxAI"
+          @("model=0","mode=1","lang=0","theme=1","send_ctrl_enter=0","auto_approve=1",
+            "max_tokens=4096","stream=1","use_openai=1",
+            "endpoint=http://127.0.0.1:8777/v1/chat/completions","api_key=ci",
+            "workdir=$env:USERPROFILE") | Set-Content -Encoding ASCII "$dir\settings.ini"
+          '{"version":1,"origin":"https://lux-ai.cz","sessionToken":"demo-token","user":{"email":"tus@lux-ai.cz","username":"tus","displayName":"Tus"},"client":"luxai-win"}' |
+            Set-Content -Encoding UTF8 "$dir\account.json"
+          Start-Process "$env:LOCALAPPDATA\LuxAI\LuxAI.exe" -ArgumentList '--theme 1 --lang 0 --account'
+          Start-Sleep -Seconds 14
+          & powershell -NoProfile -ExecutionPolicy Bypass -File windows/tests/screenshot.ps1 `
+              -Out ci-shots/windows/04-hesap.png
+
+      - name: Ajan izin penceresi (cizilmis onay)
+        shell: pwsh
+        run: |
+          Get-Process LuxAI -ErrorAction SilentlyContinue | Stop-Process -Force
+          Get-Process python -ErrorAction SilentlyContinue | Stop-Process -Force
+          Start-Sleep -Seconds 2
+          $env:LUXAI_MOCK_TOOL = "run_command"
+          Start-Process python -ArgumentList "windows/tests/mock_server.py","8777"
+          Start-Sleep -Seconds 3
+          $dir = "$env:APPDATA\LuxAI"
+          Remove-Item "$dir\account.json" -ErrorAction SilentlyContinue
+          @("model=0","mode=1","lang=0","theme=1","send_ctrl_enter=0","auto_approve=0",
+            "max_tokens=4096","stream=1","use_openai=1",
+            "endpoint=http://127.0.0.1:8777/v1/chat/completions","api_key=ci",
+            "workdir=$env:USERPROFILE") | Set-Content -Encoding ASCII "$dir\settings.ini"
+          Start-Process "$env:LOCALAPPDATA\LuxAI\LuxAI.exe" -ArgumentList '--theme 1 --mode 1 --lang 0 --ask "Bir komut calistir"'
+          Start-Sleep -Seconds 18
+          & powershell -NoProfile -ExecutionPolicy Bypass -File windows/tests/screenshot.ps1 `
+              -Out ci-shots/windows/05-izin.png
+
+      - name: Hintce arayuz (18 dil dogrulamasi)
+        shell: pwsh
+        run: |
+          Get-Process LuxAI -ErrorAction SilentlyContinue | Stop-Process -Force
+          Start-Sleep -Seconds 2
+          $dir = "$env:APPDATA\LuxAI"
+          @("model=0","mode=0","lang=5","theme=1","use_openai=0",
+            "endpoint=https://lux-ai.cz/api/ide/chat/completions","max_tokens=4096","stream=1",
+            "workdir=$env:USERPROFILE") | Set-Content -Encoding ASCII "$dir\settings.ini"
+          Start-Process "$env:LOCALAPPDATA\LuxAI\LuxAI.exe" -ArgumentList '--theme 1 --lang 5'
+          Start-Sleep -Seconds 14
+          & powershell -NoProfile -ExecutionPolicy Bypass -File windows/tests/screenshot.ps1 `
+              -Out ci-shots/windows/06-hintce.png
 
       - name: Tanilama ciktilari
         if: always()

@@ -15,7 +15,7 @@ Depoya `main` dalına push → `.github/workflows/build.yml` çalışır:
    - `assemble_tree.py`: hicolor ikonları + tam çevrilmiş .desktop + python
      vendor + polkit politikası
    - `build_packages.py`: deb / rpm / Arch zst / AppImage + SHA256SUMS
-2. **windows-exe** — `packaging/build-exe.sh` (mingw-w64; deb payload'ını exe'ye gömer)
+2. **windows-native** — `windows/build-win.sh` (native Win32 x64, WSL'siz)
 3. **screenshots** — derlenen .deb'i runner'a kurar, GUI'yi Xvfb'de gerçekten
    çalıştırır ve tr/en/hi ekran görüntülerini `promo/assets/screens/runner/`
    içine işler (repo'ya `[skip ci]` commit'iyle yazar)

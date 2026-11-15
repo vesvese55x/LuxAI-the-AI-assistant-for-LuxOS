@@ -7,7 +7,7 @@ Bu, `LuxAI-the-AI-assistant-for-LuxOS` deposundaki **LuxAI protokolunu** (aynı 
 istemcisidir**. GTK yok, WSL yok, .NET yok, harici DLL yok.
 
 > ❗ Orijinal `LuxAI-3.1.0-Setup.exe` bir Windows programı değildi: WSL kurup içine `.deb`
-> yükleyen bir araçtı (WSLg şart). Bu port ise **doğrudan Windows uygulaması**dır.
+> yükleyen bir araçtı (WSL'siz native şart). Bu port ise **doğrudan Windows uygulaması**dır.
 > Neden orijinali kaynaktan derlemenin mümkün olmadığı: `../ANALIZ.md` (bölüm 11).
 
 ---
@@ -83,6 +83,8 @@ src/
 ├── ui.c             Win32 arayüz, Markdown→RichEdit, giriş/ayarlar pencereleri
 └── tools.json       araç şeması (modele gönderilen JSON)
 installer/luxai_setup_win.c   native kurucu (exe'yi gömer, kısayol + kaldırma kaydı)
+cmd/luxai-kur.bat             cmd ile tek satır kurulum (kısayol + kaldırma kaydı)
+cmd/luxai-kaldir.bat          cmd ile kaldırma
 res/                 ikon, manifest (Common Controls v6, DPI-aware, supportedOS Win7-11)
 ```
 

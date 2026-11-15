@@ -91,7 +91,7 @@
   <div class="tag" data-i18n="tag">Resmî olmayan ama muhteşem bir AI asistanı — artık LuxOS dışındaki tüm dağıtımlarda</div>
   <div class="badges">
     <span class="badge">v3.1.0</span>
-    <span class="badge" data-i18n="b14">14 dil · %100 çeviri</span>
+    <span class="badge" data-i18n="b14">18 dil · %100 çeviri</span>
     <span class="badge">deb · rpm · AppImage · Arch · Windows</span>
     <span class="badge">Chat + Agent</span>
   </div>
@@ -137,15 +137,18 @@ işler — Türkçe, İngilizce ve Hintçe arayüzler.</p>
     (kopyala düğmesi + sözdizimi renklendirme), LaTeX, kenar çubuğunda sohbet geçmişi.</p></div>
   <div class="card"><h3>🛠️ Agent</h3><p data-i18n="f2p">Komut çalıştırma, dosya yönetimi, uygulama/bağlantı açma,
     ekran görüntüsü, fare &amp; klavye, pencere yönetimi. LuxAI her eylemden önce sorar.</p></div>
-  <div class="card"><h3 data-i18n="f3h">🌍 14 dil · %100 çeviri</h3><p data-i18n="f3p">Türkçe, Rusça, Çince, Japonca, Hintçe, Almanca,
+  <div class="card"><h3 data-i18n="f3h">🌍 18 dil · %100 çeviri</h3><p data-i18n="f3p">Türkçe, Rusça, Çince, Japonca, Hintçe, Almanca,
     Fransızca ve daha fazlası — 457 anahtarın tamamı eksiksiz. Sistem dili dinamik algılanır;
     yoksa İngilizce.</p></div>
   <div class="card"><h3 data-i18n="f4h">🛡️ Güvenlik</h3><p data-i18n="f4p">Hassas dosyalar ek onay ister; tehlikeli komutlar iki kez
     onaylanır; bazı işlemler her koşulda reddedilir. İstem-enjeksiyonu koruması.</p></div>
   <div class="card"><h3 data-i18n="f5h">📚 Yerleşik dokümanlar</h3><p data-i18n="f5p">Çevrimdışı LSL/LuxOS kılavuzunda arama ve
     okuma — internet olmadan da.</p></div>
-  <div class="card"><h3>🪟 Windows</h3><p data-i18n="f6p">LuxAI-Setup.exe, WSLg ile gerçek LuxAI penceresini
-    Windows 11'de çalıştırır; Başlat menüsü kısayolu oluşturur.</p></div>
+  <div class="card"><h3>🪟 Windows — native (WSL yok)</h3><p data-i18n="f6p">Ayrı yazılmış Win32 sürümü: aynı arayüz,
+    aynı 18 dil, aynı özellikler — tek <code>LuxAI.exe</code> (≈ 470 KB), Windows 7 SP1'den 11'e. WSL, WSLg, GTK, sanal makine yok.</p></div>
+  <div class="card"><h3>⌨️ cmd ile tek satır kurulum</h3><p data-i18n="f7p">Windows'ta cmd'yi açıp tek komut:
+    <code>curl -L -o luxai-kur.bat &lt;adres&gt; &amp;&amp; luxai-kur.bat</code> — indirir, kurar, kısayolları oluşturur,
+    <em>Ayarlar › Uygulamalar</em> kaldırma kaydını ekler.</p></div>
 </div>
 
 <h2 data-i18n="pkgH">📦 Paketini seç, tek komut</h2>
@@ -165,12 +168,18 @@ indirip kurar. Tercih ederseniz aşağıdaki tablodan paketinizi kendiniz seçin
   <tr><td>🎩 <b>rpm</b></td><td data-i18n="r3d">Fedora / openSUSE / RHEL türevleri</td>
       <td><code>sudo dnf install ./luxai-3.1.0-1.x86_64.rpm</code></td>
       <td><a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest/download/luxai-3.1.0-1.x86_64.rpm"><b data-i18n="dl">İNDİR</b></a></td></tr>
-  <tr><td>🏔️ <b>zst</b></td><td data-i18n="r4d">Arch / Manjaro / Cachy OS ve türevleri</td>
+  <tr><td>🏔️ <b>zst</b></td><td data-i18n="r4d">Arch · Manjaro · EndeavourOS · CachyOS · Garuda (pacman doğrulandı)</td>
       <td><code>sudo pacman -U luxai-3.1.0-1-x86_64.pkg.tar.zst</code></td>
       <td><a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest/download/luxai-3.1.0-1-x86_64.pkg.tar.zst"><b data-i18n="dl">İNDİR</b></a></td></tr>
-  <tr><td>⊞ <b>exe</b></td><td data-i18n="r5d">Windows 10/11 (WSLg)</td>
-      <td><code>LuxAI-3.1.0-Setup.exe</code> → <span data-i18n="exeRun">Başlat › LuxAI</span></td>
-      <td><a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest/download/LuxAI-3.1.0-Setup.exe"><b data-i18n="dl">İNDİR</b></a></td></tr>
+  <tr><td>⊞ <b>exe (native)</b></td><td data-i18n="r5d">Windows 7 SP1+ / 8 / 10 / 11 — WSL gerekmez</td>
+      <td><code>LuxAI-3.1.0-Setup-native.exe</code> → <span data-i18n="exeRun">Başlat › LuxAI</span></td>
+      <td><a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest/download/LuxAI-3.1.0-Setup-native.exe"><b data-i18n="dl">İNDİR</b></a></td></tr>
+  <tr><td>⌨️ <b>cmd / .bat</b></td><td data-i18n="r6d">Windows'ta cmd ile kurulum (tek satır)</td>
+      <td><code>curl -L -o luxai-kur.bat https://raw.githubusercontent.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/main/windows/cmd/luxai-kur.bat &amp;&amp; luxai-kur.bat</code></td>
+      <td><a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest/download/luxai-kur.bat"><b data-i18n="dl">İNDİR</b></a></td></tr>
+  <tr><td>🗜️ <b>zip (native)</b></td><td data-i18n="r7d">Taşınabilir — kurulum gerektirmez</td>
+      <td><code>LuxAI-3.1.0-Windows-native-x64.zip</code> → aç → <code>LuxAI.exe</code></td>
+      <td><a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest/download/LuxAI-3.1.0-Windows-native-x64.zip"><b data-i18n="dl">İNDİR</b></a></td></tr>
 </table>
 
 <h2 data-i18n="ecoH">🌐 BELGESELSEMO ekosistemi</h2>
@@ -241,7 +250,7 @@ puanı veya bağış yollarıyla projelere katkı verilebilir.</p>
       title: "LuxAI – the AI assistant for LuxOS (Resmî olmayan çok-distro derlemesi) · BELGESELSEMO",
       ub: "(Resmî olmayan çok-distro derlemesi)",
       tag: "Resmî olmayan ama muhteşem bir AI asistanı — artık LuxOS dışındaki tüm dağıtımlarda",
-      b14: "14 dil · %100 çeviri",
+      b14: "18 dil · %100 çeviri",
       intro1: "LuxAI, LuxOS'un resmî yapay zeka asistanıdır. Bu depo ise <b>BELGESELSEMO</b> tarafından, Z.AI desteğiyle, orijinal LuxOS 1.0.1 dağıtımından elde edilen değiştirilmemiş LuxAI 2.0.2 dosyalarının üzerine topluluk yamaları uygulanarak, LuxAI'nin <b>LuxOS dışındaki dağıtımlarda</b> (Ubuntu, Debian, Fedora, Arch, openSUSE, Windows…) da kullanılabilmesi amacıyla oluşturuldu. Resmî proje değildir; LuxOS projesiyle bağı yoktur. Tanıtım bilgisi <a href=\"https://luxos.lux-ai.cz/docs/luxos/luxai.html\">resmî LuxAI dokümanlarından</a> alınmıştır.",
       intro2: "Sohbet edin ya da Agent modunu açın: LuxAI komutları çalıştırır, dosyaları yönetir, uygulamalar ve bağlantılar açar, ekran görüntüsü alır — her adım sizin onayınızla gösterilir ve harekete geçmeden önce sizi sorar.",
       latest: "⬇ En güncel sürüm",
@@ -253,13 +262,16 @@ puanı veya bağış yollarıyla projelere katkı verilebilir.</p>
       featH: "⚡ Tek panel, tüm yetenekler",
       f1p: "Akış halinde yanıtlar, Markdown, tablolar, kod blokları (kopyala düğmesi + sözdizimi renklendirme), LaTeX, kenar çubuğunda sohbet geçmişi.",
       f2p: "Komut çalıştırma, dosya yönetimi, uygulama/bağlantı açma, ekran görüntüsü, fare &amp; klavye, pencere yönetimi. LuxAI her eylemden önce sorar.",
-      f3h: "🌍 14 dil · %100 çeviri",
+      f3h: "🌍 18 dil · %100 çeviri",
       f3p: "Türkçe, Rusça, Çince, Japonca, Hintçe, Almanca, Fransızca ve daha fazlası — 457 anahtarın tamamı eksiksiz. Sistem dili dinamik algılanır; yoksa İngilizce.",
       f4h: "🛡️ Güvenlik",
       f4p: "Hassas dosyalar ek onay ister; tehlikeli komutlar iki kez onaylanır; bazı işlemler her koşulda reddedilir. İstem-enjeksiyonu koruması.",
       f5h: "📚 Yerleşik dokümanlar",
       f5p: "Çevrimdışı LSL/LuxOS kılavuzunda arama ve okuma — internet olmadan da.",
-      f6p: "LuxAI-Setup.exe, WSLg ile gerçek LuxAI penceresini Windows 11'de çalıştırır; Başlat menüsü kısayolu oluşturur.",
+      f6p: "Ayrı yazılmış Win32 sürümü: aynı arayüz, aynı 18 dil, aynı özellikler — tek LuxAI.exe (≈ 470 KB), Windows 7 SP1'den 11'e. WSL, WSLg, GTK, sanal makine yok.",
+      f7p: "Windows'ta cmd'yi açıp tek komut: curl -L -o luxai-kur.bat <adres> && luxai-kur.bat — indirir, kurar, kısayolları oluşturur, Ayarlar › Uygulamalar kaldırma kaydını ekler.",
+      r6d: "Windows'ta cmd ile kurulum (tek satır)",
+      r7d: "Taşınabilir — kurulum gerektirmez",
       pkgH: "📦 Paketini seç, tek komut",
       pkgP: "Tek satırlık kurulum betiği dağıtımınızı algılar ve GitHub Releases'teki en güncel paketi indirip kurar. Tercih ederseniz aşağıdaki tablodan paketinizi kendiniz seçin — tüm paketler aynı <strong>LuxAI 3.1.0</strong> sürümünü taşır.",
       th1: "Paket", th2: "Ne için?", th3: "Kurulum komutu", th4: "İndir",
@@ -267,7 +279,7 @@ puanı veya bağış yollarıyla projelere katkı verilebilir.</p>
       r2d: "Debian / Ubuntu / Mint ve türevleri",
       r3d: "Fedora / openSUSE / RHEL türevleri",
       r4d: "Arch / Manjaro / Cachy OS ve türevleri",
-      r5d: "Windows 10/11 (WSLg)",
+      r5d: "Windows 7 SP1+ / 8 / 10 / 11 — no WSL required",
       exeRun: "Başlat › LuxAI",
       dl: "İNDİR",
       ecoH: "🌐 BELGESELSEMO ekosistemi",
@@ -289,7 +301,7 @@ puanı veya bağış yollarıyla projelere katkı verilebilir.</p>
       title: "LuxAI – the AI assistant for LuxOS (Unofficial multi-distro build) · BELGESELSEMO",
       ub: "(Unofficial multi-distro build)",
       tag: "Unofficial but awesome AI assistant — now on every distro outside LuxOS",
-      b14: "14 languages · 100% translated",
+      b14: "18 languages · 100% translated",
       intro1: "LuxAI is the official AI assistant of LuxOS. This repository was created by <b>BELGESELSEMO</b>, with the help of Z.AI, by applying community patches on top of the unmodified LuxAI 2.0.2 files taken from the original LuxOS 1.0.1 image, so that LuxAI can also be used on <b>distros other than LuxOS</b> (Ubuntu, Debian, Fedora, Arch, openSUSE, Windows…). It is not an official project and has no affiliation with the LuxOS project. Product information is taken from the <a href=\"https://luxos.lux-ai.cz/docs/luxos/luxai.html\">official LuxAI documentation</a>.",
       intro2: "Chat or switch on Agent mode: LuxAI runs commands, manages files, opens apps and links, takes screenshots — every step is shown for your approval and asks before acting.",
       latest: "⬇ Latest release",
@@ -301,13 +313,16 @@ puanı veya bağış yollarıyla projelere katkı verilebilir.</p>
       featH: "⚡ One panel, every capability",
       f1p: "Streaming answers, Markdown, tables, code blocks (copy button + syntax highlighting), LaTeX, chat history in the sidebar.",
       f2p: "Run commands, manage files, open apps and links, screenshots, mouse &amp; keyboard, window management. LuxAI asks before every action.",
-      f3h: "🌍 14 languages · 100% translated",
+      f3h: "🌍 18 languages · 100% translated",
       f3p: "Turkish, Russian, Chinese, Japanese, Hindi, German, French and more — all 457 keys complete. The system language is detected dynamically; English otherwise.",
       f4h: "🛡️ Security",
       f4p: "Sensitive files require extra approval; dangerous commands are confirmed twice; some operations are always refused. Prompt-injection protection.",
       f5h: "📚 Built-in docs",
       f5p: "Search and read the offline LSL/LuxOS guide — even without internet.",
-      f6p: "LuxAI-Setup.exe runs the real LuxAI window on Windows 11 via WSLg and creates a Start-menu shortcut.",
+      f6p: "A separately written Win32 build: same UI, same 18 languages, same features — a single LuxAI.exe (~470 KB) from Windows 7 SP1 to 11. No WSL, WSLg, GTK or virtual machine.",
+      f7p: "On Windows open cmd and run one line: curl -L -o luxai-kur.bat <url> && luxai-kur.bat — downloads, installs, creates shortcuts and an Add/Remove Programs entry.",
+      r6d: "One-line cmd install on Windows",
+      r7d: "Portable — no installation needed",
       pkgH: "📦 Pick your package, one command",
       pkgP: "The one-line installer detects your distro and installs the latest package from GitHub Releases. Prefer manual? Pick your package from the table below — all packages carry the same <strong>LuxAI 3.1.0</strong> release.",
       th1: "Package", th2: "What for?", th3: "Install command", th4: "Download",
@@ -315,7 +330,7 @@ puanı veya bağış yollarıyla projelere katkı verilebilir.</p>
       r2d: "Debian / Ubuntu / Mint and derivatives",
       r3d: "Fedora / openSUSE / RHEL derivatives",
       r4d: "Arch / Manjaro / Cachy OS and derivatives",
-      r5d: "Windows 10/11 (WSLg)",
+      r5d: "Windows 7 SP1+ / 8 / 10 / 11 — no WSL required",
       exeRun: "Start › LuxAI",
       dl: "DOWNLOAD",
       ecoH: "🌐 BELGESELSEMO ecosystem",
@@ -337,7 +352,7 @@ puanı veya bağış yollarıyla projelere katkı verilebilir.</p>
       title: "LuxAI – der KI-Assistent für LuxOS (Inoffizieller Multi-Distro-Build) · BELGESELSEMO",
       ub: "(Inoffizieller Multi-Distro-Build)",
       tag: "Inoffizieller, aber großartiger KI-Assistent — jetzt auf allen Distributionen außer LuxOS",
-      b14: "14 Sprachen · 100 % übersetzt",
+      b14: "18 Sprachen · 100 % übersetzt",
       intro1: "LuxAI ist der offizielle KI-Assistent von LuxOS. Dieses Repository wurde von <b>BELGESELSEMO</b> mit Unterstützung von Z.AI erstellt, indem Community-Patches auf die unveränderten LuxAI-2.0.2-Dateien aus dem Original-LuxOS-1.0.1-Image angewendet wurden, damit LuxAI auch auf <b>Distributionen außerhalb von LuxOS</b> (Ubuntu, Debian, Fedora, Arch, openSUSE, Windows…) genutzt werden kann. Kein offizielles Projekt; keine Verbindung zum LuxOS-Projekt. Die Produktinformationen stammen aus der <a href=\"https://luxos.lux-ai.cz/docs/luxos/luxai.html\">offiziellen LuxAI-Dokumentation</a>.",
       intro2: "Chatten oder den Agent-Modus aktivieren: LuxAI führt Befehle aus, verwaltet Dateien, öffnet Apps und Links, macht Screenshots — jeder Schritt wird zur Bestätigung angezeigt und fragt, bevor etwas passiert.",
       latest: "⬇ Neueste Version",
@@ -349,13 +364,16 @@ puanı veya bağış yollarıyla projelere katkı verilebilir.</p>
       featH: "⚡ Ein Panel, alle Fähigkeiten",
       f1p: "Antworten im Streaming, Markdown, Tabellen, Codeblöcke (Kopierbutton + Syntaxhervorhebung), LaTeX, Chatverlauf in der Seitenleiste.",
       f2p: "Befehle ausführen, Dateien verwalten, Apps und Links öffnen, Screenshots, Maus &amp; Tastatur, Fensterverwaltung. LuxAI fragt vor jeder Aktion.",
-      f3h: "🌍 14 Sprachen · 100 % übersetzt",
+      f3h: "🌍 18 Sprachen · 100 % übersetzt",
       f3p: "Türkisch, Russisch, Chinesisch, Japanisch, Hindi, Deutsch, Französisch und mehr — alle 457 Schlüssel vollständig. Die Systemsprache wird dynamisch erkannt, sonst Englisch.",
       f4h: "🛡️ Sicherheit",
       f4p: "Sensible Dateien erfordern zusätzliche Bestätigung; gefährliche Befehle werden zweimal bestätigt; manche Vorgänge werden immer abgelehnt. Schutz vor Prompt-Injection.",
       f5h: "📚 Eingebaute Dokumentation",
       f5p: "Offline-LSL/LuxOS-Handbuch durchsuchen und lesen — sogar ohne Internet.",
-      f6p: "LuxAI-Setup.exe startet das echte LuxAI-Fenster über WSLg unter Windows 11 und erstellt eine Startmenü-Verknüpfung.",
+      f6p: "Eigens geschriebener Win32-Build: gleiche Oberfläche, gleiche 18 Sprachen, gleiche Funktionen — eine einzige LuxAI.exe (~470 KB) von Windows 7 SP1 bis 11. Kein WSL, WSLg, GTK oder VM.",
+      f7p: "Unter Windows cmd öffnen und eine Zeile ausführen: curl -L -o luxai-kur.bat <URL> && luxai-kur.bat — lädt herunter, installiert, erstellt Verknüpfungen und einen Eintrag unter Apps.",
+      r6d: "Ein-Zeilen-Installation per cmd unter Windows",
+      r7d: "Portabel — keine Installation nötig",
       pkgH: "📦 Paket wählen, ein Befehl",
       pkgP: "Das Einzeilen-Installationsskript erkennt Ihre Distribution und installiert das neueste Paket aus GitHub Releases. Lieber manuell? Wählen Sie Ihr Paket aus der Tabelle unten — alle Pakete tragen dieselbe Version <strong>LuxAI 3.1.0</strong>.",
       th1: "Paket", th2: "Wofür?", th3: "Installationsbefehl", th4: "Download",
@@ -363,7 +381,7 @@ puanı veya bağış yollarıyla projelere katkı verilebilir.</p>
       r2d: "Debian / Ubuntu / Mint und Derivate",
       r3d: "Fedora / openSUSE / RHEL-Derivate",
       r4d: "Arch / Manjaro / Cachy OS und Derivate",
-      r5d: "Windows 10/11 (WSLg)",
+      r5d: "Windows 7 SP1+ / 8 / 10 / 11 — no WSL required",
       exeRun: "Start › LuxAI",
       dl: "DOWNLOAD",
       ecoH: "🌐 BELGESELSEMO-Ökosystem",
@@ -385,7 +403,7 @@ puanı veya bağış yollarıyla projelere katkı verilebilir.</p>
       title: "LuxAI – ИИ-ассистент для LuxOS (Неофициальная сборка для разных дистрибутивов) · BELGESELSEMO",
       ub: "(Неофициальная сборка для разных дистрибутивов)",
       tag: "Неофициальный, но потрясающий ИИ-ассистент — теперь на всех дистрибутивах вне LuxOS",
-      b14: "14 языков · 100 % перевод",
+      b14: "18 языков · 100 % перевод",
       intro1: "LuxAI — официальный ИИ-ассистент LuxOS. Этот репозиторий создан <b>BELGESELSEMO</b> при поддержке Z.AI: поверх немодифицированных файлов LuxAI 2.0.2, взятых из оригинального образа LuxOS 1.0.1, применены патчи сообщества, чтобы LuxAI работал и на <b>дистрибутивах вне LuxOS</b> (Ubuntu, Debian, Fedora, Arch, openSUSE, Windows…). Это не официальный проект и не связан с проектом LuxOS. Информация о продукте взята из <a href=\"https://luxos.lux-ai.cz/docs/luxos/luxai.html\">официальной документации LuxAI</a>.",
       intro2: "Общайтесь или включите режим агента: LuxAI выполняет команды, управляет файлами, открывает приложения и ссылки, делает скриншоты — каждый шаг показывается на согласование, и перед действием он спрашивает вас.",
       latest: "⬇ Последний релиз",
@@ -397,13 +415,16 @@ puanı veya bağış yollarıyla projelere katkı verilebilir.</p>
       featH: "⚡ Одна панель — все возможности",
       f1p: "Ответы в реальном времени, Markdown, таблицы, блоки кода (кнопка копирования + подсветка синтаксиса), LaTeX, история чатов в боковой панели.",
       f2p: "Выполнение команд, работа с файлами, открытие приложений и ссылок, скриншоты, мышь и клавиатура, управление окнами. Перед каждым действием LuxAI спрашивает.",
-      f3h: "🌍 14 языков · 100 % перевод",
+      f3h: "🌍 18 языков · 100 % перевод",
       f3p: "Турецкий, русский, китайский, японский, хинди, немецкий, французский и другие — все 457 ключей полностью. Язык системы определяется динамически, иначе английский.",
       f4h: "🛡️ Безопасность",
       f4p: "Чувствительные файлы требуют дополнительного подтверждения; опасные команды подтверждаются дважды; некоторые операции всегда отклоняются. Защита от prompt-инъекций.",
       f5h: "📚 Встроенная документация",
       f5p: "Поиск и чтение офлайн-руководства LSL/LuxOS — даже без интернета.",
-      f6p: "LuxAI-Setup.exe запускает настоящее окно LuxAI в Windows 11 через WSLg и создаёт ярлык в меню «Пуск».",
+      f6p: "Отдельно написанная сборка Win32: тот же интерфейс, те же 18 языков, те же возможности — один LuxAI.exe (~470 КБ) от Windows 7 SP1 до 11. Без WSL, WSLg, GTK и виртуальных машин.",
+      f7p: "В Windows откройте cmd и выполните одну строку: curl -L -o luxai-kur.bat <адрес> && luxai-kur.bat — скачает, установит, создаст ярлыки и запись в «Приложениях».",
+      r6d: "Установка одной строкой в cmd",
+      r7d: "Портативная версия — установка не нужна",
       pkgH: "📦 Выберите пакет — одна команда",
       pkgP: "Скрипт установки в одну строку определяет ваш дистрибутив и устанавливает новейший пакет из GitHub Releases. Предпочитаете вручную? Выберите пакет из таблицы ниже — все пакеты содержат один и тот же релиз <strong>LuxAI 3.1.0</strong>.",
       th1: "Пакет", th2: "Для чего?", th3: "Команда установки", th4: "Скачать",
@@ -411,7 +432,7 @@ puanı veya bağış yollarıyla projelere katkı verilebilir.</p>
       r2d: "Debian / Ubuntu / Mint и производные",
       r3d: "Fedora / openSUSE / производные RHEL",
       r4d: "Arch / Manjaro / Cachy OS и производные",
-      r5d: "Windows 10/11 (WSLg)",
+      r5d: "Windows 7 SP1+ / 8 / 10 / 11 — no WSL required",
       exeRun: "Пуск › LuxAI",
       dl: "СКАЧАТЬ",
       ecoH: "🌐 Экосистема BELGESELSEMO",
@@ -433,7 +454,7 @@ puanı veya bağış yollarıyla projelere katkı verilebilir.</p>
       title: "LuxAI – LuxOS 的 AI 助手（非官方多发行版构建）· BELGESELSEMO",
       ub: "（非官方多发行版构建）",
       tag: "非官方却出色的 AI 助手 — 现已登陆 LuxOS 之外的所有发行版",
-      b14: "14 种语言 · 100% 翻译",
+      b14: "18 种语言 · 100% 翻译",
       intro1: "LuxAI 是 LuxOS 的官方 AI 助手。本仓库由 <b>BELGESELSEMO</b> 借助 Z.AI 构建：在取自原始 LuxOS 1.0.1 镜像的未修改 LuxAI 2.0.2 文件之上应用社区补丁，使 LuxAI 也能在 <b>LuxOS 之外的发行版</b>（Ubuntu、Debian、Fedora、Arch、openSUSE、Windows……）上使用。本仓库并非官方项目，与 LuxOS 项目没有任何关联。产品介绍取自 <a href=\"https://luxos.lux-ai.cz/docs/luxos/luxai.html\">LuxAI 官方文档</a>。",
       intro2: "无论是聊天还是开启 Agent 模式：LuxAI 会执行命令、管理文件、打开应用与链接、截取屏幕——每一步都会展示给你确认，行动之前先征得你的同意。",
       latest: "⬇ 最新版本",
@@ -445,13 +466,16 @@ puanı veya bağış yollarıyla projelere katkı verilebilir.</p>
       featH: "⚡ 一个面板，全部能力",
       f1p: "流式回答、Markdown、表格、代码块（复制按钮 + 语法高亮）、LaTeX，侧边栏保存聊天历史。",
       f2p: "执行命令、管理文件、打开应用和链接、截图、鼠标与键盘、窗口管理。LuxAI 在每个操作前都会先询问。",
-      f3h: "🌍 14 种语言 · 100% 翻译",
+      f3h: "🌍 18 种语言 · 100% 翻译",
       f3p: "土耳其语、俄语、中文、日语、印地语、德语、法语等——457 个键全部完整。系统语言动态检测，否则使用英语。",
       f4h: "🛡️ 安全",
       f4p: "敏感文件需要额外确认；危险命令需两次确认；某些操作一律拒绝。具备提示注入防护。",
       f5h: "📚 内置文档",
       f5p: "离线搜索并阅读 LSL/LuxOS 指南——没有网络也可以。",
-      f6p: "LuxAI-Setup.exe 通过 WSLg 在 Windows 11 上运行真正的 LuxAI 窗口，并创建开始菜单快捷方式。",
+      f6p: "单独编写的 Win32 版本：相同界面、相同 18 种语言、相同功能——单个 LuxAI.exe（约 470 KB），支持 Windows 7 SP1 至 11。无需 WSL、WSLg、GTK 或虚拟机。",
+      f7p: "在 Windows 中打开 cmd 并运行一行：curl -L -o luxai-kur.bat <地址> && luxai-kur.bat——自动下载、安装、创建快捷方式并注册卸载信息。",
+      r6d: "在 Windows 中用 cmd 一行安装",
+      r7d: "便携版——无需安装",
       pkgH: "📦 选好软件包，一条命令",
       pkgP: "单行安装脚本会自动识别你的发行版，并从 GitHub Releases 安装最新软件包。也可以手动选择：从下表挑选你的软件包——所有软件包均为同一个 <strong>LuxAI 3.1.0</strong> 版本。",
       th1: "软件包", th2: "用途", th3: "安装命令", th4: "下载",
@@ -459,7 +483,7 @@ puanı veya bağış yollarıyla projelere katkı verilebilir.</p>
       r2d: "Debian / Ubuntu / Mint 及其衍生版",
       r3d: "Fedora / openSUSE / RHEL 衍生版",
       r4d: "Arch / Manjaro / Cachy OS 及其衍生版",
-      r5d: "Windows 10/11（WSLg）",
+      r5d: "Windows 7 SP1+ / 8 / 10 / 11 — WSL आवश्यक नहीं",
       exeRun: "开始 › LuxAI",
       dl: "下载",
       ecoH: "🌐 BELGESELSEMO 生态系统",
@@ -499,7 +523,10 @@ puanı veya bağış yollarıyla projelere katkı verilebilir.</p>
       f4p: "機密ファイルは追加承認が必要。危険なコマンドは二重確認。一部の操作は常に拒否されます。プロンプトインジェクション対策も搭載。",
       f5h: "📚 内蔵ドキュメント",
       f5p: "オフラインのLSL/LuxOSガイドを検索・閲覧 — インターネットなしでもOK。",
-      f6p: "LuxAI-Setup.exeはWSLg経由でWindows 11に本物のLuxAIウィンドウを表示し、スタートメニューのショートカットも作成します。",
+      f6p: "別途作成した Win32 ビルド：同じ UI、同じ 18 言語、同じ機能 — 単一の LuxAI.exe（約 470 KB）で Windows 7 SP1 から 11 まで。WSL・WSLg・GTK・仮想マシンは不要。",
+      f7p: "Windows で cmd を開き 1 行実行：curl -L -o luxai-kur.bat <URL> && luxai-kur.bat — ダウンロード、インストール、ショートカット作成、アンインストール登録まで自動。",
+      r6d: "Windows で cmd による 1 行インストール",
+      r7d: "ポータブル — インストール不要",
       pkgH: "📦 パッケージを選んで、ワンコマンド",
       pkgP: "ワンラインのインストーラースクリプトがディストリビューションを判別し、GitHub Releasesから最新パッケージをインストールします。手動がお好みなら、下の表からパッケージを選んでください — すべてのパッケージが同じ<strong>LuxAI 3.1.0</strong>です。",
       th1: "パッケージ", th2: "用途", th3: "インストールコマンド", th4: "ダウンロード",
@@ -507,7 +534,7 @@ puanı veya bağış yollarıyla projelere katkı verilebilir.</p>
       r2d: "Debian / Ubuntu / Mintおよび派生版",
       r3d: "Fedora / openSUSE / RHEL派生版",
       r4d: "Arch / Manjaro / Cachy OSおよび派生版",
-      r5d: "Windows 10/11（WSLg）",
+      r5d: "Windows 7 SP1+ / 8 / 10 / 11 — WSL आवश्यक नहीं",
       exeRun: "スタート › LuxAI",
       dl: "ダウンロード",
       ecoH: "🌐 BELGESELSEMOエコシステム",
@@ -529,7 +556,7 @@ puanı veya bağış yollarıyla projelere katkı verilebilir.</p>
       title: "LuxAI – LuxOS का AI असिस्टेंट (अनौपचारिक मल्टी-डिस्ट्रो बिल्ड) · BELGESELSEMO",
       ub: "(अनौपचारिक मल्टी-डिस्ट्रो बिल्ड)",
       tag: "अनौपचारिक लेकिन शानदार AI असिस्टेंट — अब LuxOS से बाहर हर डिस्ट्रो पर",
-      b14: "14 भाषाएँ · 100% अनुवाद",
+      b14: "18 भाषाएँ · 100% अनुवाद",
       intro1: "LuxAI, LuxOS का आधिकारिक AI असिस्टेंट है। यह रिपॉज़िटरी <b>BELGESELSEMO</b> द्वारा, Z.AI की मदद से, मूल LuxOS 1.0.1 इमेज से ली गई बिना-बदली LuxAI 2.0.2 फ़ाइलों पर कम्युनिटी पैच लगाकर बनाई गई, ताकि LuxAI का उपयोग <b>LuxOS से इतर डिस्ट्रो</b> (Ubuntu, Debian, Fedora, Arch, openSUSE, Windows…) पर भी हो सके। यह आधिकारिक प्रोजेक्ट नहीं है; LuxOS प्रोजेक्ट से इसका कोई संबंध नहीं है। उत्पाद जानकारी <a href=\"https://luxos.lux-ai.cz/docs/luxos/luxai.html\">आधिकारिक LuxAI दस्तावेज़ों</a> से ली गई है।",
       intro2: "चैट करें या Agent मोड चालू करें: LuxAI कमांड चलाता है, फ़ाइलें प्रबंधित करता है, ऐप्स और लिंक खोलता है, स्क्रीनशॉट लेता है — हर कदम आपकी स्वीकृति के लिए दिखाया जाता है और काम से पहले पूछता है।",
       latest: "⬇ नवीनतम रिलीज़",
@@ -541,13 +568,16 @@ puanı veya bağış yollarıyla projelere katkı verilebilir.</p>
       featH: "⚡ एक पैनल, हर क्षमता",
       f1p: "स्ट्रीमिंग उत्तर, Markdown, टेबल, कोड ब्लॉक (कॉपी बटन + सिंटैक्स हाइलाइटिंग), LaTeX, साइडबार में चैट इतिहास।",
       f2p: "कमांड चलाना, फ़ाइल प्रबंधन, ऐप/लिंक खोलना, स्क्रीनशॉट, माउस और कीबोर्ड, विंडो प्रबंधन। हर काम से पहले LuxAI पूछता है।",
-      f3h: "🌍 14 भाषाएँ · 100% अनुवाद",
+      f3h: "🌍 18 भाषाएँ · 100% अनुवाद",
       f3p: "तुर्की, रूसी, चीनी, जापानी, हिन्दी, जर्मन, फ़्रेंच और भी बहुत कुछ — 457 कुंजियाँ पूरी। सिस्टम भाषा गतिक पहचानी जाती है; न हो तो अंग्रेज़ी।",
       f4h: "🛡️ सुरक्षा",
       f4p: "संवेदनशील फ़ाइलों के लिए अतिरिक्त स्वीकृति; ख़तरनाक कमांड दो बार पुष्ट की जाती हैं; कुछ काम हर हाल में अस्वीकृत। प्रॉम्प्ट-इंजेक्शन सुरक्षा।",
       f5h: "📚 अंतर्निहित दस्तावेज़",
       f5p: "ऑफ़लाइन LSL/LuxOS गाइड में खोजें और पढ़ें — बिना इंटरनेट भी।",
-      f6p: "LuxAI-Setup.exe WSLg से Windows 11 पर असली LuxAI विंडो चलाता है और स्टार्ट मेन्यू शॉर्टकट बनाता है।",
+      f6p: "अलग से लिखा गया Win32 बिल्ड: वही इंटरफ़ेस, वही 18 भाषाएँ, वही सुविधाएँ — एक ही LuxAI.exe (≈ 470 KB), Windows 7 SP1 से 11 तक। WSL, WSLg, GTK या वर्चुअल मशीन की ज़रूरत नहीं।",
+      f7p: "Windows में cmd खोलें और एक पंक्ति चलाएँ: curl -L -o luxai-kur.bat <पता> && luxai-kur.bat — डाउनलोड, इंस्टॉल, शॉर्टकट और अनइंस्टॉल प्रविष्टि सब स्वतः।",
+      r6d: "Windows पर cmd से एक-पंक्ति इंस्टॉल",
+      r7d: "पोर्टेबल — इंस्टॉल की ज़रूरत नहीं",
       pkgH: "📦 पैकेज चुनें, एक कमांड",
       pkgP: "एक-पंक्ति का इंस्टॉलर आपका डिस्ट्रो पहचानकर GitHub Releases से नवीनतम पैकेज इंस्टॉल करता है। ख़ुद चुनना चाहें? नीचे तालिका से अपना पैकेज चुनें — सभी पैकेज एक ही <strong>LuxAI 3.1.0</strong> रिलीज़ लाते हैं।",
       th1: "पैकेज", th2: "किस लिए?", th3: "इंस्टॉल कमांड", th4: "डाउनलोड",
@@ -555,7 +585,7 @@ puanı veya bağış yollarıyla projelere katkı verilebilir.</p>
       r2d: "Debian / Ubuntu / Mint और व्युत्पन्न",
       r3d: "Fedora / openSUSE / RHEL व्युत्पन्न",
       r4d: "Arch / Manjaro / Cachy OS और व्युत्पन्न",
-      r5d: "Windows 10/11 (WSLg)",
+      r5d: "Windows 7 SP1+ / 8 / 10 / 11 — no WSL required",
       exeRun: "स्टार्ट › LuxAI",
       dl: "डाउनलोड",
       ecoH: "🌐 BELGESELSEMO इकोसिस्टम",

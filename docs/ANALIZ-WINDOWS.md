@@ -16,7 +16,7 @@ luxai/
 ├── README.md                    29 KB, 7 dilde tanıtım + kurulum tabloları
 ├── LICENSE                      MIT (Copyright 2026 BELGESELSEMO / vesvese55x)
 ├── belgeselsemo-luxai-installer tek satır kurulum (curl … | sh) kabuğu
-├── .github/workflows/build.yml  CI: linux-packages · windows-exe · screenshots · release
+├── .github/workflows/build.yml  CI: linux-packages · windows-native · screenshots · release
 ├── docs/
 │   ├── BUILDING.md              derleme hattı + "binary yaması nasıl çalışır"
 │   └── INSTALL.md               paket/kurulum/kaldırma + yapılandırma yolları
@@ -28,7 +28,7 @@ luxai/
 │   ├── assemble_tree.py         hicolor ikonlar, .desktop, python vendor, polkit
 │   ├── build_packages.py        deb / rpm / Arch zst / AppImage + SHA256SUMS
 │   ├── build-exe.sh             mingw-w64 ile Windows kurucu
-│   ├── luxai_setup.c            ❗ Windows kurucusunun TAM kaynağı (WSL kurar)
+│   (Eski WSL tabanlı setup kaldırıldı — artık yalnız native exe var)
 │   ├── capture_gui.py           Xvfb + python-xlib ile gerçek ekran görüntüsü
 │   ├── dump_css.py, find_xrefs.py  ikili analiz yardımcıları
 │   └── RELEASE_NOTES.md         sürüm notları
@@ -123,7 +123,7 @@ Hiçbir bayt kaydırılmıyor — bu yüzden yama "güvenli" ve sürüm sabit ka
 
 1. **linux-packages** — `packaging/build-all.sh`: prepare → tsv birleştir/doğrula → binary yamala →
    i18n finalize → paket ağacı → `.deb/.rpm/.pkg.tar.zst/.AppImage` + `SHA256SUMS`
-2. **windows-exe** — `packaging/build-exe.sh` (mingw-w64; **deb'i exe'nin içine gömer**)
+2. **windows-native** — `windows/build-win.sh` + `windows/build-installer.sh` (native Win32, WSL'siz)
 3. **screenshots** — derlenen `.deb`'i runner'a kurar, **Xvfb altında gerçekten GUI'yi açar**,
    `capture_gui.py` (python-xlib) ile tr/en/hi ekran görüntüsü alır ve repoya commit eder
 4. **release** — `v*` etiketinde veya `workflow_dispatch`'ta 5 paketi + `SHA256SUMS`'ı release'e yazar
@@ -143,7 +143,7 @@ Hiçbir bayt kaydırılmıyor — bu yüzden yama "güvenli" ve sürüm sabit ka
 
 ## 6. Release'deki `LuxAI-3.1.0-Setup.exe` gerçekte ne yapıyor?
 
-Kaynağı depoda: **`packaging/luxai_setup.c`** (mingw-w64, `-municode -mwindows`). Akış:
+~~Eski WSL tabanlı kurucu~~ **kaldırıldı.** Yerine native `luxai-kur.bat` ve `Setup-native.exe` var. Akış:
 
 ```
 1. MessageBox: "LuxAI (Windows) kurulacak … (Windows 11 / WSLg gerekir)"

@@ -15,6 +15,10 @@ mkdir -p build
 
 echo "[1/4] araç şeması üretiliyor (tools.json -> tools_data.c)"
 python3 src/gen_tools.py src/tools.json build/tools_data.c
+if [ ! -f src/i18n_data.c ]; then
+    echo "     i18n tablosu üretiliyor (gen_i18n.py -> i18n_data.c)"
+    python3 src/gen_i18n.py
+fi
 
 echo "[2/4] kaynaklar (ikon + manifest + sürüm bilgisi)"
 ( cd res && "$RC" luxai.rc -O coff -o "../build/luxai_res.o" )
@@ -25,7 +29,7 @@ CFLAGS=(-O2 -municode -std=gnu11 -DUNICODE -D_UNICODE -DWINVER=0x0601 -D_WIN32_W
 CXXFLAGS=(-O2 -municode -std=gnu++17 -DUNICODE -D_UNICODE -DWINVER=0x0601 -D_WIN32_WINNT=0x0601
           -Wall -Wextra -Wno-unused-parameter)
 OBJS=()
-for f in main util json http config prompt chat tools ui; do
+for f in main util json http config prompt chat tools ui i18n_data; do
     "$CC" "${CFLAGS[@]}" -c "src/$f.c" -o "build/$f.o"
     OBJS+=("build/$f.o")
 done

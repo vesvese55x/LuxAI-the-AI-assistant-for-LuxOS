@@ -46,31 +46,6 @@ jobs:
             .work/dist/SHA256SUMS
           if-no-files-found: error
 
-  windows-exe:
-    name: Windows installer (exe)
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Install packaging tools
-        run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y -qq rpm zstd binutils-mingw-w64-x86-64 gcc-mingw-w64-x86-64-posix g++-mingw-w64-x86-64-posix >/dev/null
-
-      - name: Build Linux packages first (exe embeds the deb)
-        run: bash packaging/build-all.sh
-
-      - name: Build Windows exe
-        run: bash packaging/build-exe.sh
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: luxai-windows-exe
-          path: .work/dist/*.exe
-          if-no-files-found: error
-
   windows-native:
     name: Windows native exe (no WSL, Win7+)
     runs-on: ubuntu-latest
@@ -96,6 +71,8 @@ jobs:
           cp windows/build/LuxAI-Setup.exe dist-win/LuxAI-3.1.0-Setup-native.exe
           cp windows/build/LuxAI-Setup.exe dist-win/pkg/LuxAI-3.1.0-Setup-native.exe
           cp windows/README-TR.md          dist-win/pkg/README-TR.md
+          cp windows/cmd/luxai-kur.bat     dist-win/pkg/luxai-kur.bat
+          cp windows/cmd/luxai-kaldir.bat  dist-win/pkg/luxai-kaldir.bat
           cp docs/ANALIZ-WINDOWS.md        dist-win/pkg/ANALIZ-WINDOWS.md
           mkdir -p dist-win/pkg/docs
           cp -r windows/docs/screens       dist-win/pkg/docs/
@@ -109,6 +86,8 @@ jobs:
           path: |
             dist-win/LuxAI-3.1.0-Windows-native-x64.zip
             dist-win/LuxAI-3.1.0-Setup-native.exe
+            windows/cmd/luxai-kur.bat
+            windows/cmd/luxai-kaldir.bat
           if-no-files-found: error
 
   screenshots:
@@ -158,7 +137,7 @@ jobs:
 
   release:
     name: Publish GitHub release
-    needs: [linux-packages, windows-exe, windows-native, screenshots]
+    needs: [linux-packages, windows-native, screenshots]
     if: startsWith(github.ref, 'refs/tags/v') || (github.event_name == 'workflow_dispatch' && inputs.publish_release)
     runs-on: ubuntu-latest
     timeout-minutes: 15
@@ -174,7 +153,7 @@ jobs:
       - name: Generate checksums
         run: |
           cd dist
-          sha256sum *.deb *.rpm *.AppImage *.pkg.tar.zst *.exe *.zip > SHA256SUMS
+          sha256sum *.deb *.rpm *.AppImage *.pkg.tar.zst *.exe *.zip *.bat > SHA256SUMS
 
       - name: Determine release tag
         id: tag
@@ -203,4 +182,5 @@ jobs:
             dist/*.pkg.tar.zst
             dist/*.exe
             dist/*.zip
+            dist/*.bat
             dist/SHA256SUMS

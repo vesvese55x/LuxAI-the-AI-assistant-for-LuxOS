@@ -11,6 +11,8 @@
  */
 #include "luxai.h"
 #include "skin.h"
+#include "i18n_data.h"
+#include <shlobj.h>
 #include <shellapi.h>
 #include <shlwapi.h>
 #include <commctrl.h>
@@ -19,6 +21,12 @@
 
 static void layout_soft(void);
 static int  resp_sink_ui(const char *d, size_t n, void *ud);
+/* cizilmis modallar (izin/onay/hesap) - tanimlar dosya sonunda */
+static void draw_modal(double w, double h);
+static int  modal_msg(HWND h, UINT m, WPARAM w, LPARAM l);
+static int  modal_active(void);
+static int  confirm_ui(const wchar_t *title, const wchar_t *body, int danger);
+static void account_open(void);
 
 /* ---------------- genel ---------------- */
 HWND g_hMain;
@@ -61,6 +69,11 @@ static HWND g_edComposer, g_edSearch, g_edMail, g_edPass,
 static HFONT g_fEdit, g_fEditMono;
 static HBRUSH g_brInput, g_brField, g_brCode;
 static double g_wtxt;   /* balon metin genisligi (olcum = cizim) */
+
+/* /api/me ile gelen hesap bilgileri (hesap penceresi) */
+static wchar_t g_me_name[160], g_me_email[256], g_me_plan[80], g_me_user[96];
+static int g_me_used = -1, g_me_limit = -1, g_me_busy;
+#define WM_APP_ACCME (WM_APP + 40)
 
 /* ---------------- kucuk yardimcilar ---------------- */
 typedef struct { double x, y, w, h; } Rect;
@@ -881,7 +894,13 @@ static void compute_layout(double w, double h, int painting)
         L.status = R(sw + PAD + 2, h - 24, w - sw - PAD * 2, 18);
         L.composer = R(sw + PAD, h - 24 - 12 - 56, w - sw - PAD * 2, 56);
         L.send = R(L.composer.x + L.composer.w - 46, L.composer.y + 11, 34, 34);
-        L.stop = R(L.send.x - 76, L.composer.y + 13, 70, 30);
+        {
+            wchar_t sb[64];
+            T(S_STOP, sb, 64);
+            double sw = sk_tw_s(sb, 13, 700, 0) + 46;
+            if (sw < 84) sw = 84;
+            L.stop = R(L.send.x - sw - 8, L.composer.y + 13, sw, 30);
+        }
         L.msgs = R(sw, HS, w - sw, L.composer.y - HS - 8);
     } else {
         L.status = L.composer = L.send = L.stop = R(0, 0, 0, 0);
@@ -989,15 +1008,16 @@ static void place_edits(void)
             ShowWindow((hw), (vis) ? SW_SHOWNA : SW_HIDE);                 \
         }                                                                 \
     } while (0)
-    int chat = (g_page == 0 && !g_login_open);
+    int chat = (g_page == 0 && !g_login_open && !modal_active());
     MV(g_edComposer, R(L.composer.x + 15, L.composer.y + 14,
                        L.composer.w - 15 - 60, L.composer.h - 28), chat && g_composer_on);
     MV(g_edSearch, R(L.search.x + 34, L.search.y + 6, L.search.w - 44,
-                     L.search.h - 12), g_sidebar_open && !g_login_open && g_page == 0);
-    int lg = g_login_open;
+                     L.search.h - 12),
+       g_sidebar_open && !g_login_open && g_page == 0 && !modal_active());
+    int lg = g_login_open && !modal_active();
     MV(g_edMail, R(L.lcard.x + 34, L.lcard.y + 113, L.lcard.w - 68, 24), lg);
     MV(g_edPass, R(L.lcard.x + 34, L.lcard.y + 179, L.lcard.w - 68, 24), lg);
-    int st = (g_page == 1 && !g_login_open);
+    int st = (g_page == 1 && !g_login_open && !modal_active());
     MV(g_edWork, R(g_sval[SR_WORK].x, g_sval[SR_WORK].y, g_sval[SR_WORK].w - 84,
                    g_sval[SR_WORK].h), st);
     MV(g_edEnd, g_sval[SR_END], st);
@@ -1213,8 +1233,8 @@ static void draw_composer(void)
     sk_rline(L.composer.x, L.composer.y, L.composer.w, L.composer.h, 16, SK.border, 1);
     if (g_busy_ui) {
         sk_round(L.stop.x, L.stop.y, L.stop.w, L.stop.h, 15, SK.danger);
-        sk_icon(SKI_STOP, L.stop.x + 16, L.stop.y + 15, 11, 0xFFFFFFFF, 1.5);
-        sk_text_box(L.stop.x + 22, L.stop.y, L.stop.w - 28, L.stop.h, T(S_STOP, b, 128),
+        sk_icon(SKI_STOP, L.stop.x + 15, L.stop.y + 15, 11, 0xFFFFFFFF, 1.5);
+        sk_text_box(L.stop.x + 26, L.stop.y, L.stop.w - 36, L.stop.h, T(S_STOP, b, 128),
                     13, 700, 0, 0xFFFFFFFF, 0);
         sk_circle(L.send.x + 17, L.send.y + 17, 17, (SK.fg & 0x00FFFFFF) | 0x22000000);
         sk_icon(SKI_UP, L.send.x + 17, L.send.y + 17, 16, 0x66FFFFFF, 1.8);
@@ -1282,7 +1302,13 @@ static const wchar_t *sval_text(int idx, wchar_t *b, size_t cch)
     switch (idx) {
     case SR_MODEL: T(g_cfg.model ? S_MODEL_LITE : S_MODEL_FLASH, b, cch); break;
     case SR_MODE: T(g_cfg.mode ? S_AGENT : S_CHAT, b, cch); break;
-    case SR_LANG: wcsncpy(b, g_cfg.lang ? L"English" : L"Türkçe", cch - 1); b[cch - 1] = 0; break;
+    case SR_LANG: {
+        const wchar_t *ln = u16(lang_name(g_cfg.lang));
+        wcsncpy(b, ln ? ln : L"English", cch - 1);
+        b[cch - 1] = 0;
+        free((void *)ln);
+        break;
+    }
     case SR_THEME:
         T(g_cfg.theme == 0 ? S_THEME_SYS : (g_cfg.theme == 1 ? S_THEME_LIGHT : S_THEME_DARK),
           b, cch);
@@ -1546,9 +1572,10 @@ static void pick_conversation(int i)
 static void delete_conversation(int i)
 {
     if (i < 0 || i >= g_side_n) return;
-    wchar_t b[256];
-    if (MessageBoxW(g_hMain, T(S_DELETE, b, 256), APP_NAME, MB_YESNO | MB_ICONQUESTION) != IDYES)
-        return;
+    wchar_t b[256], t[256];
+    T(S_DELETE, b, 256);
+    T(S_DELETEBTN, t, 256);
+    if (!confirm_ui(t, b, 1)) return;
     wchar_t dir[MAX_PATH], path[MAX_PATH * 2];
     conv_dir(dir, MAX_PATH);
     _snwprintf(path, MAX_PATH * 2, L"%s\\%s.json", dir, g_side[i].id);
@@ -1563,12 +1590,15 @@ static void delete_conversation(int i)
 
 static void do_logout(void)
 {
-    wchar_t b[128];
-    if (MessageBoxW(g_hMain, T(S_LOGOUT, b, 128), T(S_ACCOUNT, b, 128),
-                    MB_YESNO | MB_ICONQUESTION) != IDYES)
-        return;
+    wchar_t t1[192], t2[600];
+    T(S_LOGOUT_Q, t1, 192);
+    T(S_LOGOUT_BODY, t2, 600);
+    if (!confirm_ui(t1, t2, 1)) return;
     account_clear();
+    g_me_name[0] = g_me_email[0] = g_me_plan[0] = g_me_user[0] = 0;
+    g_me_used = g_me_limit = -1;
     ui_set_status(t(S_NOT_SIGNED));
+    layout_soft();
     InvalidateRect(g_hMain, NULL, FALSE);
 }
 
@@ -1592,20 +1622,21 @@ static void on_hit(Hit hit)
         break;
     }
     case H_MENU: {
-        static const wchar_t *it[4];
+        static const wchar_t *it[5];
         wchar_t a[128];
         it[0] = _wcsdup(T(S_NEW, a, 128));
         it[1] = _wcsdup(T(S_SETTINGS, a, 128));
-        it[2] = _wcsdup(g_token[0] ? T(S_LOGOUT, a, 128) : T(S_LOGIN, a, 128));
-        it[3] = _wcsdup(L"GitHub");
-        popup_open(P_MENU, L.hmenu, it, 4, -1);
+        it[2] = _wcsdup(g_token[0] ? T(S_ACCT_TITLE, a, 128) : T(S_LOGIN, a, 128));
+        it[3] = _wcsdup(g_token[0] ? T(S_LOGOUT, a, 128) : T(S_ACCT_TITLE, a, 128));
+        it[4] = _wcsdup(L"GitHub");
+        popup_open(P_MENU, L.hmenu, it, 5, -1);
         break;
     }
     case H_SEARCH: SetFocus(g_edSearch); break;
     case H_ROW: pick_conversation(hit.idx); break;
     case H_ROWX: delete_conversation(hit.idx); break;
     case H_ACCT:
-        if (g_token[0]) do_logout();
+        if (g_token[0]) account_open();
         else { g_login_open = 1; g_status[0] = 0; layout_soft(); InvalidateRect(g_hMain, NULL, FALSE); SetFocus(g_edMail); }
         break;
     case H_SEND: do_send(); break;
@@ -1670,9 +1701,12 @@ static void on_hit(Hit hit)
             it[1] = _wcsdup(T(S_AGENT, a, 128));
             popup_open(P_MODE, g_sval[i], it, 2, g_cfg.mode);
         } else if (i == SR_LANG) {
-            it[0] = _wcsdup(L"Türkçe");
-            it[1] = _wcsdup(L"English");
-            popup_open(P_LANG, g_sval[i], it, 2, g_cfg.lang);
+            static const wchar_t *lang_it[LUX_NLANG];
+            for (int k = 0; k < LUX_NLANG; k++) {
+                wchar_t *wn = u16(lang_name(k));
+                lang_it[k] = wn ? wn : L"English";
+            }
+            popup_open(P_LANG, g_sval[i], (const wchar_t **)lang_it, LUX_NLANG, g_cfg.lang);
         } else if (i == SR_THEME) {
             it[0] = _wcsdup(T(S_THEME_SYS, a, 128));
             it[1] = _wcsdup(T(S_THEME_LIGHT, a, 128));
@@ -1974,6 +2008,7 @@ static void on_paint(HWND hwnd)
     HGDIOBJ ob = SelectObject(mem, bmp);
     sk_begin(mem);
     draw_all(bw / sk_scale(), bh / sk_scale());
+    if (modal_active()) draw_modal(bw / sk_scale(), bh / sk_scale());
     sk_end();
     BitBlt(dc, 0, 0, bw, bh, mem, 0, 0, SRCCOPY);
     SelectObject(mem, ob);
@@ -1988,14 +2023,17 @@ static int apply_popup(int id, int idx)
     switch (id) {
     case P_MODEL: g_cfg.model = idx ? 1 : 0; cfg_save(); break;
     case P_MODE: g_cfg.mode = idx ? 1 : 0; cfg_save(); break;
-    case P_LANG: g_cfg.lang = idx ? 1 : 0; cfg_save(); break;
+    case P_LANG: if (idx >= 0 && idx < LUX_NLANG) g_cfg.lang = idx; cfg_save(); break;
     case P_THEME: g_cfg.theme = idx; cfg_save(); theme_apply(); break;
     case P_SENDKEY: g_cfg.send_ctrl_enter = idx ? 1 : 0; cfg_save(); break;
     case P_MENU:
         if (idx == 0) new_chat();
         else if (idx == 1) settings_open();
-        else if (idx == 2) { if (g_token[0]) do_logout(); else { g_login_open = 1; layout_soft(); SetFocus(g_edMail); } }
-        else if (idx == 3) ShellExecuteW(NULL, L"open", L"https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS", NULL, NULL, SW_SHOWNORMAL);
+        else if (idx == 2 && g_token[0]) account_open();
+        else if (idx == 2) { g_login_open = 1; layout_soft(); SetFocus(g_edMail); }
+        else if (idx == 3 && g_token[0]) do_logout();
+        else if (idx == 3) account_open();
+        else if (idx == 4) ShellExecuteW(NULL, L"open", L"https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS", NULL, NULL, SW_SHOWNORMAL);
         break;
     default: break;
     }
@@ -2005,6 +2043,14 @@ static int apply_popup(int id, int idx)
 
 static LRESULT CALLBACK main_proc(HWND h, UINT m, WPARAM w, LPARAM l)
 {
+    if (modal_active()) {
+        switch (m) {
+        case WM_MOUSEMOVE: case WM_LBUTTONDOWN: case WM_LBUTTONUP:
+        case WM_KEYDOWN: case WM_MOUSEWHEEL: case WM_LBUTTONDBLCLK:
+            modal_msg(h, m, w, l);
+            return 0;
+        }
+    }
     switch (m) {
     case WM_CREATE:
         g_hMain = h;
@@ -2162,8 +2208,11 @@ static LRESULT CALLBACK main_proc(HWND h, UINT m, WPARAM w, LPARAM l)
         return 0;
 
     case WM_APP_CONFIRM:
-        return MessageBoxW(h, (const wchar_t *)l, (const wchar_t *)w,
-                           MB_YESNO | MB_ICONQUESTION | MB_TOPMOST) == IDYES ? 1 : 0;
+        return confirm_ui((const wchar_t *)w, (const wchar_t *)l, 0);
+
+    case WM_APP_ACCME:
+        InvalidateRect(h, NULL, FALSE);
+        return 0;
 
     case WM_APP_POPUP: {
         /* secenek listelerini serbest birak */
@@ -2173,7 +2222,8 @@ static LRESULT CALLBACK main_proc(HWND h, UINT m, WPARAM w, LPARAM l)
     case WM_TIMER:
         if (w == 1) {
             KillTimer(h, 1);
-            if (g_startup_ask[0]) {
+            if (g_startup_account && g_token[0]) account_open();
+            else if (g_startup_ask[0]) {
                 SetWindowTextW(g_edComposer, g_startup_ask);
                 do_send();
             }
@@ -2240,6 +2290,511 @@ void ui_set_status(const char *utf8)
 
 void ui_post_report(const char *utf8) { ui_set_status(utf8); }
 
+/* ================= cizilmis modallar (GTK gorunumlu) =================
+ * Linux uygulamasindaki onay/izin/hesap pencereleriyle ayni gorunum:
+ * karartilmis arka plan, yuvarlatilmis kart, accent birincil dugme.
+ * MessageBox (klasik Win32) kullanilmaz.
+ */
+enum { DM_NONE = 0, DM_CONFIRM, DM_ALERT, DM_ACCOUNT };
+
+static void draw_modal(double w, double h);
+static int  modal_msg(HWND h, UINT m, WPARAM w, LPARAM l);
+static int  confirm_ui(const wchar_t *title, const wchar_t *body, int danger);
+static void alert_ui(const wchar_t *title, const wchar_t *body);
+
+typedef struct {
+    int mode, running, result, hov, nbtn, danger;
+    wchar_t title[192], body[1024];
+    wchar_t btn[3][80];
+    int  primary[3];
+    Rect card, rb[3], rclose, rrow[8];
+    int  nrow;
+} Modal;
+static Modal D;
+
+static int modal_active(void) { return D.mode != DM_NONE; }
+
+/* soldan hizali satir kaydirma (olcum = cizim) */
+static double wrap_text(const wchar_t *s, double x, double y, double maxw, int px,
+                        int weight, DWORD col, int paint)
+{
+    if (!s || !*s) return 0;
+    double lh = sk_th(px, 0);
+    wchar_t line[512];
+    size_t n = 0;
+    int lines = 0;
+    double cy = y;
+    const wchar_t *p = s;
+    while (*p) {
+        const wchar_t *end = wcschr(p, L'\n');
+        size_t seglen = end ? (size_t)(end - p) : wcslen(p);
+        wchar_t seg[512];
+        if (seglen > 511) seglen = 511;
+        wcsncpy(seg, p, seglen);
+        seg[seglen] = 0;
+        n = 0;
+        line[0] = 0;
+        wchar_t word[256];
+        const wchar_t *q = seg;
+        while (*q) {
+            size_t wl = 0;
+            while (*q == L' ') q++;
+            while (q[wl] && q[wl] != L' ' && wl < 255) wl++;
+            wcsncpy(word, q, wl);
+            word[wl] = 0;
+            q += wl;
+            wchar_t test[512];
+            if (n) { wcscpy(test, line); wcscat(test, L" "); wcscat(test, word); }
+            else wcscpy(test, word);
+            if (n && sk_tw_s(test, px, weight, 0) > maxw) {
+                if (paint) sk_text(x, cy, maxw, line, px, weight, 0, col, 0);
+                cy += lh; lines++;
+                wcscpy(line, word); n = wcslen(word);
+            } else {
+                wcscpy(line, test); n = wcslen(line);
+            }
+        }
+        if (paint && line[0]) sk_text(x, cy, maxw, line, px, weight, 0, col, 0);
+        cy += lh; lines++;
+        line[0] = 0; n = 0;
+        if (!end) break;
+        p = end + 1;
+    }
+    return lines * lh;
+}
+
+static void modal_buttons(const wchar_t *b1, const wchar_t *b2, const wchar_t *b3)
+{
+    D.nbtn = 0;
+    const wchar_t *src[3] = { b1, b2, b3 };
+    int prim[3] = { 1, 0, 0 };
+    for (int i = 0; i < 3; i++) {
+        if (!src[i] || !src[i][0]) continue;
+        wcsncpy(D.btn[D.nbtn], src[i], 79);
+        D.btn[D.nbtn][79] = 0;
+        D.primary[D.nbtn] = prim[i];
+        D.nbtn++;
+    }
+    D.hov = -1;
+}
+
+/* kart olcusu: icerigi olcup kart yuksekligini belirler */
+static void modal_layout(double w, double h)
+{
+    double cw = (D.mode == DM_ACCOUNT) ? 560 : 470;
+    if (cw > w - 60) cw = w - 60;
+    double cx = (w - cw) / 2, cy;
+    double y = 0;
+    if (D.mode == DM_ACCOUNT) {
+        y = 178 + D.nrow * 46 + 10;
+    } else {
+        y = 54;                                   /* ikon + baslik */
+        y += wrap_text(D.body, 0, 0, cw - 48, 13, 400, 0, 0);
+        y += 22;
+        y += 36;                                  /* dugmeler */
+        y += 18;
+    }
+    double ch = y + 20;
+    if (ch > h - 40) ch = h - 40;
+    cy = (h - ch) / 2;
+    D.card = R(cx, cy, cw, ch);
+    D.rclose = R(cx + cw - 40, cy + 12, 28, 26);
+    /* dugmeler sagdan sola */
+    double bx = cx + cw - 18, by = cy + ch - 54;
+    for (int i = D.nbtn - 1; i >= 0; i--) {
+        double bw = sk_tw_s(D.btn[i], 13, 600, 0) + 40;
+        if (bw < 72) bw = 72;
+        D.rb[i] = R(bx - bw, by, bw, 36);
+        bx -= bw + 8;
+    }
+    /* hesap satirlari */
+    double ry = cy + 178;
+    for (int i = 0; i < D.nrow; i++) {
+        D.rrow[i] = R(cx + 14, ry, cw - 28, 44);
+        ry += 46;
+    }
+}
+
+static void draw_account_body(void)
+{
+    wchar_t b[256], b2[256];
+    Rect c = D.card;
+    sk_text(c.x + 22, c.y + 14, c.w - 70, T(S_ACCT_TITLE, b, 256), 17, 700, 0, SK.fg, 0);
+    /* hero: gradyan kart + avatar */
+    double hx = c.x + 18, hy = c.y + 48, hw = c.w - 36, hh = 64;
+    sk_grad(hx, hy, hw, hh, 14, 0xFF3D6BFF, 0xFF8A4DFF, 1);
+    sk_circle(hx + 38, hy + hh / 2, 21, 0x40FFFFFF);
+    const wchar_t *nm = g_me_name[0] ? g_me_name : (g_username[0] ? g_username : g_email);
+    wchar_t initial[4] = L"?";
+    if (nm[0]) { initial[0] = towupper(nm[0]); initial[1] = 0; }
+    sk_text_box(hx + 17, hy + hh / 2 - 14, 42, 28, initial, 18, 800, 0, 0xFFFFFFFF, 1);
+    sk_text(hx + 70, hy + 12, hw - 90, nm, 15, 700, 0, 0xFFFFFFFF, 0);
+    const wchar_t *em = g_me_email[0] ? g_me_email : g_email;
+    sk_text(hx + 70, hy + 34, hw - 90, em, 12, 400, 0, 0xCCFFFFFF, 0);
+    if (g_me_plan[0]) {
+        double pw = sk_tw_s(g_me_plan, 11, 700, 0) + 18;
+        sk_round(hx + hw - pw - 14, hy + 12, pw, 20, 10, 0x33FFFFFF);
+        sk_text_box(hx + hw - pw - 14, hy + 12, pw, 20, g_me_plan, 11, 700, 0, 0xFFFFFFFF, 1);
+    }
+    /* kullanim */
+    double uy = c.y + 126;
+    sk_text(c.x + 22, uy, c.w - 44, T(S_USAGE, b, 256), 12, 700, 0, SK.dim, 0);
+    uy += 20;
+    wchar_t val[128];
+    if (g_me_limit > 0) {
+        double frac = (double)g_me_used / (double)g_me_limit;
+        if (frac < 0) frac = 0;
+        if (frac > 1) frac = 1;
+        sk_round(c.x + 22, uy, c.w - 44, 6, 3, (SK.fg & 0x00FFFFFF) | 0x1A000000);
+        sk_round(c.x + 22, uy, (c.w - 44) * frac, 6, 3, SK.accent);
+        _snwprintf(val, 128, L"%d / %d", g_me_used, g_me_limit);
+        sk_text(c.x + 22, uy + 12, c.w - 44, val, 11, 400, 0, SK.dim, 0);
+    } else {
+        const char *src = g_me_busy ? t(S_THINKING) : t(S_OFFLINE_INFO);
+        wchar_t *ws = u16(src);
+        if (ws) {
+            wrap_text(ws, c.x + 22, uy, c.w - 44, 12, 400, SK.dim, 1);
+            free(ws);
+        }
+    }
+    /* satirlar */
+    static const int row_ids[5] = { S_MANAGE, S_EXPORT, S_TERMS, S_DELREQ, S_LOGOUT };
+    static const int row_icons[5] = { SKI_PENCIL, SKI_UP, SKI_SPARKLE, SKI_TRASH, SKI_CLOSE };
+    for (int i = 0; i < D.nrow && i < 5; i++) {
+        Rect r = D.rrow[i];
+        int hov = (D.hov == 100 + i);
+        if (hov) sk_round(r.x, r.y, r.w, r.h, 10, (SK.fg & 0x00FFFFFF) | 0x0F000000);
+        int danger = (row_ids[i] == S_LOGOUT);
+        int icon = danger ? SKI_CLOSE : row_icons[i];
+        DWORD col = danger ? SK.danger : SK.fg;
+        sk_icon(icon, r.x + 22, r.y + r.h / 2, 14, col, 1.6);
+        T(row_ids[i], b2, 256);
+        sk_text_box(r.x + 44, r.y, r.w - 70, r.h, b2, 14, 500, 0, col, 0);
+        sk_icon(SKI_CHEV_D, r.x + r.w - 20, r.y + r.h / 2 + 2, 12, SK.dim, 1.5);
+    }
+}
+
+static void draw_modal(double w, double h)
+{
+    if (!D.mode) return;
+    modal_layout(w, h);
+    sk_fill(0, 0, w, h, 0x77000000);
+    Rect c = D.card;
+    sk_round(c.x + 2, c.y + 8, c.w, c.h, 18, 0x40000000);
+    sk_round(c.x, c.y, c.w, c.h, 16, SK.card);
+    sk_rline(c.x, c.y, c.w, c.h, 16, SK.border, 1);
+    if (D.mode == DM_ACCOUNT) {
+        draw_account_body();
+    } else {
+        wchar_t b[256];
+        /* uyari ikonu + baslik */
+        sk_circle(c.x + 34, c.y + 32, 13, D.danger ? 0x22FF453A : 0x223D7BFF);
+        sk_icon(D.danger ? SKI_CLOSE : SKI_SPARKLE, c.x + 34, c.y + 32, 14,
+                D.danger ? SK.danger : SK.accent, 1.8);
+        sk_text(c.x + 56, c.y + 22, c.w - 100, D.title, 15, 700, 0, SK.fg, 0);
+        wrap_text(D.body, c.x + 24, c.y + 54, c.w - 48, 13, 400, SK.dim, 1);
+        for (int i = 0; i < D.nbtn; i++) {
+            Rect r = D.rb[i];
+            int hov = (D.hov == i);
+            DWORD bg = D.primary[i] ? (hov ? 0xFF5B8CFF : SK.accent)
+                                    : ((SK.fg & 0x00FFFFFF) | (hov ? 0x1F000000 : 0x0F000000));
+            sk_round(r.x, r.y, r.w, r.h, 18, bg);
+            sk_text_box(r.x, r.y, r.w, r.h, D.btn[i], 13, 700, 0,
+                        D.primary[i] ? 0xFFFFFFFF : SK.fg, 1);
+        }
+    }
+    /* kapat (X) */
+    if (D.mode == DM_ACCOUNT) {
+        Rect r = D.rclose;
+        if (D.hov == 99) sk_round(r.x, r.y, r.w, r.h, 8, (SK.fg & 0x00FFFFFF) | 0x12000000);
+        sk_icon(SKI_CLOSE, r.x + r.w / 2, r.y + r.h / 2, 13, SK.dim, 1.6);
+    }
+}
+
+/* hesap penceresi eylemleri */
+static void account_export(void);
+
+static void modal_click(double x, double y)
+{
+    if (D.mode == DM_ACCOUNT) {
+        if (in_rect(D.rclose, x, y)) { D.result = 0; D.running = 0; return; }
+        for (int i = 0; i < D.nrow && i < 5; i++) {
+            if (!in_rect(D.rrow[i], x, y)) continue;
+            switch (i) {
+            case 0:
+                ShellExecuteW(NULL, L"open", L"https://lux-ai.cz/settings", NULL, NULL, SW_SHOWNORMAL);
+                break;
+            case 1:
+                account_export();
+                break;
+            case 2:
+                ShellExecuteW(NULL, L"open", L"https://lux-ai.cz/terms", NULL, NULL, SW_SHOWNORMAL);
+                break;
+            case 3:
+                ShellExecuteW(NULL, L"open",
+                              L"mailto:info@lux-ai.cz?subject=LuxAI%20account%20deletion%20request",
+                              NULL, NULL, SW_SHOWNORMAL);
+                break;
+            case 4: {
+                wchar_t t1[192], t2[600];
+                T(S_LOGOUT_Q, t1, 192);
+                T(S_LOGOUT_BODY, t2, 600);
+                D.mode = DM_NONE;
+                if (confirm_ui(t1, t2, 1)) {
+                    account_clear();
+                    ui_set_status(t(S_NOT_SIGNED));
+                    g_me_name[0] = g_me_email[0] = g_me_plan[0] = g_me_user[0] = 0;
+                    g_me_used = g_me_limit = -1;
+                }
+                D.mode = DM_ACCOUNT;
+                D.hov = -1;
+                InvalidateRect(g_hMain, NULL, FALSE);
+                break;
+            }
+            default: break;
+            }
+            return;
+        }
+        return;
+    }
+    for (int i = 0; i < D.nbtn; i++) {
+        if (in_rect(D.rb[i], x, y)) { D.result = D.primary[i] ? 1 : 0; D.running = 0; return; }
+    }
+}
+
+static void modal_key(int vk)
+{
+    if (vk == VK_ESCAPE) { D.result = 0; D.running = 0; return; }
+    if (vk == VK_RETURN) {
+        if (D.mode == DM_ACCOUNT) { D.result = 0; D.running = 0; }
+        else { D.result = (D.nbtn > 0 && D.primary[0]) ? 1 : 0; D.running = 0; }
+        return;
+    }
+    if (vk == VK_TAB || vk == VK_LEFT || vk == VK_RIGHT) {
+        if (D.mode == DM_ACCOUNT) return;
+        D.hov = (D.hov + 1) % (D.nbtn > 0 ? D.nbtn : 1);
+    }
+}
+
+static int modal_msg(HWND h, UINT m, WPARAM w, LPARAM l)
+{
+    double s = sk_scale();
+    double x = GET_X_LPARAM(l) / s, y = GET_Y_LPARAM(l) / s;
+    switch (m) {
+    case WM_MOUSEMOVE: {
+        int hov = -1;
+        if (D.mode == DM_ACCOUNT) {
+            if (in_rect(D.rclose, x, y)) hov = 99;
+            for (int i = 0; i < D.nrow && i < 5; i++)
+                if (in_rect(D.rrow[i], x, y)) hov = 100 + i;
+        } else {
+            for (int i = 0; i < D.nbtn; i++)
+                if (in_rect(D.rb[i], x, y)) hov = i;
+        }
+        if (hov != D.hov) { D.hov = hov; InvalidateRect(h, NULL, FALSE); }
+        return 1;
+    }
+    case WM_LBUTTONUP:
+        modal_click(x, y);
+        InvalidateRect(h, NULL, FALSE);
+        return 1;
+    case WM_LBUTTONDOWN:
+        return 1;
+    case WM_KEYDOWN:
+        modal_key((int)w);
+        InvalidateRect(h, NULL, FALSE);
+        return 1;
+    case WM_MOUSEWHEEL:
+        return 1;
+    default:
+        return 0;
+    }
+}
+
+/* modal dongu: MessageBox gibi bloklar, ama kendi cizimimizle */
+static int modal_pump(void)
+{
+    D.running = 1;
+    D.result = 0;
+    InvalidateRect(g_hMain, NULL, TRUE);
+    UpdateWindow(g_hMain);
+    MSG msg;
+    while (D.running) {
+        BOOL got = GetMessageW(&msg, NULL, 0, 0);
+        if (got <= 0) { D.running = 0; break; }
+        TranslateMessage(&msg);
+        DispatchMessageW(&msg);
+    }
+    D.mode = DM_NONE;
+    InvalidateRect(g_hMain, NULL, TRUE);
+    return D.result;
+}
+
+/* ---------- genel onay/uyari ---------- */
+static int confirm_ui(const wchar_t *title, const wchar_t *body, int danger)
+{
+    if (!g_hMain || !title) return 0;
+    /* tw() statik tampon kullaniyor: once kopyala, sonra dugme metinleri */
+    wcsncpy(D.title, title, 191); D.title[191] = 0;
+    wcsncpy(D.body, body ? body : L"", 1023); D.body[1023] = 0;
+    wchar_t b1[80], b2[80];
+    T(S_ALLOWBTN, b1, 80);
+    T(S_NOT_NOW, b2, 80);
+    if (danger) { T(S_DELETEBTN, b1, 80); T(S_CANCEL, b2, 80); }
+    D.mode = DM_CONFIRM;
+    D.danger = danger;
+    modal_buttons(b1, b2, NULL);
+    return modal_pump();
+}
+
+static void alert_ui(const wchar_t *title, const wchar_t *body)
+{
+    if (!g_hMain) return;
+    wcsncpy(D.title, title ? title : L"", 191); D.title[191] = 0;
+    wcsncpy(D.body, body ? body : L"", 1023); D.body[1023] = 0;
+    wchar_t b1[80];
+    T(S_CLOSEBTN, b1, 80);
+    D.mode = DM_ALERT;
+    D.danger = 0;
+    modal_buttons(b1, NULL, NULL);
+    modal_pump();
+}
+
+/* ---------- hesap penceresi ---------- */
+static int accme_sink(const char *d, size_t n, void *ud)
+{
+    buf_add((Buf *)ud, d, n);
+    return 0;
+}
+
+static DWORD WINAPI accme_thread(LPVOID p)
+{
+    (void)p;
+    wchar_t hdr[1400];
+    _snwprintf(hdr, 1400, L"Cookie: lux_account_session=%s\r\nAccept: application/json", g_token);
+    Buf b;
+    buf_init(&b);
+    int st = 0;
+    Buf err;
+    buf_init(&err);
+    http_request(L"https://lux-ai.cz/api/me", hdr, NULL, 0, accme_sink, &b, &st, &err, NULL);
+    if (st == 200 && b.p) {
+        JVal *root = json_parse(b.p);
+        if (root) {
+            JVal *user = json_get(root, "user");
+            if (!user) user = root;
+            const char *s;
+            if ((s = json_str(user, "displayName")) || (s = json_str(user, "name"))) {
+                wchar_t *w = u16(s);
+                if (w) { wcsncpy(g_me_name, w, 159); g_me_name[159] = 0; free(w); }
+            }
+            if ((s = json_str(user, "username"))) {
+                wchar_t *w = u16(s);
+                if (w) { wcsncpy(g_me_user, w, 95); g_me_user[95] = 0; free(w); }
+            }
+            if ((s = json_str(user, "email"))) {
+                wchar_t *w = u16(s);
+                if (w) { wcsncpy(g_me_email, w, 255); g_me_email[255] = 0; free(w); }
+            }
+            if ((s = json_str(user, "plan")) || (s = json_str(user, "tier"))) {
+                wchar_t *w = u16(s);
+                if (w) { wcsncpy(g_me_plan, w, 79); g_me_plan[79] = 0; free(w); }
+            }
+            JVal *us = json_get(user, "usage");
+            if (us) {
+                JVal *rl = json_get(us, "limit");
+                JVal *ru = json_get(us, "used");
+                if (rl == NULL) { rl = json_get(us, "requestsLimit"); ru = json_get(us, "requestsUsed"); }
+                if (rl && ru) { g_me_limit = (int)rl->num; g_me_used = (int)ru->num; }
+            }
+            json_free(root);
+        }
+    }
+    buf_free(&b);
+    buf_free(&err);
+    g_me_busy = 0;
+    if (g_hMain) PostMessageW(g_hMain, WM_APP_ACCME, 0, 0);
+    return 0;
+}
+
+static void account_export(void)
+{
+    wchar_t dir[MAX_PATH] = L"", path[MAX_PATH * 2];
+    if (!SHGetSpecialFolderPathW(NULL, dir, CSIDL_PERSONAL, FALSE))
+        SHGetSpecialFolderPathW(NULL, dir, CSIDL_PROFILE, FALSE);
+    SYSTEMTIME st;
+    GetLocalTime(&st);
+    _snwprintf(path, MAX_PATH * 2, L"%s\\luxai-account-%04d-%02d-%02d.json", dir,
+               st.wYear, st.wMonth, st.wDay);
+    FILE *f = _wfopen(path, L"wb");
+    if (!f) return;
+    fputs("{\"version\":1,\"exportedAt\":", f);
+    char tmp[64];
+    _snprintf(tmp, sizeof tmp, "\"%04d-%02d-%02dT%02d:%02d:%02d\"", st.wYear, st.wMonth,
+              st.wDay, st.wHour, st.wMinute, st.wSecond);
+    fputs(tmp, f);
+    char email[512] = "", name[512] = "";
+    WideCharToMultiByte(CP_UTF8, 0, g_email, -1, email, sizeof email, NULL, NULL);
+    WideCharToMultiByte(CP_UTF8, 0, g_username, -1, name, sizeof name, NULL, NULL);
+    Buf b;
+    buf_init(&b);
+    buf_adds(&b, ",\"user\":{");
+    buf_adds(&b, "\"name\":");
+    json_write_str(&b, name);
+    buf_adds(&b, ",\"email\":");
+    json_write_str(&b, email);
+    buf_adds(&b, "},\"conversations\":[");
+    wchar_t cdir[MAX_PATH], pat[MAX_PATH * 2];
+    conv_dir(cdir, MAX_PATH);
+    _snwprintf(pat, MAX_PATH * 2, L"%s\\*.json", cdir);
+    WIN32_FIND_DATAW fd;
+    HANDLE fh = FindFirstFileW(pat, &fd);
+    int first = 1;
+    if (fh != INVALID_HANDLE_VALUE) {
+        do {
+            wchar_t fp[MAX_PATH * 2];
+            _snwprintf(fp, MAX_PATH * 2, L"%s\\%s", cdir, fd.cFileName);
+            FILE *cf = _wfopen(fp, L"rb");
+            if (!cf) continue;
+            char *buf = (char *)malloc((size_t)fd.nFileSizeLow + 1);
+            if (!buf) { fclose(cf); continue; }
+            size_t rd = fread(buf, 1, (size_t)fd.nFileSizeLow, cf);
+            buf[rd] = 0;
+            fclose(cf);
+            if (!first) buf_adds(&b, ",");
+            buf_add(&b, buf, rd);
+            first = 0;
+            free(buf);
+        } while (FindNextFileW(fh, &fd));
+        FindClose(fh);
+    }
+    buf_adds(&b, "]}");
+    if (b.p) fwrite(b.p, 1, b.n, f);
+    buf_free(&b);
+    fclose(f);
+    wchar_t msg[600], fmt[200];
+    T(S_EXPORTED_TO, fmt, 200);
+    _snwprintf(msg, 600, fmt, path);
+    wchar_t ttl[128];
+    T(S_EXPORT, ttl, 128);
+    alert_ui(ttl, msg);
+}
+
+static void account_open(void)
+{
+    if (!g_token[0]) return;
+    D.title[0] = 0;
+    D.nrow = 5;
+    D.mode = DM_ACCOUNT;
+    D.hov = -1;
+    if (!g_me_name[0] && !g_me_busy) {
+        g_me_busy = 1;
+        HANDLE th = CreateThread(NULL, 0, accme_thread, NULL, 0, NULL);
+        if (th) CloseHandle(th);
+    }
+    modal_pump();
+}
+
 int ui_confirm(const wchar_t *title, const wchar_t *detail, int twice)
 {
     if (g_cfg.auto_approve && !twice) return 1;
@@ -2247,9 +2802,8 @@ int ui_confirm(const wchar_t *title, const wchar_t *detail, int twice)
         if (!g_hMain) return 0;
         return (int)SendMessageW(g_hMain, WM_APP_CONFIRM, (WPARAM)title, (LPARAM)detail) == 1;
     }
-    int r = MessageBoxW(g_hMain, detail, title, MB_YESNO | MB_ICONQUESTION | MB_TOPMOST) == IDYES;
-    if (r && twice)
-        r = MessageBoxW(g_hMain, detail, title, MB_YESNO | MB_ICONWARNING | MB_TOPMOST) == IDYES;
+    int r = confirm_ui(title, detail, 0);
+    if (r && twice) r = confirm_ui(title, detail, 1);
     return r;
 }
 
