@@ -155,7 +155,7 @@ for name, hdr in hdrs.items():
     json.loads(payload.decode("utf-8"))   # must be valid JSON
     print(f"verify {name}: len={ln2} OK")
 dd = json.loads(get_res(hdrs["dropdown"])[2])
-assert [c for c, _ in dd][-5:] == ["tr", "ru", "zh", "ja", "hi"]
+assert [c for c, _ in dd][-8:] == ["tr", "ru", "zh", "ja", "hi", "az", "id", "vi"]
 print("dropdown codes:", [c for c, _ in dd])
 # css brace balance
 assert min_css.count("{") == min_css.count("}"), "brace mismatch"
