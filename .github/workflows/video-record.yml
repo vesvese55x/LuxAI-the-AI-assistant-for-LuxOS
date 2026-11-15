@@ -78,15 +78,15 @@ jobs:
           if [ -n "$AWID" ]; then
             wmctrl -i -r "$AWID" -e 0,340,25,920,950 || true
             sleep 2
-            click_rel "$AWID" 638 335; sleep 5   # Our projects / Projelerimiz
+            click_rel "$AWID" 388 545; sleep 5   # Our projects / Projelerimiz
             import -window root rec/linux_02_projects.png || true
             xdotool mousemove 800 560 click --repeat 6 5; sleep 4   # asagi kaydir
             import -window root rec/linux_03_projects_scroll.png || true
-            click_rel "$AWID" 815 335; sleep 5   # Providers / Saglayicilar
+            click_rel "$AWID" 486 545; sleep 5   # Providers / Saglayicilar
             import -window root rec/linux_04_providers.png || true
             xdotool mousemove 800 560 click --repeat 4 5; sleep 4
             import -window root rec/linux_05_providers_scroll.png || true
-            click_rel "$AWID" 160 335; sleep 4   # Password sekmesi
+            click_rel "$AWID" 75 545; sleep 4   # Password sekmesi
           fi
           sleep 8
           # 3) Ana pencereye don, biraz daha bekle (canli his)
