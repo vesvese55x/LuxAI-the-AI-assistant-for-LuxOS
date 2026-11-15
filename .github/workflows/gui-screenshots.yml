@@ -265,7 +265,7 @@ jobs:
           Start-Process $exe -ArgumentList '--theme 1 --lang 0'
           Start-Sleep -Seconds 14
           & powershell -NoProfile -ExecutionPolicy Bypass -File windows/tests/screenshot.ps1 `
-              -Out ci-shots/windows/03-giris.png -TitleMatch "LuxAI"
+              -Out ci-shots/windows/03-giris.png -FullScreen
 
       - name: Tanilama ciktilari
         if: always()

@@ -4,6 +4,7 @@
 #include <richedit.h>
 #include <shlobj.h>
 #include <shlwapi.h>
+#include <uxtheme.h>
 
 HWND g_hMain, g_hList, g_hRich, g_hInput, g_hSend, g_hStatus,
      g_hModel, g_hMode, g_hNew, g_hSettings, g_hAcct, g_hStop;
@@ -39,6 +40,10 @@ static void theme_apply(void)
     }
     if (g_bg) DeleteObject(g_bg);
     g_bg = CreateSolidBrush(TH.bg);
+    /* koyu temada klasik renkler gecerli olsun: liste ve giris kutusunun
+       gorsel temasini kapat (aksi halde beyaz zemin cizilir) */
+    if (g_hList) { SetWindowTheme(g_hList, dark ? L"" : L"Explorer", NULL); InvalidateRect(g_hList, NULL, TRUE); }
+    if (g_hInput) { SetWindowTheme(g_hInput, dark ? L"" : L"Explorer", NULL); InvalidateRect(g_hInput, NULL, TRUE); }
 }
 
 /* ---------- yardimcilar ---------- */
@@ -428,7 +433,7 @@ void ui_render_all(void)
             if (m->tool_calls && *m->tool_calls) {
                 CHARFORMAT2W cf;
                 cf_init(&cf, 0, 1, 1, TH.dim, 8, 1);
-                rich_ins(g_hRich, L"\u2699 ", &cf);
+                rich_ins(g_hRich, L"\u00bb ", &cf);
                 {
                     /* sadece arac adlarini goster */
                     JVal *arr = json_parse(m->tool_calls);
@@ -457,7 +462,7 @@ void ui_render_all(void)
             wcsncpy(small, w ? w : L"", 1199);
             small[1199] = 0;
             if (wcslen(w ? w : L"") > 1199) wcscat(small, L"\n…");
-            rich_ins(g_hRich, L"  \u21b3 ", &cf);
+            rich_ins(g_hRich, L"  \u00b7 ", &cf);
             rich_ins(g_hRich, small, &cf);
             rich_ins(g_hRich, L"\n\n", &cf);
             free(w);

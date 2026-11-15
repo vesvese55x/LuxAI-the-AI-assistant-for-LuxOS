@@ -26,7 +26,7 @@ echo "[3/4] derleme"
       src/chat.c src/tools.c src/ui.c build/tools_data.c build/luxai_res.o \
       -Wl,--major-os-version,6 -Wl,--minor-os-version,1 \
       -Wl,--major-subsystem-version,6 -Wl,--minor-subsystem-version,1 \
-      -lwinhttp -lcomctl32 -lshell32 -lole32 -luuid -lshlwapi -lgdi32 -luser32 -ladvapi32
+      -lwinhttp -lcomctl32 -luxtheme -lshell32 -lole32 -luuid -lshlwapi -lgdi32 -luser32 -ladvapi32
 
 echo "[4/4] doğrulama"
 python3 - "$OUT" <<'PY'

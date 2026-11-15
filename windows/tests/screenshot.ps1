@@ -2,7 +2,8 @@
 # Once PrintWindow ile pencereyi cizer; olmazsa tam ekrani kopyalar.
 param(
   [string]$Out = "shot.png",
-  [string]$TitleMatch = "LuxAI"
+  [string]$TitleMatch = "LuxAI",
+  [switch]$FullScreen
 )
 
 Add-Type -AssemblyName System.Drawing
@@ -32,7 +33,18 @@ $proc = Get-Process | Where-Object { $_.MainWindowHandle -ne 0 -and $_.MainWindo
         Select-Object -First 1
 $saved = $false
 
-if ($proc) {
+if ($FullScreen) {
+  # ust uste acilan pencereler (ornegin giris kutusu) icin tam ekran
+  $b = [System.Windows.Forms.Screen]::PrimaryScreen.Bounds
+  $bmp = New-Object System.Drawing.Bitmap $b.Width, $b.Height
+  $g = [System.Drawing.Graphics]::FromImage($bmp)
+  $g.CopyFromScreen($b.Location, [System.Drawing.Point]::Empty, $b.Size)
+  $g.Dispose()
+  $bmp.Save($Out, [System.Drawing.Imaging.ImageFormat]::Png)
+  $bmp.Dispose()
+  Write-Host ("tam ekran: {0} ({1}x{2})" -f $Out, $b.Width, $b.Height)
+  $saved = $true
+} elseif ($proc) {
   $hwnd = $proc.MainWindowHandle
   Write-Host ("pencere: '{0}' hwnd={1}" -f $proc.MainWindowTitle, $hwnd)
   [void][LuxWin]::ShowWindow($hwnd, 5)          # SW_SHOW
