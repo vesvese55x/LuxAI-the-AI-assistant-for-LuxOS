@@ -18,7 +18,8 @@ import gi
 gi.require_version("Gtk", "3.0")
 gi.require_version("Gdk", "3.0")
 from gi.repository import Gdk, GLib, Gtk
-import luxai_projects_gtk as _projects_mod  # noqa: E402
+import luxai_projects_gtk as _projects_mod
+import luxai_providers_gtk as _providers_mod  # noqa: E402
 
 import luxai_account as acc  # noqa: E402
 from luxos_i18n import _  # noqa: E402
@@ -315,6 +316,7 @@ class SignInPanel(Gtk.Box):
         self.on_signed = on_signed
         self.offline_text = offline_text
         self.open_url = open_url_fn or (lambda url: open_url(self, url))
+        mode = (__import__("os").environ.get("LUXAI_ACCOUNT_TAB") or mode)
         self.mode = mode
         self.stage = {"code": "email", "register": "form"}
         self.pending = {"code": "", "register": None}   # e-mail, kam odesel kod / udaje registrace
@@ -325,7 +327,8 @@ class SignInPanel(Gtk.Box):
         group = None
         for key, label in (("password", _("Password")), ("code", _("E-mail Code")),
                            ("register", _("New Account")),
-                            ("projects", _("Our projects"))):
+                            ("projects", _("Our projects")),
+                            ("providers", _("Providers"))):
             b = Gtk.RadioButton(label=label, group=group, draw_indicator=False)
             group = group or b
             b.connect("toggled", lambda w, k=key: w.get_active() and self.set_mode(k))
@@ -345,6 +348,8 @@ class SignInPanel(Gtk.Box):
                                   lambda: self.set_stage("form"))
         self.stack.add_named(self.code_reg, "register-verify")
         self.stack.add_named(_projects_mod.projects_box(self.open_url), "projects")
+        self.stack.add_named(_providers_mod.providers_box(self.open_url), "providers")
+        self.stack.show_all()   # GtkStack gorunur sayfayi ancak cocuklar gorunurken degistirir
 
         bottom = Gtk.Box(spacing=10)
         self.spinner = Gtk.Spinner()
@@ -460,7 +465,8 @@ class SignInPanel(Gtk.Box):
     def show_stage(self):
         name = {"password": "password", "code": "code-" + self.stage["code"],
                 "register": "register-" + self.stage["register"],
-                "projects": "projects"}[self.mode]
+                "projects": "projects",
+                "providers": "providers"}[self.mode]
         self.stack.set_visible_child_name(name)
         GLib.idle_add(self.focus_first)
 

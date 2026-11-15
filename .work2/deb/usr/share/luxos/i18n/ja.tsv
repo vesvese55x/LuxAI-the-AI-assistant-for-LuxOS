@@ -496,5 +496,18 @@ Not approved on the phone in time.	スマートフォンで時間内に承認さ
 Blocked by LuxAI safety rules.	LuxAI の安全ルールによりブロックされました。
 This model is not available in LuxAI.	このモデルは LuxAI では利用できません。
 Our projects	私たちのプロジェクト
+Providers	プロバイダー
+built-in	組み込み
+Active provider	使用中のプロバイダー
+Add provider	プロバイダーを追加
+Edit provider	プロバイダーを編集
+Endpoint (base URL)	エンドポイント（base URL）
+Everything before /chat/completions	/chat/completions より前の部分
+Save	保存
+Edit	編集
+API key	API キー
+Show API key	API キーを表示
+A label you choose	任意の名前
+Model name sent to the provider	プロバイダーに送信するモデル名
 Open	開く
 Web portals, Android apps, desktop tools and a YouTube channel	Web ポータル、Android アプリ、デスクトップツール、YouTube チャンネル

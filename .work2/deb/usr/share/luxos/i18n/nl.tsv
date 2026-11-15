@@ -25,7 +25,7 @@ Auto-approve actions	Keur acties automatisch goed
 Blocked by safety rules	Geblokkeerd door veiligheidsregels
 Brainstorm	Brainstormen
 CONVERSATIONS	GESPREKKEN
-Cancel	Annuleer
+Cancel	Annuleren
 Changes immutable file attributes	Wijzigt onveranderbare bestandskenmerken
 Changes permissions of the whole home folder or system	Wijzigt de rechten van de hele thuismap of het systeem
 Changes user accounts or passwords	Wijzigt gebruikersaccounts of wachtwoorden
@@ -38,7 +38,7 @@ Copied	Gekopieerd
 Copy	Kopieer
 Create a free account	Maak een gratis account aan
 Create folder	Maak map aan
-Delete	Verwijder
+Delete	Verwijderen
 Delete conversation	Verwijder gesprek
 Delete this conversation?	Dit gesprek verwijderen?
 Deletes all scheduled tasks	Verwijdert alle geplande taken
@@ -457,5 +457,18 @@ Not approved on the phone in time.	Niet op tijd goedgekeurd op de telefoon.
 Blocked by LuxAI safety rules.	Geblokkeerd door de veiligheidsregels van LuxAI.
 This model is not available in LuxAI.	Dit model is niet beschikbaar in LuxAI.
 Our projects	Onze projecten
+Providers	Providers
+built-in	ingebouwd
+Active provider	Actieve provider
+Add provider	Provider toevoegen
+Edit provider	Provider bewerken
+Endpoint (base URL)	Eindpunt (basis-URL)
+Everything before /chat/completions	Alles vóór /chat/completions
+Save	Opslaan
+Edit	Bewerken
+API key	API-sleutel
+Show API key	API-sleutel tonen
+A label you choose	Een naam naar keuze
+Model name sent to the provider	Modelnaam die naar de provider gaat
 Open	Openen
 Web portals, Android apps, desktop tools and a YouTube channel	Webportalen, Android-apps, desktoptools en een YouTube-kanaal

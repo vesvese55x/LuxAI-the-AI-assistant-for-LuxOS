@@ -496,5 +496,18 @@ Not approved on the phone in time.	फ़ोन पर समय पर मं�
 Blocked by LuxAI safety rules.	LuxAI सुरक्षा नियमों द्वारा अवरुद्ध।
 This model is not available in LuxAI.	यह मॉडल LuxAI में उपलब्ध नहीं है।
 Our projects	हमारे प्रोजेक्ट
+Providers	प्रदाता
+built-in	अंतर्निहित
+Active provider	सक्रिय प्रदाता
+Add provider	प्रदाता जोड़ें
+Edit provider	प्रदाता संपादित करें
+Endpoint (base URL)	एंडपॉइंट (बेस URL)
+Everything before /chat/completions	/chat/completions से पहले का भाग
+Save	सहेजें
+Edit	संपादित करें
+API key	API कुंजी
+Show API key	API कुंजी दिखाएँ
+A label you choose	अपनी पसंद का नाम
+Model name sent to the provider	प्रदाता को भेजा जाने वाला मॉडल नाम
 Open	खोलें
 Web portals, Android apps, desktop tools and a YouTube channel	वेब पोर्टल, Android ऐप्स, डेस्कटॉप टूल्स और YouTube चैनल

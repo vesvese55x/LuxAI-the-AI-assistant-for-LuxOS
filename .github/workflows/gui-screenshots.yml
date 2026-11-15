@@ -136,7 +136,7 @@ jobs:
           sudo apt-get update -qq
           sudo apt-get install -y -qq libgtk-3-0 gir1.2-gtk-3.0 python3-gi libcurl4 \
             xvfb x11-apps imagemagick xdotool wmctrl fonts-noto-core \
-            rpm2cpio cpio zstd dbus-x11 >/dev/null
+            rpm2cpio cpio zstd dbus-x11 python3-cairo >/dev/null
 
       - name: Yayinlanan paketleri indir
         run: |
@@ -177,6 +177,29 @@ jobs:
           shot "$PWD/dl/LuxAI-3.1.0-x86_64.AppImage --appimage-extract-and-run" \
                "ci-shots/linux-packages/04-appimage-tr.png" "tr_TR.UTF-8"
 
+          ls -l ci-shots/linux-packages
+
+      - name: Hesap penceresi sekmeleri (Projelerimiz / Saglayicilar)
+        run: |
+          mkdir -p /tmp/accdemohome/.config/luxai
+          cat > /tmp/accdemohome/.config/luxai/providers.ini <<'INI'
+          # demo: ekran goruntusu icin ornek saglayicilar (anahtarlar sahtedir)
+          sel=1
+          p=OpenAI|https://api.openai.com/v1|sk-demo-anahtar|gpt-4o-mini|0
+          p=DeepSeek|https://api.deepseek.com/v1|sk-demo-anahtar|deepseek-chat|0
+          p=Yerel Ollama|http://127.0.0.1:11434/v1||qwen2.5|0
+          INI
+          shot_acc() {   # $1 = sekme, $2 = cikti
+            xvfb-run -a -s "-screen 0 1100x900x24" bash -c "
+              HOME=/tmp/accdemohome XDG_CONFIG_HOME=/tmp/accdemohome/.config \
+              LANG=en_US.UTF-8 LUXAI_ACCOUNT_TAB=$1 /usr/bin/luxos-account >/tmp/acc.log 2>&1 &
+              sleep 14
+              import -window root $2 || true
+              tail -6 /tmp/acc.log || true
+              pkill -f luxos-account 2>/dev/null || true" || echo "uyari: hesap penceresi ($1)"
+          }
+          shot_acc projects  ci-shots/linux-packages/05-projelerimiz.png
+          shot_acc providers ci-shots/linux-packages/06-saglayicilar.png
           ls -l ci-shots/linux-packages
 
       - uses: actions/upload-artifact@v4

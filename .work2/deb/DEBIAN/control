@@ -4,7 +4,7 @@ Section: utils
 Priority: optional
 Architecture: amd64
 Maintainer: BELGESELSEMO <belgeselsemo@belgeselsemo.com.tr>
-Installed-Size: 4734
+Installed-Size: 4923
 Depends: libgtk-3-0 (>= 3.24) | libgtk-3-0t64 (>= 3.24), python3 (>= 3.10), python3-gi, gir1.2-gtk-3.0, libcurl4 | libcurl4t64, libglib2.0-0 | libglib2.0-0t64, shared-mime-info
 Homepage: http://belgeselsemo.com.tr
 Description: LuxAI – the AI assistant for LuxOS (unofficial build)

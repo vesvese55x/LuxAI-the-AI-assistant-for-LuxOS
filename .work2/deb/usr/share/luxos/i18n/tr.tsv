@@ -64,7 +64,7 @@ Auto-approve actions	Eylemleri otomatik onayla
 Blocked by safety rules	Güvenlik kuralları tarafından engellendi
 Brainstorm	Beyin fırtınası
 CONVERSATIONS	SOHBETLER
-Cancel	İptal
+Cancel	Vazgeç
 Changes immutable file attributes	Değiştirilemez dosya özniteliklerini değiştirir
 Changes permissions of the whole home folder or system	Tüm ev klasörünün veya sistemin izinlerini değiştirir
 Changes user accounts or passwords	Kullanıcı hesaplarını veya parolaları değiştirir
@@ -496,5 +496,18 @@ Not approved on the phone in time.	Telefonda zamanında onaylanmadı.
 Blocked by LuxAI safety rules.	LuxAI güvenlik kuralları tarafından engellendi.
 This model is not available in LuxAI.	Bu model LuxAI'de kullanılamıyor.
 Our projects	Projelerimiz
+Providers	Sağlayıcılar
+built-in	yerleşik
+Active provider	Etkin sağlayıcı
+Add provider	Sağlayıcı ekle
+Edit provider	Sağlayıcıyı düzenle
+Endpoint (base URL)	Uç nokta (temel adres)
+Everything before /chat/completions	/chat/completions öncesi kısım
+Save	Kaydet
+Edit	Düzenle
+API key	API anahtarı
+Show API key	API anahtarını göster
+A label you choose	Kendi seçtiğiniz bir ad
+Model name sent to the provider	Sağlayıcıya gönderilen model adı
 Open	Aç
 Web portals, Android apps, desktop tools and a YouTube channel	Web portalları, Android uygulamaları, masaüstü araçları ve YouTube kanalı

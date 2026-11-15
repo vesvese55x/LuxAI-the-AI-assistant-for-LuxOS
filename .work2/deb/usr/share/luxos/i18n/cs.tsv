@@ -457,5 +457,18 @@ Not approved on the phone in time.	Na telefonu nebylo včas schváleno.
 Blocked by LuxAI safety rules.	Zablokováno bezpečnostními pravidly LuxAI.
 This model is not available in LuxAI.	Tento model není v LuxAI k dispozici.
 Our projects	Naše projekty
+Providers	Poskytovatelé
+built-in	vestavěný
+Active provider	Aktivní poskytovatel
+Add provider	Přidat poskytovatele
+Edit provider	Upravit poskytovatele
+Endpoint (base URL)	Koncový bod (base URL)
+Everything before /chat/completions	Vše před /chat/completions
+Save	Uložit
+Edit	Upravit
+API key	API klíč
+Show API key	Zobrazit API klíč
+A label you choose	Libovolný název
+Model name sent to the provider	Název modelu odesílaný poskytovateli
 Open	Otevřít
 Web portals, Android apps, desktop tools and a YouTube channel	Webové portály, aplikace pro Android, nástroje pro počítač a kanál YouTube

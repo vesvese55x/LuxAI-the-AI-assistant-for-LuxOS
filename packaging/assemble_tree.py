@@ -132,6 +132,42 @@ if os.path.isfile(os.path.join(REPO, "packaging", "projects_gtk.py")):
         open(_acc, "w", encoding="utf-8").write(src)
         print("  projeler sekmasi:", "luxai_projects_gtk" in src)
 
+# 3b2. "SAGLAYICILAR" SEKMESI (coklu OpenAI uyumlu saglayici, Linux tarafi)
+#      Windows'taki model secici + "Saglayici ekle/duzenle" ile birebir ayni
+#      islevi hesap penceresine 5. sekme olarak ekler; ayarlar Windows ile ayni
+#      bicimde (~/.config/luxai/providers.ini <-> %APPDATA%\providers.ini).
+#      Kopru (providers_bridge) sohbet isteklerini secili saglayiciya yonlendirir.
+_pcmod = os.path.join(REPO, "packaging", "providers_common.py")
+_pgmod = os.path.join(REPO, "packaging", "providers_gtk.py")
+if os.path.isfile(_pcmod) and os.path.isfile(_pgmod):
+    cp(_pcmod, f"{BLD}/usr/lib/luxos/python/providers_common.py")
+    cp(_pgmod, f"{BLD}/usr/lib/luxos/python/luxai_providers_gtk.py")
+    cp(_pcmod, f"{BLD}/usr/lib/luxai/providers_bridge.py")
+    _acc = f"{BLD}/usr/lib/luxos/python/luxai_account_gtk.py"
+    src = open(_acc, encoding="utf-8").read()
+    if "luxai_providers_gtk" not in src:
+        src = src.replace("import luxai_projects_gtk as _projects_mod",
+                          "import luxai_projects_gtk as _projects_mod\n"
+                          "import luxai_providers_gtk as _providers_mod", 1)
+        src = src.replace('("projects", _("Our projects"))):',
+                          '("projects", _("Our projects")),\n'
+                          '                            ("providers", _("Providers"))):', 1)
+        src = src.replace('self.stack.add_named(_projects_mod.projects_box(self.open_url), "projects")',
+                          'self.stack.add_named(_projects_mod.projects_box(self.open_url), "projects")\n'
+                          '        self.stack.add_named(_providers_mod.providers_box(self.open_url), "providers")\n'
+                          '        self.stack.show_all()   # GtkStack gorunur sayfayi ancak cocuklar gorunurken degistirir', 1)
+        # ekran goruntusu/otomasyon icin baslangic sekmesi: LUXAI_ACCOUNT_TAB
+        src = src.replace("        self.mode = mode\n",
+                          "        mode = (__import__(\"os\").environ.get(\"LUXAI_ACCOUNT_TAB\") or mode)\n"
+                          "        self.mode = mode\n", 1)
+        src = src.replace('"projects": "projects"}[self.mode]',
+                          '"projects": "projects",\n'
+                          '                "providers": "providers"}[self.mode]', 1)
+        open(_acc, "w", encoding="utf-8").write(src)
+        print("  saglayici sekmasi:", "luxai_providers_gtk" in src)
+    else:
+        print("  saglayici sekmasi: zaten var")
+
 # 3c. hesap penceresi icin 18 dilli /usr/share/luxos/i18n dosyalari
 #     (upstream yalnizca 5 dil getiriyor; kalan diller ana arayuz TSV'sinden turetilir)
 import glob as _glob
@@ -146,6 +182,141 @@ _shim = {
         "nl": "Onze projecten", "pl": "Nasze projekty", "pt": "Os nossos projetos",
         "sk": "Naše projekty", "sv": "Våra projekt", "cs": "Naše projekty",
         "hu": "Projektjeink", "uk": "Наші проєкти",
+    },
+    "Providers": {
+        "tr": "Sağlayıcılar", "en": "Providers", "ru": "Провайдеры", "zh": "服务提供商",
+        "ja": "プロバイダー", "hi": "प्रदाता", "de": "Anbieter", "fr": "Fournisseurs",
+        "es": "Proveedores", "it": "Fornitori", "nl": "Providers", "pl": "Dostawcy",
+        "pt": "Fornecedores", "sk": "Poskytovatelia", "sv": "Leverantörer",
+        "cs": "Poskytovatelé", "hu": "Szolgáltatók", "uk": "Постачальники",
+    },
+    "built-in": {
+        "tr": "yerleşik", "en": "built-in", "ru": "встроенный", "zh": "内置",
+        "ja": "組み込み", "hi": "अंतर्निहित", "de": "integriert", "fr": "intégré",
+        "es": "integrado", "it": "integrato", "nl": "ingebouwd", "pl": "wbudowany",
+        "pt": "integrado", "sk": "vstavaný", "sv": "inbyggd", "cs": "vestavěný",
+        "hu": "beépített", "uk": "вбудований",
+    },
+    "Active provider": {
+        "tr": "Etkin sağlayıcı", "en": "Active provider", "ru": "Активный провайдер",
+        "zh": "当前服务提供商", "ja": "使用中のプロバイダー", "hi": "सक्रिय प्रदाता",
+        "de": "Aktiver Anbieter", "fr": "Fournisseur actif", "es": "Proveedor activo",
+        "it": "Fornitore attivo", "nl": "Actieve provider", "pl": "Aktywny dostawca",
+        "pt": "Fornecedor ativo", "sk": "Aktívny poskytovateľ", "sv": "Aktiv leverantör",
+        "cs": "Aktivní poskytovatel", "hu": "Aktív szolgáltató", "uk": "Активний постачальник",
+    },
+    "Add provider": {
+        "tr": "Sağlayıcı ekle", "en": "Add provider", "ru": "Добавить провайдера",
+        "zh": "添加服务提供商", "ja": "プロバイダーを追加", "hi": "प्रदाता जोड़ें",
+        "de": "Anbieter hinzufügen", "fr": "Ajouter un fournisseur",
+        "es": "Añadir proveedor", "it": "Aggiungi fornitore", "nl": "Provider toevoegen",
+        "pl": "Dodaj dostawcę", "pt": "Adicionar fornecedor",
+        "sk": "Pridať poskytovateľa", "sv": "Lägg till leverantör",
+        "cs": "Přidat poskytovatele", "hu": "Szolgáltató hozzáadása",
+        "uk": "Додати постачальника",
+    },
+    "Edit provider": {
+        "tr": "Sağlayıcıyı düzenle", "en": "Edit provider", "ru": "Изменить провайдера",
+        "zh": "编辑服务提供商", "ja": "プロバイダーを編集", "hi": "प्रदाता संपादित करें",
+        "de": "Anbieter bearbeiten", "fr": "Modifier le fournisseur",
+        "es": "Editar proveedor", "it": "Modifica fornitore", "nl": "Provider bewerken",
+        "pl": "Edytuj dostawcę", "pt": "Editar fornecedor", "sk": "Upraviť poskytovateľa",
+        "sv": "Redigera leverantör", "cs": "Upravit poskytovatele",
+        "hu": "Szolgáltató szerkesztése", "uk": "Змінити постачальника",
+    },
+    "Endpoint (base URL)": {
+        "tr": "Uç nokta (temel adres)", "en": "Endpoint (base URL)", "ru": "Конечная точка (base URL)",
+        "zh": "接口地址（base URL）", "ja": "エンドポイント（base URL）",
+        "hi": "एंडपॉइंट (बेस URL)", "de": "Endpunkt (Basis-URL)",
+        "fr": "Point de terminaison (URL de base)", "es": "Punto de conexión (URL base)",
+        "it": "Endpoint (URL di base)", "nl": "Eindpunt (basis-URL)",
+        "pl": "Punkt końcowy (base URL)", "pt": "Ponto final (URL base)",
+        "sk": "Koncový bod (base URL)", "sv": "Slutpunkt (bas-URL)",
+        "cs": "Koncový bod (base URL)", "hu": "Végpont (base URL)",
+        "uk": "Кінцева точка (base URL)",
+    },
+    "Everything before /chat/completions": {
+        "tr": "/chat/completions öncesi kısım", "en": "Everything before /chat/completions",
+        "ru": "Всё до /chat/completions", "zh": "/chat/completions 之前的部分",
+        "ja": "/chat/completions より前の部分", "hi": "/chat/completions से पहले का भाग",
+        "de": "Alles vor /chat/completions", "fr": "Tout ce qui précède /chat/completions",
+        "es": "Todo antes de /chat/completions", "it": "Tutto prima di /chat/completions",
+        "nl": "Alles vóór /chat/completions", "pl": "Wszystko przed /chat/completions",
+        "pt": "Tudo antes de /chat/completions", "sk": "Všetko pred /chat/completions",
+        "sv": "Allt före /chat/completions", "cs": "Vše před /chat/completions",
+        "hu": "Minden a /chat/completions előtt", "uk": "Усе до /chat/completions",
+    },
+    "Model": {
+        "tr": "Model", "en": "Model", "ru": "Модель", "zh": "模型", "ja": "モデル",
+        "hi": "मॉडल", "de": "Modell", "fr": "Modèle", "es": "Modelo", "it": "Modello",
+        "nl": "Model", "pl": "Model", "pt": "Modelo", "sk": "Model", "sv": "Modell",
+        "cs": "Model", "hu": "Modell", "uk": "Модель",
+    },
+    "Name": {
+        "tr": "Ad", "en": "Name", "ru": "Название", "zh": "名称", "ja": "名前", "hi": "नाम",
+        "de": "Name", "fr": "Nom", "es": "Nombre", "it": "Nome", "nl": "Naam",
+        "pl": "Nazwa", "pt": "Nome", "sk": "Názov", "sv": "Namn", "cs": "Název",
+        "hu": "Név", "uk": "Назва",
+    },
+    "Save": {
+        "tr": "Kaydet", "en": "Save", "ru": "Сохранить", "zh": "保存", "ja": "保存",
+        "hi": "सहेजें", "de": "Speichern", "fr": "Enregistrer", "es": "Guardar",
+        "it": "Salva", "nl": "Opslaan", "pl": "Zapisz", "pt": "Guardar", "sk": "Uložiť",
+        "sv": "Spara", "cs": "Uložit", "hu": "Mentés", "uk": "Зберегти",
+    },
+    "Cancel": {
+        "tr": "Vazgeç", "en": "Cancel", "ru": "Отмена", "zh": "取消", "ja": "キャンセル",
+        "hi": "रद्द करें", "de": "Abbrechen", "fr": "Annuler", "es": "Cancelar",
+        "it": "Annulla", "nl": "Annuleren", "pl": "Anuluj", "pt": "Cancelar",
+        "sk": "Zrušiť", "sv": "Avbryt", "cs": "Zrušit", "hu": "Mégse", "uk": "Скасувати",
+    },
+    "Delete": {
+        "tr": "Sil", "en": "Delete", "ru": "Удалить", "zh": "删除", "ja": "削除",
+        "hi": "हटाएँ", "de": "Löschen", "fr": "Supprimer", "es": "Eliminar",
+        "it": "Elimina", "nl": "Verwijderen", "pl": "Usuń", "pt": "Eliminar",
+        "sk": "Odstrániť", "sv": "Ta bort", "cs": "Smazat", "hu": "Törlés", "uk": "Видалити",
+    },
+    "Edit": {
+        "tr": "Düzenle", "en": "Edit", "ru": "Изменить", "zh": "编辑", "ja": "編集",
+        "hi": "संपादित करें", "de": "Bearbeiten", "fr": "Modifier", "es": "Editar",
+        "it": "Modifica", "nl": "Bewerken", "pl": "Edytuj", "pt": "Editar",
+        "sk": "Upraviť", "sv": "Redigera", "cs": "Upravit", "hu": "Szerkesztés",
+        "uk": "Змінити",
+    },
+    "API key": {
+        "tr": "API anahtarı", "en": "API key", "ru": "API-ключ", "zh": "API 密钥",
+        "ja": "API キー", "hi": "API कुंजी", "de": "API-Schlüssel", "fr": "Clé API",
+        "es": "Clave API", "it": "Chiave API", "nl": "API-sleutel", "pl": "Klucz API",
+        "pt": "Chave API", "sk": "API kľúč", "sv": "API-nyckel", "cs": "API klíč",
+        "hu": "API-kulcs", "uk": "API-ключ",
+    },
+    "Show API key": {
+        "tr": "API anahtarını göster", "en": "Show API key", "ru": "Показать API-ключ",
+        "zh": "显示 API 密钥", "ja": "API キーを表示", "hi": "API कुंजी दिखाएँ",
+        "de": "API-Schlüssel anzeigen", "fr": "Afficher la clé API",
+        "es": "Mostrar clave API", "it": "Mostra chiave API", "nl": "API-sleutel tonen",
+        "pl": "Pokaż klucz API", "pt": "Mostrar chave API", "sk": "Zobraziť API kľúč",
+        "sv": "Visa API-nyckel", "cs": "Zobrazit API klíč", "hu": "API-kulcs megjelenítése",
+        "uk": "Показати API-ключ",
+    },
+    "A label you choose": {
+        "tr": "Kendi seçtiğiniz bir ad", "en": "A label you choose", "ru": "Любое имя на ваш выбор",
+        "zh": "自定义名称", "ja": "任意の名前", "hi": "अपनी पसंद का नाम", "de": "Ein Name Ihrer Wahl",
+        "fr": "Un nom de votre choix", "es": "Un nombre a su elección", "it": "Un nome a piacere",
+        "nl": "Een naam naar keuze", "pl": "Dowolna nazwa", "pt": "Um nome à sua escolha",
+        "sk": "Ľubovoľný názov", "sv": "Ett namn du väljer", "cs": "Libovolný název",
+        "hu": "Ön által választott név", "uk": "Будь-яка назва на ваш вибір",
+    },
+    "Model name sent to the provider": {
+        "tr": "Sağlayıcıya gönderilen model adı", "en": "Model name sent to the provider",
+        "ru": "Имя модели, отправляемое провайдеру", "zh": "发送给服务提供商的模型名称",
+        "ja": "プロバイダーに送信するモデル名", "hi": "प्रदाता को भेजा जाने वाला मॉडल नाम",
+        "de": "Modellname, der an den Anbieter geht", "fr": "Nom du modèle envoyé au fournisseur",
+        "es": "Nombre del modelo enviado al proveedor", "it": "Nome del modello inviato al fornitore",
+        "nl": "Modelnaam die naar de provider gaat", "pl": "Nazwa modelu wysyłana do dostawcy",
+        "pt": "Nome do modelo enviado ao fornecedor", "sk": "Názov modelu odosielaný poskytovateľovi",
+        "sv": "Modellnamn som skickas till leverantören", "cs": "Název modelu odesílaný poskytovateli",
+        "hu": "A szolgáltatónak küldött modellnév", "uk": "Назва моделі, що надсилається постачальнику",
     },
     "Open": {
         "tr": "Aç", "en": "Open", "ru": "Открыть", "zh": "打开", "ja": "開く", "hi": "खोलें",

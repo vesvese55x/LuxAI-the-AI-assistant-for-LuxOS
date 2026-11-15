@@ -1,6 +1,11 @@
 #!/bin/sh
-# LuxAI baslatici — kenar cubugundaki "Oturumu kapat" duzeltmesini yukler.
-# (LuxOS 2.0.2 hatasi: onay penceresinin govdesi bos; luxfix.so bu isi yapar.)
+# LuxAI baslatici
+#   1) kenar cubugundaki "Oturumu kapat" duzeltmesini yukler
+#      (LuxOS 2.0.2 hatasi: onay penceresinin govdesi bos; luxfix.so bu isi yapar)
+#   2) coklu OpenAI uyumlu saglayici koprusunu (providers_bridge) baslatir:
+#      LuxAI ikilisi LUXAI_ORIGIN ile yerel kopruye baglanir; secili saglayici
+#      varsa sohbet istekleri oraya, diger tum istekler gercek sunucuya gider.
+#      Windows surumundeki "sohbette saglayici degistirme" ile birebir ayni.
 FIX=""
 for c in /usr/lib/luxai/luxfix.so "$(dirname "$0")/../lib/luxai/luxfix.so"; do
     [ -r "$c" ] && FIX="$c" && break
@@ -11,4 +16,31 @@ for c in /usr/lib/luxai/luxai-bin "$(dirname "$0")/../lib/luxai/luxai-bin"; do
 done
 [ -n "$BIN" ] || { echo "luxai: /usr/lib/luxai/luxai-bin bulunamadi" >&2; exit 127; }
 [ -n "$FIX" ] && LD_PRELOAD="$FIX${LD_PRELOAD:+:$LD_PRELOAD}" && export LD_PRELOAD
+
+# --- coklu saglayici koprusu -------------------------------------------------
+BRIDGE=""
+for c in /usr/lib/luxai/providers_bridge.py "$(dirname "$0")/../lib/luxai/providers_bridge.py"; do
+    [ -r "$c" ] && BRIDGE="$c" && break
+done
+CFG="${XDG_CONFIG_HOME:-$HOME/.config}/luxai/providers.ini"
+if [ -z "$LUXAI_ORIGIN" ] && [ -n "$BRIDGE" ] && command -v python3 >/dev/null 2>&1 \
+   && [ -r "$CFG" ] && grep -q '^p=' "$CFG" 2>/dev/null; then
+    RT="${XDG_RUNTIME_DIR:-/tmp}"
+    PORTF="$RT/luxai-bridge-$(id -u).port"
+    rm -f "$PORTF" 2>/dev/null
+    python3 "$BRIDGE" --port-file "$PORTF" --parent $$ >/dev/null 2>&1 &
+    BRPID=$!
+    i=0
+    while [ "$i" -lt 60 ] && [ ! -s "$PORTF" ]; do sleep 0.1; i=$((i + 1)); done
+    PORT=""
+    [ -s "$PORTF" ] && PORT=$(cat "$PORTF" 2>/dev/null)
+    case "$PORT" in '' | *[!0-9]*) PORT="" ;; esac
+    if [ -n "$PORT" ]; then
+        LUXAI_ORIGIN="http://127.0.0.1:$PORT"
+        export LUXAI_ORIGIN
+    else
+        kill "$BRPID" 2>/dev/null      # kopru acilmadi -> dogrudan baglanti
+    fi
+fi
+
 exec "$BIN" "$@"

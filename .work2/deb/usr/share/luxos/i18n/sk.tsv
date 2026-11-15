@@ -38,7 +38,7 @@ Copied	Skopírované
 Copy	Kopírovať
 Create a free account	Vytvoriť účet zadarmo
 Create folder	Vytvoriť priečinok
-Delete	Vymazať
+Delete	Odstrániť
 Delete conversation	Vymazať konverzáciu
 Delete this conversation?	Vymazať túto konverzáciu?
 Deletes all scheduled tasks	Vymaže všetky naplánované úlohy
@@ -457,5 +457,18 @@ Not approved on the phone in time.	V telefóne nebolo včas schválené.
 Blocked by LuxAI safety rules.	Zablokované bezpečnostnými pravidlami LuxAI.
 This model is not available in LuxAI.	Tento model nie je v LuxAI k dispozícii.
 Our projects	Naše projekty
+Providers	Poskytovatelia
+built-in	vstavaný
+Active provider	Aktívny poskytovateľ
+Add provider	Pridať poskytovateľa
+Edit provider	Upraviť poskytovateľa
+Endpoint (base URL)	Koncový bod (base URL)
+Everything before /chat/completions	Všetko pred /chat/completions
+Save	Uložiť
+Edit	Upraviť
+API key	API kľúč
+Show API key	Zobraziť API kľúč
+A label you choose	Ľubovoľný názov
+Model name sent to the provider	Názov modelu odosielaný poskytovateľovi
 Open	Otvoriť
 Web portals, Android apps, desktop tools and a YouTube channel	Webové portály, aplikácie pre Android, nástroje pre počítač a kanál YouTube

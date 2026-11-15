@@ -38,7 +38,7 @@ Copied	Copiado
 Copy	Copiar
 Create a free account	Criar uma conta gratuita
 Create folder	Criar pasta
-Delete	Apagar
+Delete	Eliminar
 Delete conversation	Apagar conversa
 Delete this conversation?	Apagar esta conversa?
 Deletes all scheduled tasks	Apaga todas as tarefas agendadas
@@ -457,5 +457,18 @@ Not approved on the phone in time.	Não foi aprovado a tempo no telefone.
 Blocked by LuxAI safety rules.	Bloqueado pelas regras de segurança do LuxAI.
 This model is not available in LuxAI.	Este modelo não está disponível no LuxAI.
 Our projects	Os nossos projetos
+Providers	Fornecedores
+built-in	integrado
+Active provider	Fornecedor ativo
+Add provider	Adicionar fornecedor
+Edit provider	Editar fornecedor
+Endpoint (base URL)	Ponto final (URL base)
+Everything before /chat/completions	Tudo antes de /chat/completions
+Save	Guardar
+Edit	Editar
+API key	Chave API
+Show API key	Mostrar chave API
+A label you choose	Um nome à sua escolha
+Model name sent to the provider	Nome do modelo enviado ao fornecedor
 Open	Abrir
 Web portals, Android apps, desktop tools and a YouTube channel	Portais web, aplicações Android, ferramentas de ambiente de trabalho e um canal do YouTube

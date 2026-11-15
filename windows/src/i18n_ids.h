@@ -122,7 +122,9 @@
     X(S_DEFAULT,       "Varsayılan",                         "Default") \
     X(S_EDIT,          "Düzenle",                            "Edit") \
     X(S_SOON,          "Yakında",                            "Coming soon") \
-    X(S_NOMODEL,      "Bu model yanıt vermedi.",             "The model returned no answer.")
+    X(S_NOMODEL,      "Bu model yanıt vermedi.",             "The model returned no answer.") \
+    X(S_PROV_INVALID, "Ad ve uç nokta zorunludur. Örnek: OpenAI — https://api.openai.com/v1", \
+                      "Name and endpoint are required. Example: OpenAI — https://api.openai.com/v1")
 
 enum {
 #define X(id, tr, en) id,

@@ -437,3 +437,47 @@ EXTRA = {
  "Edit": "Szerkesztés",
 },
 }
+
+# --- saglayici dogrulama uyarisi (S_PROV_INVALID) -------------------------
+_MORE = {
+ "Name and endpoint are required. Example: OpenAI — https://api.openai.com/v1": {
+  "tr": "Ad ve uç nokta zorunludur. Örnek: OpenAI — https://api.openai.com/v1",
+  "en": "Name and endpoint are required. Example: OpenAI — https://api.openai.com/v1",
+  "ru": "Требуются название и конечная точка. Пример: OpenAI — https://api.openai.com/v1",
+  "zh": "需要名称和接口地址。例如：OpenAI — https://api.openai.com/v1",
+  "ja": "名前とエンドポイントが必要です。例: OpenAI — https://api.openai.com/v1",
+  "hi": "नाम और एंडपॉइंट आवश्यक हैं। उदाहरण: OpenAI — https://api.openai.com/v1",
+  "de": "Name und Endpunkt sind erforderlich. Beispiel: OpenAI — https://api.openai.com/v1",
+  "fr": "Le nom et le point de terminaison sont obligatoires. Exemple : OpenAI — https://api.openai.com/v1",
+  "es": "Se requieren nombre y punto de conexión. Ejemplo: OpenAI — https://api.openai.com/v1",
+  "it": "Nome e endpoint sono obbligatori. Esempio: OpenAI — https://api.openai.com/v1",
+  "nl": "Naam en eindpunt zijn verplicht. Voorbeeld: OpenAI — https://api.openai.com/v1",
+  "pl": "Nazwa i punkt końcowy są wymagane. Przykład: OpenAI — https://api.openai.com/v1",
+  "pt": "Nome e ponto final são obrigatórios. Exemplo: OpenAI — https://api.openai.com/v1",
+  "sk": "Názov a koncový bod sú povinné. Príklad: OpenAI — https://api.openai.com/v1",
+  "sv": "Namn och slutpunkt krävs. Exempel: OpenAI — https://api.openai.com/v1",
+  "cs": "Název a koncový bod jsou povinné. Příklad: OpenAI — https://api.openai.com/v1",
+  "hu": "A név és a végpont kötelező. Példa: OpenAI — https://api.openai.com/v1",
+  "uk": "Потрібні назва та кінцева точка. Приклад: OpenAI — https://api.openai.com/v1",
+ },
+}
+for _en, _map in _MORE.items():
+    for _lang, _txt in _map.items():
+        EXTRA.setdefault(_lang, {})[_en] = _txt
+
+# --- Linux "Saglayicilar" sekmesi metinleri (hesap penceresi TSV'sine gider) ---
+EXTRA.setdefault("tr", {}).update({})
+
+_MORE["The model returned no answer."] = {
+ "tr": "Bu model yanıt vermedi.", "en": "The model returned no answer.",
+ "ru": "Модель не ответила.", "zh": "该模型没有返回答案。", "ja": "モデルが応答しませんでした。",
+ "hi": "मॉडल ने कोई उत्तर नहीं दिया।", "de": "Das Modell hat nicht geantwortet.",
+ "fr": "Le modèle n'a pas répondu.", "es": "El modelo no respondió.",
+ "it": "Il modello non ha risposto.", "nl": "Het model heeft niet geantwoord.",
+ "pl": "Model nie odpowiedział.", "pt": "O modelo não respondeu.",
+ "sk": "Model neodpovedal.", "sv": "Modellen svarade inte.", "cs": "Model neodpověděl.",
+ "hu": "A modell nem válaszolt.", "uk": "Модель не відповіла.",
+}
+for _en, _map in (("The model returned no answer.", _MORE["The model returned no answer."]),):
+    for _lang, _txt in _map.items():
+        EXTRA.setdefault(_lang, {})[_en] = _txt

@@ -496,5 +496,18 @@ Not approved on the phone in time.	未在手机上及时批准。
 Blocked by LuxAI safety rules.	被 LuxAI 安全规则阻止。
 This model is not available in LuxAI.	该模型在 LuxAI 中不可用。
 Our projects	我们的项目
+Providers	服务提供商
+built-in	内置
+Active provider	当前服务提供商
+Add provider	添加服务提供商
+Edit provider	编辑服务提供商
+Endpoint (base URL)	接口地址（base URL）
+Everything before /chat/completions	/chat/completions 之前的部分
+Save	保存
+Edit	编辑
+API key	API 密钥
+Show API key	显示 API 密钥
+A label you choose	自定义名称
+Model name sent to the provider	发送给服务提供商的模型名称
 Open	打开
 Web portals, Android apps, desktop tools and a YouTube channel	网页门户、安卓应用、桌面工具和 YouTube 频道

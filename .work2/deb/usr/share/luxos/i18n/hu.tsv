@@ -457,5 +457,18 @@ Not approved on the phone in time.	Nem lett időben jóváhagyva a telefonon.
 Blocked by LuxAI safety rules.	A LuxAI biztonsági szabályai letiltották.
 This model is not available in LuxAI.	Ez a modell nem érhető el a LuxAI-ban.
 Our projects	Projektjeink
+Providers	Szolgáltatók
+built-in	beépített
+Active provider	Aktív szolgáltató
+Add provider	Szolgáltató hozzáadása
+Edit provider	Szolgáltató szerkesztése
+Endpoint (base URL)	Végpont (base URL)
+Everything before /chat/completions	Minden a /chat/completions előtt
+Save	Mentés
+Edit	Szerkesztés
+API key	API-kulcs
+Show API key	API-kulcs megjelenítése
+A label you choose	Ön által választott név
+Model name sent to the provider	A szolgáltatónak küldött modellnév
 Open	Megnyitás
 Web portals, Android apps, desktop tools and a YouTube channel	Webportálok, Android-alkalmazások, asztali eszközök és egy YouTube-csatorna

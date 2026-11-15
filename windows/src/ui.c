@@ -3271,7 +3271,6 @@ static void prov_edit_open(int idx)
         if (g_prov_sel == D.edit_idx) prov_apply(-1);
         else if (g_prov_sel > D.edit_idx) g_prov_sel--;
         prov_save();
-        prov_save();
         InvalidateRect(g_hMain, NULL, FALSE);
         return;
     }
@@ -3280,7 +3279,7 @@ static void prov_edit_open(int idx)
     wchar_t *ky = get_text(g_edPKey), *md = get_text(g_edPModel);
     if (!nm || !*nm || !ep || !*ep) {
         free(nm); free(ep); free(ky); free(md);
-        alert_ui(tw(S_PROVIDER), tw(S_CUSTOM));
+        alert_ui(tw(S_PROVIDERS), tw(S_PROV_INVALID));
         return;
     }
     Provider *pv;

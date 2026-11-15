@@ -457,5 +457,18 @@ Not approved on the phone in time.	Не схвалено на телефоні �
 Blocked by LuxAI safety rules.	Заблоковано правилами безпеки LuxAI.
 This model is not available in LuxAI.	Ця модель недоступна в LuxAI.
 Our projects	Наші проєкти
+Providers	Постачальники
+built-in	вбудований
+Active provider	Активний постачальник
+Add provider	Додати постачальника
+Edit provider	Змінити постачальника
+Endpoint (base URL)	Кінцева точка (base URL)
+Everything before /chat/completions	Усе до /chat/completions
+Save	Зберегти
+Edit	Змінити
+API key	API-ключ
+Show API key	Показати API-ключ
+A label you choose	Будь-яка назва на ваш вибір
+Model name sent to the provider	Назва моделі, що надсилається постачальнику
 Open	Відкрити
 Web portals, Android apps, desktop tools and a YouTube channel	Вебпортали, застосунки Android, настільні інструменти та канал YouTube

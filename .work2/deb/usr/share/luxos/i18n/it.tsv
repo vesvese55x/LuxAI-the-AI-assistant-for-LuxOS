@@ -457,5 +457,18 @@ Not approved on the phone in time.	Non approvato in tempo sul telefono.
 Blocked by LuxAI safety rules.	Bloccato dalle regole di sicurezza di LuxAI.
 This model is not available in LuxAI.	Questo modello non è disponibile in LuxAI.
 Our projects	I nostri progetti
+Providers	Fornitori
+built-in	integrato
+Active provider	Fornitore attivo
+Add provider	Aggiungi fornitore
+Edit provider	Modifica fornitore
+Endpoint (base URL)	Endpoint (URL di base)
+Everything before /chat/completions	Tutto prima di /chat/completions
+Save	Salva
+Edit	Modifica
+API key	Chiave API
+Show API key	Mostra chiave API
+A label you choose	Un nome a piacere
+Model name sent to the provider	Nome del modello inviato al fornitore
 Open	Apri
 Web portals, Android apps, desktop tools and a YouTube channel	Portali web, app Android, strumenti desktop e un canale YouTube

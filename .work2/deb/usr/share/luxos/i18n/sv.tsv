@@ -38,7 +38,7 @@ Copied	Kopierat
 Copy	Kopiera
 Create a free account	Skapa ett kostnadsfritt konto
 Create folder	Skapa mapp
-Delete	Radera
+Delete	Ta bort
 Delete conversation	Radera konversation
 Delete this conversation?	Vill du radera den här konversationen?
 Deletes all scheduled tasks	Raderar alla schemalagda uppgifter
@@ -457,5 +457,18 @@ Not approved on the phone in time.	Godkändes inte i tid på telefonen.
 Blocked by LuxAI safety rules.	Blockerades av LuxAI:s säkerhetsregler.
 This model is not available in LuxAI.	Den här modellen är inte tillgänglig i LuxAI.
 Our projects	Våra projekt
+Providers	Leverantörer
+built-in	inbyggd
+Active provider	Aktiv leverantör
+Add provider	Lägg till leverantör
+Edit provider	Redigera leverantör
+Endpoint (base URL)	Slutpunkt (bas-URL)
+Everything before /chat/completions	Allt före /chat/completions
+Save	Spara
+Edit	Redigera
+API key	API-nyckel
+Show API key	Visa API-nyckel
+A label you choose	Ett namn du väljer
+Model name sent to the provider	Modellnamn som skickas till leverantören
 Open	Öppna
 Web portals, Android apps, desktop tools and a YouTube channel	Webbportaler, Android-appar, skrivbordsverktyg och en YouTube-kanal

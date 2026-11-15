@@ -1,5 +1,22 @@
 # LuxAI hesap penceresi cevirileri (en) - BELGESELSEMO
 AI assistant that can work with your computer	AI assistant that can work with your computer · Built by BELGESELSEMO from the original LuxOS distribution with the help of Z.AI, packaged for Linux and Windows · https://belgeselsemo.com.tr
 Our projects	Our projects
+Providers	Providers
+built-in	built-in
+Active provider	Active provider
+Add provider	Add provider
+Edit provider	Edit provider
+Endpoint (base URL)	Endpoint (base URL)
+Everything before /chat/completions	Everything before /chat/completions
+Model	Model
+Name	Name
+Save	Save
+Cancel	Cancel
+Delete	Delete
+Edit	Edit
+API key	API key
+Show API key	Show API key
+A label you choose	A label you choose
+Model name sent to the provider	Model name sent to the provider
 Open	Open
 Web portals, Android apps, desktop tools and a YouTube channel	Web portals, Android apps, desktop tools and a YouTube channel

@@ -285,7 +285,7 @@ Maximum length of one answer. Agent mode always keeps enough room for its tools.
 Messages	Сообщения
 Mode for new conversations	Режим для новых диалогов
 Mouse and keyboard control is turned off in LuxAI settings	Управление мышью и клавиатурой отключено в настройках LuxAI
-Name	Имя
+Name	Название
 Name conversations automatically	Называть диалоги автоматически
 Network access	Доступ к сети
 Network access is turned off in LuxAI settings	Доступ к сети отключён в настройках LuxAI
@@ -496,5 +496,18 @@ Not approved on the phone in time.	Не одобрено на телефоне �
 Blocked by LuxAI safety rules.	Заблокировано правилами безопасности LuxAI.
 This model is not available in LuxAI.	Эта модель недоступна в LuxAI.
 Our projects	Наши проекты
+Providers	Провайдеры
+built-in	встроенный
+Active provider	Активный провайдер
+Add provider	Добавить провайдера
+Edit provider	Изменить провайдера
+Endpoint (base URL)	Конечная точка (base URL)
+Everything before /chat/completions	Всё до /chat/completions
+Save	Сохранить
+Edit	Изменить
+API key	API-ключ
+Show API key	Показать API-ключ
+A label you choose	Любое имя на ваш выбор
+Model name sent to the provider	Имя модели, отправляемое провайдеру
 Open	Открыть
 Web portals, Android apps, desktop tools and a YouTube channel	Веб-порталы, приложения Android, настольные инструменты и канал YouTube
