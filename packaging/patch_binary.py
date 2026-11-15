@@ -44,7 +44,7 @@ t, ln, langmap_json = get_res(LANGMAP_HDR); assert ln == 132
 # ---- 1. new language JSONs ----
 langs = json.loads(drop_json.decode("utf-8"))
 have = {c for c, _ in langs}
-for code, name in (("tr","Türkçe"), ("ru","Русский"), ("zh","中文"), ("ja","日本語"), ("hi","हिन्दी")):
+for code, name in (("tr","Türkçe"), ("ru","Русский"), ("zh","中文"), ("ja","日本語"), ("hi","हिन्दी"), ("az","Azərbaycan"), ("id","Bahasa Indonesia"), ("vi","Tiếng Việt")):
     assert code not in have
     langs.append([code, name])
 new_drop = json.dumps(langs, ensure_ascii=False, separators=(",", ",")) \
@@ -55,13 +55,13 @@ new_drop = re.sub(r'\], \[', '],[', new_drop)
 print("new dropdown:", new_drop, len(new_drop.encode()), "bytes")
 
 schema = json.loads(schema_json.decode("utf-8"))
-order = ["auto","cs","sk","en","de","pl","fr","es","it","uk","tr","ru","zh","ja","hi"]
+order = ["auto","cs","sk","en","de","pl","fr","es","it","uk","tr","ru","zh","ja","hi","az","id","vi"]
 schema["language"] = order
 new_schema = json.dumps(schema, ensure_ascii=False, separators=(",", ":"))
 print("new schema len:", len(new_schema.encode()))
 
 lmap = json.loads(langmap_json.decode("utf-8"))
-lmap.update({"tr":"Turkish","ru":"Russian","zh":"Chinese","ja":"Japanese","hi":"Hindi"})
+lmap.update({"tr":"Turkish","ru":"Russian","zh":"Chinese","ja":"Japanese","hi":"Hindi","az":"Azerbaijani","id":"Indonesian","vi":"Vietnamese"})
 new_langmap = json.dumps(lmap, ensure_ascii=False, separators=(",", ":"))
 print("new langmap len:", len(new_langmap.encode()))
 

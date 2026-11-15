@@ -31,6 +31,9 @@ SIG = {
     "sv": "Hämtad från den ursprungliga LuxOS-distributionen och kompilerad av BELGESELSEMO, med hjälp av Z.AI, som Linux/Windows-paket · belgeselsemo.com.tr",
     "uk": "Отримано з оригінальної дистрибуції LuxOS і скомпільовано BELGESELSEMO за допомогою Z.AI як пакети Linux/Windows · belgeselsemo.com.tr",
     "hi": "मूल LuxOS वितरण से प्राप्त कर Z.AI की सहायता से BELGESELSEMO द्वारा Linux/Windows पैकेजों के रूप में संकलित · belgeselsemo.com.tr",
+    "az": "BELGESELSEMO tərəfindən Z.AI köməyi ilə orijinal LuxOS paylanmasından hazırlanmış və Linux/Windows paketləri şəklində yığılmışdır · belgeselsemo.com.tr",
+    "id": "Dibuat oleh BELGESELSEMO dari distribusi LuxOS asli dengan bantuan Z.AI dan dikemas untuk Linux dan Windows · belgeselsemo.com.tr",
+    "vi": "Do BELGESELSEMO tạo ra từ bản phân phối LuxOS gốc với sự trợ giúp của Z.AI và đóng gói cho Linux và Windows · belgeselsemo.com.tr",
 }
 
 os.makedirs(BLD, exist_ok=True)
@@ -40,6 +43,15 @@ os.makedirs(BLD_OS, exist_ok=True)
 for lang in ("tr", "ru", "zh", "ja", "hi"):
     shutil.copy(f"{W}/luxai_{lang}.tsv", f"{BLD}/{lang}.tsv")
     shutil.copy(os.path.join(REPO, "src", "luxai", "i18n", f"account_{lang}.tsv"), f"{BLD_OS}/{lang}.tsv")
+
+# 1b. yeni diller: Azerbaycan, Endonezya, Vietnam (tam ana arayuz + hesap)
+for lang in ("az", "id", "vi"):
+    _m = os.path.join(REPO, "packaging", "i18n_main", f"{lang}.tsv")
+    if os.path.isfile(_m):
+        shutil.copy(_m, f"{BLD}/{lang}.tsv")
+    _a = os.path.join(REPO, "src", "luxai", "i18n", f"account_{lang}.tsv")
+    if os.path.isfile(_a):
+        shutil.copy(_a, f"{BLD_OS}/{lang}.tsv")
 
 # 2. upstream languages with signature appended
 problems = 0

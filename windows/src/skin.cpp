@@ -516,6 +516,35 @@ void sk_icon(int kind, double cx, double cy, double sz, DWORD argb, double th)
     }
 }
 
+int sk_png_res(int id, double x, double y, double w, double h)
+{
+    if (!g_gfx) return 0;
+    HMODULE hm = GetModuleHandleW(NULL);
+    HRSRC rs = FindResourceW(hm, MAKEINTRESOURCEW(id), RT_RCDATA);
+    if (!rs) return 0;
+    DWORD sz = SizeofResource(hm, rs);
+    HGLOBAL hg = LoadResource(hm, rs);
+    if (!hg || !sz) return 0;
+    void *data = LockResource(hg);
+    if (!data) return 0;
+    HGLOBAL mem = GlobalAlloc(GMEM_MOVEABLE, sz);
+    if (!mem) return 0;
+    void *dst = GlobalLock(mem);
+    memcpy(dst, data, sz);
+    GlobalUnlock(mem);
+    IStream *st = NULL;
+    if (CreateStreamOnHGlobal(mem, TRUE, &st) != S_OK || !st) { GlobalFree(mem); return 0; }
+    Image *img = Image::FromStream(st);
+    int ok = 0;
+    if (img && img->GetLastStatus() == Ok) {
+        g_gfx->SetInterpolationMode(InterpolationModeHighQualityBicubic);
+        ok = (g_gfx->DrawImage(img, RectF((REAL)x, (REAL)y, (REAL)w, (REAL)h)) == Ok);
+    }
+    if (img) delete img;
+    st->Release();
+    return ok;
+}
+
 void sk_logo(double x, double y, double size, double radius)
 {
     sk_grad(x, y, size, size, radius, 0xFF3D7BFF, 0xFF8A4DFF, 1);

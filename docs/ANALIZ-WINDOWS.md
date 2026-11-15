@@ -141,14 +141,14 @@ Hiçbir bayt kaydırılmıyor — bu yüzden yama "güvenli" ve sürüm sabit ka
 
 ---
 
-## 6. Release'deki `LuxAI-3.1.0-Setup.exe` gerçekte ne yapıyor?
+## 6. Release'deki `LuxAI-2.0.2-Setup.exe` gerçekte ne yapıyor?
 
 ~~Eski WSL tabanlı kurucu~~ **kaldırıldı.** Yerine native `luxai-kur.bat` ve `Setup-native.exe` var. Akış:
 
 ```
 1. MessageBox: "LuxAI (Windows) kurulacak … (Windows 11 / WSLg gerekir)"
 2. wsl.exe --status                      → yoksa: wsl.exe --install -d Debian --no-launch
-3. gömülü luxai_3.1.0_amd64.deb'i %LOCALAPPDATA%\LuxAI\luxai.deb'e çıkarır
+3. gömülü luxai_2.0.2_amd64.deb'i %LOCALAPPDATA%\LuxAI\luxai.deb'e çıkarır
 4. wsl.exe -d Debian -- bash -lc "sudo apt-get update && sudo apt-get install -y /mnt/c/…/luxai.deb"
 5. Başlat menüsüne kısayol: C:\Windows\System32\wsl.exe  -d Debian -- luxai
 6. wsl.exe -d Debian -- luxai           (WSLg penceresi açılır)

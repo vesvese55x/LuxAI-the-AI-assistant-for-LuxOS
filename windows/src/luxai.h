@@ -25,7 +25,7 @@
 #include <wchar.h>
 
 #define APP_NAME      L"LuxAI"
-#define APP_VERSION   L"3.1.0-win.1"
+#define APP_VERSION   L"2.0.2-win.1"
 
 /* ---------- util ---------- */
 typedef struct { char *p; size_t n, cap; } Buf;

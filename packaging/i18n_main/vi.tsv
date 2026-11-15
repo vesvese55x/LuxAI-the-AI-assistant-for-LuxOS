@@ -1,0 +1,458 @@
+# LuxAI main UI (vi) - BELGESELSEMO
+(empty file)	(tệp trống)
+(empty)	(trống)
+(no output)	(không có kết quả)
+AI assistant that can work with your computer	Trợ lý AI có thể làm việc cùng máy tính của bạn
+About LuxAI	Giới thiệu LuxAI
+Accesses private keys or passwords	Truy cập khóa riêng tư hoặc mật khẩu
+Accesses the LuxAI account token	Truy cập token tài khoản LuxAI
+Agent	Tác nhân
+Agent actions run without asking. Dangerous actions still need two confirmations. Resets when LuxAI restarts.	Hành động của tác nhân chạy mà không hỏi. Hành động nguy hiểm vẫn cần hai lần xác nhận. Đặt lại khi LuxAI khởi động lại.
+Agent mode · Auto-approve is ON: actions run without asking (dangerous ones still ask twice).	Chế độ Tác nhân · Tự động phê duyệt BẬT: hành động chạy mà không hỏi (hành động nguy hiểm vẫn hỏi hai lần).
+Agent mode · LuxAI can work with your computer. You approve every action that changes something.	Chế độ Tác nhân · LuxAI có thể làm việc với máy tính của bạn. Bạn phê duyệt mọi hành động thay đổi điều gì đó.
+Agent mode: I can run commands, manage files, open apps and control the mouse and keyboard – always with your approval.	Chế độ Tác nhân: Tôi có thể chạy lệnh, quản lý tệp, mở ứng dụng và điều khiển chuột, bàn phím – luôn với sự phê duyệt của bạn.
+Allow LuxAI to do this?	Cho phép LuxAI làm điều này?
+Allow once	Cho phép một lần
+Allow once…	Cho phép một lần…
+Always for this session	Luôn luôn cho phiên này
+Another conversation is already running on this account. Try again in a moment.	Một cuộc trò chuyện khác đang chạy trên tài khoản này. Hãy thử lại sau giây lát.
+Are you sure? This can cause damage that cannot be undone.	Bạn có chắc không? Điều này có thể gây hư hại không thể khắc phục.
+Arguments	Đối số
+Ask LuxAI to do something on your computer…	Hãy yêu cầu LuxAI làm gì đó trên máy tính của bạn…
+Ask anything. Switch to Agent mode when you want me to do things on your computer.	Hỏi bất cứ điều gì. Chuyển sang chế độ Tác nhân khi bạn muốn tôi làm việc trên máy tính của bạn.
+Attach screenshots for the current model. Turn on only if the model supports images; uses more tokens.	Đính kèm ảnh chụp màn hình cho mô hình hiện tại. Chỉ bật nếu mô hình hỗ trợ hình ảnh; tốn nhiều token hơn.
+Auto-approve actions	Tự động phê duyệt hành động
+Blocked by safety rules	Bị quy tắc an toàn chặn
+Brainstorm	Động não
+CONVERSATIONS	CÁC CUỘC TRÒ CHUYỆN
+Cancel	Hủy
+Changes immutable file attributes	Thay đổi thuộc tính tệp không thể thay đổi
+Changes permissions of the whole home folder or system	Thay đổi quyền của toàn bộ thư mục chính hoặc hệ thống
+Changes user accounts or passwords	Thay đổi tài khoản người dùng hoặc mật khẩu
+Chat	Trò chuyện
+Chat with AI or let it work with your computer. Sign in with your LuxAI account – one account for all LuxOS apps.	Trò chuyện với AI hoặc để AI làm việc cùng máy tính của bạn. Đăng nhập bằng tài khoản LuxAI – một tài khoản cho mọi ứng dụng LuxOS.
+Click	Nhấp chuột
+Close window	Đóng cửa sổ
+Command timeout (seconds)	Thời gian chờ lệnh (giây)
+Copied	Đã sao chép
+Copy	Sao chép
+Create a free account	Tạo tài khoản miễn phí
+Create folder	Tạo thư mục
+Delete	Xóa
+Delete conversation	Xóa cuộc trò chuyện
+Delete this conversation?	Xóa cuộc trò chuyện này?
+Deletes all scheduled tasks	Xóa mọi tác vụ đã lên lịch
+Deletes all untracked files in the repository	Xóa mọi tệp chưa được theo dõi trong kho
+Deletes files across the whole home folder or system	Xóa tệp trên toàn bộ thư mục chính hoặc hệ thống
+Deletes the whole home folder or system	Xóa toàn bộ thư mục chính hoặc hệ thống
+Denied	Đã từ chối
+Deny	Từ chối
+Details	Chi tiết
+Done	Hoàn tất
+Edit file	Sửa tệp
+Ends your desktop session	Kết thúc phiên máy tính của bạn
+Explain how HTTPS keeps my connection private, in simple terms.	Giải thích cách HTTPS giữ kết nối của tôi riêng tư, bằng ngôn ngữ đơn giản.
+Explain something	Giải thích điều gì đó
+Failed	Thất bại
+Find files	Tìm tệp
+Finish signing in in the LuxAI account window…	Hoàn tất đăng nhập trong cửa sổ tài khoản LuxAI…
+Flash – smarter	Flash – thông minh hơn
+Focus window	Tiêu điểm cửa sổ
+Force-pushes and may overwrite remote history	Ép đẩy (force-push) và có thể ghi đè lịch sử từ xa
+Fork bomb	Fork bomb
+Formats or wipes a disk	Định dạng hoặc xóa sạch đĩa
+Free disk space	Dung lượng đĩa trống
+Give me 5 ideas for a weekend trip in the Czech Republic.	Cho tôi 5 ý tưởng cho chuyến đi cuối tuần ở Cộng hòa Séc.
+Help with code	Trợ giúp về mã
+How can I help you today?	Hôm nay tôi có thể giúp gì cho bạn?
+How do I read a JSON file in Python? Show a short example.	Làm thế nào để đọc tệp JSON trong Python? Hãy cho ví dụ ngắn.
+It will be permanently removed from this computer.	Sẽ bị xóa vĩnh viễn khỏi máy tính này.
+Kills all processes or the desktop session	Dừng mọi tiến trình hoặc phiên máy tính
+List apps	Danh sách ứng dụng
+List folder	Danh sách thư mục
+List the files in my Downloads folder grouped by type and suggest what to clean up.	Liệt kê các tệp trong thư mục Tải xuống của tôi theo loại và gợi ý nên dọn dẹp gì.
+List windows	Danh sách cửa sổ
+Lite – faster, larger limit	Lite – nhanh hơn, giới hạn lớn hơn
+Look at my screen	Xem màn hình của tôi
+LuxAI account credentials are never read or changed by the agent	Thông tin đăng nhập tài khoản LuxAI không bao giờ bị tác nhân đọc hay thay đổi
+LuxAI account…	Tài khoản LuxAI…
+LuxAI can make mistakes. Check important information.	LuxAI có thể mắc lỗi. Hãy kiểm tra thông tin quan trọng.
+LuxAI can work with your computer using tools, with your approval	LuxAI có thể làm việc với máy tính của bạn bằng công cụ, với sự phê duyệt của bạn
+Message LuxAI…	Nhắn tin cho LuxAI…
+Model	Mô hình
+Model can see images	Mô hình có thể xem hình ảnh
+Move	Di chuyển
+Move mouse	Di chuyển chuột
+Moves the whole home folder or system	Di chuyển toàn bộ thư mục chính hoặc hệ thống
+Network error: {0}	Lỗi mạng: {0}
+New chat	Cuộc trò chuyện mới
+New conversation	Cuộc trò chuyện mới
+No conversations yet	Chưa có cuộc trò chuyện nào
+No result	Không có kết quả
+No windows	Không có cửa sổ nào
+Not signed in	Chưa đăng nhập
+Not signed in.	Chưa đăng nhập.
+Nothing found	Không tìm thấy gì
+Notification	Thông báo
+Offline – usage not available	Ngoại tuyến – mức sử dụng không khả dụng
+Open a website	Mở trang web
+Open app	Mở ứng dụng
+Open link	Mở liên kết
+Open lux-ai.cz in the web browser.	Mở lux-ai.cz trong trình duyệt web.
+Overwrites system files	Ghi đè tệp hệ thống
+Plain conversation, no access to your computer	Cuộc trò chuyện thông thường, không truy cập máy tính của bạn
+Please sign in again to continue. Your conversations are kept on this computer.	Vui lòng đăng nhập lại để tiếp tục. Các cuộc trò chuyện của bạn được lưu trên máy tính này.
+Potentially dangerous action	Hành động có thể nguy hiểm
+Press keys	Nhấn phím
+Read clipboard	Đọc bảng tạm
+Read file	Đọc tệp
+Recursively deletes a main personal folder	Xóa thư mục cá nhân chính theo cách đệ quy
+Recursively deletes files outside your home folder	Xóa đệ quy các tệp ngoài thư mục chính của bạn
+Refusing to modify the root or home directory itself	Từ chối sửa đổi chính thư mục gốc hoặc thư mục chính
+Removes firewall rules	Xóa quy tắc tường lửa
+Removes installed system packages	Xóa các gói hệ thống đã cài đặt
+Result	Kết quả
+Run command	Chạy lệnh
+Running…	Đang chạy…
+Runs a script downloaded from the internet	Chạy tập lệnh tải từ internet
+Runs with administrator privileges	Chạy với quyền quản trị viên
+Screenshot	Ảnh chụp màn hình
+Scroll	Cuộn
+Search conversations	Tìm kiếm cuộc trò chuyện
+Search text	Tìm kiếm văn bản
+Searches the whole system	Tìm kiếm trên toàn hệ thống
+Send (Enter)	Gửi (Enter)
+Session expired	Phiên đã hết hạn
+Settings	Cài đặt
+Show or hide the sidebar	Hiện hoặc ẩn thanh bên
+Shuts down or restarts the computer	Tắt hoặc khởi động lại máy tính
+Sign in	Đăng nhập
+Sign in again	Đăng nhập lại
+Sign in to continue this conversation.	Đăng nhập để tiếp tục cuộc trò chuyện này.
+Sign in with LuxAI account	Đăng nhập bằng tài khoản LuxAI
+Stop	Dừng
+Stop the answer and any running command (Esc)	Dừng câu trả lời và mọi lệnh đang chạy (Esc)
+Stopped	Đã dừng
+Stopped after too many steps. Send a message to continue.	Đã dừng sau quá nhiều bước. Hãy gửi tin nhắn để tiếp tục.
+Stopped.	Đã dừng.
+Stopping…	Đang dừng…
+System info	Thông tin hệ thống
+Take a screenshot and tell me which windows are open.	Chụp ảnh màn hình và cho tôi biết cửa sổ nào đang mở.
+The LuxAI API endpoint was not found on the server.	Không tìm thấy điểm cuối API LuxAI trên máy chủ.
+The LuxAI service is not available right now.	Dịch vụ LuxAI hiện không khả dụng.
+The LuxOS account tool (luxos-account) is not installed.	Công cụ tài khoản LuxOS (luxos-account) chưa được cài đặt.
+The answer was cut off (length limit).	Câu trả lời bị cắt (giới hạn độ dài).
+The file is run automatically at login	Tệp được chạy tự động khi đăng nhập
+The key combination may end your session	Tổ hợp phím có thể kết thúc phiên của bạn
+The model failed: {0}	Mô hình thất bại: {0}
+The monthly Flash limit is used up. Switch to Lite or wait for the next month.	Giới hạn Flash hàng tháng đã hết. Hãy chuyển sang Lite hoặc chờ tháng sau.
+The monthly Lite limit is used up.	Giới hạn Lite hàng tháng đã hết.
+The path is outside your home folder (system files)	Đường dẫn nằm ngoài thư mục chính của bạn (tệp hệ thống)
+The path may contain passwords or keys	Đường dẫn có thể chứa mật khẩu hoặc khóa
+The server did not respond in time.	Máy chủ không phản hồi kịp thời.
+The server rejected the request (invalid chat).	Máy chủ từ chối yêu cầu (trò chuyện không hợp lệ).
+The server returned a web page instead of an API response (HTTP {0}).	Máy chủ trả về trang web thay vì phản hồi API (HTTP {0}).
+The server returned an invalid response (HTTP {0}).	Máy chủ trả về phản hồi không hợp lệ (HTTP {0}).
+The server's web protection blocked the request (HTTP {0}).	Lớp bảo vệ web của máy chủ đã chặn yêu cầu (HTTP {0}).
+Thinking…	Đang suy nghĩ…
+This may access private data	Điều này có thể truy cập dữ liệu riêng tư
+Tidy up Downloads	Dọn dẹp Tải xuống
+Too many requests. Please wait a moment.	Quá nhiều yêu cầu. Vui lòng chờ một lát.
+Type text	Nhập văn bản
+Types a dangerous command	Nhập lệnh nguy hiểm
+Unsupported URL type	Loại URL không được hỗ trợ
+Waiting for your approval	Đang chờ bạn phê duyệt
+Welcome to LuxAI	Chào mừng đến với LuxAI
+What is using the most disk space in my home folder?	Thứ gì đang chiếm nhiều dung lượng đĩa nhất trong thư mục chính của tôi?
+Working folder	Thư mục làm việc
+Write a short, friendly email inviting my team to a Friday lunch.	Viết một email ngắn, thân thiện mời nhóm của tôi ăn trưa thứ Sáu.
+Write a text	Viết văn bản
+Write file	Viết tệp
+Writes directly to a disk device	Ghi trực tiếp vào thiết bị đĩa
+Yes, run it	Vâng, hãy chạy
+Your LuxAI session has expired or is not valid. Please sign in again.	Phiên LuxAI của bạn đã hết hạn hoặc không hợp lệ. Vui lòng đăng nhập lại.
+Your session has expired	Phiên của bạn đã hết hạn
+code	mã
+folder	thư mục
+no images	không có hình ảnh
+sees images	xem được hình ảnh
+{0} open windows	{0} cửa sổ đang mở
+{0}: {1} / {2} tokens this month	{0}: {1} / {2} token tháng này
+{0}: {1} tokens this month	{0}: {1} token tháng này
+{0}: {1} tokens this month · unlimited	{0}: {1} token tháng này · không giới hạn
+You denied this action.	Bạn đã từ chối hành động này.
+Stopped before running.	Đã dừng trước khi chạy.
+AI behaviour	Hành vi AI
+Accesses LuxAI settings (including agent permissions)	Truy cập cài đặt LuxAI (kể cả quyền của tác nhân)
+Account and settings	Tài khoản và cài đặt
+Add	Thêm
+Add folder…	Thêm thư mục…
+Added to every conversation. They cannot give the agent more permissions than set in Agent permissions.	Được thêm vào mọi cuộc trò chuyện. Chúng không thể cấp cho tác nhân nhiều quyền hơn mức đặt trong Quyền của tác nhân.
+After the first answer the fast Lite model suggests a short title. You can rename a conversation any time (right-click it in the sidebar).	Sau câu trả lời đầu tiên, mô hình Lite nhanh sẽ gợi ý một tiêu đề ngắn. Bạn có thể đổi tên cuộc trò chuyện bất cứ lúc nào (nhấp chuột phải vào thanh bên).
+Agent permissions	Quyền của tác nhân
+All saved conversations will be permanently removed from this computer.	Mọi cuộc trò chuyện đã lưu sẽ bị xóa vĩnh viễn khỏi máy tính này.
+Allow	Cho phép
+Allow without asking	Cho phép mà không hỏi
+Allowed folders	Thư mục được phép
+Always ask	Luôn hỏi
+Answer length	Độ dài câu trả lời
+Answers	Câu trả lời
+Appearance	Giao diện
+Application	Ứng dụng
+Ask only for risky commands	Chỉ hỏi với lệnh rủi ro
+Attach screenshots in Agent mode. Turn on only if the model supports images.	Đính kèm ảnh chụp màn hình trong chế độ Tác nhân. Chỉ bật nếu mô hình hỗ trợ hình ảnh.
+Balanced	Cân bằng
+Blocked folders	Thư mục bị chặn
+Changing files is turned off in LuxAI settings	Thay đổi tệp đã tắt trong cài đặt LuxAI
+Clear all history…	Xóa toàn bộ lịch sử…
+Clicking, typing, pressing keys and closing windows.	Nhấp chuột, gõ phím, nhấn phím và đóng cửa sổ.
+Commands	Lệnh
+Concise	Ngắn gọn
+Control mouse and keyboard	Điều khiển chuột và bàn phím
+Conversation	Cuộc trò chuyện
+Conversations	Các cuộc trò chuyện
+Creating, editing, moving and deleting files and folders.	Tạo, sửa, di chuyển và xóa tệp và thư mục.
+Creativity (temperature)	Sáng tạo (temperature)
+Ctrl+Enter (Enter for a new line)	Ctrl+Enter (Enter để xuống dòng mới)
+Custom instructions	Hướng dẫn tùy chỉnh
+Dangerous actions (deleting your home folder, formatting disks, shutting down …) always need two confirmations, and LuxAI never touches its account and settings files. "Always ask" still offers "Always for this session" on the approval card.	Hành động nguy hiểm (xóa thư mục chính, định dạng đĩa, tắt máy …) luôn cần hai lần xác nhận, và LuxAI không bao giờ đụng vào tệp tài khoản và cài đặt của nó. "Luôn hỏi" vẫn cung cấp "Luôn luôn cho phiên này" trên thẻ phê duyệt.
+Dark	Tối
+Data on this computer	Dữ liệu trên máy tính này
+Default model	Mô hình mặc định
+Delete all	Xóa tất cả
+Delete all conversations?	Xóa mọi cuộc trò chuyện?
+Delete screenshots	Xóa ảnh chụp màn hình
+Detailed	Chi tiết
+Enter (Shift+Enter for a new line)	Enter (Shift+Enter để xuống dòng mới)
+Folders	Thư mục
+Friendly	Thân thiện
+General	Chung
+History	Lịch sử
+History is turned off	Lịch sử đã tắt
+If you add folders here, the agent can work with files only inside them. Empty = anywhere (system files need extra confirmation).	Nếu bạn thêm thư mục ở đây, tác nhân chỉ có thể làm việc với tệp bên trong chúng. Trống = bất cứ đâu (tệp hệ thống cần xác nhận thêm).
+Keep conversation history	Giữ lịch sử trò chuyện
+Keyboard shortcuts	Phím tắt bàn phím
+Language	Ngôn ngữ
+Light	Sáng
+Limits from Settings › Agent permissions apply.	Các giới hạn từ Cài đặt › Quyền của tác nhân được áp dụng.
+Long	Dài
+Long-running commands are stopped after this time.	Các lệnh chạy lâu sẽ bị dừng sau thời gian này.
+LuxAI also remembers the mode you used last.	LuxAI cũng ghi nhớ chế độ bạn dùng lần cuối.
+LuxAI answered	LuxAI đã trả lời
+LuxAI needs your approval	LuxAI cần bạn phê duyệt
+Manage account	Quản lý tài khoản
+Maximum length of one answer. Agent mode always keeps enough room for its tools.	Độ dài tối đa của một câu trả lời. Chế độ Tác nhân luôn dành đủ chỗ cho các công cụ của nó.
+Messages	Tin nhắn
+Mode for new conversations	Chế độ cho cuộc trò chuyện mới
+Mouse and keyboard control is turned off in LuxAI settings	Điều khiển chuột và bàn phím đã tắt trong cài đặt LuxAI
+Name	Tên
+Name conversations automatically	Tự động đặt tên cuộc trò chuyện
+Network access	Truy cập mạng
+Network access is turned off in LuxAI settings	Truy cập mạng đã tắt trong cài đặt LuxAI
+Never	Không bao giờ
+New line	Dòng mới
+No folders	Không có thư mục
+Normal	Bình thường
+Notifications	Thông báo
+Notify me when LuxAI finishes an answer or needs my approval while the window is in the background.	Thông báo cho tôi khi LuxAI trả lời xong hoặc cần tôi phê duyệt trong khi cửa sổ ở nền.
+Off = the model's default. Lower is more precise, higher more creative. Applied only if the model supports it.	Tắt = mặc định của mô hình. Thấp hơn chính xác hơn, cao hơn sáng tạo hơn. Chỉ áp dụng nếu mô hình hỗ trợ.
+Open apps and links	Mở ứng dụng và liên kết
+Opening apps and links is turned off in LuxAI settings	Mở ứng dụng và liên kết đã tắt trong cài đặt LuxAI
+Opening web links, downloads and network tools (curl, git clone, package installs). Detected from the command – for strict isolation also set Run commands to Never.	Mở liên kết web, tải xuống và công cụ mạng (curl, git clone, cài đặt gói). Được phát hiện từ lệnh – để cách ly nghiêm ngặt, hãy đặt Chạy lệnh thành Không bao giờ.
+Privacy & history	Quyền riêng tư & lịch sử
+Private files (keys, passwords, .env) always need your confirmation.	Tệp riêng tư (khóa, mật khẩu, .env) luôn cần bạn xác nhận.
+Quit	Thoát
+Read files	Đọc tệp
+Reading files is turned off in LuxAI settings	Đọc tệp đã tắt trong cài đặt LuxAI
+Relative paths and commands start here.	Đường dẫn tương đối và lệnh bắt đầu tại đây.
+Remove	Xóa
+Rename	Đổi tên
+Rename conversation	Đổi tên cuộc trò chuyện
+Rename…	Đổi tên…
+Response style	Phong cách trả lời
+Run commands	Chạy lệnh
+Running commands is turned off in LuxAI settings	Chạy lệnh đã tắt trong cài đặt LuxAI
+Same as my message	Giống như tin nhắn của tôi
+Same as system	Giống như hệ thống
+Saved conversations	Cuộc trò chuyện đã lưu
+Screenshots	Ảnh chụp màn hình
+Screenshots and clipboard	Ảnh chụp màn hình và bảng tạm
+Screenshots and clipboard are turned off in LuxAI settings	Ảnh chụp màn hình và bảng tạm đã tắt trong cài đặt LuxAI
+Screenshots taken by the agent	Ảnh chụp màn hình do tác nhân chụp
+Send message	Gửi tin nhắn
+Send message with	Gửi tin nhắn bằng
+Sends what is on your screen or in the clipboard to the model.	Gửi những gì trên màn hình hoặc trong bảng tạm của bạn tới mô hình.
+Settings file	Tệp cài đặt
+Settings…	Cài đặt…
+Shell commands are checked for blocked folders in their paths, but a command cannot be fully confined. Set Run commands to Never for strict folder limits.	Lệnh shell được kiểm tra thư mục bị chặn trong đường dẫn của chúng, nhưng một lệnh không thể bị giới hạn hoàn toàn. Đặt Chạy lệnh thành Không bao giờ để giới hạn thư mục nghiêm ngặt.
+Short	Ngắn
+Sign in with your LuxAI account to chat.	Đăng nhập bằng tài khoản LuxAI để trò chuyện.
+Sign out	Đăng xuất
+Sign out of LuxAI?	Đăng xuất khỏi LuxAI?
+Sign out…	Đăng xuất…
+Signing out failed. Try again in the LuxAI account app.	Đăng xuất thất bại. Hãy thử lại trong ứng dụng tài khoản LuxAI.
+Start	Bắt đầu
+Stop the answer or command	Dừng câu trả lời hoặc lệnh
+Technical	Kỹ thuật
+The agent never reads or changes anything in these folders.	Tác nhân không bao giờ đọc hay thay đổi bất cứ thứ gì trong các thư mục này.
+The folder is blocked in LuxAI settings	Thư mục bị chặn trong cài đặt LuxAI
+The path is outside the folders allowed in LuxAI settings	Đường dẫn nằm ngoài các thư mục được phép trong cài đặt LuxAI
+Theme	Chủ đề
+Used for new conversations. You can switch it any time in the toolbar.	Dùng cho cuộc trò chuyện mới. Bạn có thể chuyển bất cứ lúc nào trên thanh công cụ.
+Uses the network	Sử dụng mạng
+What Agent mode may do	Chế độ Tác nhân được phép làm gì
+What should LuxAI know about you or how should it answer? E.g. "Call me Tom. Prefer metric units and short answers."	LuxAI nên biết gì về bạn hoặc nên trả lời thế nào? Ví dụ: "Hãy gọi tôi là Tom. Ưu tiên đơn vị mét và câu trả lời ngắn."
+When off, new conversations are not saved on this computer and disappear when you close them.	Khi tắt, cuộc trò chuyện mới không được lưu trên máy tính này và biến mất khi bạn đóng chúng.
+With "risky only", read-only commands such as ls, df or git status run without asking.	Với "chỉ rủi ro", các lệnh chỉ đọc như ls, df hoặc git status chạy mà không hỏi.
+Write and delete files	Viết và xóa tệp
+You will be signed out of your LuxAI account in all LuxOS apps on this computer. Your conversations stay on this computer.	Bạn sẽ đăng xuất khỏi tài khoản LuxAI trong mọi ứng dụng LuxOS trên máy tính này. Các cuộc trò chuyện của bạn vẫn ở trên máy tính này.
+Your messages are sent to the LuxAI service (lux-ai.cz) to generate answers and titles. The agent runs tools only on this computer.	Tin nhắn của bạn được gửi tới dịch vụ LuxAI (lux-ai.cz) để tạo câu trả lời và tiêu đề. Tác nhân chỉ chạy công cụ trên máy tính này.
+{0} can see images	{0} có thể xem hình ảnh
+{0} conversations saved	{0} cuộc trò chuyện đã lưu
+{0} screenshots	{0} ảnh chụp màn hình
+(preview not available)	(không có bản xem trước)
+Bug report	Báo cáo lỗi
+Contact e-mail for a reply: {0}	Email liên hệ để trả lời: {0}
+Don't send	Không gửi
+Idea	Ý tưởng
+LuxOS could not reach the server. Check the internet connection.	LuxOS không thể kết nối máy chủ. Hãy kiểm tra kết nối internet.
+No graphical session; the report is sent without a screenshot.	Không có phiên đồ họa; báo cáo được gửi không kèm ảnh chụp màn hình.
+No screenshot will be attached.	Không có ảnh chụp màn hình nào được đính kèm.
+No system information will be attached.	Không có thông tin hệ thống nào được đính kèm.
+Report sent. Report ID: {0}	Đã gửi báo cáo. Mã báo cáo: {0}
+Report text:	Nội dung báo cáo:
+Report to LuxOS	Báo cáo tới LuxOS
+Search LuxOS docs	Tìm tài liệu LuxOS
+Read LuxOS docs	Đọc tài liệu LuxOS
+Save and send later	Lưu và gửi sau
+Saved. The Feedback app will send the report when you are online.	Đã lưu. Ứng dụng Phản hồi sẽ gửi báo cáo khi bạn trực tuyến.
+Screenshot that will be attached ({0} kB)	Ảnh chụp màn hình sẽ đính kèm ({0} kB)
+Screenshots are turned off in LuxAI settings; the report is sent without one.	Ảnh chụp màn hình đã tắt trong cài đặt LuxAI; báo cáo được gửi mà không có.
+Send report	Gửi báo cáo
+Send this report to the author of LuxOS?	Gửi báo cáo này tới tác giả của LuxOS?
+Sending failed ({0}).	Gửi thất bại ({0}).
+Sends the report and attachments shown in this card to the author of LuxOS	Gửi báo cáo và tệp đính kèm hiển thị trong thẻ này tới tác giả của LuxOS
+Sent anonymously (you are not signed in).	Gửi ẩn danh (bạn chưa đăng nhập).
+Sent with your LuxAI account.	Gửi bằng tài khoản LuxAI của bạn.
+Something else	Điều khác
+System information that will be attached (anonymised)	Thông tin hệ thống sẽ đính kèm (đã ẩn danh)
+The e-mail address does not look valid.	Địa chỉ email có vẻ không hợp lệ.
+The message must have 10 to 8000 characters.	Tin nhắn phải có từ 10 đến 8000 ký tự.
+The report could not be prepared.	Không thể chuẩn bị báo cáo.
+The report could not be saved: {0}	Không thể lưu báo cáo: {0}
+The report is too large. Try it without the screenshot.	Báo cáo quá lớn. Hãy thử không kèm ảnh chụp màn hình.
+The screenshot could not be accepted. Try it without the screenshot.	Không thể chấp nhận ảnh chụp màn hình. Hãy thử không kèm ảnh.
+The screenshot could not be taken ({0}); the report is sent without one.	Không thể chụp ảnh màn hình ({0}); báo cáo được gửi mà không có.
+The screenshot is too large; the report is sent without one.	Ảnh chụp màn hình quá lớn; báo cáo được gửi mà không có.
+Type:	Loại:
+You can save the report; the Feedback app will send it automatically later.	Bạn có thể lưu báo cáo; ứng dụng Phản hồi sẽ tự động gửi sau.
+You have sent many reports in a short time. Please try again later.	Bạn đã gửi nhiều báo cáo trong thời gian ngắn. Vui lòng thử lại sau.
+At most {0} attachments can be added to one message.	Tối đa {0} tệp đính kèm có thể thêm vào một tin nhắn.
+At most {0} images can be added to one message.	Tối đa {0} hình ảnh có thể thêm vào một tin nhắn.
+Attach	Đính kèm
+Attach images or files	Đính kèm hình ảnh hoặc tệp
+Feeds a password to sudo or su (use pkexec instead)	Cung cấp mật khẩu cho sudo hoặc su (hãy dùng pkexec thay thế)
+Pasted image	Hình ảnh đã dán
+Remove attachment	Xóa tệp đính kèm
+The current model cannot see images. They stay in the conversation and are sent when you switch to a model that can see images.	Mô hình hiện tại không thể xem hình ảnh. Chúng vẫn ở trong cuộc trò chuyện và được gửi khi bạn chuyển sang mô hình có thể xem hình ảnh.
+{0} cannot be attached: only images and text files are supported.	{0} không thể đính kèm: chỉ hỗ trợ hình ảnh và tệp văn bản.
+{0} cannot be read as an image.	{0} không thể đọc dưới dạng hình ảnh.
+{0} cannot be read: {1}	{0} không thể đọc: {1}
+{0} is long; only its beginning is attached.	{0} dài; chỉ phần đầu được đính kèm.
+{0} is too large to attach.	{0} quá lớn để đính kèm.
+Administrator commands	Lệnh quản trị viên
+Administrator mode was not turned on	Chế độ quản trị viên chưa được bật
+Ask for the password every time	Hỏi mật khẩu mỗi lần
+Password once for 5 minutes, approve each command	Mật khẩu một lần trong 5 phút, phê duyệt từng lệnh
+Password once for 5 minutes, without asking	Mật khẩu một lần trong 5 phút, không hỏi
+Commands the agent runs as administrator (root). Administrator mode: you enter the administrator password once and for about 5 minutes LuxAI runs administrator commands without asking for it again; only this LuxAI window gets it, other programs still need the password. Requests sent to LuxAI by other programs always need your approval. Only with the Flash model; Lite always asks for the password. Destructive commands (deleting the system or home folder, formatting disks, removing the bootloader, changing accounts, sudo or polkit) are always refused. Every command is logged in ~/.local/state/luxai/root-commands.log.	Các lệnh tác nhân chạy với tư cách quản trị viên (root). Chế độ quản trị viên: bạn nhập mật khẩu quản trị viên một lần và trong khoảng 5 phút LuxAI chạy các lệnh quản trị viên mà không hỏi lại; chỉ cửa sổ LuxAI này nhận được, các chương trình khác vẫn cần mật khẩu. Yêu cầu do chương trình khác gửi tới LuxAI luôn cần bạn phê duyệt. Chỉ với mô hình Flash; Lite luôn hỏi mật khẩu. Các lệnh phá hủy (xóa hệ thống hoặc thư mục chính, định dạng đĩa, xóa bộ nạp khởi động, thay đổi tài khoản, sudo hoặc polkit) luôn bị từ chối. Mọi lệnh đều được ghi vào ~/.local/state/luxai/root-commands.log.
+The request came from another program, not from the LuxAI window	Yêu cầu đến từ chương trình khác, không phải từ cửa sổ LuxAI
+Changes LuxAI administrator mode, settings or account	Thay đổi chế độ quản trị viên, cài đặt hoặc tài khoản LuxAI
+Changes owner or permissions of the whole system or a system folder	Thay đổi chủ sở hữu hoặc quyền của toàn bộ hệ thống hoặc thư mục hệ thống
+Changes sudo, polkit or PAM configuration	Thay đổi cấu hình sudo, polkit hoặc PAM
+Crashes or instantly reboots the kernel	Làm sập hoặc khởi động lại kernel ngay lập tức
+Deletes the whole system, a system folder or a home folder	Xóa toàn bộ hệ thống, thư mục hệ thống hoặc thư mục chính
+Disables package signature checks	Vô hiệu hóa kiểm tra chữ ký gói
+Formats, wipes or writes directly to a disk	Định dạng, xóa sạch hoặc ghi trực tiếp vào đĩa
+LuxAI administrator mode is not installed (update LuxAI)	Chế độ quản trị viên của LuxAI chưa được cài đặt (hãy cập nhật LuxAI)
+Removes the bootloader, the EFI partition, kernels or core system packages	Xóa bộ nạp khởi động, phân vùng EFI, kernel hoặc gói hệ thống cốt lõi
+Runs a script downloaded from the internet as administrator	Chạy tập lệnh tải từ internet với tư cách quản trị viên
+Runs as administrator (root)	Chạy với tư cách quản trị viên (root)
+Runs generated or hidden code as administrator, which cannot be checked	Chạy mã được tạo hoặc ẩn với tư cách quản trị viên, không thể kiểm tra được
+The administrator password was not entered	Chưa nhập mật khẩu quản trị viên
+The target of a destructive command cannot be verified (variable, substitution or unknown folder)	Không thể xác minh đích của lệnh phá hủy (biến, thay thế hoặc thư mục không xác định)
+Installs community (AUR) code, which is not checked by LuxOS	Cài đặt mã cộng đồng (AUR), không được LuxOS kiểm tra
+Copy code	Sao chép mã
+Copy the whole answer	Sao chép toàn bộ câu trả lời
+Read web page	Đọc trang web
+Search the web	Tìm kiếm trên web
+Web content is in this conversation and may contain hidden instructions	Nội dung web có trong cuộc trò chuyện này và có thể chứa hướng dẫn ẩn
+Web content is in this conversation: check this command carefully	Nội dung web có trong cuộc trò chuyện này: hãy kiểm tra kỹ lệnh này
+{0} characters of text	{0} ký tự văn bản
+LuxAI wants to open this web address:	LuxAI muốn mở địa chỉ web này:
+This address was not given by you or found by web search; it could send data from this conversation to that website	Địa chỉ này không do bạn cung cấp hay tìm thấy qua tìm kiếm web; nó có thể gửi dữ liệu từ cuộc trò chuyện này tới trang web đó
+Address of a point	Địa chỉ của một điểm
+Arrivals	Chuyến đến
+By bike	Bằng xe đạp
+By car	Bằng ô tô
+Connections found: {0}	Đã tìm thấy kết nối: {0}
+Current location	Vị trí hiện tại
+Departures	Chuyến đi
+Find on map	Tìm trên bản đồ
+Location is not allowed. Open Maps and click the location button once to allow it.	Vị trí không được phép. Mở Maps và nhấp nút vị trí một lần để cho phép.
+LuxOS Maps is not installed (lux install luxos-maps).	LuxOS Maps chưa được cài đặt (lux install luxos-maps).
+Map data © OpenStreetMap contributors	Dữ liệu bản đồ © những người đóng góp OpenStreetMap
+No connection found	Không tìm thấy kết nối nào
+On foot	Đi bộ
+Open in Maps	Mở trong Maps
+Places found: {0}	Đã tìm thấy địa điểm: {0}
+Places nearby	Địa điểm gần đây
+Public transport	Phương tiện công cộng
+Public transport route	Tuyến phương tiện công cộng
+Route	Tuyến đường
+Show in Maps	Hiện trong Maps
+Shown in Maps	Đã hiện trong Maps
+The map service is busy. Try again later.	Dịch vụ bản đồ đang bận. Hãy thử lại sau.
+Timetable	Thời gian biểu
+Walk {0} m	Đi bộ {0} m
+cancelled	đã hủy
+direct	trực tiếp
+platform {0}	sân ga {0}
+{0} transfers	{0} lần chuyển tuyến
+The request is too large – the image or the conversation is too big. Start a new conversation or continue without the image.	Yêu cầu quá lớn – hình ảnh hoặc cuộc trò chuyện quá lớn. Hãy bắt đầu cuộc trò chuyện mới hoặc tiếp tục mà không có hình ảnh.
+This action requires confirmation on the computer	Hành động này cần xác nhận trên máy tính
+The request was stopped.	Yêu cầu đã bị dừng.
+Another request is still running. Wait for it to finish or cancel it.	Một yêu cầu khác vẫn đang chạy. Hãy chờ nó hoàn tất hoặc hủy nó.
+You are not signed in to LuxAI. Sign in in the LuxAI app on the computer.	Bạn chưa đăng nhập vào LuxAI. Hãy đăng nhập trong ứng dụng LuxAI trên máy tính.
+Calendar events	Sự kiện lịch
+New calendar event	Sự kiện lịch mới
+Change calendar event	Thay đổi sự kiện lịch
+Delete calendar event	Xóa sự kiện lịch
+Adds an event to your LuxOS Calendar	Thêm sự kiện vào Lịch LuxOS của bạn
+Changes an event in your LuxOS Calendar	Thay đổi sự kiện trong Lịch LuxOS của bạn
+Deletes an event from your LuxOS Calendar	Xóa sự kiện khỏi Lịch LuxOS của bạn
+Monday	Thứ Hai
+Tuesday	Thứ ba
+Wednesday	Thứ Tư
+Thursday	Thứ Năm
+Friday	Thứ Sáu
+Saturday	Thứ Bảy
+Sunday	Chủ Nhật
+all day	cả ngày
+Location: {0}	Vị trí: {0}
+Reminder: {0} min before	Nhắc nhở: trước {0} phút
+Calendar: {0}	Lịch: {0}
+Events: {0}	Sự kiện: {0}
+No events in this period.	Không có sự kiện nào trong khoảng thời gian này.
+… and {0} more	… và {0} nữa
+Before:	Trước:
+After:	Sau:
+Repeating event – the change applies to all its occurrences.	Sự kiện lặp lại – thay đổi áp dụng cho mọi lần xuất hiện của nó.
+Added to the calendar.	Đã thêm vào lịch.
+Changed in the calendar.	Đã thay đổi trong lịch.
+Deleted from the calendar.	Đã xóa khỏi lịch.
+Done.	Hoàn tất.
+Denied on the phone.	Đã từ chối trên điện thoại.
+Not approved on the phone in time.	Không được phê duyệt trên điện thoại kịp thời.
+Blocked by LuxAI safety rules.	Bị quy tắc an toàn của LuxAI chặn.
+This model is not available in LuxAI.	Mô hình này không khả dụng trong LuxAI.

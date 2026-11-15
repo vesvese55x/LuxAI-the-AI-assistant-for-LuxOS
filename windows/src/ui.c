@@ -88,31 +88,32 @@ typedef struct {
     const wchar_t *url;
     DWORD          col;
     int            cat;     /* 0=web 1=android 2=masaustu 3=yakinda */
+    int            icon;    /* RCDATA proje simgesi */
 } Proj;
 
 static const Proj g_projs[] = {
  { L"BS", L"BELGESELSEMO - Web Portalı (HD Belgesel & Araçlar)",
-   L"https://belgeselsemo.com.tr", 0xFF0EA5E9, 0 },
+   L"https://belgeselsemo.com.tr", 0xFF0EA5E9, 0, 201},
  { L"YT", L"BELGESELSEMO Learn & Explore - YouTube",
-   L"https://www.youtube.com/@belgeselsemo55", 0xFFEF4444, 0 },
+   L"https://www.youtube.com/@belgeselsemo55", 0xFFEF4444, 0, 202},
  { L"MP", L"MATPAY - Matematik Paylaşımları (Lisans Notları)",
-   L"http://matpay.blogspot.com", 0xFF6366F1, 0 },
+   L"http://matpay.blogspot.com", 0xFF6366F1, 0, 203},
  { L"FX", L"BELGESELSEMOFLIX - Masaüstü Medya & Araç Üssü",
-   L"https://github.com/vesvese55x/belgeselsemoflix", 0xFF10B981, 2 },
+   L"https://github.com/vesvese55x/belgeselsemoflix", 0xFF10B981, 2, 204},
  { L"EPG", L"BELGESELSEMO TV Rehberi / TV Guide (EPG)",
-   L"https://play.google.com/store/apps/details?id=com.belgeselsemo.epgviewer", 0xFF22C55E, 1 },
+   L"https://play.google.com/store/apps/details?id=com.belgeselsemo.epgviewer", 0xFF22C55E, 1, 205},
  { L"BS", L"BELGESELSEMO - HD Belgesel & 20+ Günlük Araç (Android)",
-   L"https://play.google.com/store/apps/details?id=com.belgeselsemo.tr", 0xFF22C55E, 1 },
+   L"https://play.google.com/store/apps/details?id=com.belgeselsemo.tr", 0xFF22C55E, 1, 201},
  { L"N7", L"Nöbetçi Eczaneler 7/24 TR-KKTC (Nobetci Eczane)",
-   L"https://play.google.com/store/apps/details?id=com.belgeselsemo.nb724", 0xFFEF4444, 1 },
+   L"https://play.google.com/store/apps/details?id=com.belgeselsemo.nb724", 0xFFEF4444, 1, 206},
  { L"NT", L"NUTUK 1919-1927 - Sesli Kitap, Sözlük & Yarışma",
-   L"https://play.google.com/store/apps/details?id=com.belgeselsemo.nutuk", 0xFFF59E0B, 1 },
+   L"https://play.google.com/store/apps/details?id=com.belgeselsemo.nutuk", 0xFFF59E0B, 1, 207},
  { L"TR", L"BELGESELSEMO TRIVIA - Online Bilgi Yarışması",
-   L"https://play.google.com/store/apps/details?id=com.belgeselsemo.trivia", 0xFFA855F7, 1 },
+   L"https://play.google.com/store/apps/details?id=com.belgeselsemo.trivia", 0xFFA855F7, 1, 208},
  { L"RE", L"BELGESELSEMO RETRO EMULATOR - Çapraz Platform",
-   L"https://belgeselsemo.com.tr", 0xFF38BDF8, 3 },
+   L"https://belgeselsemo.com.tr", 0xFF38BDF8, 3, 209},
  { L"EC", L"BELGESELSEMO ECONOMY - Android",
-   L"https://belgeselsemo.com.tr", 0xFF10B981, 3 },
+   L"https://belgeselsemo.com.tr", 0xFF10B981, 3, 210},
 };
 #define NPROJ ((int)(sizeof g_projs / sizeof g_projs[0]))
 
@@ -1500,7 +1501,8 @@ static void draw_projects(void)
         sk_rline(r.x, r.y, r.w, r.h, 12, hov ? SK.accent : SK.border, 1);
         DWORD col = g_projs[i].col;
         sk_round(r.x + 12, r.y + 19, 44, 44, 12, (col & 0x00FFFFFF) | 0x33000000);
-        sk_text_box(r.x + 12, r.y + 19, 44, 44, g_projs[i].badge, 13, 800, 0, col, 1);
+        if (!sk_png_res(g_projs[i].icon, r.x + 14, r.y + 21, 40, 40))
+            sk_text_box(r.x + 12, r.y + 19, 44, 44, g_projs[i].badge, 13, 800, 0, col, 1);
         /* baslik: en fazla iki satir, tasarsa uc nokta */
         double tw = r.w - 86;
         const wchar_t *t = g_projs[i].title;
@@ -1647,6 +1649,15 @@ static void draw_all(double w, double h)
         draw_messages();
     }
     if (g_page == 0 && g_composer_on) draw_composer();
+    if (g_page == 0 && !g_login_open) {
+        /* Sohbet alaninin altinda her zaman gorunen BELGESELSEMO notu */
+        wchar_t nb[1024], ab2[768];
+        T(S_ATTRIB, ab2, 768);
+        _snwprintf(nb, 1024, L"%s \u00b7 belgeselsemo.com.tr", ab2);
+        double fy = g_composer_on ? (L.composer.y - 20) : (h - 24);
+        if (fy > HS + 40)
+            sk_text_box(L.main.x + 16, fy, L.main.w - 32, 16, nb, 10, 400, 0, SK.dim, 1);
+    }
     if (g_login_open) draw_login(w, h);
     place_edits();
 }

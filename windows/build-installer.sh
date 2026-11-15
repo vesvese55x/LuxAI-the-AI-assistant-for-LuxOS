@@ -16,8 +16,8 @@ cat > build/setup_res.rc <<EOF
 202 RCDATA "$PWD/res/luxai.ico"
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 3,1,0,1
- PRODUCTVERSION 3,1,0,1
+ FILEVERSION 2,0,2,0
+ PRODUCTVERSION 2,0,2,0
  FILEFLAGSMASK 0x3fL
  FILEFLAGS 0x0L
  FILEOS VOS_NT_WINDOWS32
@@ -30,10 +30,10 @@ BEGIN
         BEGIN
             VALUE "CompanyName",      "BELGESELSEMO topluluk yapisi"
             VALUE "FileDescription",  "LuxAI Setup (native Windows, no WSL)"
-            VALUE "FileVersion",      "3.1.0.1"
+            VALUE "FileVersion",      "2.0.2.1"
             VALUE "OriginalFilename", "LuxAI-Setup.exe"
             VALUE "ProductName",      "LuxAI"
-            VALUE "ProductVersion",   "3.1.0-win.1"
+            VALUE "ProductVersion",   "2.0.2-win.1"
         END
     END
     BLOCK "VarFileInfo"

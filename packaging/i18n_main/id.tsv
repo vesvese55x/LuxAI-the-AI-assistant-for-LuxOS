@@ -1,0 +1,458 @@
+# LuxAI main UI (id) - BELGESELSEMO
+(empty file)	(file kosong)
+(empty)	(kosong)
+(no output)	(tidak ada keluaran)
+AI assistant that can work with your computer	Asisten AI yang dapat bekerja dengan komputer Anda
+About LuxAI	Tentang LuxAI
+Accesses private keys or passwords	Mengakses kunci privat atau kata sandi
+Accesses the LuxAI account token	Mengakses token akun LuxAI
+Agent	Agen
+Agent actions run without asking. Dangerous actions still need two confirmations. Resets when LuxAI restarts.	Tindakan agen berjalan tanpa bertanya. Tindakan berbahaya tetap memerlukan dua konfirmasi. Direset saat LuxAI dimulai ulang.
+Agent mode · Auto-approve is ON: actions run without asking (dangerous ones still ask twice).	Mode Agen · Persetujuan otomatis AKTIF: tindakan berjalan tanpa bertanya (yang berbahaya tetap bertanya dua kali).
+Agent mode · LuxAI can work with your computer. You approve every action that changes something.	Mode Agen · LuxAI dapat bekerja dengan komputer Anda. Anda menyetujui setiap tindakan yang mengubah sesuatu.
+Agent mode: I can run commands, manage files, open apps and control the mouse and keyboard – always with your approval.	Mode Agen: Saya dapat menjalankan perintah, mengelola file, membuka aplikasi, dan mengendalikan mouse dan keyboard – selalu dengan persetujuan Anda.
+Allow LuxAI to do this?	Perbolehkan LuxAI melakukan ini?
+Allow once	Izinkan sekali
+Allow once…	Izinkan sekali…
+Always for this session	Selalu untuk sesi ini
+Another conversation is already running on this account. Try again in a moment.	Percakapan lain sudah berjalan di akun ini. Coba lagi sebentar lagi.
+Are you sure? This can cause damage that cannot be undone.	Anda yakin? Ini dapat menyebabkan kerusakan yang tidak dapat dibatalkan.
+Arguments	Argumen
+Ask LuxAI to do something on your computer…	Mintalah LuxAI melakukan sesuatu di komputer Anda…
+Ask anything. Switch to Agent mode when you want me to do things on your computer.	Tanyakan apa saja. Beralihlah ke mode Agen bila Anda ingin saya melakukan sesuatu di komputer Anda.
+Attach screenshots for the current model. Turn on only if the model supports images; uses more tokens.	Lampirkan tangkapan layar untuk model saat ini. Aktifkan hanya jika model mendukung gambar; memakai lebih banyak token.
+Auto-approve actions	Setujui tindakan secara otomatis
+Blocked by safety rules	Diblokir oleh aturan keamanan
+Brainstorm	Brainstorming
+CONVERSATIONS	PERCAKAPAN
+Cancel	Batal
+Changes immutable file attributes	Mengubah atribut file yang tidak dapat diubah
+Changes permissions of the whole home folder or system	Mengubah izin seluruh folder home atau sistem
+Changes user accounts or passwords	Mengubah akun pengguna atau kata sandi
+Chat	Obrolan
+Chat with AI or let it work with your computer. Sign in with your LuxAI account – one account for all LuxOS apps.	Mengobrol dengan AI atau biarkan ia bekerja dengan komputer Anda. Masuk dengan akun LuxAI Anda – satu akun untuk semua aplikasi LuxOS.
+Click	Klik
+Close window	Tutup jendela
+Command timeout (seconds)	Batas waktu perintah (detik)
+Copied	Disalin
+Copy	Salin
+Create a free account	Buat akun gratis
+Create folder	Buat folder
+Delete	Hapus
+Delete conversation	Hapus percakapan
+Delete this conversation?	Hapus percakapan ini?
+Deletes all scheduled tasks	Menghapus semua tugas terjadwal
+Deletes all untracked files in the repository	Menghapus semua file tak terlacak di repositori
+Deletes files across the whole home folder or system	Menghapus file di seluruh folder home atau sistem
+Deletes the whole home folder or system	Menghapus seluruh folder home atau sistem
+Denied	Ditolak
+Deny	Tolak
+Details	Detail
+Done	Selesai
+Edit file	Edit file
+Ends your desktop session	Mengakhiri sesi desktop Anda
+Explain how HTTPS keeps my connection private, in simple terms.	Jelaskan bagaimana HTTPS menjaga koneksi saya tetap privat, dengan bahasa sederhana.
+Explain something	Jelaskan sesuatu
+Failed	Gagal
+Find files	Cari file
+Finish signing in in the LuxAI account window…	Selesaikan masuk di jendela akun LuxAI…
+Flash – smarter	Flash – lebih pintar
+Focus window	Fokus jendela
+Force-pushes and may overwrite remote history	Force-push dan dapat menimpa riwayat remote
+Fork bomb	Fork bomb
+Formats or wipes a disk	Memformat atau menghapus disk
+Free disk space	Ruang disk bebas
+Give me 5 ideas for a weekend trip in the Czech Republic.	Berikan saya 5 ide untuk perjalanan akhir pekan di Republik Ceko.
+Help with code	Bantuan kode
+How can I help you today?	Ada yang bisa saya bantu hari ini?
+How do I read a JSON file in Python? Show a short example.	Bagaimana cara membaca file JSON di Python? Tampilkan contoh singkat.
+It will be permanently removed from this computer.	Akan dihapus permanen dari komputer ini.
+Kills all processes or the desktop session	Mematikan semua proses atau sesi desktop
+List apps	Daftar aplikasi
+List folder	Daftar folder
+List the files in my Downloads folder grouped by type and suggest what to clean up.	Daftar file di folder Unduhan saya dikelompokkan menurut jenis dan sarankan apa yang dibersihkan.
+List windows	Daftar jendela
+Lite – faster, larger limit	Lite – lebih cepat, batas lebih besar
+Look at my screen	Lihat layar saya
+LuxAI account credentials are never read or changed by the agent	Kredensial akun LuxAI tidak pernah dibaca atau diubah oleh agen
+LuxAI account…	Akun LuxAI…
+LuxAI can make mistakes. Check important information.	LuxAI bisa membuat kesalahan. Periksa informasi penting.
+LuxAI can work with your computer using tools, with your approval	LuxAI dapat bekerja dengan komputer Anda menggunakan alat, dengan persetujuan Anda
+Message LuxAI…	Pesan LuxAI…
+Model	Model
+Model can see images	Model dapat melihat gambar
+Move	Pindahkan
+Move mouse	Gerakkan mouse
+Moves the whole home folder or system	Memindahkan seluruh folder home atau sistem
+Network error: {0}	Kesalahan jaringan: {0}
+New chat	Obrolan baru
+New conversation	Percakapan baru
+No conversations yet	Belum ada percakapan
+No result	Tidak ada hasil
+No windows	Tidak ada jendela
+Not signed in	Belum masuk
+Not signed in.	Belum masuk.
+Nothing found	Tidak ditemukan
+Notification	Notifikasi
+Offline – usage not available	Offline – penggunaan tidak tersedia
+Open a website	Buka situs web
+Open app	Buka aplikasi
+Open link	Buka tautan
+Open lux-ai.cz in the web browser.	Buka lux-ai.cz di browser web.
+Overwrites system files	Menimpa file sistem
+Plain conversation, no access to your computer	Percakapan biasa, tanpa akses ke komputer Anda
+Please sign in again to continue. Your conversations are kept on this computer.	Silakan masuk lagi untuk melanjutkan. Percakapan Anda tersimpan di komputer ini.
+Potentially dangerous action	Tindakan yang berpotensi berbahaya
+Press keys	Tekan tombol
+Read clipboard	Baca clipboard
+Read file	Baca file
+Recursively deletes a main personal folder	Menghapus folder pribadi utama secara rekursif
+Recursively deletes files outside your home folder	Menghapus file di luar folder home Anda secara rekursif
+Refusing to modify the root or home directory itself	Menolak mengubah direktori root atau home itu sendiri
+Removes firewall rules	Menghapus aturan firewall
+Removes installed system packages	Menghapus paket sistem yang terinstal
+Result	Hasil
+Run command	Jalankan perintah
+Running…	Berjalan…
+Runs a script downloaded from the internet	Menjalankan skrip yang diunduh dari internet
+Runs with administrator privileges	Berjalan dengan hak administrator
+Screenshot	Tangkapan layar
+Scroll	Gulir
+Search conversations	Cari percakapan
+Search text	Cari teks
+Searches the whole system	Mencari di seluruh sistem
+Send (Enter)	Kirim (Enter)
+Session expired	Sesi berakhir
+Settings	Pengaturan
+Show or hide the sidebar	Tampilkan atau sembunyikan sidebar
+Shuts down or restarts the computer	Mematikan atau memulai ulang komputer
+Sign in	Masuk
+Sign in again	Masuk lagi
+Sign in to continue this conversation.	Masuk untuk melanjutkan percakapan ini.
+Sign in with LuxAI account	Masuk dengan akun LuxAI
+Stop	Berhenti
+Stop the answer and any running command (Esc)	Hentikan jawaban dan perintah yang berjalan (Esc)
+Stopped	Dihentikan
+Stopped after too many steps. Send a message to continue.	Berhenti setelah terlalu banyak langkah. Kirim pesan untuk melanjutkan.
+Stopped.	Berhenti.
+Stopping…	Menghentikan…
+System info	Info sistem
+Take a screenshot and tell me which windows are open.	Ambil tangkapan layar dan beri tahu saya jendela apa yang terbuka.
+The LuxAI API endpoint was not found on the server.	Endpoint API LuxAI tidak ditemukan di server.
+The LuxAI service is not available right now.	Layanan LuxAI tidak tersedia saat ini.
+The LuxOS account tool (luxos-account) is not installed.	Alat akun LuxOS (luxos-account) tidak terinstal.
+The answer was cut off (length limit).	Jawaban terpotong (batas panjang).
+The file is run automatically at login	File dijalankan otomatis saat masuk
+The key combination may end your session	Kombinasi tombol dapat mengakhiri sesi Anda
+The model failed: {0}	Model gagal: {0}
+The monthly Flash limit is used up. Switch to Lite or wait for the next month.	Batas Flash bulanan telah habis. Beralihlah ke Lite atau tunggu bulan berikutnya.
+The monthly Lite limit is used up.	Batas Lite bulanan telah habis.
+The path is outside your home folder (system files)	Jalur berada di luar folder home Anda (file sistem)
+The path may contain passwords or keys	Jalur mungkin berisi kata sandi atau kunci
+The server did not respond in time.	Server tidak merespons tepat waktu.
+The server rejected the request (invalid chat).	Server menolak permintaan (obrolan tidak valid).
+The server returned a web page instead of an API response (HTTP {0}).	Server mengembalikan halaman web alih-alih respons API (HTTP {0}).
+The server returned an invalid response (HTTP {0}).	Server mengembalikan respons yang tidak valid (HTTP {0}).
+The server's web protection blocked the request (HTTP {0}).	Perlindungan web server memblokir permintaan (HTTP {0}).
+Thinking…	Berpikir…
+This may access private data	Ini dapat mengakses data privat
+Tidy up Downloads	Rapikan Unduhan
+Too many requests. Please wait a moment.	Terlalu banyak permintaan. Tunggu sebentar.
+Type text	Ketik teks
+Types a dangerous command	Mengetik perintah berbahaya
+Unsupported URL type	Jenis URL tidak didukung
+Waiting for your approval	Menunggu persetujuan Anda
+Welcome to LuxAI	Selamat datang di LuxAI
+What is using the most disk space in my home folder?	Apa yang paling banyak memakai ruang disk di folder home saya?
+Working folder	Folder kerja
+Write a short, friendly email inviting my team to a Friday lunch.	Tulis email singkat dan ramah yang mengundang tim saya makan siang Jumat.
+Write a text	Tulis teks
+Write file	Tulis file
+Writes directly to a disk device	Menulis langsung ke perangkat disk
+Yes, run it	Ya, jalankan
+Your LuxAI session has expired or is not valid. Please sign in again.	Sesi LuxAI Anda telah berakhir atau tidak valid. Silakan masuk lagi.
+Your session has expired	Sesi Anda telah berakhir
+code	kode
+folder	folder
+no images	tanpa gambar
+sees images	melihat gambar
+{0} open windows	{0} jendela terbuka
+{0}: {1} / {2} tokens this month	{0}: {1} / {2} token bulan ini
+{0}: {1} tokens this month	{0}: {1} token bulan ini
+{0}: {1} tokens this month · unlimited	{0}: {1} token bulan ini · tanpa batas
+You denied this action.	Anda menolak tindakan ini.
+Stopped before running.	Berhenti sebelum berjalan.
+AI behaviour	Perilaku AI
+Accesses LuxAI settings (including agent permissions)	Mengakses pengaturan LuxAI (termasuk izin agen)
+Account and settings	Akun dan pengaturan
+Add	Tambah
+Add folder…	Tambah folder…
+Added to every conversation. They cannot give the agent more permissions than set in Agent permissions.	Ditambahkan ke setiap percakapan. Instruksi tidak dapat memberi agen izin lebih dari yang diatur di Izin agen.
+After the first answer the fast Lite model suggests a short title. You can rename a conversation any time (right-click it in the sidebar).	Setelah jawaban pertama, model Lite yang cepat menyarankan judul singkat. Anda dapat mengganti nama percakapan kapan saja (klik kanan di sidebar).
+Agent permissions	Izin agen
+All saved conversations will be permanently removed from this computer.	Semua percakapan tersimpan akan dihapus permanen dari komputer ini.
+Allow	Izinkan
+Allow without asking	Izinkan tanpa bertanya
+Allowed folders	Folder yang diizinkan
+Always ask	Selalu tanya
+Answer length	Panjang jawaban
+Answers	Jawaban
+Appearance	Tampilan
+Application	Aplikasi
+Ask only for risky commands	Hanya tanya untuk perintah berisiko
+Attach screenshots in Agent mode. Turn on only if the model supports images.	Lampirkan tangkapan layar dalam mode Agen. Aktifkan hanya jika model mendukung gambar.
+Balanced	Seimbang
+Blocked folders	Folder yang diblokir
+Changing files is turned off in LuxAI settings	Mengubah file dimatikan di pengaturan LuxAI
+Clear all history…	Bersihkan semua riwayat…
+Clicking, typing, pressing keys and closing windows.	Mengklik, mengetik, menekan tombol, dan menutup jendela.
+Commands	Perintah
+Concise	Ringkas
+Control mouse and keyboard	Kendalikan mouse dan keyboard
+Conversation	Percakapan
+Conversations	Percakapan
+Creating, editing, moving and deleting files and folders.	Membuat, mengedit, memindahkan, dan menghapus file dan folder.
+Creativity (temperature)	Kreativitas (temperature)
+Ctrl+Enter (Enter for a new line)	Ctrl+Enter (Enter untuk baris baru)
+Custom instructions	Instruksi kustom
+Dangerous actions (deleting your home folder, formatting disks, shutting down …) always need two confirmations, and LuxAI never touches its account and settings files. "Always ask" still offers "Always for this session" on the approval card.	Tindakan berbahaya (menghapus folder home, memformat disk, mematikan …) selalu memerlukan dua konfirmasi, dan LuxAI tidak pernah menyentuh file akun dan pengaturannya. "Selalu tanya" tetap menawarkan "Selalu untuk sesi ini" pada kartu persetujuan.
+Dark	Gelap
+Data on this computer	Data di komputer ini
+Default model	Model bawaan
+Delete all	Hapus semua
+Delete all conversations?	Hapus semua percakapan?
+Delete screenshots	Hapus tangkapan layar
+Detailed	Terperinci
+Enter (Shift+Enter for a new line)	Enter (Shift+Enter untuk baris baru)
+Folders	Folder
+Friendly	Ramah
+General	Umum
+History	Riwayat
+History is turned off	Riwayat dimatikan
+If you add folders here, the agent can work with files only inside them. Empty = anywhere (system files need extra confirmation).	Jika Anda menambahkan folder di sini, agen hanya dapat bekerja dengan file di dalamnya. Kosong = di mana saja (file sistem butuh konfirmasi ekstra).
+Keep conversation history	Simpan riwayat percakapan
+Keyboard shortcuts	Pintasan keyboard
+Language	Bahasa
+Light	Terang
+Limits from Settings › Agent permissions apply.	Batas dari Pengaturan › Izin agen berlaku.
+Long	Panjang
+Long-running commands are stopped after this time.	Perintah yang berjalan lama dihentikan setelah waktu ini.
+LuxAI also remembers the mode you used last.	LuxAI juga mengingat mode terakhir yang Anda gunakan.
+LuxAI answered	LuxAI menjawab
+LuxAI needs your approval	LuxAI memerlukan persetujuan Anda
+Manage account	Kelola akun
+Maximum length of one answer. Agent mode always keeps enough room for its tools.	Panjang maksimum satu jawaban. Mode Agen selalu menyisakan ruang cukup untuk alatnya.
+Messages	Pesan
+Mode for new conversations	Mode untuk percakapan baru
+Mouse and keyboard control is turned off in LuxAI settings	Kendali mouse dan keyboard dimatikan di pengaturan LuxAI
+Name	Nama
+Name conversations automatically	Beri nama percakapan otomatis
+Network access	Akses jaringan
+Network access is turned off in LuxAI settings	Akses jaringan dimatikan di pengaturan LuxAI
+Never	Tidak pernah
+New line	Baris baru
+No folders	Tidak ada folder
+Normal	Normal
+Notifications	Notifikasi
+Notify me when LuxAI finishes an answer or needs my approval while the window is in the background.	Beri tahu saya bila LuxAI selesai menjawab atau memerlukan persetujuan saya saat jendela di latar belakang.
+Off = the model's default. Lower is more precise, higher more creative. Applied only if the model supports it.	Mati = bawaan model. Lebih rendah lebih presisi, lebih tinggi lebih kreatif. Diterapkan hanya bila model mendukungnya.
+Open apps and links	Buka aplikasi dan tautan
+Opening apps and links is turned off in LuxAI settings	Membuka aplikasi dan tautan dimatikan di pengaturan LuxAI
+Opening web links, downloads and network tools (curl, git clone, package installs). Detected from the command – for strict isolation also set Run commands to Never.	Membuka tautan web, unduhan, dan alat jaringan (curl, git clone, instalasi paket). Dideteksi dari perintah – untuk isolasi ketat atur juga Jalankan perintah ke Tidak pernah.
+Privacy & history	Privasi & riwayat
+Private files (keys, passwords, .env) always need your confirmation.	File privat (kunci, kata sandi, .env) selalu memerlukan konfirmasi Anda.
+Quit	Keluar
+Read files	Baca file
+Reading files is turned off in LuxAI settings	Membaca file dimatikan di pengaturan LuxAI
+Relative paths and commands start here.	Jalur relatif dan perintah dimulai di sini.
+Remove	Hapus
+Rename	Ganti nama
+Rename conversation	Ganti nama percakapan
+Rename…	Ganti nama…
+Response style	Gaya respons
+Run commands	Jalankan perintah
+Running commands is turned off in LuxAI settings	Menjalankan perintah dimatikan di pengaturan LuxAI
+Same as my message	Sama seperti pesan saya
+Same as system	Sama seperti sistem
+Saved conversations	Percakapan tersimpan
+Screenshots	Tangkapan layar
+Screenshots and clipboard	Tangkapan layar dan clipboard
+Screenshots and clipboard are turned off in LuxAI settings	Tangkapan layar dan clipboard dimatikan di pengaturan LuxAI
+Screenshots taken by the agent	Tangkapan layar yang diambil agen
+Send message	Kirim pesan
+Send message with	Kirim pesan dengan
+Sends what is on your screen or in the clipboard to the model.	Mengirim apa yang ada di layar atau clipboard Anda ke model.
+Settings file	File pengaturan
+Settings…	Pengaturan…
+Shell commands are checked for blocked folders in their paths, but a command cannot be fully confined. Set Run commands to Never for strict folder limits.	Perintah shell diperiksa folder yang diblokir di jalurnya, tetapi perintah tidak dapat dibatasi sepenuhnya. Atur Jalankan perintah ke Tidak pernah untuk batas folder yang ketat.
+Short	Pendek
+Sign in with your LuxAI account to chat.	Masuk dengan akun LuxAI Anda untuk mengobrol.
+Sign out	Keluar
+Sign out of LuxAI?	Keluar dari LuxAI?
+Sign out…	Keluar…
+Signing out failed. Try again in the LuxAI account app.	Gagal keluar. Coba lagi di aplikasi akun LuxAI.
+Start	Mulai
+Stop the answer or command	Hentikan jawaban atau perintah
+Technical	Teknis
+The agent never reads or changes anything in these folders.	Agen tidak pernah membaca atau mengubah apa pun di folder ini.
+The folder is blocked in LuxAI settings	Folder diblokir di pengaturan LuxAI
+The path is outside the folders allowed in LuxAI settings	Jalur berada di luar folder yang diizinkan di pengaturan LuxAI
+Theme	Tema
+Used for new conversations. You can switch it any time in the toolbar.	Digunakan untuk percakapan baru. Anda dapat menggantinya kapan saja di toolbar.
+Uses the network	Menggunakan jaringan
+What Agent mode may do	Apa yang boleh dilakukan mode Agen
+What should LuxAI know about you or how should it answer? E.g. "Call me Tom. Prefer metric units and short answers."	Apa yang harus LuxAI ketahui tentang Anda atau bagaimana ia harus menjawab? Mis. "Panggil saya Budi. Utamakan satuan metrik dan jawaban singkat."
+When off, new conversations are not saved on this computer and disappear when you close them.	Saat mati, percakapan baru tidak disimpan di komputer ini dan hilang saat Anda menutupnya.
+With "risky only", read-only commands such as ls, df or git status run without asking.	Dengan "hanya yang berisiko", perintah hanya-baca seperti ls, df, atau git status berjalan tanpa bertanya.
+Write and delete files	Tulis dan hapus file
+You will be signed out of your LuxAI account in all LuxOS apps on this computer. Your conversations stay on this computer.	Anda akan keluar dari akun LuxAI di semua aplikasi LuxOS di komputer ini. Percakapan Anda tetap di komputer ini.
+Your messages are sent to the LuxAI service (lux-ai.cz) to generate answers and titles. The agent runs tools only on this computer.	Pesan Anda dikirim ke layanan LuxAI (lux-ai.cz) untuk menghasilkan jawaban dan judul. Agen hanya menjalankan alat di komputer ini.
+{0} can see images	{0} dapat melihat gambar
+{0} conversations saved	{0} percakapan tersimpan
+{0} screenshots	{0} tangkapan layar
+(preview not available)	(pratinjau tidak tersedia)
+Bug report	Laporan bug
+Contact e-mail for a reply: {0}	Email kontak untuk balasan: {0}
+Don't send	Jangan kirim
+Idea	Ide
+LuxOS could not reach the server. Check the internet connection.	LuxOS tidak dapat menjangkau server. Periksa koneksi internet.
+No graphical session; the report is sent without a screenshot.	Tidak ada sesi grafis; laporan dikirim tanpa tangkapan layar.
+No screenshot will be attached.	Tidak ada tangkapan layar yang dilampirkan.
+No system information will be attached.	Tidak ada informasi sistem yang dilampirkan.
+Report sent. Report ID: {0}	Laporan terkirim. ID laporan: {0}
+Report text:	Teks laporan:
+Report to LuxOS	Laporkan ke LuxOS
+Search LuxOS docs	Cari dokumentasi LuxOS
+Read LuxOS docs	Baca dokumentasi LuxOS
+Save and send later	Simpan dan kirim nanti
+Saved. The Feedback app will send the report when you are online.	Tersimpan. Aplikasi Umpan Balik akan mengirim laporan saat Anda online.
+Screenshot that will be attached ({0} kB)	Tangkapan layar yang akan dilampirkan ({0} kB)
+Screenshots are turned off in LuxAI settings; the report is sent without one.	Tangkapan layar dimatikan di pengaturan LuxAI; laporan dikirim tanpa tangkapan layar.
+Send report	Kirim laporan
+Send this report to the author of LuxOS?	Kirim laporan ini ke penulis LuxOS?
+Sending failed ({0}).	Pengiriman gagal ({0}).
+Sends the report and attachments shown in this card to the author of LuxOS	Mengirim laporan dan lampiran yang ditampilkan di kartu ini ke penulis LuxOS
+Sent anonymously (you are not signed in).	Dikirim secara anonim (Anda belum masuk).
+Sent with your LuxAI account.	Dikirim dengan akun LuxAI Anda.
+Something else	Hal lain
+System information that will be attached (anonymised)	Informasi sistem yang akan dilampirkan (dianonimkan)
+The e-mail address does not look valid.	Alamat email tampaknya tidak valid.
+The message must have 10 to 8000 characters.	Pesan harus 10 hingga 8000 karakter.
+The report could not be prepared.	Laporan tidak dapat disiapkan.
+The report could not be saved: {0}	Laporan tidak dapat disimpan: {0}
+The report is too large. Try it without the screenshot.	Laporan terlalu besar. Coba tanpa tangkapan layar.
+The screenshot could not be accepted. Try it without the screenshot.	Tangkapan layar tidak dapat diterima. Coba tanpa tangkapan layar.
+The screenshot could not be taken ({0}); the report is sent without one.	Tangkapan layar tidak dapat diambil ({0}); laporan dikirim tanpanya.
+The screenshot is too large; the report is sent without one.	Tangkapan layar terlalu besar; laporan dikirim tanpanya.
+Type:	Jenis:
+You can save the report; the Feedback app will send it automatically later.	Anda dapat menyimpan laporan; aplikasi Umpan Balik akan mengirimnya otomatis nanti.
+You have sent many reports in a short time. Please try again later.	Anda telah mengirim banyak laporan dalam waktu singkat. Coba lagi nanti.
+At most {0} attachments can be added to one message.	Paling banyak {0} lampiran dapat ditambahkan ke satu pesan.
+At most {0} images can be added to one message.	Paling banyak {0} gambar dapat ditambahkan ke satu pesan.
+Attach	Lampirkan
+Attach images or files	Lampirkan gambar atau file
+Feeds a password to sudo or su (use pkexec instead)	Memasukkan kata sandi ke sudo atau su (gunakan pkexec sebagai gantinya)
+Pasted image	Gambar yang ditempel
+Remove attachment	Hapus lampiran
+The current model cannot see images. They stay in the conversation and are sent when you switch to a model that can see images.	Model saat ini tidak dapat melihat gambar. Gambar tetap dalam percakapan dan dikirim saat Anda beralih ke model yang dapat melihat gambar.
+{0} cannot be attached: only images and text files are supported.	{0} tidak dapat dilampirkan: hanya gambar dan file teks yang didukung.
+{0} cannot be read as an image.	{0} tidak dapat dibaca sebagai gambar.
+{0} cannot be read: {1}	{0} tidak dapat dibaca: {1}
+{0} is long; only its beginning is attached.	{0} panjang; hanya awalnya yang dilampirkan.
+{0} is too large to attach.	{0} terlalu besar untuk dilampirkan.
+Administrator commands	Perintah administrator
+Administrator mode was not turned on	Mode administrator tidak diaktifkan
+Ask for the password every time	Minta kata sandi setiap kali
+Password once for 5 minutes, approve each command	Kata sandi sekali untuk 5 menit, setujui setiap perintah
+Password once for 5 minutes, without asking	Kata sandi sekali untuk 5 menit, tanpa bertanya
+Commands the agent runs as administrator (root). Administrator mode: you enter the administrator password once and for about 5 minutes LuxAI runs administrator commands without asking for it again; only this LuxAI window gets it, other programs still need the password. Requests sent to LuxAI by other programs always need your approval. Only with the Flash model; Lite always asks for the password. Destructive commands (deleting the system or home folder, formatting disks, removing the bootloader, changing accounts, sudo or polkit) are always refused. Every command is logged in ~/.local/state/luxai/root-commands.log.	Perintah yang dijalankan agen sebagai administrator (root). Mode administrator: Anda memasukkan kata sandi administrator sekali dan selama sekitar 5 menit LuxAI menjalankan perintah administrator tanpa memintanya lagi; hanya jendela LuxAI ini yang mendapatkannya, program lain tetap butuh kata sandi. Permintaan yang dikirim ke LuxAI oleh program lain selalu memerlukan persetujuan Anda. Hanya dengan model Flash; Lite selalu meminta kata sandi. Perintah merusak (menghapus sistem atau folder home, memformat disk, menghapus bootloader, mengubah akun, sudo atau polkit) selalu ditolak. Setiap perintah dicatat di ~/.local/state/luxai/root-commands.log.
+The request came from another program, not from the LuxAI window	Permintaan berasal dari program lain, bukan dari jendela LuxAI
+Changes LuxAI administrator mode, settings or account	Mengubah mode administrator, pengaturan, atau akun LuxAI
+Changes owner or permissions of the whole system or a system folder	Mengubah pemilik atau izin seluruh sistem atau folder sistem
+Changes sudo, polkit or PAM configuration	Mengubah konfigurasi sudo, polkit, atau PAM
+Crashes or instantly reboots the kernel	Merusak atau memulai ulang kernel seketika
+Deletes the whole system, a system folder or a home folder	Menghapus seluruh sistem, folder sistem, atau folder home
+Disables package signature checks	Menonaktifkan pemeriksaan tanda tangan paket
+Formats, wipes or writes directly to a disk	Memformat, menghapus, atau menulis langsung ke disk
+LuxAI administrator mode is not installed (update LuxAI)	Mode administrator LuxAI tidak terinstal (perbarui LuxAI)
+Removes the bootloader, the EFI partition, kernels or core system packages	Menghapus bootloader, partisi EFI, kernel, atau paket sistem inti
+Runs a script downloaded from the internet as administrator	Menjalankan skrip yang diunduh dari internet sebagai administrator
+Runs as administrator (root)	Berjalan sebagai administrator (root)
+Runs generated or hidden code as administrator, which cannot be checked	Menjalankan kode yang dihasilkan atau tersembunyi sebagai administrator, yang tidak dapat diperiksa
+The administrator password was not entered	Kata sandi administrator tidak dimasukkan
+The target of a destructive command cannot be verified (variable, substitution or unknown folder)	Target perintah merusak tidak dapat diverifikasi (variabel, substitusi, atau folder tak dikenal)
+Installs community (AUR) code, which is not checked by LuxOS	Menginstal kode komunitas (AUR), yang tidak diperiksa oleh LuxOS
+Copy code	Salin kode
+Copy the whole answer	Salin seluruh jawaban
+Read web page	Baca halaman web
+Search the web	Cari di web
+Web content is in this conversation and may contain hidden instructions	Konten web ada dalam percakapan ini dan mungkin berisi instruksi tersembunyi
+Web content is in this conversation: check this command carefully	Konten web ada dalam percakapan ini: periksa perintah ini dengan cermat
+{0} characters of text	{0} karakter teks
+LuxAI wants to open this web address:	LuxAI ingin membuka alamat web ini:
+This address was not given by you or found by web search; it could send data from this conversation to that website	Alamat ini tidak diberikan oleh Anda atau ditemukan lewat pencarian web; alamat ini dapat mengirim data dari percakapan ini ke situs web tersebut
+Address of a point	Alamat suatu titik
+Arrivals	Kedatangan
+By bike	Dengan sepeda
+By car	Dengan mobil
+Connections found: {0}	Koneksi ditemukan: {0}
+Current location	Lokasi saat ini
+Departures	Keberangkatan
+Find on map	Temukan di peta
+Location is not allowed. Open Maps and click the location button once to allow it.	Lokasi tidak diizinkan. Buka Maps dan klik tombol lokasi sekali untuk mengizinkannya.
+LuxOS Maps is not installed (lux install luxos-maps).	LuxOS Maps tidak terinstal (lux install luxos-maps).
+Map data © OpenStreetMap contributors	Data peta © kontributor OpenStreetMap
+No connection found	Tidak ada koneksi ditemukan
+On foot	Jalan kaki
+Open in Maps	Buka di Maps
+Places found: {0}	Tempat ditemukan: {0}
+Places nearby	Tempat di sekitar
+Public transport	Transportasi umum
+Public transport route	Rute transportasi umum
+Route	Rute
+Show in Maps	Tampilkan di Maps
+Shown in Maps	Ditampilkan di Maps
+The map service is busy. Try again later.	Layanan peta sibuk. Coba lagi nanti.
+Timetable	Jadwal
+Walk {0} m	Jalan {0} m
+cancelled	dibatalkan
+direct	langsung
+platform {0}	peron {0}
+{0} transfers	{0} kali transit
+The request is too large – the image or the conversation is too big. Start a new conversation or continue without the image.	Permintaan terlalu besar – gambar atau percakapan terlalu besar. Mulai percakapan baru atau lanjutkan tanpa gambar.
+This action requires confirmation on the computer	Tindakan ini memerlukan konfirmasi di komputer
+The request was stopped.	Permintaan dihentikan.
+Another request is still running. Wait for it to finish or cancel it.	Permintaan lain masih berjalan. Tunggu hingga selesai atau batalkan.
+You are not signed in to LuxAI. Sign in in the LuxAI app on the computer.	Anda belum masuk ke LuxAI. Masuklah di aplikasi LuxAI di komputer.
+Calendar events	Acara kalender
+New calendar event	Acara kalender baru
+Change calendar event	Ubah acara kalender
+Delete calendar event	Hapus acara kalender
+Adds an event to your LuxOS Calendar	Menambahkan acara ke Kalender LuxOS Anda
+Changes an event in your LuxOS Calendar	Mengubah acara di Kalender LuxOS Anda
+Deletes an event from your LuxOS Calendar	Menghapus acara dari Kalender LuxOS Anda
+Monday	Senin
+Tuesday	Selasa
+Wednesday	Rabu
+Thursday	Kamis
+Friday	Jumat
+Saturday	Sabtu
+Sunday	Minggu
+all day	sepanjang hari
+Location: {0}	Lokasi: {0}
+Reminder: {0} min before	Pengingat: {0} menit sebelumnya
+Calendar: {0}	Kalender: {0}
+Events: {0}	Acara: {0}
+No events in this period.	Tidak ada acara dalam periode ini.
+… and {0} more	… dan {0} lagi
+Before:	Sebelum:
+After:	Sesudah:
+Repeating event – the change applies to all its occurrences.	Acara berulang – perubahan berlaku untuk semua kemunculannya.
+Added to the calendar.	Ditambahkan ke kalender.
+Changed in the calendar.	Diubah di kalender.
+Deleted from the calendar.	Dihapus dari kalender.
+Done.	Selesai.
+Denied on the phone.	Ditolak di ponsel.
+Not approved on the phone in time.	Tidak disetujui di ponsel tepat waktu.
+Blocked by LuxAI safety rules.	Diblokir oleh aturan keamanan LuxAI.
+This model is not available in LuxAI.	Model ini tidak tersedia di LuxAI.

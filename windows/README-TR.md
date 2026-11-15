@@ -1,12 +1,12 @@
 # LuxAI — Native Windows (WSL'siz) sürüm
 
-**LuxAI 3.1.0-win.1** · Windows 7 SP1 / 8 / 8.1 / 10 / 11 · x64 · tek dosya · kurulum gerekmez
+**LuxAI 2.0.2-win.1** · Windows 7 SP1 / 8 / 8.1 / 10 / 11 · x64 · tek dosya · kurulum gerekmez
 
 Bu, `LuxAI-the-AI-assistant-for-LuxOS` deposundaki **LuxAI protokolunu** (aynı hesap, aynı
 `lux-ai.cz` uç noktası, aynı SSE akışı) uygulayan, **sıfırdan C ile yazılmış native Win32
 istemcisidir**. GTK yok, WSL yok, .NET yok, harici DLL yok.
 
-> ❗ Orijinal `LuxAI-3.1.0-Setup.exe` bir Windows programı değildi: WSL kurup içine `.deb`
+> ❗ Orijinal `LuxAI-2.0.2-Setup.exe` bir Windows programı değildi: WSL kurup içine `.deb`
 > yükleyen bir araçtı (WSL'siz native şart). Bu port ise **doğrudan Windows uygulaması**dır.
 > Neden orijinali kaynaktan derlemenin mümkün olmadığı: `../ANALIZ.md` (bölüm 11).
 

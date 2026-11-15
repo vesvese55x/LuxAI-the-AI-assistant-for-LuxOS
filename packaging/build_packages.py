@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build luxai 3.1.0 packages: .deb, .rpm, Arch .pkg.tar.zst, .AppImage.
+"""Build luxai 2.0.2 packages: .deb, .rpm, Arch .pkg.tar.zst, .AppImage.
 Runs without root: dpkg-deb --root-owner-group, rpmbuild with user topdir,
 tar --owner=0, mksquashfs -all-root + AppImageKit type-2 runtime.
 """
@@ -13,7 +13,7 @@ BLD = f"{W}/build"
 DIST = f"{W}/dist"
 TOOLBIN = os.environ.get("TOOLBIN", f"{W}/tools/root/usr/bin")
 TOOLLIB = os.environ.get("TOOLLIB", "")
-VERSION = "3.1.0"
+VERSION = "2.0.2"
 RELEASE = "1"
 def tool(name):
     p = f"{TOOLBIN}/{name}"

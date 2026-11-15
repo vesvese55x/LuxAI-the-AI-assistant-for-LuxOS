@@ -1,8 +1,8 @@
-# LuxAI 3.1.0 — %100 çok dilli sürüm (Linux + Windows native)
+# LuxAI 2.0.2 — %100 çok dilli sürüm (Linux + Windows native)
 
 Bu sürüm, orijinal LuxAI 2.0.2 üzerine BELGESELSEMO topluluk yamalarını taşır:
 
-- **18 dil desteği**: Arayüz dil listesine Türkçe, Rusça, Çince, Japonca ve
+- **21 dil desteği**: Arayüz dil listesine Türkçe, Rusça, Çince, Japonca ve
   **Hintçe (हिन्दी)** eklendi (mevcut 9 dilin tamamı korunur: Čeština,
   Slovenčina, English, Deutsch, Polski, Français, Español, Italiano,
   Українська). **18 tam çeviri dosyası** ile gelir — 457 arayüz anahtarının
@@ -25,7 +25,7 @@ Bu sürüm, orijinal LuxAI 2.0.2 üzerine BELGESELSEMO topluluk yamalarını ta�
   kod blokları, araç kartları, **çizilmiş onay/izin pencereleri** (klasik Win32
   MessageBox kullanılmaz), **LuxAI Hesabı** penceresi (kullanım, hesabı yönet,
   verileri dışa aktar, koşullar, hesap silme talebi, oturumu kapat), ayarlar
-  sayfası, açık/koyu tema, sistem tepsisi ve **18 dil**.
+  sayfası, açık/koyu tema, sistem tepsisi ve **21 dil**.
 - **cmd ile kurulum**: `windows/cmd/luxai-kur.bat` tek satırla indirir, kurar,
   Başlat menüsü + masaüstü kısayolu ve *Ayarlar › Uygulamalar* kaldırma kaydı
   oluşturur (`luxai-kaldir.bat` ile kaldırılır).

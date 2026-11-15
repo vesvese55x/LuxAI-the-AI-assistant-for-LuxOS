@@ -4,8 +4,8 @@
 1 24 "luxai.manifest"
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 3,1,0,1
- PRODUCTVERSION 3,1,0,1
+ FILEVERSION 2,0,2,0
+ PRODUCTVERSION 2,0,2,0
  FILEFLAGSMASK 0x3fL
  FILEFLAGS 0x0L
  FILEOS VOS_NT_WINDOWS32
@@ -18,12 +18,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName",      "BELGESELSEMO topluluk yapisi (resmi olmayan)"
             VALUE "FileDescription",  "LuxAI - Windows icin native yapay zeka asistani"
-            VALUE "FileVersion",      "3.1.0.1"
+            VALUE "FileVersion",      "2.0.2.0"
             VALUE "InternalName",     "LuxAI"
             VALUE "LegalCopyright",   "Topluluk yapisi; LuxOS projesiyle baglantili degildir"
             VALUE "OriginalFilename", "LuxAI.exe"
             VALUE "ProductName",      "LuxAI"
-            VALUE "ProductVersion",   "3.1.0-win.1"
+            VALUE "ProductVersion",   "2.0.2-win.1"
         END
     END
     BLOCK "VarFileInfo"
@@ -31,3 +31,15 @@ BEGIN
         VALUE "Translation", 0x409, 1200
     END
 END
+
+/* BELGESELSEMO proje simgeleri (idm-linux deposundan) */
+201 RCDATA "proj/app_belgeselsemo.png"
+202 RCDATA "proj/proj_youtube.png"
+203 RCDATA "proj/proj_matpay.png"
+204 RCDATA "proj/proj_belgeselsemoflix.png"
+205 RCDATA "proj/app_epg.png"
+206 RCDATA "proj/app_nb724.png"
+207 RCDATA "proj/app_nutuk.png"
+208 RCDATA "proj/app_trivia.png"
+209 RCDATA "proj/proj_retro_icon.png"
+210 RCDATA "proj/proj_economy.png"

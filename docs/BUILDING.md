@@ -26,7 +26,7 @@ Yerelde aynı akışı çalıştırmak için:
 
 ```bash
 bash packaging/build-all.sh   # çıktı: .work/dist
-bash packaging/build-exe.sh   # çıktı: .work/dist/LuxAI-3.1.0-Setup.exe
+bash packaging/build-exe.sh   # çıktı: .work/dist/LuxAI-2.0.2-Setup.exe
 ```
 
 ## Binary yaması nasıl çalışır?

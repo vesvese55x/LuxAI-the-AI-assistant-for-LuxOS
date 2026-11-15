@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       publish_release:
-        description: 'Publish & overwrite the current release assets (v3.1.0)'
+        description: 'Publish & overwrite the current release assets (v2.0.2)'
         type: boolean
         default: true
 
@@ -69,8 +69,8 @@ jobs:
         run: |
           mkdir -p dist-win/pkg
           cp windows/build/LuxAI.exe       dist-win/pkg/
-          cp windows/build/LuxAI-Setup.exe dist-win/LuxAI-3.1.0-Setup-native.exe
-          cp windows/build/LuxAI-Setup.exe dist-win/pkg/LuxAI-3.1.0-Setup-native.exe
+          cp windows/build/LuxAI-Setup.exe dist-win/LuxAI-2.0.2-Setup-native.exe
+          cp windows/build/LuxAI-Setup.exe dist-win/pkg/LuxAI-2.0.2-Setup-native.exe
           cp windows/README-TR.md          dist-win/pkg/README-TR.md
           cp windows/cmd/luxai-kur.bat     dist-win/pkg/luxai-kur.bat
           cp windows/cmd/luxai-kaldir.bat  dist-win/pkg/luxai-kaldir.bat
@@ -79,7 +79,7 @@ jobs:
           cp docs/ANALIZ-WINDOWS.md        dist-win/pkg/ANALIZ-WINDOWS.md
           mkdir -p dist-win/pkg/docs
           cp -r windows/docs/screens       dist-win/pkg/docs/
-          ( cd dist-win/pkg && zip -qr ../LuxAI-3.1.0-Windows-native-x64.zip . )
+          ( cd dist-win/pkg && zip -qr ../LuxAI-2.0.2-Windows-native-x64.zip . )
           ls -lh dist-win dist-win/pkg
 
       - name: Upload artifacts
@@ -87,8 +87,8 @@ jobs:
         with:
           name: luxai-windows-native
           path: |
-            dist-win/LuxAI-3.1.0-Windows-native-x64.zip
-            dist-win/LuxAI-3.1.0-Setup-native.exe
+            dist-win/LuxAI-2.0.2-Windows-native-x64.zip
+            dist-win/LuxAI-2.0.2-Setup-native.exe
             dist-win/luxai-kur.bat
             dist-win/luxai-kaldir.bat
           if-no-files-found: error
@@ -115,7 +115,7 @@ jobs:
           path: dist
 
       - name: Install LuxAI from the built deb
-        run: sudo apt-get install -y ./dist/luxai_3.1.0_amd64.deb
+        run: sudo apt-get install -y ./dist/luxai_2.0.2_amd64.deb
 
       - name: Run the real GUI under Xvfb and capture screenshots
         run: python3 packaging/capture_gui.py / /tmp/shots tr,en,hi
@@ -172,7 +172,7 @@ jobs:
 
       - name: Determine release tag
         id: tag
-        run: echo "tag=${{ github.ref_type == 'tag' && github.ref_name || 'v3.1.0' }}" >> "$GITHUB_OUTPUT"
+        run: echo "tag=${{ github.ref_type == 'tag' && github.ref_name || 'v2.0.2' }}" >> "$GITHUB_OUTPUT"
 
       - name: Remove old assets so the rebuild replaces them
         env:

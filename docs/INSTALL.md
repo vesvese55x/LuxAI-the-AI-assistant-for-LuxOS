@@ -4,10 +4,10 @@
 
 | Dağıtım | Paket | Komut |
 |---|---|---|
-| Debian 12+, Ubuntu 22.04+, Mint | `luxai_3.1.0_amd64.deb` | `sudo apt install ./luxai_3.1.0_amd64.deb` |
-| Fedora 39+, RHEL, openSUSE | `luxai-3.1.0-1.x86_64.rpm` | `sudo dnf install ./luxai-3.1.0-1.x86_64.rpm` |
-| Arch / CachyOS / Manjaro | `luxai-3.1.0-1-x86_64.pkg.tar.zst` | `sudo pacman -U luxai-3.1.0-1-x86_64.pkg.tar.zst` |
-| Herhangi biri | `LuxAI-3.1.0-x86_64.AppImage` | `chmod +x LuxAI-3.1.0-x86_64.AppImage && ./LuxAI-3.1.0-x86_64.AppImage` |
+| Debian 12+, Ubuntu 22.04+, Mint | `luxai_2.0.2_amd64.deb` | `sudo apt install ./luxai_2.0.2_amd64.deb` |
+| Fedora 39+, RHEL, openSUSE | `luxai-2.0.2-1.x86_64.rpm` | `sudo dnf install ./luxai-2.0.2-1.x86_64.rpm` |
+| Arch / CachyOS / Manjaro | `luxai-2.0.2-1-x86_64.pkg.tar.zst` | `sudo pacman -U luxai-2.0.2-1-x86_64.pkg.tar.zst` |
+| Herhangi biri | `LuxAI-2.0.2-x86_64.AppImage` | `chmod +x LuxAI-2.0.2-x86_64.AppImage && ./LuxAI-2.0.2-x86_64.AppImage` |
 
 Sistem bağımlılıkları (deb/rpm/zst paketleri gerçek bağımlılık olarak ister,
 paket içinde LuxOS'a özel bağımlılık YOKTUR):
@@ -22,7 +22,7 @@ dağıtımlarının tamamında mevcuttur).
 
 ## Windows 10/11
 
-1. `LuxAI-3.1.0-Setup.exe` indirin ve çalıştırın.
+1. `LuxAI-2.0.2-Setup.exe` indirin ve çalıştırın.
 2. WSL kurulu değilse kurucu `wsl --install -d Debian` çalıştırır
    (birkaç dakika + olası yeniden başlatma).
 3. LuxAI, Debian WSL içine kurulur; Başlat menüsüne **LuxAI** kısayolu eklenir.
@@ -30,7 +30,7 @@ dağıtımlarının tamamında mevcuttur).
 
 ## Windows (native — WSL'siz)
 
-`LuxAI-3.1.0-Setup-native.exe` veya tek dosya `LuxAI-3.1.0-Windows-native-x64.zip` içindeki
+`LuxAI-2.0.2-Setup-native.exe` veya tek dosya `LuxAI-2.0.2-Windows-native-x64.zip` içindeki
 `LuxAI.exe`. Windows 7 SP1 / 8 / 8.1 / 10 / 11 (x64).
 
 1. Kurucuyu çalıştırın (yönetici gerekmez): `%LOCALAPPDATA%\LuxAI` içine kurar,

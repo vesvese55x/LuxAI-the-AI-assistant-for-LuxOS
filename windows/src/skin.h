@@ -67,6 +67,7 @@ enum {
 void sk_icon(int kind, double cx, double cy, double size, DWORD argb, double th);
 /* uygulama logosu: yuvarlatilmis kare + parildama */
 void sk_logo(double x, double y, double size, double radius);
+int  sk_png_res(int id, double x, double y, double w, double h);
 
 /* arayuz yazi tipi (metin kutulari icin) */
 const wchar_t *sk_font_name(int mono, int weight);

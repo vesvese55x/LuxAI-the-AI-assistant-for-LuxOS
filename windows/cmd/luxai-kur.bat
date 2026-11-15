@@ -2,10 +2,10 @@
 setlocal EnableDelayedExpansion
 if /i "%~1"=="/elevated" set "ELEVATED=1"
 chcp 65001 >nul 2>&1
-title LuxAI 3.1.0 - Windows kurulumu (cmd)
+title LuxAI 2.0.2 - Windows kurulumu (cmd)
 color 0B
 
-set "VER=3.1.0"
+set "VER=2.0.2"
 set "BASE=https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/download/v%VER%"
 set "ZIP=LuxAI-%VER%-Windows-native-x64.zip"
 set "DEST=%ProgramFiles%\LuxAI"

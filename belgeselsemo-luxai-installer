@@ -5,7 +5,7 @@
 set -e
 
 REPO="vesvese55x/LuxAI-the-AI-assistant-for-LuxOS"
-VER="3.1.0"
+VER="2.0.2"
 BASE="https://github.com/$REPO/releases/download/v$VER"
 
 say()  { printf '==> %s\n' "$*"; }

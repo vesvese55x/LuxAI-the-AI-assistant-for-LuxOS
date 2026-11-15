@@ -1,0 +1,458 @@
+# LuxAI main UI (az) - BELGESELSEMO
+(empty file)	(boş fayl)
+(empty)	(boş)
+(no output)	(çıxış yoxdur)
+AI assistant that can work with your computer	Kompüterinizlə işləyə bilən süni intellekt köməkçisi
+About LuxAI	LuxAI haqqında
+Accesses private keys or passwords	Gizli açarlara və ya parollara giriş imkanı əldə edir
+Accesses the LuxAI account token	LuxAI hesab tokeninə giriş əldə edir
+Agent	Agent
+Agent actions run without asking. Dangerous actions still need two confirmations. Resets when LuxAI restarts.	Agent əməliyyatları soruşulmadan icra olunur. Təhlükəli əməliyyatlar üçün hələ də iki təsdiq tələb olunur. LuxAI yenidən başladıldıqda sıfırlanır.
+Agent mode · Auto-approve is ON: actions run without asking (dangerous ones still ask twice).	Agent rejimi · Avtomatik təsdiqləmə aktivdir: Əməliyyatlar sorğu olmadan icra olunur (təhlükəli əməliyyatlar üçün hələ də iki dəfə sorğu göndərilir).
+Agent mode · LuxAI can work with your computer. You approve every action that changes something.	Agent rejimi · LuxAI kompüterinizlə işləyə bilər. Nəsə dəyişən hər bir əməliyyatı təsdiq edirsiniz.
+Agent mode: I can run commands, manage files, open apps and control the mouse and keyboard – always with your approval.	Agent rejimi: Mən əmrləri yerinə yetirə, faylları idarə edə, tətbiqləri aça və siçan və klaviaturanı idarə edə bilərəm – həmişə sizin razılığınızla.
+Allow LuxAI to do this?	LuxAI-nin bunu etməsinə icazə verilsin?
+Allow once	Bir dəfə icazə ver
+Allow once…	Bir dəfəyə icazə ver...
+Always for this session	Həmişə bu sessiya üçün
+Another conversation is already running on this account. Try again in a moment.	Bu hesabda artıq başqa söhbət aparılır. Bir qədər sonra yenidən cəhd edin.
+Are you sure? This can cause damage that cannot be undone.	Əminsiniz? Bu, geri qaytarılması mümkün olmayan zərərə səbəb ola bilər.
+Arguments	Arqumentlər
+Ask LuxAI to do something on your computer…	LuxAI-dən kompüterinizdə nəsə etməsini istəyin...
+Ask anything. Switch to Agent mode when you want me to do things on your computer.	İstədiyinizi soruşun. Kompüterinizdə nəsə etməyimi istədiyiniz zaman Agent rejiminə keçin.
+Attach screenshots for the current model. Turn on only if the model supports images; uses more tokens.	Cari model üçün skrinşotlar əlavə edin. Yalnız model təsvirləri dəstəkləyirsə aktiv edin; daha çox token istifadə edir.
+Auto-approve actions	Əməliyyatları avtomatik təsdiq et
+Blocked by safety rules	Təhlükəsizlik qaydaları ilə bloklanıb
+Brainstorm	Beyin fırtınası
+CONVERSATIONS	SÖHBƏTLƏR
+Cancel	Ləğv et
+Changes immutable file attributes	Dəyişməz fayl atributlarını dəyişir
+Changes permissions of the whole home folder or system	Bütün əsas qovluğun və ya sistemin icazələrini dəyişir
+Changes user accounts or passwords	İstifadəçi hesablarını və ya parollarını dəyişir
+Chat	Söhbət
+Chat with AI or let it work with your computer. Sign in with your LuxAI account – one account for all LuxOS apps.	Süni intellektlə söhbət edin və ya onun kompüterinizlə işləməsinə icazə verin. LuxAI hesabınızla giriş edin – bütün LuxOS tətbiqləri üçün vahid hesab.
+Click	Klikləyin
+Close window	Pəncərəni bağla
+Command timeout (seconds)	Əmrin vaxt bitməsi (saniyə)
+Copied	Kopyalandı
+Copy	Kopyala
+Create a free account	Pulsuz hesab yaradın
+Create folder	Qovluq yarat
+Delete	Sil
+Delete conversation	Söhbəti sil
+Delete this conversation?	Bu söhbət silinsin?
+Deletes all scheduled tasks	Bütün planlaşdırılmış tapşırıqları silir
+Deletes all untracked files in the repository	Anbarda izlənilməyən bütün faylları silir
+Deletes files across the whole home folder or system	Bütün əsas qovluqdakı və ya sistemdəki faylları silir
+Deletes the whole home folder or system	Bütün əsas qovluğu və ya sistemi silir
+Denied	İcazə verilmədi
+Deny	İcazə vermə
+Details	Təfərrüatlar
+Done	Hazırdır
+Edit file	Faylı redaktə et
+Ends your desktop session	Masaüstü sessiyanızı bitirir
+Explain how HTTPS keeps my connection private, in simple terms.	HTTPS-in bağlantımı necə məxfi saxladığını sadə şəkildə izah edin.
+Explain something	Nəsə izah edin
+Failed	Uğursuz oldu
+Find files	Faylları tapın
+Finish signing in in the LuxAI account window…	LuxAI hesab pəncərəsində girişinizi tamamlayın...
+Flash – smarter	Flash – daha ağıllı
+Focus window	Fokus pəncərəsi
+Force-pushes and may overwrite remote history	Məcburi göndərir və uzaq tarixçənin üzərinə yaza bilər
+Fork bomb	Fork bombası
+Formats or wipes a disk	Diski formatlaşdırır və ya silir
+Free disk space	Boş disk sahəsi
+Give me 5 ideas for a weekend trip in the Czech Republic.	Mənə Çexiyada həftəsonu səfəri üçün 5 fikir verin.
+Help with code	Kodla bağlı yardım
+How can I help you today?	Bu gün sizə necə kömək edə bilərəm?
+How do I read a JSON file in Python? Show a short example.	Python-da JSON faylını necə oxuya bilərəm? Qısa nümunə göstərin.
+It will be permanently removed from this computer.	Bu kompüterdən həmişəlik silinəcək.
+Kills all processes or the desktop session	Bütün prosesləri və ya masaüstü sessiyasını dayandırır
+List apps	Tətbiqləri siyahıya daxil et
+List folder	Qovluğu siyahıya daxil et
+List the files in my Downloads folder grouped by type and suggest what to clean up.	Yükləmələr qovluğumdakı faylları növünə görə qruplaşdırın və nəyin təmizlənəcəyini təklif edin.
+List windows	Pəncərələri siyahıya sal
+Lite – faster, larger limit	Lite – daha sürətli, daha yüksək limit
+Look at my screen	Mənim ekranıma baxın
+LuxAI account credentials are never read or changed by the agent	LuxAI hesabının giriş məlumatları heç vaxt agent tərəfindən oxunmur və ya dəyişdirilmir
+LuxAI account…	LuxAI hesabı…
+LuxAI can make mistakes. Check important information.	LuxAI səhvlər edə bilər. Vacib məlumatları yoxlayın.
+LuxAI can work with your computer using tools, with your approval	LuxAI razılığınızla alətlərdən istifadə edərək kompüterinizlə işləyə bilər
+Message LuxAI…	LuxAI-yə mesaj göndərin…
+Model	Model
+Model can see images	Model təsvirləri görə bilir
+Move	Yerdəyişdir
+Move mouse	Siçanı hərəkət etdirin
+Moves the whole home folder or system	Bütün əsas qovluğunu və ya sistemi köçürür
+Network error: {0}	Şəbəkə xətası: {0}
+New chat	Yeni söhbət
+New conversation	Yeni söhbət
+No conversations yet	Hələ söhbət yoxdur
+No result	Nəticə yoxdur
+No windows	Pəncərə yoxdur
+Not signed in	Giriş edilməyib
+Not signed in.	Giriş edilməyib.
+Nothing found	Heç nə tapılmadı
+Notification	Bildiriş
+Offline – usage not available	Oflayn – istifadə mümkün deyil
+Open a website	Veb-sayt açın
+Open app	Tətbiqi açın
+Open link	Linki açın
+Open lux-ai.cz in the web browser.	lux-ai.cz saytını veb-brauzerdə açın.
+Overwrites system files	Sistem fayllarının üzərinə yazır
+Plain conversation, no access to your computer	Adi söhbət, kompüterinizə giriş yoxdur
+Please sign in again to continue. Your conversations are kept on this computer.	Davam etmək üçün yenidən giriş edin. Söhbətləriniz bu kompüterdə saxlanılır.
+Potentially dangerous action	Potensial təhlükəli əməliyyat
+Press keys	Klaiviatura düymələrinə basın
+Read clipboard	Mübadilə buferini oxu
+Read file	Faylı oxu
+Recursively deletes a main personal folder	Əsas şəxsi qovluğu rekursiv şəkildə silir
+Recursively deletes files outside your home folder	Ev qovluğunuzdan kənardakı faylları rekursiv şəkildə silir
+Refusing to modify the root or home directory itself	Kök və ya əsas qovluğun özünün dəyişdirilməsindən imtina edilir
+Removes firewall rules	Fayervol qaydalarını silir
+Removes installed system packages	Quraşdırılmış sistem paketlərini silir
+Result	Nəticə
+Run command	Əmri işlət
+Running…	İcra edilir...
+Runs a script downloaded from the internet	İnternetdən endirilmiş skripti işə salır
+Runs with administrator privileges	Administrator səlahiyyətləri ilə işləyir
+Screenshot	Ekran görüntüsü
+Scroll	Yuxarı-aşağı sürüşdürün
+Search conversations	Söhbətləri axtar
+Search text	Mətni axtar
+Searches the whole system	Bütün sistemdə axtarır
+Send (Enter)	Göndər (Daxil ol)
+Session expired	Seansın müddəti bitib
+Settings	Parametrlər
+Show or hide the sidebar	Yan paneli göstərin və ya gizlədin
+Shuts down or restarts the computer	Kompüteri söndürür və ya yenidən başladır
+Sign in	Giriş edin
+Sign in again	Yenidən giriş edin
+Sign in to continue this conversation.	Bu söhbətə davam etmək üçün giriş edin.
+Sign in with LuxAI account	LuxAI hesabı ilə giriş edin
+Stop	Dayandır
+Stop the answer and any running command (Esc)	Cavabı və icra olunan istənilən əmri dayandırın (Esc)
+Stopped	Dayandırıldı
+Stopped after too many steps. Send a message to continue.	Çox addımdan sonra dayandırıldı. Davam etmək üçün mesaj göndərin.
+Stopped.	Dayandırıldı.
+Stopping…	Dayandırılır…
+System info	Sistem məlumatı
+Take a screenshot and tell me which windows are open.	Skrinşot çəkin və hansı pəncərələrin açıq olduğunu mənə bildirin.
+The LuxAI API endpoint was not found on the server.	LuxAI API son nöqtəsi serverdə tapılmadı.
+The LuxAI service is not available right now.	LuxAI xidməti hazırda mövcud deyil.
+The LuxOS account tool (luxos-account) is not installed.	LuxOS hesab aləti (luxos-account) quraşdırılmayıb.
+The answer was cut off (length limit).	Cavab kəsildi (uzunluq limiti).
+The file is run automatically at login	Fayl giriş zamanı avtomatik olaraq işə salınır
+The key combination may end your session	Bu düymə kombinasiyası sessiyanızı sona çatdıra bilər
+The model failed: {0}	Model uğursuz oldu: {0}
+The monthly Flash limit is used up. Switch to Lite or wait for the next month.	Aylıq Flash limiti tükənib. Lite versiyasına keçin və ya növbəti ayı gözləyin.
+The monthly Lite limit is used up.	Aylıq Lite limiti tükənib.
+The path is outside your home folder (system files)	Yol əsas qovluğunuzdan kənardadır (sistem faylları)
+The path may contain passwords or keys	Yol parollar və ya açarlar ehtiva edə bilər
+The server did not respond in time.	Server vaxtında cavab vermədi.
+The server rejected the request (invalid chat).	Server sorğunu rədd etdi (etibarsız söhbət).
+The server returned a web page instead of an API response (HTTP {0}).	Server API cavabı əvəzinə veb-səhifə qaytardı (HTTP {0}).
+The server returned an invalid response (HTTP {0}).	Server etibarsız cavab qaytardı (HTTP {0}).
+The server's web protection blocked the request (HTTP {0}).	Serverin veb qoruması sorğunu blokladı (HTTP {0}).
+Thinking…	Düşünürəm...
+This may access private data	Bu, şəxsi məlumatlara giriş əldə edə bilər
+Tidy up Downloads	Yükləmələri səliqəyə salın
+Too many requests. Please wait a moment.	Çox sayda sorğu. Bir qədər gözləyin.
+Type text	Mətn yazın
+Types a dangerous command	Təhlükəli əmr yazır
+Unsupported URL type	Dəstəklənməyən URL növü
+Waiting for your approval	Təsdiqiniz gözlənilir
+Welcome to LuxAI	LuxAI-yə xoş gəlmisiniz
+What is using the most disk space in my home folder?	Ev qovluğumda ən çox disk sahəsindən nə istifadə edir?
+Working folder	İş qovluğu
+Write a short, friendly email inviting my team to a Friday lunch.	Komandamı cümə günü nahara dəvət edən qısa, səmimi e-poçt yazın.
+Write a text	Mətn yazın
+Write file	Fayl yazın
+Writes directly to a disk device	Birbaşa disk cihazına yazır
+Yes, run it	Bəli, işə salın
+Your LuxAI session has expired or is not valid. Please sign in again.	LuxAI sessiyanızın müddəti bitib və ya etibarsızdır. Zəhmət olmasa, yenidən giriş edin.
+Your session has expired	Sessiyanızın müddəti bitib
+code	kod
+folder	qovluq
+no images	təsvir yoxdur
+sees images	təsvirləri görür
+{0} open windows	{0} açıq pəncərə
+{0}: {1} / {2} tokens this month	{0}: Bu ay {1} / {2} token
+{0}: {1} tokens this month	{0}: Bu ay {1} token
+{0}: {1} tokens this month · unlimited	{0}: Bu ay {1} token · limitsiz
+You denied this action.	Bu əməliyyatı rədd etdiniz.
+Stopped before running.	İşləməzdən əvvəl dayandırıldı.
+AI behaviour	Süni intellektin davranışı
+Accesses LuxAI settings (including agent permissions)	LuxAI parametrlərinə daxil olur (agent icazələri daxil olmaqla)
+Account and settings	Hesab və parametrlər
+Add	Əlavə et
+Add folder…	Qovluq əlavə et...
+Added to every conversation. They cannot give the agent more permissions than set in Agent permissions.	Hər söhbətə əlavə edilib. Onlar agentə Agent icazələrində təyin olunanlardan daha çox icazə verə bilməzlər.
+After the first answer the fast Lite model suggests a short title. You can rename a conversation any time (right-click it in the sidebar).	İlk cavabdan sonra sürətli Lite modeli qısa başlıq təklif edir. İstənilən vaxt söhbətin adını dəyişə bilərsiniz (yan paneldə ona sağ klikləyin).
+Agent permissions	Agent icazələri
+All saved conversations will be permanently removed from this computer.	Bütün yaddaşda saxlanmış söhbətlər bu kompüterdən həmişəlik silinəcək.
+Allow	İcazə ver
+Allow without asking	Sorğu göndərmədən icazə ver
+Allowed folders	İcazə verilən qovluqlar
+Always ask	Həmişə soruş
+Answer length	Cavabın uzunluğu
+Answers	Cavablar
+Appearance	Görünüş
+Application	Tətbiq
+Ask only for risky commands	Yalnız riskli əmrlər üçün sorğu göndərin
+Attach screenshots in Agent mode. Turn on only if the model supports images.	Agent rejimində skrinşotlar əlavə edin. Yalnız model təsvirləri dəstəkləyirsə, aktiv edin.
+Balanced	Balanslaşdırılmış
+Blocked folders	Bloklanmış qovluqlar
+Changing files is turned off in LuxAI settings	Faylların dəyişdirilməsi LuxAI parametrlərində söndürülüb
+Clear all history…	Bütün tarixçəni sil…
+Clicking, typing, pressing keys and closing windows.	Klikləmə, yazma, düymələri basma və pəncərələri bağlama.
+Commands	Əmrlər
+Concise	Qısa
+Control mouse and keyboard	Siçanı və klaviaturanı idarə edin
+Conversation	Conversation
+Conversations	Conversations
+Creating, editing, moving and deleting files and folders.	Creating, editing, moving and deleting files and folders.
+Creativity (temperature)	Creativity (temperature)
+Ctrl+Enter (Enter for a new line)	Ctrl+Enter (Enter for a new line)
+Custom instructions	Custom instructions
+Dangerous actions (deleting your home folder, formatting disks, shutting down …) always need two confirmations, and LuxAI never touches its account and settings files. "Always ask" still offers "Always for this session" on the approval card.	Dangerous actions (deleting your home folder, formatting disks, shutting down …) always need two confirmations, and LuxAI never touches its account and settings files. "Always ask" still offers "Always for this session" on the approval card.
+Dark	Dark
+Data on this computer	Data on this computer
+Default model	Default model
+Delete all	Delete all
+Delete all conversations?	Delete all conversations?
+Delete screenshots	Delete screenshots
+Detailed	Detailed
+Enter (Shift+Enter for a new line)	Enter (Shift+Enter for a new line)
+Folders	Folders
+Friendly	Friendly
+General	General
+History	History
+History is turned off	History is turned off
+If you add folders here, the agent can work with files only inside them. Empty = anywhere (system files need extra confirmation).	If you add folders here, the agent can work with files only inside them. Empty = anywhere (system files need extra confirmation).
+Keep conversation history	Keep conversation history
+Keyboard shortcuts	Keyboard shortcuts
+Language	Language
+Light	Light
+Limits from Settings › Agent permissions apply.	Limits from Settings › Agent permissions apply.
+Long	Long
+Long-running commands are stopped after this time.	Long-running commands are stopped after this time.
+LuxAI also remembers the mode you used last.	LuxAI also remembers the mode you used last.
+LuxAI answered	LuxAI answered
+LuxAI needs your approval	LuxAI needs your approval
+Manage account	Manage account
+Maximum length of one answer. Agent mode always keeps enough room for its tools.	Maximum length of one answer. Agent mode always keeps enough room for its tools.
+Messages	Messages
+Mode for new conversations	Mode for new conversations
+Mouse and keyboard control is turned off in LuxAI settings	Mouse and keyboard control is turned off in LuxAI settings
+Name	Name
+Name conversations automatically	Name conversations automatically
+Network access	Network access
+Network access is turned off in LuxAI settings	Network access is turned off in LuxAI settings
+Never	Never
+New line	New line
+No folders	No folders
+Normal	Normal
+Notifications	Notifications
+Notify me when LuxAI finishes an answer or needs my approval while the window is in the background.	Notify me when LuxAI finishes an answer or needs my approval while the window is in the background.
+Off = the model's default. Lower is more precise, higher more creative. Applied only if the model supports it.	Off = the model's default. Lower is more precise, higher more creative. Applied only if the model supports it.
+Open apps and links	Open apps and links
+Opening apps and links is turned off in LuxAI settings	Opening apps and links is turned off in LuxAI settings
+Opening web links, downloads and network tools (curl, git clone, package installs). Detected from the command – for strict isolation also set Run commands to Never.	Opening web links, downloads and network tools (curl, git clone, package installs). Detected from the command – for strict isolation also set Run commands to Never.
+Privacy & history	Privacy & history
+Private files (keys, passwords, .env) always need your confirmation.	Private files (keys, passwords, .env) always need your confirmation.
+Quit	Quit
+Read files	Read files
+Reading files is turned off in LuxAI settings	Reading files is turned off in LuxAI settings
+Relative paths and commands start here.	Relative paths and commands start here.
+Remove	Remove
+Rename	Rename
+Rename conversation	Rename conversation
+Rename…	Rename…
+Response style	Response style
+Run commands	Run commands
+Running commands is turned off in LuxAI settings	Running commands is turned off in LuxAI settings
+Same as my message	Same as my message
+Same as system	Same as system
+Saved conversations	Saved conversations
+Screenshots	Screenshots
+Screenshots and clipboard	Screenshots and clipboard
+Screenshots and clipboard are turned off in LuxAI settings	Screenshots and clipboard are turned off in LuxAI settings
+Screenshots taken by the agent	Screenshots taken by the agent
+Send message	Send message
+Send message with	Send message with
+Sends what is on your screen or in the clipboard to the model.	Sends what is on your screen or in the clipboard to the model.
+Settings file	Settings file
+Settings…	Settings…
+Shell commands are checked for blocked folders in their paths, but a command cannot be fully confined. Set Run commands to Never for strict folder limits.	Shell commands are checked for blocked folders in their paths, but a command cannot be fully confined. Set Run commands to Never for strict folder limits.
+Short	Short
+Sign in with your LuxAI account to chat.	Sign in with your LuxAI account to chat.
+Sign out	Sign out
+Sign out of LuxAI?	Sign out of LuxAI?
+Sign out…	Sign out…
+Signing out failed. Try again in the LuxAI account app.	Signing out failed. Try again in the LuxAI account app.
+Start	Start
+Stop the answer or command	Stop the answer or command
+Technical	Technical
+The agent never reads or changes anything in these folders.	The agent never reads or changes anything in these folders.
+The folder is blocked in LuxAI settings	The folder is blocked in LuxAI settings
+The path is outside the folders allowed in LuxAI settings	The path is outside the folders allowed in LuxAI settings
+Theme	Theme
+Used for new conversations. You can switch it any time in the toolbar.	Used for new conversations. You can switch it any time in the toolbar.
+Uses the network	Uses the network
+What Agent mode may do	What Agent mode may do
+What should LuxAI know about you or how should it answer? E.g. "Call me Tom. Prefer metric units and short answers."	What should LuxAI know about you or how should it answer? E.g. "Call me Tom. Prefer metric units and short answers."
+When off, new conversations are not saved on this computer and disappear when you close them.	When off, new conversations are not saved on this computer and disappear when you close them.
+With "risky only", read-only commands such as ls, df or git status run without asking.	With "risky only", read-only commands such as ls, df or git status run without asking.
+Write and delete files	Write and delete files
+You will be signed out of your LuxAI account in all LuxOS apps on this computer. Your conversations stay on this computer.	You will be signed out of your LuxAI account in all LuxOS apps on this computer. Your conversations stay on this computer.
+Your messages are sent to the LuxAI service (lux-ai.cz) to generate answers and titles. The agent runs tools only on this computer.	Your messages are sent to the LuxAI service (lux-ai.cz) to generate answers and titles. The agent runs tools only on this computer.
+{0} can see images	{0} can see images
+{0} conversations saved	{0} conversations saved
+{0} screenshots	{0} screenshots
+(preview not available)	(preview not available)
+Bug report	Bug report
+Contact e-mail for a reply: {0}	Contact e-mail for a reply: {0}
+Don't send	Don't send
+Idea	Idea
+LuxOS could not reach the server. Check the internet connection.	LuxOS could not reach the server. Check the internet connection.
+No graphical session; the report is sent without a screenshot.	No graphical session; the report is sent without a screenshot.
+No screenshot will be attached.	No screenshot will be attached.
+No system information will be attached.	No system information will be attached.
+Report sent. Report ID: {0}	Report sent. Report ID: {0}
+Report text:	Report text:
+Report to LuxOS	Report to LuxOS
+Search LuxOS docs	Search LuxOS docs
+Read LuxOS docs	Read LuxOS docs
+Save and send later	Save and send later
+Saved. The Feedback app will send the report when you are online.	Saved. The Feedback app will send the report when you are online.
+Screenshot that will be attached ({0} kB)	Screenshot that will be attached ({0} kB)
+Screenshots are turned off in LuxAI settings; the report is sent without one.	Screenshots are turned off in LuxAI settings; the report is sent without one.
+Send report	Send report
+Send this report to the author of LuxOS?	Send this report to the author of LuxOS?
+Sending failed ({0}).	Sending failed ({0}).
+Sends the report and attachments shown in this card to the author of LuxOS	Sends the report and attachments shown in this card to the author of LuxOS
+Sent anonymously (you are not signed in).	Sent anonymously (you are not signed in).
+Sent with your LuxAI account.	Sent with your LuxAI account.
+Something else	Something else
+System information that will be attached (anonymised)	System information that will be attached (anonymised)
+The e-mail address does not look valid.	The e-mail address does not look valid.
+The message must have 10 to 8000 characters.	The message must have 10 to 8000 characters.
+The report could not be prepared.	The report could not be prepared.
+The report could not be saved: {0}	The report could not be saved: {0}
+The report is too large. Try it without the screenshot.	The report is too large. Try it without the screenshot.
+The screenshot could not be accepted. Try it without the screenshot.	The screenshot could not be accepted. Try it without the screenshot.
+The screenshot could not be taken ({0}); the report is sent without one.	The screenshot could not be taken ({0}); the report is sent without one.
+The screenshot is too large; the report is sent without one.	The screenshot is too large; the report is sent without one.
+Type:	Type:
+You can save the report; the Feedback app will send it automatically later.	You can save the report; the Feedback app will send it automatically later.
+You have sent many reports in a short time. Please try again later.	You have sent many reports in a short time. Please try again later.
+At most {0} attachments can be added to one message.	At most {0} attachments can be added to one message.
+At most {0} images can be added to one message.	At most {0} images can be added to one message.
+Attach	Attach
+Attach images or files	Attach images or files
+Feeds a password to sudo or su (use pkexec instead)	Feeds a password to sudo or su (use pkexec instead)
+Pasted image	Pasted image
+Remove attachment	Remove attachment
+The current model cannot see images. They stay in the conversation and are sent when you switch to a model that can see images.	The current model cannot see images. They stay in the conversation and are sent when you switch to a model that can see images.
+{0} cannot be attached: only images and text files are supported.	{0} cannot be attached: only images and text files are supported.
+{0} cannot be read as an image.	{0} cannot be read as an image.
+{0} cannot be read: {1}	{0} cannot be read: {1}
+{0} is long; only its beginning is attached.	{0} is long; only its beginning is attached.
+{0} is too large to attach.	{0} eklenemeyecek kadar büyük.
+Administrator commands	Administrator komutları
+Administrator mode was not turned on	Administrator modu açılmadı
+Ask for the password every time	Her seferinde şifrə sor
+Password once for 5 minutes, approve each command	Şifrə 5 dakika için bir kez, her komutu onayla
+Password once for 5 minutes, without asking	Şifrə 5 dakika için bir kez, sormadan
+Commands the agent runs as administrator (root). Administrator mode: you enter the administrator password once and for about 5 minutes LuxAI runs administrator commands without asking for it again; only this LuxAI window gets it, other programs still need the password. Requests sent to LuxAI by other programs always need your approval. Only with the Flash model; Lite always asks for the password. Destructive commands (deleting the system or home folder, formatting disks, removing the bootloader, changing accounts, sudo or polkit) are always refused. Every command is logged in ~/.local/state/luxai/root-commands.log.	Agent'ın administrator (root) olarak işə saldığı komutlar. Administrator modu: administrator şifrəsını bir kez girersiniz ve yaklaşık 5 dakika boyunca LuxAI administrator komutlarını yeniden sormadan işə salır; bunu yalnızca bu LuxAI penceresi alır, diğer programlar yine de şifrə ister. Diğer programların LuxAI'ye gönderdiği sorğuler daima onayınızı gerektirir. Yalnızca Flash modeliyle; Lite daima şifrəyı sorar. Yıkıcı komutlar (sistemi veya ev qovluqünü silmək, diskleri biçimlendirmek, önyükleyiciyi kaldırmak, hesapları değiştirmek, sudo veya polkit) daima reddedilir. Her komut ~/.local/state/luxai/root-commands.log faylsına kaydedilir.
+The request came from another program, not from the LuxAI window	Sorğu, LuxAI penceresinden değil başka bir programdan geldi
+Changes LuxAI administrator mode, settings or account	LuxAI administrator modunu, parametrlərını veya hesabını değiştirir
+Changes owner or permissions of the whole system or a system folder	Tüm sistemin veya bir sistem qovluqünün sahibini veya izinlerini değiştirir
+Changes sudo, polkit or PAM configuration	sudo, polkit veya PAM yapılandırmasını değiştirir
+Crashes or instantly reboots the kernel	Çekirdeği çökertir veya anında yeniden başlatır
+Deletes the whole system, a system folder or a home folder	Tüm sistemi, bir sistem qovluqünü veya ev qovluqünü siler
+Disables package signature checks	Paket imza denetimlerini devre dışı bırakır
+Formats, wipes or writes directly to a disk	Diski biçimlendirir, siler veya doğrudan diske yazar
+LuxAI administrator mode is not installed (update LuxAI)	LuxAI administrator modu kurulu değil (LuxAI'yi güncelleyin)
+Removes the bootloader, the EFI partition, kernels or core system packages	Önyükleyiciyi, EFI bölümünü, çekirdekleri veya temel sistem paketlerini kaldırır
+Runs a script downloaded from the internet as administrator	İnternetten indirilmiş bir betiği administrator olarak işə salır
+Runs as administrator (root)	Administrator (root) olarak işə salır
+Runs generated or hidden code as administrator, which cannot be checked	Doğrulanamayan, üretilmiş veya gizli kodu administrator olarak işə salır
+The administrator password was not entered	Administrator şifrəsı girilmedi
+The target of a destructive command cannot be verified (variable, substitution or unknown folder)	Yıkıcı bir komutun hedefi doğrulanamıyor (değişken, ikame veya bilinmeyen qovluq)
+Installs community (AUR) code, which is not checked by LuxOS	LuxOS tarafından denetlenmeyen topluluk (AUR) kodu kurar
+Copy code	Kodu kopyala
+Copy the whole answer	Tüm cavabı kopyala
+Read web page	Web sayfasını oku
+Search the web	Web'de ara
+Web content is in this conversation and may contain hidden instructions	Söhbətte web içeriği var ve gizli talimatlar içerebilir
+Web content is in this conversation: check this command carefully	Söhbətte web içeriği var: bu komutu dikkatle denetleyin
+{0} characters of text	{0} karakter metin
+LuxAI wants to open this web address:	LuxAI bu web adresini açmak istiyor:
+This address was not given by you or found by web search; it could send data from this conversation to that website	Bu adres sizin tarafınızdan verilmedi veya web aramasında bulunmadı; bu söhbətteki verileri o web sitesine gönderebilir
+Address of a point	Bir noktanın adresi
+Arrivals	Varışlar
+By bike	Bisikletle
+By car	Otomobille
+Connections found: {0}	Bulunan bağlantılar: {0}
+Current location	Mevcut konum
+Departures	Kalkışlar
+Find on map	Haritada bul
+Location is not allowed. Open Maps and click the location button once to allow it.	Konuma izin verilmiyor. İzin vermek için Haritalar'ı açın ve konum düğmesine bir kez tıklayın.
+LuxOS Maps is not installed (lux install luxos-maps).	LuxOS Haritalar kurulu değil (lux install luxos-maps).
+Map data © OpenStreetMap contributors	Harita verileri © OpenStreetMap katkıcıları
+No connection found	Bağlantı bulunamadı
+On foot	Yürüyerek
+Open in Maps	Haritalar'da aç
+Places found: {0}	Bulunan yerler: {0}
+Places nearby	Yakındaki yerler
+Public transport	Toplu taşıma
+Public transport route	Toplu taşıma güzergâhı
+Route	Güzergâh
+Show in Maps	Haritalar'da göster
+Shown in Maps	Haritalar'da gösterildi
+The map service is busy. Try again later.	Harita servisi meşgul. Daha sonra tekrar deneyin.
+Timetable	Zaman çizelgesi
+Walk {0} m	{0} m yürüyüş
+cancelled	iptal edildi
+direct	direkt
+platform {0}	peron {0}
+{0} transfers	{0} aktarma
+The request is too large – the image or the conversation is too big. Start a new conversation or continue without the image.	Sorğu çok büyük – görsel veya söhbət çok büyük. Yeni bir söhbət başlatın veya görsel olmadan devam edin.
+This action requires confirmation on the computer	Bu eylem kompüterda onay gerektiriyor
+The request was stopped.	Sorğu durduruldu.
+Another request is still running. Wait for it to finish or cancel it.	Başka bir sorğu hâlâ çalışıyor. Bitmesini bekleyin veya iptal edin.
+You are not signed in to LuxAI. Sign in in the LuxAI app on the computer.	LuxAI'ye oturum açmadınız. Kompüterdaki LuxAI tətbiqsında oturum açın.
+Calendar events	Takvim olayları
+New calendar event	Yeni takvim olayı
+Change calendar event	Takvim olayını değiştir
+Delete calendar event	Takvim olayını sil
+Adds an event to your LuxOS Calendar	LuxOS Takvim'inize bir olay ekler
+Changes an event in your LuxOS Calendar	LuxOS Takviminizdeki bir olayı değiştirir
+Deletes an event from your LuxOS Calendar	LuxOS Takviminizden bir olayı siler
+Monday	Pazartesi
+Tuesday	Salı
+Wednesday	Çarşamba
+Thursday	Perşembe
+Friday	Cuma
+Saturday	Cumartesi
+Sunday	Pazar
+all day	tüm gün
+Location: {0}	Konum: {0}
+Reminder: {0} min before	Hatırlatma: {0} dk önce
+Calendar: {0}	Takvim: {0}
+Events: {0}	Olaylar: {0}
+No events in this period.	Bu dönemde olay yok.
+… and {0} more	… ve {0} tane daha
+Before:	Önce:
+After:	Sonra:
+Repeating event – the change applies to all its occurrences.	Tekrarlayan olay – değişiklik tüm yinelenmelerine uygulanır.
+Added to the calendar.	Takvime eklendi.
+Changed in the calendar.	Takvimde değiştirildi.
+Deleted from the calendar.	Takvimden silindi.
+Done.	Tamamlandı.
+Denied on the phone.	Telefonda reddedildi.
+Not approved on the phone in time.	Telefonda zamanında onaylanmadı.
+Blocked by LuxAI safety rules.	LuxAI güvenlik kuralları tarafından engellendi.
+This model is not available in LuxAI.	Bu model LuxAI'de kullanılamıyor.

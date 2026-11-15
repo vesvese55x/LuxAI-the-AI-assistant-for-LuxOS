@@ -14,7 +14,7 @@
 > <p><img align="right" src="promo/assets/luxai-icon.png" width="64" height="64" alt="LuxAI"><strong>✨ Resmî olmayan ama muhteşem bir AI asistanı</strong><br>
 > <img src="https://img.shields.io/badge/Linux_x86__64_%C2%B7_Windows_Native-f97316?style=flat-square&amp;logo=linux&amp;logoColor=white" alt="Linux x86_64 · Windows Native (WSL yok)">
 > <img src="https://img.shields.io/badge/GTK3-Chat_%C2%B7_Agent-4a7dff?style=flat-square&amp;logo=gtk&amp;logoColor=white" alt="GTK3 · Chat · Agent">
-> <img src="https://img.shields.io/badge/Aray%C3%BCz-18_Dil-35c47a?style=flat-square&amp;logo=googletranslate&amp;logoColor=white" alt="18 dil"></p>
+> <img src="https://img.shields.io/badge/Aray%C3%BCz-21_Dil-35c47a?style=flat-square&amp;logo=googletranslate&amp;logoColor=white" alt="21 dil"></p>
 >
 > <p align="justify">LuxAI, LuxOS'un resmî yapay zeka asistanıdır: sohbet eder ve <strong>Agent</strong> modunda bilgisayarınızla gerçekten çalışır — komut çalıştırır, dosyaları yönetir, uygulama açar, ekran görüntüsü alır; her adım sizin onayınızla. Bu depo, LuxAI'nin LuxOS dışındaki dağıtımlarda da (Ubuntu, Debian, Fedora, Arch, openSUSE, Windows…) kullanılabilmesi için BELGESELSEMO tarafından, Z.AI desteğiyle, orijinal LuxOS 1.0.1 imajından alınan <strong>değiştirilmemiş LuxAI 2.0.2 dosyaları</strong> üzerine topluluk yamaları uygulanarak oluşturuldu. LuxOS projesiyle bağı yoktur.</p>
 >
@@ -43,6 +43,8 @@
 >
 > `curl -fsSL https://raw.githubusercontent.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/main/belgeselsemo-luxai-installer | sh`
 
+<p align="justify"><strong>v2.0.2 yenilikleri:</strong> Sohbet alanındaki <a href="https://belgeselsemo.com.tr">belgeselsemo.com.tr</a> atıf notu artık hem boş sohbette hem de sohbet sırasında her zaman görünür (Linux'ta boş durum alt yazısına işlenir, Windows'ta sohbet alanının altında sabitlenir). Projelerimiz kataloğu artık <strong>gerçek uygulama simgelerini</strong> gösterir (idm-linux deposundaki simgeler Linux paketlerinde <code>/usr/share/luxai/projects/</code>, Windows'ta exe içine gömülü) ve <strong>Aç</strong> butonları kartların içinde, taşmadan görünür. Windows kurulum sihirbazındaki kurulum yeri metni düzeltildi: <code>%ProgramFiles%\LuxAI</code>. Uygulama menüde <strong>Geliştirme (Development)</strong> kategorisinde, kendi simgesiyle listelenir. Arayüze <strong>Azerbaycanca, Endonezyaca ve Vietnamca</strong> tam destekle eklendi — toplam <strong>21 dil</strong>.</p>
+
 ## LuxAI nedir?
 
 <p align="justify">LuxAI, LuxOS dağıtımının resmî yapay zeka asistanıdır ve tek bir hafif GTK3 uygulamasıdır. <strong>Chat</strong> modunda akış halinde yanıtlar verir: Markdown, tablolar, kopyalama düğmeli ve sözdizimi renklendirmeli kod blokları, LaTeX desteği ve kenar çubuğunda sohbet geçmişi sunar. <strong>Agent</strong> modunda ise bilgisayarınızla gerçekten çalışır: kabuk komutları çalıştırır, dosyaları okur/yazar, uygulamalar ve bağlantılar açar, ekran görüntüsü alır, fare ve klavyeyi kullanır. Her araç çağrısı ekranda bir kart olarak gösterilir ve LuxAI <em>harekete geçmeden önce sizi sorar</em>.</p>
@@ -63,26 +65,26 @@
 </p>
 
 
-## v3.1.0 — bu sürümde yeniler
+## v2.0.2 — bu sürümde yeniler
 
 <p align="justify"><strong>Windows kurulumu artık <code>%ProgramFiles%\LuxAI</code>'ye yapılır.</strong> Kurucu yönetici hakkı ister (UAC), reddedilirse sessizce bu kullanıcı için <code>%LOCALAPPDATA%\Programs\LuxAI</code>'ye kurar; kaldırma kaydı HKLM'ye (makine geneli) yazılır ve <code>luxai-kaldir.bat</code> gerekirse kendini yükseltir. <code>luxai-kur.bat</code> aynı davranışı cmd'den sağlar.</p>
 
 <p align="justify"><strong>Giriş ekranı Linux sürümüyle birebir aynı üç sekmeye ayrıldı:</strong> <em>Parola</em>, <em>E-posta ile kod</em> ve <em>Yeni hesap</em>. Parola sekmesi <code>/api/auth/password/login</code>, kod sekmesi <code>/api/auth/code/request</code> + <code>/api/auth/code/verify</code>, yeni hesap sekmesi <code>/api/auth/register/start</code> uçlarını kullanır; hesap, e-postaya gelen 6 haneli kod doğrulanınca oluşur. Tüm alanlar gerçek Windows metin kutularıdır (IME, pano, Tab/Enter gezinmesi dâhil).</p>
 
-<p align="justify"><strong>Bütün pencereler ana pencerenin içinde modal olarak açılır</strong> — ayrı HWND, ayrı <code>MessageBox</code> yok; <code>LuxPopup</code> sınıfı tamamen kaldırıldı. Açık/koyu tema, DPI ölçekleme ve 18 dil aynı çizim katmanından geçer.</p>
+<p align="justify"><strong>Bütün pencereler ana pencerenin içinde modal olarak açılır</strong> — ayrı HWND, ayrı <code>MessageBox</code> yok; <code>LuxPopup</code> sınıfı tamamen kaldırıldı. Açık/koyu tema, DPI ölçekleme ve 21 dil aynı çizim katmanından geçer.</p>
 
-<p align="justify"><strong>Sohbet alanına atıf notu eklendi:</strong> "LuxAI'ye Hoş Geldiniz" başlığının altında <em>BELGESELSEMO tarafından Z.AI sayesinde orijinal LuxOS dağıtımından elde edilerek Linux/Windows paketleri olarak derlenmiştir</em> notu ve tıklanabilir <a href="https://belgeselsemo.com.tr">belgeselsemo.com.tr</a> bağlantısı yer alır — 18 dilde.</p>
+<p align="justify"><strong>Sohbet alanına atıf notu eklendi:</strong> "LuxAI'ye Hoş Geldiniz" başlığının altında <em>BELGESELSEMO tarafından Z.AI sayesinde orijinal LuxOS dağıtımından elde edilerek Linux/Windows paketleri olarak derlenmiştir</em> notu ve tıklanabilir <a href="https://belgeselsemo.com.tr">belgeselsemo.com.tr</a> bağlantısı yer alır — 21 dilde.</p>
 
 <p align="justify"><strong>Hamburger menüye "Projelerimiz" girdisi eklendi</strong> (Ayarlar ile LuxAI Hesabı arasında). Açılan katalog, BELGESELSEMO ekosisteminin 11 projesini kategori rozetleriyle (Web / Android / Desktop / Yakında) listeler ve her kart ilgili adresi tarayıcıda açar: belgeselsemo.com.tr, YouTube kanalı, MATPAY, BELGESELSEMOFLIX, EPG, Android uygulamaları, TRIVIA ve yakında çıkacak RETRO EMULATOR / ECONOMY.</p>
 
 
-<p align="justify"><strong>Linux'ta "Projelerimiz":</strong> Linux ana penceresi upstream ikili olduğu için menü öğeleri değiştirilemiyor; bu yüzden proje kataloğu, kenar çubuğundaki kullanıcı kartından açılan <em>LuxAI hesap penceresine</em> <strong>dördüncü sekme</strong> olarak eklendi (Parola · E-posta ile Kod · Yeni Hesap · <strong>Projelerimiz</strong>). Aynı pencereye 18 dilli hesap çeviri dosyaları üretildi (<code>usr/share/luxos/i18n/*.tsv</code>, daha önce yalnızca 5 dil vardı). Atıf notu ise Linux'ta sohbet ekranındaki boş durum alt satırına 18 dilde işleniyor (<code>packaging/attrib.json</code>).</p>
+<p align="justify"><strong>Linux'ta "Projelerimiz":</strong> Linux ana penceresi upstream ikili olduğu için menü öğeleri değiştirilemiyor; bu yüzden proje kataloğu, kenar çubuğundaki kullanıcı kartından açılan <em>LuxAI hesap penceresine</em> <strong>dördüncü sekme</strong> olarak eklendi (Parola · E-posta ile Kod · Yeni Hesap · <strong>Projelerimiz</strong>). Aynı pencereye 21 dilli hesap çeviri dosyaları üretildi (<code>usr/share/luxos/i18n/*.tsv</code>, daha önce yalnızca 5 dil vardı). Atıf notu ise Linux'ta sohbet ekranındaki boş durum alt satırına 21 dilde işleniyor (<code>packaging/attrib.json</code>).</p>
 
 <p align="justify"><strong>Çoklu OpenAI uyumlu sağlayıcı — iki platformda da.</strong> Sohbet başlığındaki model seçicisi <em>LuxAI · Flash</em>, <em>LuxAI · Lite</em> ve kayıtlı tüm sağlayıcıları listeler; “Sağlayıcı ekle / Düzenle” ile <strong>ad, uç nokta (base_url), API anahtarı ve model</strong> girilir, seçim anında uygulanır. Kayıt Windows’ta <code>%APPDATA%\providers.ini</code>, Linux’ta <code>~/.config/luxai/providers.ini</code> dosyasındadır ve <strong>iki platform aynı biçimi kullanır</strong> (bir dosyayı diğerine kopyalayabilirsiniz; en fazla 8 sağlayıcı). Windows’ta istekler doğrudan sağlayıcıya gider. Linux’ta ana pencere upstream ikilisi olduğu için araya küçük bir yerel köprü girer: başlatıcı, <code>providers.ini</code> içinde kayıt varsa <code>providers_bridge.py</code>’yi çalıştırır ve uygulamayı <code>LUXAI_ORIGIN=http://127.0.0.1:&lt;port&gt;</code> ile başlatır; sohbet istekleri (<code>/api/ide/chat/completions</code>) seçili sağlayıcıya çevrilir (model adı ve <code>Authorization</code> başlığı değiştirilir, SSE akışı olduğu gibi aktarılır), geri kalan tüm istekler (oturum, hesap, arama…) gerçek sunucuya geçer. Sağlayıcı yönetimi Linux’ta hesap penceresinin <strong>“Sağlayıcılar”</strong> sekmesindedir (Parola · Kod · Yeni hesap · Projelerimiz · <strong>Sağlayıcılar</strong>) ve Windows’taki ekranla birebir aynı işi yapar.</p>
 
 ## Windows sürümü · gerçek kurulum ekran görüntüleri
 
-<p align="justify">Aşağıdaki görüntülerin tamamı GitHub Actions'ın <strong>Windows runner</strong>'ında, <code>LuxAI-3.1.0-Setup-native.exe</code> ile <code>%ProgramFiles%\LuxAI</code> hedefine kurulan uygulamadan alındı; kurulum sonrası <code>C:\Program Files\LuxAI\LuxAI.exe</code> dosyasının varlığı, Başlat menüsü kısayolu ve <code>HKLM</code> kaldırma kaydı CI günlüğünde ayrıca doğrulanır. Arayüz, Linux paketleriyle <strong>birebir aynıdır</strong>: aynı sekmeli giriş, aynı hesap penceresi, aynı Projelerimiz kataloğu, aynı atıf notu ve 18 dil.</p>
+<p align="justify">Aşağıdaki görüntülerin tamamı GitHub Actions'ın <strong>Windows runner</strong>'ında, <code>LuxAI-2.0.2-Setup-native.exe</code> ile <code>%ProgramFiles%\LuxAI</code> hedefine kurulan uygulamadan alındı; kurulum sonrası <code>C:\Program Files\LuxAI\LuxAI.exe</code> dosyasının varlığı, Başlat menüsü kısayolu ve <code>HKLM</code> kaldırma kaydı CI günlüğünde ayrıca doğrulanır. Arayüz, Linux paketleriyle <strong>birebir aynıdır</strong>: aynı sekmeli giriş, aynı hesap penceresi, aynı Projelerimiz kataloğu, aynı atıf notu ve 21 dil.</p>
 
 <table>
 <tr>
@@ -99,7 +101,7 @@
 </tr>
 <tr>
 <td width="50%"><img src="promo/assets/screens/win/01-kurulu-ajan-acik.png" alt="Windows — kurulu uygulama, Ajan modu"><br><sub><strong>Kurulu uygulama · Ajan modu</strong> — araç çağrısı akışı</sub></td>
-<td width="50%"><img src="promo/assets/screens/win/06-hintce.png" alt="Windows — Hintçe arayüz"><br><sub><strong>18 dil</strong> — örnek: Hintçe arayüz</sub></td>
+<td width="50%"><img src="promo/assets/screens/win/06-hintce.png" alt="Windows — Hintçe arayüz"><br><sub><strong>21 dil</strong> — örnek: Hintçe arayüz</sub></td>
 </tr>
 </table>
 
@@ -116,7 +118,7 @@
 
 ## 18 arayüz dili · eksiksiz çeviri tablosu
 
-<p align="justify">Dil listesi binary içinden dıştan yüklenen <code>i18n/*.tsv</code> dosyalarıyla çalışır; kaynak dosyasındaki sabit boyutlu liste güvenle <strong>18 dile</strong> genişletildi: Türkçe, İngilizce, Rusça, Ukraynaca, Çince, Japonca, Hintçe, Almanca, Fransızca, İspanyolca, İtalyanca, Hollandaca, Lehçe, Portekizce, Slovakça, Çekçe, İsveççe ve Macarca. Windows istemcisinde 109 arayüz anahtarının tamamı bu 18 dilde çevrilidir (<code>windows/src/i18n_ids.h</code> + <code>i18n_extra.py</code> → <code>gen_i18n.py</code> ile üretilen <code>i18n_data.c</code>); yeni sekmeli giriş ekranı, Projelerimiz kataloğu ve atıf notu da dâhil hiçbir metin İngilizceye düşmez. Arayüz metinleri mümkün olduğunca iki yana yaslı (justify) ve doğal kelime aralıklı çizilir. GUI, sistem dilini dinamik algılar (<code>LC_ALL → LC_MESSAGES → LANG</code>); desteklenmeyen dillerde İngilizce gösterilir. Aşağıdaki ekran görüntüsü <strong>gerçek</strong> bir GitHub Actions runner'ında kurulan LuxAI'den alınmıştır — Hintçe arayüz.</p>
+<p align="justify">Dil listesi binary içinden dıştan yüklenen <code>i18n/*.tsv</code> dosyalarıyla çalışır; kaynak dosyasındaki sabit boyutlu liste güvenle <strong>21 dile</strong> genişletildi: Türkçe, İngilizce, Rusça, Ukraynaca, Çince, Japonca, Hintçe, Almanca, Fransızca, İspanyolca, İtalyanca, Hollandaca, Lehçe, Portekizce, Slovakça, Çekçe, İsveççe ve Macarca. Windows istemcisinde 109 arayüz anahtarının tamamı bu 21 dilde çevrilidir (<code>windows/src/i18n_ids.h</code> + <code>i18n_extra.py</code> → <code>gen_i18n.py</code> ile üretilen <code>i18n_data.c</code>); yeni sekmeli giriş ekranı, Projelerimiz kataloğu ve atıf notu da dâhil hiçbir metin İngilizceye düşmez. Arayüz metinleri mümkün olduğunca iki yana yaslı (justify) ve doğal kelime aralıklı çizilir. GUI, sistem dilini dinamik algılar (<code>LC_ALL → LC_MESSAGES → LANG</code>); desteklenmeyen dillerde İngilizce gösterilir. Aşağıdaki ekran görüntüsü <strong>gerçek</strong> bir GitHub Actions runner'ında kurulan LuxAI'den alınmıştır — Hintçe arayüz.</p>
 
 <p align="center">
   <img src="promo/assets/screens/runner/luxai-hi.png" alt="LuxAI — हिन्दी इंटरफ़ेस (real runner screenshot)" width="88%">
@@ -128,7 +130,7 @@
 | 🇷🇺 Rusça | ✅ | ✅ | %100 (bu depo) |
 | 🇨🇳 Çince (Basit) | ✅ | ✅ | %100 (bu depo) |
 | 🇯🇵 Japonca | ✅ | ✅ | %100 (bu depo) |
-| 🇮🇳 Hintçe (हिन्दी) | ✅ | ✅ | %100 (bu depo — v3.1.0'da yeni) |
+| 🇮🇳 Hintçe (हिन्दी) | ✅ | ✅ | %100 (bu depo — v2.0.2'da yeni) |
 | 🇩🇪 Almanca | ✅ | ✅ | %100 |
 | 🇫🇷 Fransızca | ✅ | ✅ | %100 |
 | 🇨🇿 Çekçe · 🇸🇰 Slovakça · 🇪🇸 İspanyolca · 🇮🇹 İtalyanca · 🇳🇱 Felemenkçe · 🇵🇱 Lehçe · 🇵🇹 Portekizce · 🇸🇪 İsveççe · 🇺🇦 Ukraynaca | ✅ | ✅ | %100 |
@@ -195,32 +197,32 @@
   <tr>
     <td>📦 <strong>AppImage</strong></td>
     <td>Kurulum gerektirmez; indir, çalıştırılabilir yap, çift tıkla — her dağıtım</td>
-    <td><code>chmod +x LuxAI-3.1.0-x86_64.AppImage &amp;&amp; ./LuxAI-3.1.0-x86_64.AppImage</code></td>
-    <td align="center"><a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest/download/LuxAI-3.1.0-x86_64.AppImage" target="_blank" rel="noreferrer"><img src="https://img.shields.io/badge/%C4%B0ND%C4%B0R-10b981?style=for-the-badge&amp;logo=github&amp;logoColor=white" alt="İNDİR — AppImage"></a></td>
+    <td><code>chmod +x LuxAI-2.0.2-x86_64.AppImage &amp;&amp; ./LuxAI-2.0.2-x86_64.AppImage</code></td>
+    <td align="center"><a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest/download/LuxAI-2.0.2-x86_64.AppImage" target="_blank" rel="noreferrer"><img src="https://img.shields.io/badge/%C4%B0ND%C4%B0R-10b981?style=for-the-badge&amp;logo=github&amp;logoColor=white" alt="İNDİR — AppImage"></a></td>
   </tr>
   <tr>
     <td>🐧 <strong>deb</strong></td>
     <td>Debian / Ubuntu / Mint ve türevleri; gdebi gibi GUI yükleyicilerle de uyumlu</td>
-    <td><code>sudo apt install ./luxai_3.1.0_amd64.deb</code></td>
-    <td align="center"><a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest/download/luxai_3.1.0_amd64.deb" target="_blank" rel="noreferrer"><img src="https://img.shields.io/badge/%C4%B0ND%C4%B0R-10b981?style=for-the-badge&amp;logo=github&amp;logoColor=white" alt="İNDİR — deb"></a></td>
+    <td><code>sudo apt install ./luxai_2.0.2_amd64.deb</code></td>
+    <td align="center"><a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest/download/luxai_2.0.2_amd64.deb" target="_blank" rel="noreferrer"><img src="https://img.shields.io/badge/%C4%B0ND%C4%B0R-10b981?style=for-the-badge&amp;logo=github&amp;logoColor=white" alt="İNDİR — deb"></a></td>
   </tr>
   <tr>
     <td>🎩 <strong>rpm</strong></td>
     <td>Fedora / openSUSE / RHEL türevleri</td>
-    <td><code>sudo dnf install ./luxai-3.1.0-1.x86_64.rpm</code></td>
-    <td align="center"><a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest/download/luxai-3.1.0-1.x86_64.rpm" target="_blank" rel="noreferrer"><img src="https://img.shields.io/badge/%C4%B0ND%C4%B0R-10b981?style=for-the-badge&amp;logo=github&amp;logoColor=white" alt="İNDİR — rpm"></a></td>
+    <td><code>sudo dnf install ./luxai-2.0.2-1.x86_64.rpm</code></td>
+    <td align="center"><a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest/download/luxai-2.0.2-1.x86_64.rpm" target="_blank" rel="noreferrer"><img src="https://img.shields.io/badge/%C4%B0ND%C4%B0R-10b981?style=for-the-badge&amp;logo=github&amp;logoColor=white" alt="İNDİR — rpm"></a></td>
   </tr>
   <tr>
     <td>🏔️ <strong>zst</strong></td>
     <td>Arch / Manjaro / Cachy OS ve türevleri</td>
-    <td><code>sudo pacman -U luxai-3.1.0-1-x86_64.pkg.tar.zst</code><br><sub>Arch · Manjaro · EndeavourOS · CachyOS · Garuda · Artix — <code>.PKGINFO</code> kökte, doğrulandı</sub></td>
-    <td align="center"><a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest/download/luxai-3.1.0-1-x86_64.pkg.tar.zst" target="_blank" rel="noreferrer"><img src="https://img.shields.io/badge/%C4%B0ND%C4%B0R-10b981?style=for-the-badge&amp;logo=github&amp;logoColor=white" alt="İNDİR — zst"></a></td>
+    <td><code>sudo pacman -U luxai-2.0.2-1-x86_64.pkg.tar.zst</code><br><sub>Arch · Manjaro · EndeavourOS · CachyOS · Garuda · Artix — <code>.PKGINFO</code> kökte, doğrulandı</sub></td>
+    <td align="center"><a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest/download/luxai-2.0.2-1-x86_64.pkg.tar.zst" target="_blank" rel="noreferrer"><img src="https://img.shields.io/badge/%C4%B0ND%C4%B0R-10b981?style=for-the-badge&amp;logo=github&amp;logoColor=white" alt="İNDİR — zst"></a></td>
   </tr>
   <tr>
     <td>🪟 <strong>exe (native)</strong></td>
     <td><strong>WSL GEREKMEZ</strong> — doğrudan Windows uygulaması, tek dosya, Windows 7 SP1+ / 8 / 10 / 11 (x64). GTK yok, sanal makine yok.</td>
-    <td><code>LuxAI-3.1.0-Setup-native.exe</code> → Başlat › LuxAI</td>
-    <td align="center"><a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest/download/LuxAI-3.1.0-Setup-native.exe" target="_blank" rel="noreferrer"><img src="https://img.shields.io/badge/%C4%B0ND%C4%B0R-10b981?style=for-the-badge&amp;logo=github&amp;logoColor=white" alt="İNDİR — Windows native exe"></a></td>
+    <td><code>LuxAI-2.0.2-Setup-native.exe</code> → Başlat › LuxAI</td>
+    <td align="center"><a href="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest/download/LuxAI-2.0.2-Setup-native.exe" target="_blank" rel="noreferrer"><img src="https://img.shields.io/badge/%C4%B0ND%C4%B0R-10b981?style=for-the-badge&amp;logo=github&amp;logoColor=white" alt="İNDİR — Windows native exe"></a></td>
   </tr>
   <tr>
     <td>⌨️ <strong>cmd / .bat</strong></td>
@@ -232,21 +234,21 @@
 
 ## 🪟 Windows: native sürüm (WSL yok)
 
-<p align="justify">Windows için ayrı bir <strong>native Win32 uygulaması</strong> yazıldı: aynı arayüz, aynı özellikler, aynı 18 dil — ama GTK, WSL, WSLg, sanal makine <em>yok</em>. Tek bir <code>LuxAI.exe</code> (≈ 470 KB), yalnızca Windows'un kendi DLL'lerine bağlıdır (user32, gdiplus, winhttp…) ve <strong>Windows 7 SP1'den 11'e</strong> kadar çalışır.</p>
+<p align="justify">Windows için ayrı bir <strong>native Win32 uygulaması</strong> yazıldı: aynı arayüz, aynı özellikler, aynı 21 dil — ama GTK, WSL, WSLg, sanal makine <em>yok</em>. Tek bir <code>LuxAI.exe</code> (≈ 470 KB), yalnızca Windows'un kendi DLL'lerine bağlıdır (user32, gdiplus, winhttp…) ve <strong>Windows 7 SP1'den 11'e</strong> kadar çalışır.</p>
 
 <table>
   <tr><th>Yöntem</th><th>Komut</th></tr>
   <tr><td>⌨️ <strong>cmd (tek satır)</strong></td><td><code>curl -L -o luxai-kur.bat https://raw.githubusercontent.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/main/windows/cmd/luxai-kur.bat &amp;&amp; luxai-kur.bat</code></td></tr>
-  <tr><td>📦 <strong>kurucu exe</strong></td><td><code>LuxAI-3.1.0-Setup-native.exe</code> çift tık → kur → Başlat › LuxAI</td></tr>
-  <tr><td>🗜️ <strong>taşınabilir zip</strong></td><td><code>LuxAI-3.1.0-Windows-native-x64.zip</code> → aç → <code>LuxAI.exe</code></td></tr>
+  <tr><td>📦 <strong>kurucu exe</strong></td><td><code>LuxAI-2.0.2-Setup-native.exe</code> çift tık → kur → Başlat › LuxAI</td></tr>
+  <tr><td>🗜️ <strong>taşınabilir zip</strong></td><td><code>LuxAI-2.0.2-Windows-native-x64.zip</code> → aç → <code>LuxAI.exe</code></td></tr>
   <tr><td>🧹 <strong>kaldırma</strong></td><td><code>luxai-kaldir.bat</code> ya da <em>Ayarlar › Uygulamalar › LuxAI</em></td></tr>
 </table>
 
-**Windows'ta olan her şey:** CSD/GTK görünümlü headerbar · 260 px kenar çubuğu · gradyan kullanıcı balonu · Markdown + kod blokları · araç kartları · **çizilmiş onay/izin pencereleri** (klasik Win32 MessageBox yok) · **LuxAI Hesabı penceresi** (kullanım, hesabı yönet, verileri dışa aktar, koşullar, hesap silme talebi, oturumu kapat) · açık/koyu tema · **18 dil** · ayarlar sayfası · koyu tema · sistem tepsisi ikonu.
+**Windows'ta olan her şey:** CSD/GTK görünümlü headerbar · 260 px kenar çubuğu · gradyan kullanıcı balonu · Markdown + kod blokları · araç kartları · **çizilmiş onay/izin pencereleri** (klasik Win32 MessageBox yok) · **LuxAI Hesabı penceresi** (kullanım, hesabı yönet, verileri dışa aktar, koşullar, hesap silme talebi, oturumu kapat) · açık/koyu tema · **21 dil** · ayarlar sayfası · koyu tema · sistem tepsisi ikonu.
 
 <p align="center">
   <img src="https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/actions/workflows/build.yml/badge.svg" alt="Derleme durumu">
-  <img src="https://img.shields.io/badge/S%C3%BCr%C3%BCm-3.1.0-4a7dff?style=flat-square" alt="Sürüm 3.1.0">
+  <img src="https://img.shields.io/badge/S%C3%BCr%C3%BCm-2.0.2-4a7dff?style=flat-square" alt="Sürüm 2.0.2">
   <img src="https://img.shields.io/badge/Aray%C3%BCz-18%20dil-35c47a?style=flat-square" alt="18 arayüz dili">
   <img src="https://img.shields.io/badge/%C3%87eviri-17%20dosya%20%2F%20457%20anahtar-35c47a?style=flat-square" alt="17 tam çeviri dosyası">
   <img src="https://img.shields.io/github/downloads/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/total?label=%C4%B0ndirmeler&amp;logo=github&amp;logoColor=white&amp;color=10b981&amp;style=flat-square" alt="İndirmeler — toplam indirme sayacı">
@@ -255,12 +257,12 @@
   <img src="https://img.shields.io/badge/Lisans-MIT_%2B_LSL-informational?style=flat-square" alt="Lisans">
 </p>
 
-🌟 Tablodaki <strong>İNDİR</strong> butonları her zaman [GitHub Releases](https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest) sayfasındaki <em>en güncel</em> paketi indirir; tüm paketler aynı <strong>LuxAI 3.1.0</strong> sürümünü taşır.  
+🌟 Tablodaki <strong>İNDİR</strong> butonları her zaman [GitHub Releases](https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/latest) sayfasındaki <em>en güncel</em> paketi indirir; tüm paketler aynı <strong>LuxAI 2.0.2</strong> sürümünü taşır.  
 🧰 Gereksinimler (Linux): `libgtk-3`, `python3-gi` (PyGObject), `libcurl` — dağıtımınız tarafından otomatik çözülür; LuxOS'a özgü bağımlılık yoktur.  
-🌐 Arayüz **18 dilde** çalışır (tr · en · ru · zh · ja · hi · de · fr · es · it · nl · pl · pt · sk · sv · cs · hu · uk); Windows sürümü sistem dilinizi otomatik seçer, dil Ayarlar'dan değiştirilebilir.  
+🌐 Arayüz **21 dilde** çalışır (tr · en · ru · zh · ja · hi · de · fr · es · it · nl · pl · pt · sk · sv · cs · hu · uk · az · id · vi · az · id · vi); Windows sürümü sistem dilinizi otomatik seçer, dil Ayarlar'dan değiştirilebilir.  
 🖼️ Tanıtım görselleri, GitHub Actions runner'ında derlenen paketin gerçekten kurulmasıyla alınan **gerçek** ekran görüntüleridir.
 
-## 🆕 v3.1.0'da neler var?
+## 🆕 v2.0.2'da neler var?
 
 - ✅ **Hintçe (हिन्दी)** — 14. arayüz dili olarak eklendi; 457 anahtarın tamamı
   çevrildi, hesap penceresi dahil.

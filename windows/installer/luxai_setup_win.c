@@ -144,7 +144,7 @@ static void register_uninstall(const wchar_t *dir, const wchar_t *icon)
         const wchar_t *dn = L"LuxAI 3.1 (Windows native)";
         RegSetValueExW(k, L"DisplayName", 0, REG_SZ, (const BYTE *)dn, (DWORD)(2 * (wcslen(dn) + 1)));
     }
-    RegSetValueExW(k, L"DisplayVersion", 0, REG_SZ, (const BYTE *)L"3.1.0-win.1", 2 * 12);
+    RegSetValueExW(k, L"DisplayVersion", 0, REG_SZ, (const BYTE *)L"2.0.2-win.1", 2 * 12);
     RegSetValueExW(k, L"DisplayIcon", 0, REG_SZ, (const BYTE *)icon, (DWORD)(2 * (wcslen(icon) + 1)));
     RegSetValueExW(k, L"Publisher", 0, REG_SZ, (const BYTE *)L"BELGESELSEMO topluluk yapisi", 2 * 30);
     RegSetValueExW(k, L"InstallLocation", 0, REG_SZ, (const BYTE *)dir, (DWORD)(2 * (wcslen(dir) + 1)));
@@ -236,10 +236,10 @@ int WINAPI wWinMain(HINSTANCE hInst, HINSTANCE hPrev, PWSTR cmd, int show)
     if (!silent && MessageBoxW(NULL,
             T(L"LuxAI (Windows, native) kurulacak.\n\n"
               "WSL gerekmez: LuxAI dogrudan Windows uygulamasi olarak calisir.\n"
-              "Kurulum yeri: %ProgramFiles%\\LuxAI  (bu kullanici icin: %%LOCALAPPDATA%%\\Programs\\LuxAI)\n\nDevam edilsin mi?",
+              "Kurulum yeri: %ProgramFiles%\\LuxAI (yonetici onayi istenir; onaylanmazsa yalnizca bu kullanici icin %%LOCALAPPDATA%%\\Programs\\LuxAI)\n\nDevam edilsin mi?",
               L"LuxAI (Windows, native) will be installed.\n\n"
               "No WSL required: LuxAI runs as a native Windows application.\n"
-              "Install folder: %LOCALAPPDATA%\\LuxAI\n\nContinue?"),
+              "Install folder: %ProgramFiles%\\LuxAI (administrator approval required; if declined, per-user: %%LOCALAPPDATA%%\\Programs\\LuxAI)\n\nContinue?"),
             T(L"LuxAI Kurulumu", L"LuxAI Setup"),
             MB_OKCANCEL | MB_ICONINFORMATION) != IDOK)
         return 0;

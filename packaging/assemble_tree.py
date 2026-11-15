@@ -86,6 +86,14 @@ if os.path.isfile(NOTE_FILE) and os.path.isdir(_i18n_dir):
                 rows[i] = NOTE_KEY + "\t" + base.rstrip(" .") + " · " + note
                 hit = True
                 break
+        # Bos sohbet alt yazisina da kisa imzayi ekle (sohbette gorunen not budur)
+        EMPTY_KEY = "Chat with AI or let it work with your computer. Sign in with your LuxAI account \u2013 one account for all LuxOS apps."
+        for i, line in enumerate(rows):
+            if line.startswith(EMPTY_KEY + "\t"):
+                k2, v2 = line.split("\t", 1)
+                if "belgeselsemo.com.tr" not in v2:
+                    rows[i] = k2 + "\t" + v2.rstrip(" .") + " \u00b7 BELGESELSEMO \u00b7 Z.AI \u00b7 https://belgeselsemo.com.tr"
+                break
         if hit:
             open(path, "w", encoding="utf-8").write("\n".join(rows) + "\n")
             _done += 1
@@ -106,6 +114,16 @@ for f in ("luxai_account.py", "luxai_account_gtk.py"):
     cp(f"{ACC}/lib/luxos/python/{f}", f"{BLD}/usr/lib/luxos/python/{f}")
 cp(f"{W}/upstream/i18npkg/usr/lib/luxos/python/luxos_i18n.py",
    f"{BLD}/usr/lib/luxos/python/luxos_i18n.py")
+
+# 2c. PROJE SIMGELERI (idm-linux deposundaki gercek uygulama simgeleri)
+_src_icons = os.path.join(REPO, "packaging", "assets", "projects")
+if os.path.isdir(_src_icons):
+    _dst_icons = f"{BLD}/usr/share/luxai/projects"
+    os.makedirs(_dst_icons, exist_ok=True)
+    for _f in sorted(os.listdir(_src_icons)):
+        if _f.endswith(".png"):
+            cp(os.path.join(_src_icons, _f), os.path.join(_dst_icons, _f))
+    print("  proje simgeleri kopyalandi")
 
 # 3b. "PROJELERIMIZ" SEKMESI (Python/GTK hesap penceresi)
 #     Linux ana penceresi upstream ikili oldugu icin menu ogeleri degistirilemez;
@@ -345,6 +363,36 @@ _shim = {
         "uk": "Вебпортали, застосунки Android, настільні інструменти та канал YouTube",
     },
 }
+# az / id / vi ek cevirileri (20 anahtar)
+_shim_extra = {
+    "Our projects": {"az": "Layihələrimiz", "id": "Proyek kami", "vi": "Dự án của chúng tôi"},
+    "Providers": {"az": "Provayderlər", "id": "Penyedia", "vi": "Nhà cung cấp"},
+    "built-in": {"az": "daxili", "id": "bawaan", "vi": "tích hợp sẵn"},
+    "Active provider": {"az": "Aktiv provayder", "id": "Penyedia aktif", "vi": "Nhà cung cấp đang dùng"},
+    "Add provider": {"az": "Provayder əlavə et", "id": "Tambah penyedia", "vi": "Thêm nhà cung cấp"},
+    "Edit provider": {"az": "Provayderi redaktə et", "id": "Edit penyedia", "vi": "Sửa nhà cung cấp"},
+    "Endpoint (base URL)": {"az": "Son nöqtə (əsas URL)", "id": "Endpoint (URL dasar)", "vi": "Điểm cuối (URL gốc)"},
+    "Everything before /chat/completions": {"az": "/chat/completions-dən əvvəlki hissə", "id": "Semua sebelum /chat/completions", "vi": "Phần trước /chat/completions"},
+    "Model": {"az": "Model", "id": "Model", "vi": "Mô hình"},
+    "Name": {"az": "Ad", "id": "Nama", "vi": "Tên"},
+    "Save": {"az": "Yadda saxla", "id": "Simpan", "vi": "Lưu"},
+    "Cancel": {"az": "Ləğv et", "id": "Batal", "vi": "Hủy"},
+    "Delete": {"az": "Sil", "id": "Hapus", "vi": "Xóa"},
+    "Edit": {"az": "Redaktə et", "id": "Edit", "vi": "Sửa"},
+    "API key": {"az": "API açarı", "id": "Kunci API", "vi": "Khóa API"},
+    "Show API key": {"az": "API açarını göstər", "id": "Tampilkan kunci API", "vi": "Hiện khóa API"},
+    "A label you choose": {"az": "Seçdiyiniz etiket", "id": "Label pilihan Anda", "vi": "Nhãn bạn chọn"},
+    "Model name sent to the provider": {"az": "Provayderə göndərilən model adı", "id": "Nama model yang dikirim ke penyedia", "vi": "Tên mô hình gửi tới nhà cung cấp"},
+    "Open": {"az": "Aç", "id": "Buka", "vi": "Mở"},
+    "Web portals, Android apps, desktop tools and a YouTube channel": {
+        "az": "Veb portallar, Android tətbiqləri, masaüstü alətlər və YouTube kanalı",
+        "id": "Portal web, aplikasi Android, alat desktop, dan kanal YouTube",
+        "vi": "Cổng web, ứng dụng Android, công cụ máy tính và kênh YouTube"},
+}
+for _k, _v in _shim_extra.items():
+    if _k in _shim:
+        _shim[_k].update(_v)
+
 _os_made = 0
 for path in sorted(_glob.glob(os.path.join(_appdir, "*.tsv"))):
     lang = os.path.basename(path)[:-4]
@@ -390,6 +438,7 @@ GN = {
     "sk": "AI asistent", "sv": "AI-assistent", "tr": "Yapay Zeka Asistanı", "uk": "ШІ-асистент",
     "zh": "AI 助手",
     "hi": "AI असिस्टेंट",
+    "az": "Süni intellekt köməkçisi", "id": "Asisten AI", "vi": "Trợ lý AI",
 }
 CM = {
     "en": "AI assistant that can work with your computer",
@@ -410,6 +459,9 @@ CM = {
     "uk": "ШІ-асистент, який може працювати з вашим комп'ютером",
     "zh": "可以与您的电脑协同工作的 AI 助手",
     "hi": "आपके कंप्यूटर के साथ काम कर सकने वाला AI असिस्टेंट",
+    "az": "Kompüterinizlə birlikdə işləyə bilən süni intellekt köməkçisi",
+    "id": "Asisten AI yang dapat bekerja dengan komputer Anda",
+    "vi": "Trợ lý AI có thể làm việc cùng máy tính của bạn",
 }
 KW = {
     "en": "AI;assistant;chat;agent;LuxAI;",
@@ -430,8 +482,11 @@ KW = {
     "uk": "ШІ;асистент;чат;агент;LuxAI;штучний інтелект;",
     "zh": "AI;人工智能;助手;聊天;智能体;",
     "hi": "AI;असिस्टेंट;चैट;एजेंट;LuxAI;कृत्रिम बुद्धिमत्ता;",
+    "az": "AI;köməkçi;söhbət;agent;LuxAI;süni intellekt;",
+    "id": "AI;asisten;obrolan;agen;LuxAI;kecerdasan buatan;",
+    "vi": "AI;trợ lý;trò chuyện;tác nhân;LuxAI;trí tuệ nhân tạo;",
 }
-order = ["cs", "de", "es", "fr", "hi", "hu", "it", "ja", "nl", "pl", "pt", "ru", "sk", "sv", "tr", "uk", "zh"]
+order = ["az", "cs", "de", "es", "fr", "hi", "hu", "id", "it", "ja", "nl", "pl", "pt", "ru", "sk", "sv", "tr", "uk", "vi", "zh"]
 lines = [
     "[Desktop Entry]",
     "Type=Application",
@@ -446,7 +501,7 @@ lines.append(f"Comment={CM['en']}")
 lines.append("Exec=luxai")
 lines.append("Icon=luxai")
 lines.append("Terminal=false")
-lines.append("Categories=Utility;")
+lines.append("Categories=Development;IDE;")
 for l in order:
     lines.append(f"Keywords[{l}]={KW[l]}")
 lines.append(f"Keywords={KW['en']}")

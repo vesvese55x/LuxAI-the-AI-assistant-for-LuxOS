@@ -21,7 +21,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  REL: https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/download/v3.1.0
+  REL: https://github.com/vesvese55x/LuxAI-the-AI-assistant-for-LuxOS/releases/download/v2.0.2
 
 jobs:
   # ------------------------------------------------------------------ Linux
@@ -141,8 +141,8 @@ jobs:
       - name: Yayinlanan paketleri indir
         run: |
           mkdir -p dl ci-shots/linux-packages
-          for f in luxai_3.1.0_amd64.deb luxai-3.1.0-1.x86_64.rpm \
-                   luxai-3.1.0-1-x86_64.pkg.tar.zst LuxAI-3.1.0-x86_64.AppImage; do
+          for f in luxai_2.0.2_amd64.deb luxai-2.0.2-1.x86_64.rpm \
+                   luxai-2.0.2-1-x86_64.pkg.tar.zst LuxAI-2.0.2-x86_64.AppImage; do
             curl -sL -o "dl/$f" "$REL/$f" && ls -l "dl/$f"
           done
 
@@ -159,22 +159,25 @@ jobs:
           set -x
 
           # 1) deb: gercekten kur ve sistemdeki ikiliyi calistir
-          sudo apt-get install -y ./dl/luxai_3.1.0_amd64.deb >/dev/null 2>&1 || sudo dpkg -i ./dl/luxai_3.1.0_amd64.deb >/dev/null 2>&1 || true
+          sudo apt-get install -y ./dl/luxai_2.0.2_amd64.deb >/dev/null 2>&1 || sudo dpkg -i ./dl/luxai_2.0.2_amd64.deb >/dev/null 2>&1 || true
           shot "/usr/bin/luxai" "ci-shots/linux-packages/01-deb-tr.png" "tr_TR.UTF-8"
 
           # 2) rpm: ac ve calistir
-          mkdir -p ex/rpm && ( cd ex/rpm && rpm2cpio ../../dl/luxai-3.1.0-1.x86_64.rpm | cpio -idm --quiet )
+          mkdir -p ex/rpm && ( cd ex/rpm && rpm2cpio ../../dl/luxai-2.0.2-1.x86_64.rpm | cpio -idm --quiet )
           shot "$PWD/ex/rpm/usr/bin/luxai" "ci-shots/linux-packages/02-rpm-en.png" "en_US.UTF-8"
 
           # 3) Arch zst
-          mkdir -p ex/zst && tar --zstd -xf dl/luxai-3.1.0-1-x86_64.pkg.tar.zst -C ex/zst
+          mkdir -p ex/zst && tar --zstd -xf dl/luxai-2.0.2-1-x86_64.pkg.tar.zst -C ex/zst
           ZBIN=$(find ex/zst -path '*/usr/bin/luxai' -type f | head -1)
           echo "zst ikili: $ZBIN"; ls -l "$ZBIN"
           shot "$PWD/$ZBIN" "ci-shots/linux-packages/03-zst-hi.png" "hi_IN.UTF-8"
 
+          # 3b) Azerbaycan dili (yeni dil destegi kaniti)
+          shot "$PWD/$ZBIN" "ci-shots/linux-packages/07-zst-az.png" "az_AZ.UTF-8"
+
           # 4) AppImage (FUSE olmadan)
-          chmod +x dl/LuxAI-3.1.0-x86_64.AppImage
-          shot "$PWD/dl/LuxAI-3.1.0-x86_64.AppImage --appimage-extract-and-run" \
+          chmod +x dl/LuxAI-2.0.2-x86_64.AppImage
+          shot "$PWD/dl/LuxAI-2.0.2-x86_64.AppImage --appimage-extract-and-run" \
                "ci-shots/linux-packages/04-appimage-tr.png" "tr_TR.UTF-8"
 
           ls -l ci-shots/linux-packages
@@ -221,15 +224,15 @@ jobs:
         run: |
           New-Item -ItemType Directory -Force -Path dl, ci-shots/windows | Out-Null
           $base = "$env:REL"
-          Invoke-WebRequest "$base/LuxAI-3.1.0-Setup-native.exe" -OutFile dl/LuxAI-3.1.0-Setup-native.exe
-          Invoke-WebRequest "$base/LuxAI-3.1.0-Windows-native-x64.zip" -OutFile dl/native.zip
+          Invoke-WebRequest "$base/LuxAI-2.0.2-Setup-native.exe" -OutFile dl/LuxAI-2.0.2-Setup-native.exe
+          Invoke-WebRequest "$base/LuxAI-2.0.2-Windows-native-x64.zip" -OutFile dl/native.zip
           Expand-Archive dl/native.zip -DestinationPath dl/native -Force
           Get-ChildItem dl, dl/native | Select-Object Name, Length
 
       - name: Kurucuyu sessiz kur (/S) ve dogrula
         shell: pwsh
         run: |
-          $setup = (Resolve-Path "dl/LuxAI-3.1.0-Setup-native.exe").Path
+          $setup = (Resolve-Path "dl/LuxAI-2.0.2-Setup-native.exe").Path
           $p = Start-Process -FilePath $setup -ArgumentList "/S" -PassThru
           if (-not $p.WaitForExit(120000)) {
             Write-Warning "kurucu /S desteklemiyor gibi gorunuyor (eski asset) - kapatiliyor"
